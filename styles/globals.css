@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root{
+  --grey:#F0F0F0;
+  --darkGrey:#666262;
+  --green:#95CDAA;
+  --darkBlue:#143794;
+  --red:#F84C4D;
+  --paleBlue:#BDCAE1;
+}
+@font-face {
+  font-family: 'IRANSans';
+  src: local('IRANSans'), url("/public/font/IRANSans.ttf") format('ttf') ;
+}
+*
+{
+  font-family: IRANSans !important;
+}
+html{
+  direction: rtl;
+}
+input
+{
+  outline: none;
+}
+a{
+  cursor: pointer;
+}
+.darkBlue-color
+{
+  color: var(--darkBlue);
+}
+.bg-page
+{
+  background-color: #EDEFF3;
+  min-height: 50rem;
+}
+.grey-color
+{
+  color: var(--darkGrey);
+}
+.green-btn
+{
+  background-color: var(--green);
+  border-radius: 5px;
+  color: black;
+  padding: 0.7rem;
+}
+.bg-grey
+{
+  background-color: var(--grey);
+}
+.text-disable
+{
+  color: #7b7b7b;
+}
+.bg-red
+{
+  background-color: var(--red);
+}
+.btn-page
+{
+  border-radius: 5px;
+  padding: 0.6rem;
+  box-shadow: 0px 2px 4px rgba(136, 144, 194, 0.2), 0px 5px 15px rgba(37, 44, 97, 0.15);
+}
+.bg-darkBlue
+{
+  background-color: var(--darkBlue);
+}
+.h-3
+{
+  height: 3.3rem;
+}
+.bg-paleBlue
+{
+  background-color: var(--paleBlue);
+}
+.h-main
+{
+  min-height: 35rem;
+}
+.title-size
+{
+  font-size: 1.7rem;
+}
+.green-color
+{
+  color: var(--green);
+}
+.d-rtl
+{
+  direction: rtl;
+}
+.css-qlig70
+{
+  -webkit-padding-start: 0px !important;
+  padding-inline-start: 0px !important;
+  -webkit-padding-end: 0px !important;
+  padding-inline-end: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+.css-pv22qu
+{
+  min-width: 45rem;
+}
+.div-v-banner
+{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.div-banner
+{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
