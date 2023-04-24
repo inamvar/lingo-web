@@ -10,21 +10,42 @@ const ax = axios.create({
     // add other config options as needed
 });
 
+export const signUpUser = async (firstname , lastname, password , confirmPassword , email, phoneNumber ,marketerCode ) =>
+{
+    try
+    {
+        let response = await ax.post(API_ROUTES.SIGN_UP ,{ confirmPassword:confirmPassword, email:email , firstName:firstname , lastName:lastname , password:password , phoneNumber:phoneNumber , marketerCode:marketerCode})
+        pushAlert({
+            message:'ثبت نام با موفقیت انجام شد',
+            type:'success'
+        })
+        return true;
+    }
+    catch(error)
+    {
+        console.log(error);
+        handleApiError(error);
+    }
+}
+
 export const loginUser = async (username, password) =>
 {
     try
     {
-        let response= await ax.post(API_ROUTES.LOGIN, { phoneNumber:username,password: password });
+        let response= await ax.post(API_ROUTES.LOGIN, { userName:username,password: password });
         console.log(response);
-       if(response.data.isSuccess) {
-           const {token, refreshToken} = response.data.data;
-
-            console.log(token,refreshToken);
-            return {
-                token,
-                refreshToken
-            };
-           // localStorage.setItem('token',token);
+       if(response.data.success == true) {
+           const {accessToken, refreshToken} = response.data.data;
+            console.log(accessToken,refreshToken);
+           localStorage.setItem('token',accessToken);
+           localStorage.setItem('refreshToken',refreshToken);
+           pushAlert({
+               message:'ورود با موفقیت انجام شد',
+               type:'success'
+           })
+           return {
+               accessToken
+           };
        }
        else{
            console.log(response.data.message);
@@ -33,19 +54,15 @@ export const loginUser = async (username, password) =>
                type:'error'
            });
        }
-
     }
     catch (error){
-        console.log(error);
         handleApiError(error);
-        // return  handleApiError(error);
     }
 };
 
 export const logout= () =>
 {
     localStorage.removeItem('token');
-
 }
 
 export const isAuthenticated= () =>

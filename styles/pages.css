@@ -63,10 +63,6 @@ a{
 {
     background-color: var(--paleBlue);
 }
-.h-main
-{
-    min-height: 35rem;
-}
 .title-size
 {
     font-size: 1.7rem;

@@ -1,7 +1,10 @@
 // apiRoutes.js
 
 const API_ROUTES = {
-    LOGIN: "/account/logink",
+
+    LOGIN: "/Auth/SignIn",
+    SIGN_UP:"/Auth/SingnUp",
+
     USERS: "/api/users",
     PRODUCTS: "/api/products",
     CREDITS:"/Credit",

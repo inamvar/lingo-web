@@ -7,13 +7,13 @@ const Layout = ({ children }) => {
             <Meta title='صفحه اصلی'/>
             <div className='App min-h-screen bg-page flex flex-col justify-between'>
                 <Header/>
-                <div className='h-main'>
-            <main>
-                {children}
-            </main>
+                <div className='h-main flex flex-col justify-between'>
+                    <main>
+                        {children}
+                    </main>
                     <Footer />
                 </div>
-                </div>
+            </div>
         </>
     )
 }

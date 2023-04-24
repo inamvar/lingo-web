@@ -5,6 +5,7 @@ import appRoutes from "../common/appRoutes";
 
 const withAuth = (WrappedComponent) => {
     const AuthenticatedComponent = (props) => {
+
         const { user, isLoading } = useAuth();
         const router = useRouter();
 

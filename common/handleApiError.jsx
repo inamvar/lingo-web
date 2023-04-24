@@ -1,6 +1,7 @@
 import Swal from 'sweetalert2';
 import appRoutes from "./appRoutes";
 import router from 'next/router';
+
 export const handleApiError = (error) => {
     console.log(error);
     if (error.response) {

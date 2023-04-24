@@ -9,15 +9,15 @@ export default function footer()
         <div className='flex flex-col items-center mt-5'>
             <hr className="h-px my-8 bg-paleBlue w-4/5 border-0"/>
             <div className='flex sm:flex-row flex-col sm:items-start items-center w-full justify-evenly text-lg'>
-                <div className='flex w-2/3 flex-col sm:w-1/6 gap-4'>
+                <div className='flex w-2/3 flex-col sm:w-1/6 gap-4 items-center'>
                     <a className='font-bold darkBlue-color whitespace-nowrap'>دسترسی های سریع</a>
                     <a className='darkBlue-color'>سوالات متداول</a>
                     <a className='darkBlue-color'>نمونه پکیج</a>
                     <a className='darkBlue-color'>تخفیف</a>
                 </div>
-                <div className='flex w-2/3 sm:w-1/6 flex-col gap-4 sm:mt-0 my-9'>
+                <div className='flex w-2/3 sm:w-1/6 flex-col gap-4 sm:mt-0 my-9 items-center'>
                     <a className='font-bold darkBlue-color'>اطلاعات تماس</a>
-                    <div className='flex justify-evenly'>
+                    <div className='flex justify-evenly w-full justify-between'>
                         <a>
                             <svg width="29" height="23" viewBox="0 0 39 33" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M38.9262 4.21867C37.5086 4.8458 35.991 5.27725 34.3915 5.47293C36.0235 4.48484 37.2713 2.92188 37.8663 1.05995C36.3355 1.95932 34.6421 2.61075 32.8414 2.97901C31.4058 1.42821 29.3534 0.452271 27.0759 0.452271C22.7098 0.452271 19.1712 4.02179 19.1712 8.42139C19.1712 9.05459 19.2471 9.66228 19.3784 10.2384C12.8106 9.92844 6.98841 6.74419 3.0945 1.9338C2.41038 3.1054 2.02135 4.46661 2.02135 5.94813C2.02135 8.72037 3.41969 11.1511 5.53346 12.5804C4.24111 12.5427 3.02464 12.1817 1.95872 11.5874V11.6834C1.95872 15.5495 4.68073 18.7726 8.29401 19.5067C7.63519 19.6829 6.93181 19.785 6.21758 19.785C5.71052 19.785 5.22634 19.7352 4.74336 19.6452C5.7599 22.81 8.66979 25.1144 12.1385 25.1837C9.44183 27.3166 6.02367 28.5879 2.34053 28.5879C1.71302 28.5879 1.08672 28.5575 0.458008 28.4809C3.97132 30.7415 8.11817 32.0638 12.5974 32.0638C27.1313 32.0638 35.0733 19.9163 35.0733 9.39611C35.0733 9.06067 35.0732 8.71916 35.048 8.37642C36.5981 7.26194 37.9398 5.84969 38.9997 4.24906L38.9262 4.21867Z" fill="#143794"/>
@@ -40,7 +40,7 @@ export default function footer()
                         </a>
                     </div>
                     <span>
-                        <Image className='h-3' alt='enamad' src={eNamad}/>
+                        <Image alt='enamad' src={eNamad}/>
                     </span>
                 </div>
             </div>
@@ -49,14 +49,14 @@ export default function footer()
                     <Image className='h-3' alt='bazaar' src={bazaar}/>
                 </a>
                 <a>
-                    <Image className='h-3' alt='applestore' src={appleStore}/>
+                    <Image alt='applestore' src={appleStore}/>
                 </a>
                 <a>
                     <Image className='h-3' alt='googleplay' src={googlePlay}/>
                 </a>
             </div>
             <div className='bg-paleBlue w-full p-4 mt-3'>
-                <p className='darkBlue-color'>© تمامی حقوق مادی و معنوی سایت متعلق به آموزشگاه لورم ایپسوم می باشد.</p>
+                <p className='darkBlue-color text-center'>© تمامی حقوق مادی و معنوی سایت متعلق به آموزشگاه لورم ایپسوم می باشد.</p>
             </div>
         </div>
     )

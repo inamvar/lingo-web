@@ -19,43 +19,44 @@ export default function Login(){
 
     const { register, handleSubmit, watch,
         formState: { errors } } = useForm({
-        resolver:yupResolver(schema),
-        defaultValues: {
-            userName: '09139291603',
-            password: '123',
-        }
+        resolver:yupResolver(schema)
+        // defaultValues: {
+        //     userName: '09139291603',
+        //     password: '123',
+        // }
     });
+
     const  onSubmit =async (data) => {
-         var result=   await loginUser(data.userName,data.password);
-        if (result!=undefined){
+         var result = await loginUser(data.userName,data.password);
+        if (result != undefined){
             router.push(appRoutes.Main);
+            console.log(result);
         }
     };
 
 
     return(<>
         <Meta title='ورود'/>
-
-                <div className='flex flex-col w-full items-center'>
-                    <div className='flex flex-row w-5/6 sm:w-96'>
-                        <div className='w-1/2 p-5 bg-white rounded-tr-lg text-sm'>ورود</div>
-                        <Link  className='w-1/2 p-5 bg-grey rounded-tl-lg text-sm text-disable' href={appRoutes.Signup}>ثبت نام</Link>
-                    </div>
-                    <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col p-5 bg-white rounded w-5/6 sm:w-96 gap-5'>
-                        <p className='text-sm'>لطفا برای ورود به حساب کاربری اطلاعات زیر را تکمیل کنید </p>
-                        <div className='flex flex-col gap-3'>
-                            <InputText error={errors.userName?.message}  register={register}  placeholder='نام کاربری' name='userName'/>
-                            <InputText error={errors.password?.message}  type='password' required register={register} placeholder='رمز عبور' name='password'/>
-                            {/*<InputSelect name='gender' register={register} error={errors.gender?.message} options={[{name:'mahsa',value:'1'},{name:'araz',value:2}]}/>*/}
-                        </div>
-                        <div className='text-right'>
-                            <Link href={appRoutes.ForgotPassword}>رمز عبور خود را فراموش کرده ام!</Link>
-                        </div>
-                        <div className='flex flex-row justify-center'>
-                            <button  type='submit' className='bg-cyan-500 p-1 text-sm btn-page bg-red text-white w-full'>ورود به حساب کاربری</button>
-                        </div>
-                    </form>
+        <div className='flex flex-col w-full items-center'>
+            <div className='flex flex-row w-5/6 sm:w-96'>
+                <div className='w-1/2 p-5 bg-white rounded-tr-lg text-sm text-center'>ورود</div>
+                <Link className='w-1/2 p-5 bg-grey rounded-tl-lg text-sm text-disable text-center' href={appRoutes.Signup}>ثبت نام</Link>
+            </div>
+            <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col p-5 bg-white rounded w-5/6 sm:w-96 gap-5'>
+                <p className='text-sm'>لطفا برای ورود به حساب کاربری اطلاعات زیر را تکمیل کنید </p>
+                <div className='flex flex-col gap-3'>
+                    <InputText error={errors.userName?.message} register={register}  placeholder='نام کاربری' name='userName'/>
+                    <InputText error={errors.password?.message} type='password' required register={register} placeholder='رمز عبور' name='password'/>
+                    {/*<InputSelect name='gender' register={register} error={errors.gender?.message} options={[{name:'mahsa',value:'1'},{name:'araz',value:2}]}/>*/}
                 </div>
+                <div className='text-right'>
+                    <Link href={appRoutes.ForgotPassword} className='text-sm b'>رمز عبور خود را فراموش کرده ام!</Link>
+                </div>
+                <div className='flex flex-row justify-center'>
+                    <button  type='submit' className='bg-cyan-500 p-1 text-sm btn-page bg-red text-white w-full'>ورود به حساب کاربری</button>
+                </div>
+            </form>
+        </div>
     </>);
 }
 

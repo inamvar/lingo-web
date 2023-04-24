@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import Logo from '/public/picture/Logo.png';
 import Link from 'next/link';
-import appRoutes from "../common/appRoutes";
+import appRoutes from "../common/appRoutes"
+
 export default function Header()
 {
     return(
@@ -17,7 +18,7 @@ export default function Header()
             </div>
             <div className='flex w-1/9 justify-between gap-2 items-center divide-x-2 divide-gray-300'>
                 <Link  href={appRoutes.Login} className='darkBlue-color px-2'>ورود کاربران</Link>
-                <Link href={appRoutes.Signup} className='bg-red text-white btn-page sm:w-28'>ثبت نام</Link>
+                <Link href={appRoutes.Signup} className='bg-red text-white text-center btn-page sm:w-28'>ثبت نام</Link>
             </div>
         </div>
     )

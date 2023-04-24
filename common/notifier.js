@@ -10,7 +10,7 @@ export const pushAlert = (result) => {
                 icon: 'success',
                 title: 'موفق',
                 text: message,
-                confirmButtonText: 'باشه',
+                confirmButtonText: 'تایید',
             });
             break;
         }
@@ -19,7 +19,16 @@ export const pushAlert = (result) => {
                 icon: 'error',
                 title: 'خطا',
                 text: message,
-                confirmButtonText: 'باشه',
+                confirmButtonText: 'تایید',
+            });
+            break;
+        }
+        case 'warning':{
+            Swal.fire({
+                icon: 'warning',
+                title: 'هشدار',
+                text: message,
+                confirmButtonText: 'تایید',
             });
             break;
         }
