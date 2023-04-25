@@ -2,7 +2,7 @@ import {pushAlert} from "../common/notifier";
 import {Constants} from "../common/constants";
 
 export function getToken() {
-    return localStorage.getItem(Constants.userToken);
+    return localStorage.getItem(Constants.token);
 }
 
 export default async function getAuthenticatedUser() {

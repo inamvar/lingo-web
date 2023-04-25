@@ -7,30 +7,31 @@ import getAuthenticatedUser from "../hooks/getUser";
 
 function MyApp({ Component, pageProps }) {
 
-    const [user,setUser]=useState(null);
+    let storedUser = {};
 
     useEffect( () => {
-        let storedUser ;
-        getAuthenticatedUser().then(x=>storedUser=x);
-        console.log(storedUser);
-        if (storedUser)
+
+        getAuthenticatedUser().then((res)=>
         {
-            setUser(storedUser);
-            console.log('loged in');
-        }
-        else {
-            console.log('not logedin');
-        }
-    });
+            storedUser = res;
+            if (storedUser)
+            {
+                console.log('loged in');
+                console.log(storedUser);
+            }
+            else {
+                console.log('not logedin');
+            }
+        });
+    },[storedUser]);
 
         return (
-            <AuthContext.Provider value={user}>
+            <AuthContext.Provider value={storedUser}>
                 <Layout>
                     <Component {...pageProps} />
                 </Layout>
             </AuthContext.Provider>
-
         );
 }
 
-export default MyApp
+export default MyApp;
