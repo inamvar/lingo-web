@@ -1,7 +1,8 @@
 import {pushAlert} from "../common/notifier";
+import {Constants} from "../common/constants";
 
 export function getToken() {
-    return localStorage.getItem('token');
+    return localStorage.getItem(Constants.userToken);
 }
 
 export default async function getAuthenticatedUser() {
@@ -13,6 +14,7 @@ export default async function getAuthenticatedUser() {
         }
         else
         {
+            //decode token check time if its old try refresh token
             const userObject = {authenticated: true , user: token}
             return userObject;
         }

@@ -19,7 +19,7 @@ export default function Login(){
         confirmPassword:validator.string().required('نوشتن تکرار رمز عبور اجباری است')
     })
 
-    const { register, handleSubmit, watch,
+    const { register, handleSubmit ,
         formState: { errors } } = useForm({
         resolver:yupResolver(schema)
     });

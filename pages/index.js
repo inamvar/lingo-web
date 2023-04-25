@@ -8,36 +8,21 @@ import useUser from '../hooks/useAuthenticate';
 
 export default  function Home({result}) {
 
-    const { user, authenticated } = useUser();
-
-    console.log(user);
-    console.log(authenticated);
-
-    if (!user || !authenticated) {
-        return <div className="p-16 bg-gray-800 h-screen">
-            <h1>please login</h1>
-        </div>;
-    }
-
-    // if (result.isSuccess) {
-    //     return (
-    //         <>
-    //             <h1>main</h1>
-    //             {/*{result.data.map((x) => {*/}
-    //             {/*    return (*/}
-    //             {/*        <h1 key={x.userId}>*/}
-    //             {/*            {x.fullName}*/}
-    //             {/*        </h1>*/}
-    //             {/*    );*/}
-    //             {/*})}*/}
-    //         </>
-    //     );
+    // const { user, authenticated } = useUser();
+    //
+    // console.log(user);
+    // console.log(authenticated);
+    //
+    // if (!user || !authenticated) {
+    //     return <div className="p-16 bg-gray-800 h-screen">
+    //         <h1>please login</h1>
+    //     </div>;
     // }
 
         return (
             <>
                 <div className='w-full flex items-center justify-center relative'>
-                    <Image className='w-full' src={banner}/>
+                    <Image className='w-full' alt='picture' src={banner}/>
                     <div className='w-full div-banner object-center opacity-90 absolute'>
                         <Image className='w-fit' src={coverBanner} />
                     </div>
@@ -73,6 +58,3 @@ export default  function Home({result}) {
 //     };
 // }
 
-export async function componentDidUpdate(){
-
-}
