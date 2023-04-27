@@ -4,9 +4,10 @@ import banner from '../public/picture/banner.png';
 import coverBanner from '../public/picture/banner-cover.png';
 import logo from '../public/picture/Logo.png';
 import {getCredits} from "../services/appServices";
-import useUser from '../hooks/useAuthenticate';
+// import useUser from '../hooks/useAuthenticate';
+import Package from '../components/package';
 
-export default  function Home({result}) {
+export default function Home({result}) {
 
     // const { user, authenticated } = useUser();
     //
@@ -23,17 +24,14 @@ export default  function Home({result}) {
             <>
                 <div className='w-full flex items-center justify-center relative'>
                     <Image className='w-full' alt='picture' src={banner}/>
-                    <div className='w-full div-banner object-center opacity-90 absolute'>
-                        <Image className='w-fit' src={coverBanner} />
-                    </div>
+                    <span className='w-full div-banner object-center bg-darkBlue opacity-60 absolute'></span>
                     <div className='div-v-banner w-1/4 bg-white flex-col opacity-90 pb-20 gap-5'>
                         <Image src={logo}/>
                         <p className='darkBlue-color text-xl font-bold'>لورم ایپسوم</p>
                         <p className='darkBlue-color'>کاربر مریم نظری عزیز، خوش آمدید.</p>
                     </div>
                 </div>
-
-
+                <Package />
                 <h1>main</h1>
             </>
         );

@@ -8,16 +8,18 @@ import getAuthenticatedUser from "../hooks/getUser";
 function MyApp({ Component, pageProps }) {
 
     let storedUser = {};
+    console.log(storedUser);
 
     useEffect( () => {
 
         getAuthenticatedUser().then((res)=>
         {
             storedUser = res;
-            if (storedUser)
+            console.log(storedUser)
+
+            if (storedUser.authenticated == true)
             {
                 console.log('loged in');
-                console.log(storedUser);
             }
             else {
                 console.log('not logedin');

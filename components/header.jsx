@@ -1,10 +1,15 @@
 import Image from 'next/image';
 import Logo from '/public/picture/Logo.png';
 import Link from 'next/link';
-import appRoutes from "../common/appRoutes"
+import appRoutes from "../common/appRoutes";
+import {useContext} from "react";
+import authContext from "../context/authContext";
 
 export default function Header()
 {
+    const user = useContext(authContext);
+    console.log(user);
+
     return(
         <div className='flex justify-between mb-10 mt-4 px-5'>
             <div>
