@@ -3,6 +3,7 @@ import Image from 'next/image';
 import banner from '../public/picture/banner.png';
 import logo from '../public/picture/Logo.png';
 import Package from '../components/package';
+import Carsoul from '../components/carsoul';
 
 const Home=()=>{
         return (
@@ -20,8 +21,8 @@ const Home=()=>{
                     <div className='mb-6'>
                         <p className='text-2xl font-bold darkBlue-color'>پکیج ها</p>
                     </div>
-                    <div className='flex'>
-                        <Package />
+                    <div className='flex overflow-hidden w-3/4'>
+                        <Carsoul />
                     </div>
                 </div>
             </>

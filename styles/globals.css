@@ -122,3 +122,12 @@ a{
   justify-content: center;
   align-items: center;
 }
+.use-spring-carousel-track-wrapper
+{
+  /*transform: translate3d(0px, 0px, 0px) !important;*/
+  left: 0px !important;
+}
+.use-spring-carousel-item
+{
+  flex: 1 0 calc(20% / 1 - 0px)!important;
+}
