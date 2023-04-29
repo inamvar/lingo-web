@@ -3,34 +3,38 @@ import appRoutes from '/common/appRoutes';
 import InputText from "../../components/form-inputs/InputText";
 import {useForm} from "react-hook-form";
 import Meta from "../../components/meta";
-import {useState} from "react";
+import {useContext, useState} from "react";
 import { yupResolver } from '@hookform/resolvers/yup';
 import {validator} from "/common/validator";
 import {loginUser} from "../../services/appServices";
 import {router} from "next/router";
+import authContext from "../../context/authContext";
+import useAuth from "../../hooks/useAuth";
 
 export default function Login(){
 
+    const authCtx = useContext(authContext);
+
     const schema = validator.object({
         userName:validator.string().required('انتخاب نام کاربری اجباری است'),
-        password:validator.string().required('نوشتن رمز عبور اجباری است'),
-        // gender:validator.string().selectNotNull('جنسیت')
+        password:validator.string().required('نوشتن رمز عبور اجباری است')
     })
 
     const { register, handleSubmit, watch,
         formState: { errors } } = useForm({
         resolver:yupResolver(schema)
-        // defaultValues: {
-        //     userName: '09139291603',
-        //     password: '123',
-        // }
     });
 
-    const  onSubmit =async (data) => {
-         var result = await loginUser(data.userName,data.password);
+    function setContext(res)
+    {
+        authCtx.setAuthState(res);
+    }
+
+    const onSubmit =async (data) => {
+        const result = await loginUser(data.userName,data.password);
         if (result != undefined){
+            setContext(result);
             router.push(appRoutes.Main);
-            console.log(result);
         }
     };
 

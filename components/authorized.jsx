@@ -1,12 +1,14 @@
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
-import { useAuth } from '/contexts/authContext';
+import { useAuth } from '../context/authContext';
 import appRoutes from "../common/appRoutes";
 
 const withAuth = (WrappedComponent) => {
+
     const AuthenticatedComponent = (props) => {
 
         const { user, isLoading } = useAuth();
+
         const router = useRouter();
 
         useEffect(() => {

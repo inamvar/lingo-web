@@ -1,6 +1,4 @@
 import {useState,createContext} from 'react'
 
-const authContext = createContext({
-    isAuthenticated:false, user:null,
-});
+const authContext = createContext();
 export default authContext;

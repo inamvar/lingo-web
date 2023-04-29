@@ -14,7 +14,7 @@ return(<>
 }
 
 Meta.defaultProps={
-title:"",
+    title:"",
     description:"آکادمی آموزش زبان"
 };
 export default Meta;

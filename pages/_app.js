@@ -2,33 +2,23 @@ import '/styles/globals.css';
 import Layout from '/components/layout'
 import AuthContext from "../context/authContext";
 import {useEffect, useState} from "react";
-import {Constants} from "../common/constants";
 import getAuthenticatedUser from "../hooks/getUser";
 
 function MyApp({ Component, pageProps }) {
 
-    let storedUser = {};
-    console.log(storedUser);
+    const [authState,setAuthState]=useState({authenticated:false,user:null});
 
-    useEffect( () => {
+    useEffect(() => {
 
-        getAuthenticatedUser().then((res)=>
-        {
-            storedUser = res;
-            console.log(storedUser)
-
-            if (storedUser.authenticated == true)
-            {
-                console.log('loged in');
-            }
-            else {
-                console.log('not logedin');
-            }
+        getAuthenticatedUser().then(res => {
+            setAuthState(res);
         });
-    },[storedUser]);
+
+    },[]);
+
 
         return (
-            <AuthContext.Provider value={storedUser}>
+            <AuthContext.Provider value={{authState,setAuthState}}>
                 <Layout>
                     <Component {...pageProps} />
                 </Layout>

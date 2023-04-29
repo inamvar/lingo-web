@@ -11,7 +11,6 @@ export const handleApiError = (error) => {
         const errorMessage = data?.message ?? 'عملیات با شکست مواجه شد';
 
         if (status === 401) {
-            // redirect to login page
             router.push(appRoutes.Login);
         }
         else if( status === 400)
@@ -24,7 +23,6 @@ export const handleApiError = (error) => {
             });
         }
         else {
-            // show error message
             Swal.fire({
                 icon: 'error',
                 title: 'خطا',

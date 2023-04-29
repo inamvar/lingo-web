@@ -1,12 +1,18 @@
-import { useAuth } from '/contexts/authContext';
+import {withAuth} from "../../components/Authorized";
+import {useContext} from "react";
+import authContext from "../../context/authContext";
+import Meta from "../../components/meta";
 
-const AuthenticatedComponent = () => {
-    const { user, isLoading } = useAuth();
+const Profile = () => {
 
-    if (isLoading) {
-        return <p>Loading...</p>;
-    }
-    return <p>Welcome {user.name}!</p>;
+    const auth= useContext(authContext);
+
+    return(
+        <>
+            <Meta title='پروفایل'/>
+            {auth.authState.user?.email}
+        </>
+    );
 };
 
-export default AuthenticatedComponent;
+export default withAuth(Profile);

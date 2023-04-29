@@ -1,9 +1,10 @@
 import Swal from 'sweetalert2';
 import appRoutes from "./appRoutes";
 
-export const pushAlert = (result) => {
-    console.log(result);
+export const pushAlert = (result) =>
+{
     const {message,type}=result;
+
     switch (type) {
         case 'success':{
             Swal.fire({

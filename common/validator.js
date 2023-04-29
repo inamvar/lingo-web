@@ -1,9 +1,9 @@
 import * as yup from 'yup';
 
 // Define a reusable validation method for the gender field
-yup.addMethod(yup.string, 'selectNotNull', function (name) {
-    return this.notOneOf([null, '---انتخاب کنید ---'],`انتخاب ${name} اجباری است`)
-});
+// yup.addMethod(yup.string, 'selectNotNull', function (name) {
+//     return this.notOneOf([null, '---انتخاب کنید ---'],`انتخاب ${name} اجباری است`)
+// });
 
 yup.addMethod(yup.string,'isMatch',function(pattern,message){
     return this.matches(pattern , message)
