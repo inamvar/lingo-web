@@ -46,6 +46,7 @@ export const loginUser = async (username, password) =>
             console.log(expireTime);
             Cookies.set('token',accessToken, { expires: expireTime });
             Cookies.set('refreshToken',refreshToken, { expires: 365 });
+
             pushAlert({
                 message:'ورود با موفقیت انجام شد',
                 type:'success'
@@ -67,6 +68,22 @@ export const loginUser = async (username, password) =>
         handleApiError(error);
     }
 };
+
+export const getPackagesList = async () =>
+{
+    try
+    {
+        let response = await ax.get(API_ROUTES.PACKAGES);
+        console.log(response);
+    }
+    catch (error)
+    {
+        pushAlert({
+            message:response.data.message,
+            type:'error'
+        })
+    }
+}
 
 export const logout= () =>
 {

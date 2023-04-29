@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }) {
     const [authState,setAuthState]=useState({authenticated:false,user:null});
 
     useEffect(() => {
-
+        console.log('setting context');
         getAuthenticatedUser().then(res => {
             setAuthState(res);
         });

@@ -104,3 +104,8 @@ a{
     justify-content: center;
     align-items: center;
 }
+.dashboard-item
+{
+    background-color: white;
+    color: var(--red);
+}

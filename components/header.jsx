@@ -28,7 +28,7 @@ const Header = ()=>{
                 </a>
                 {authCtx.authState.authenticated ? (
                     <>
-                        <Link href={appRoutes.Profile} className='darkBlue-color px-2'>داشبورد من</Link>
+                        <Link href={appRoutes.Dashboard} className='darkBlue-color px-2'>داشبورد من</Link>
                         <Link href={appRoutes.Login} className='text-white bg-darkBlue px-2 text-sm py-2 px-7 rounded'>خروج</Link>
                     </>
                 ) : (

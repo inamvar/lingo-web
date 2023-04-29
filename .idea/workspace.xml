@@ -4,39 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7110e458-b35c-4d71-9c86-a88bc37cb642" name="Changes" comment="add: add package refactor: refactor footer responsive">
-      <change afterPath="$PROJECT_DIR$/components/Authorized.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hooks/useAuth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middleware.js" afterDir="false" />
+    <list default="true" id="7110e458-b35c-4d71-9c86-a88bc37cb642" name="Changes" comment="add: add getPackagesList function">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/apiRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/apiRoutes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/appRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/appRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/handleApiError.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/common/handleApiError.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/notifier.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/notifier.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/validator.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/validator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/authorized.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/authorized.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/footer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/form-inputs/InputSelect.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/form-inputs/InputSelect.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/form-inputs/InputText.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/form-inputs/InputText.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Authorized.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Authorized.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/authorized.jsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/components/header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/meta.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/meta.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/package.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/package.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configs/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/configs/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/context/authContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/context/authContext.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/getUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/getUser.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/_app.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/auth/login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/auth/login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/auth/profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/auth/profile.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/auth/signup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/auth/signup.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/packages/[id].jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/packages/[id].jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/picture/package-pic.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/picture/package-pic.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/api-request.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/api-request.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/auth/profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/auth/dashboard.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/appServices.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/appServices.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/pages.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/pages.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +90,8 @@
       <workItem from="1682413560190" duration="2411000" />
       <workItem from="1682416306712" duration="7475000" />
       <workItem from="1682568644339" duration="10815000" />
-      <workItem from="1682741254087" duration="5256000" />
+      <workItem from="1682741254087" duration="6786000" />
+      <workItem from="1682749070303" duration="9089000" />
     </task>
     <task id="LOCAL-00001" summary="add: add signUp and auth context and notifier">
       <created>1682337059014</created>
@@ -132,7 +114,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682580600070</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="refactor: refactor context add: add cookie">
+      <created>1682747607065</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1682747607065</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -154,6 +143,8 @@
     <MESSAGE value="add: add signUp and auth context and notifier" />
     <MESSAGE value="add: add Context and refactor: refactor Authentication User" />
     <MESSAGE value="add: add package refactor: refactor footer responsive" />
-    <option name="LAST_COMMIT_MESSAGE" value="add: add package refactor: refactor footer responsive" />
+    <MESSAGE value="refactor: refactor context add: add cookie" />
+    <MESSAGE value="add: add getPackagesList function" />
+    <option name="LAST_COMMIT_MESSAGE" value="add: add getPackagesList function" />
   </component>
 </project>
