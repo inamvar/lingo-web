@@ -7,18 +7,27 @@ import authContext from "../context/authContext";
 import {logout} from "../services/appServices";
 import Modal from "./modal";
 import SlidingSidebar from "./slidingSidebar";
+import {getPackagesList} from "../services/appServices";
 
 
 const Header = ()=>{
+
     const authCtx=useContext(authContext);
 
     const SignOut=()=>{
         logout();
         authCtx.setAuthState({authenticated:false,user:null});
     }
+
+    const getpackages = async() =>
+    {
+        const result = await getPackagesList();
+        console.log(result);
+    }
+
     return(
         <div className='flex justify-between mb-10 mt-4 px-5'>
-            <SlidingSidebar/>
+            {/*<SlidingSidebar/>*/}
             <div className='block md:hidden'>
                 <a>
                     <svg width="33" height="100%" viewBox="0 0 33 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -34,7 +43,7 @@ const Header = ()=>{
                     <a className='darkBlue-color'>خانه</a>
                     <a className='darkBlue-color'>پکیج های رایگان</a>
                     <a className='darkBlue-color'>پکیج ها و مشاوره ها</a>
-                    <a className='darkBlue-color'>تخفیف</a>
+                    <a onClick={getpackages} className='darkBlue-color'>تخفیف</a>
                 </div>
             </div>
 
@@ -59,8 +68,8 @@ const Header = ()=>{
                     </>
                 ) : (
                     <>
-                        <Link href={appRoutes.Login} className='hover:drop-shadow-md darkBlue-color px-2'>ورود کاربران</Link>
-                        <Link href={appRoutes.Signup} className='bg-red hover:bg-red-600 text-white text-center btn-page sm:w-28'>ثبت نام</Link>
+                        <Link href={appRoutes.Login} className='hover:drop-shadow-md darkBlue-color px-2 hidden md:block'>ورود کاربران</Link>
+                        <Link href={appRoutes.Signup} className='bg-red hover:bg-red-600 text-white text-center btn-page sm:w-28 hidden md:block'>ثبت نام</Link>
                     </>
                 )}
             </div>

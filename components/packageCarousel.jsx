@@ -2,7 +2,12 @@ import { useSpringCarousel } from 'react-spring-carousel';
 import Package from "../components/package";
 import {getPackagesList} from '../services/appServices';
 
-export default function PackageCarousel({result}) {
+const PackageCarousel = ({result}) => {
+
+    console.log('client data');
+    console.log(result);
+    console.log('client data');
+
 
     const packageItems = [
         {
@@ -45,7 +50,13 @@ export async function getServerSideProps()
 {
     const result = await getPackagesList();
 
+    console.log('data got');
+    console.log(result);
+    console.log('data got');
+
     return{
-        props: {result}
+        props: { result }
     }
 }
+
+export default PackageCarousel

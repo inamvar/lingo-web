@@ -4,7 +4,6 @@ import banner from '../public/picture/banner.png';
 import logo from '../public/picture/Logo.png';
 import Package from '../components/package';
 import PackageCarousel from '../components/packageCarousel';
-import Modal from '../components/modal';
 
 const Home=()=>{
         return (
@@ -29,4 +28,6 @@ const Home=()=>{
             </>
         );
 };
+
+
 export default Home;

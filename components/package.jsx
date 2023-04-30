@@ -1,10 +1,12 @@
 import Image from 'next/image';
 import pic from '../public/picture/package-pic.png';
+import Link from 'next/link';
+import API_ROUTES from "../common/apiRoutes";
 
 export default function Item()
 {
     return(
-        <>
+        <Link href={API_ROUTES.DETAIL}>
             <div className='flex flex-col rounded bg-white p-3 gap-3 w-56 mt-5'>
                 <div>
                     <Image alt='picture' src={pic}/>
@@ -13,7 +15,7 @@ export default function Item()
                     <p className='grey-color'>پکیج پیشرفته مکالمه</p>
                 </div>
             </div>
-        </>
+        </Link>
     )
 
 }

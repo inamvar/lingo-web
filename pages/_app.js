@@ -9,14 +9,11 @@ function MyApp({ Component, pageProps }) {
 
     const [authState,setAuthState]=useState({});
 
-    console.log('app');
-
     useEffect(() => {
         getAuthenticatedUser().then(res => {
            setAuthState(res);
         });
     },[authState.authenticated]);
-
 
         return (
 

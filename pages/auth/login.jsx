@@ -30,7 +30,7 @@ export default function Login(){
         authCtx.setAuthState(res);
     }
 
-    const onSubmit =async (data) => {
+    const onSubmit = async (data) => {
         const result = await loginUser(data.userName,data.password);
         if (result != undefined)
         {

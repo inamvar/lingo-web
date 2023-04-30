@@ -69,10 +69,13 @@ export const getPackagesList = async () =>
     try
     {
         let response = await ax.get(API_ROUTES.PACKAGES);
-        console.log(response);
-        if (response.data.success=='true')
+        if (response.data.success = true)
         {
-            return response.data.data;
+            const packages = response.data.data.data;
+            console.log('packages is:');
+            console.log(packages);
+            console.log(packages);
+            return packages;
         }
         else {
             pushAlert({message:response.data.message,type:'error'});
@@ -81,7 +84,7 @@ export const getPackagesList = async () =>
     catch (error)
     {
         pushAlert({
-            message:response.data.message,
+            message:error.data.message,
             type:'error'
         });
     }
