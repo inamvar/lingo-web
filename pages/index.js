@@ -3,7 +3,7 @@ import Image from 'next/image';
 import banner from '../public/picture/banner.png';
 import logo from '../public/picture/Logo.png';
 import Package from '../components/package';
-import Carsoul from '../components/carsoul';
+import PackageCarousel from '../components/packageCarousel';
 
 const Home=()=>{
         return (
@@ -22,18 +22,10 @@ const Home=()=>{
                         <p className='text-2xl font-bold darkBlue-color'>پکیج ها</p>
                     </div>
                     <div className='flex overflow-hidden w-3/4'>
-                        <Carsoul />
+                        <PackageCarousel />
                     </div>
                 </div>
             </>
         );
-        return (
-            <div>
-                <Head>
-                    <title>لینگو</title>
-                    <link rel="icon" href="/favicon.ico" />
-                </Head>
-            </div>
-        )
 };
 export default Home;

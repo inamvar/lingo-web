@@ -4,11 +4,14 @@ import Link from 'next/link';
 import appRoutes from "../common/appRoutes";
 import React,{useContext} from "react";
 import authContext from "../context/authContext";
-
+import {logout} from "../services/appServices";
 const Header = ()=>{
+    const authCtx=useContext(authContext);
 
-    const authCtx = useContext(authContext);
-
+    const SignOut=()=>{
+        logout();
+        authCtx.setAuthState({authenticated:false,user:null});
+    }
     return(
         <div className='flex justify-between mb-10 mt-4 px-5'>
             <div>
@@ -29,7 +32,7 @@ const Header = ()=>{
                 {authCtx.authState.authenticated ? (
                     <>
                         <Link href={appRoutes.Dashboard} className='darkBlue-color px-2'>داشبورد من</Link>
-                        <Link href={appRoutes.Login} className='text-white bg-darkBlue px-2 text-sm py-2 px-7 rounded'>خروج</Link>
+                        <button onClick={SignOut} className='text-white bg-darkBlue px-2 text-sm py-2 px-7 rounded'>خروج</button>
                     </>
                 ) : (
                     <>
@@ -41,5 +44,4 @@ const Header = ()=>{
         </div>
     )
 }
-
 export default Header;

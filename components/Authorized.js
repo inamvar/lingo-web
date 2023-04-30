@@ -6,20 +6,22 @@ import appRoutes from '../common/appRoutes';
 export function withAuth(WrappedComponent) {
 
     return function AuthenticatedWrapper(props) {
+
         const context = useContext(AuthContext);
         const router = useRouter();
         console.log(context);
 
         useEffect(() => {
 
-            if (context.authState.authenticated==false) {
-                console.log('notlogin');
+            console.log(context);
+            if ('authenticated' in context.authState && !context.authState.authenticated)
+            {
                 router.push(appRoutes.Login);
             }
             else{
                 console.log('ok');
             }
-        }, [context]);
+        },[context.authState]);
 
         return <WrappedComponent {...props} />;
     };

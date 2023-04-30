@@ -1,11 +1,10 @@
 import {pushAlert} from "../common/notifier";
 import {Constants} from "../common/constants";
-import Cookies from "js-cookie";
 import jwtDecode from "jwt-decode";
 
 export function getToken() {
-    // console.log(Cookies.get(Constants.token));
-    return Cookies.get(Constants.token);
+
+    return localStorage.getItem(Constants.token);
 }
 
 export default async function getAuthenticatedUser() {

@@ -6,18 +6,19 @@ import getAuthenticatedUser from "../hooks/getUser";
 
 function MyApp({ Component, pageProps }) {
 
-    const [authState,setAuthState]=useState({authenticated:false,user:null});
+    const [authState,setAuthState]=useState({});
+
+    console.log('app');
 
     useEffect(() => {
-        console.log('setting context');
         getAuthenticatedUser().then(res => {
-            setAuthState(res);
+           setAuthState(res);
         });
-
-    },[]);
+    },[authState.authenticated]);
 
 
         return (
+
             <AuthContext.Provider value={{authState,setAuthState}}>
                 <Layout>
                     <Component {...pageProps} />

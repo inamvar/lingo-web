@@ -4,8 +4,7 @@ import server from "../configs/server";
 import {handleApiError} from "../common/handleApiError";
 import {pushAlert} from "../common/notifier";
 import jwt from 'jsonwebtoken';
-import Cookies from 'js-cookie';
-import  constants from "../common/constants";
+import {Constants} from "../common/constants";
 
 const ax = axios.create({
     baseURL: server
@@ -35,18 +34,14 @@ export const loginUser = async (username, password) =>
     {
         let response= await ax.post(API_ROUTES.LOGIN, { userName:username,password: password });
         console.log(response);
+
         if(response.data.success == true)
         {
             const {accessToken, refreshToken} = response.data.data;
             const  decodedToken=jwt.decode(accessToken);
             console.log(decodedToken);
-            const tokenExpiration = decodedToken.exp * 1000; // Convert the expiration time to milliseconds
-            console.log(tokenExpiration);
-            const expireTime= new Date(tokenExpiration);
-            console.log(expireTime);
-            Cookies.set('token',accessToken, { expires: expireTime });
-            Cookies.set('refreshToken',refreshToken, { expires: 365 });
-
+                localStorage.setItem(Constants.token,accessToken);
+                localStorage.setItem(Constants.refreshToken,refreshToken);
             pushAlert({
                 message:'ورود با موفقیت انجام شد',
                 type:'success'
@@ -75,34 +70,25 @@ export const getPackagesList = async () =>
     {
         let response = await ax.get(API_ROUTES.PACKAGES);
         console.log(response);
+        if (response.data.success=='true')
+        {
+            return response.data.data;
+        }
+        else {
+            pushAlert({message:response.data.message,type:'error'});
+        }
     }
     catch (error)
     {
         pushAlert({
             message:response.data.message,
             type:'error'
-        })
+        });
     }
 }
 
-export const logout= () =>
+export  const logout= () =>
 {
-    // localStorage.removeItem('token');
+    localStorage.removeItem(Constants.token);
+    localStorage.removeItem(Constants.refreshToken);
 }
-
-export const isAuthenticated= () =>
-{
-    // const token = localStorage.getItem('token');
-    // return token !== null;
-}
-
-// export async  function getCredits(){
-//
-//     try {
-//         let result= await ax.get(API_ROUTES.CREDITS+"/GetCredits");
-//         return result.data;
-//     }
-//     catch(error){
-//
-//     }
-// }

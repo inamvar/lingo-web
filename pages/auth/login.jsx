@@ -32,12 +32,12 @@ export default function Login(){
 
     const onSubmit =async (data) => {
         const result = await loginUser(data.userName,data.password);
-        if (result != undefined){
+        if (result != undefined)
+        {
             setContext(result);
             router.push(appRoutes.Main);
         }
     };
-
 
     return(<>
         <Meta title='ورود'/>
