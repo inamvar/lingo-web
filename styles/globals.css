@@ -8,6 +8,7 @@
   --darkBlue:#143794;
   --red:#F84C4D;
   --paleBlue:#BDCAE1;
+  --darkRed: #000000;
 }
 @font-face {
   font-family: 'IRANSans';
@@ -51,6 +52,10 @@ a{
 {
   background-color: var(--grey);
 }
+.p-0
+{
+  padding: 0px !important;
+}
 .text-disable
 {
   color: #7b7b7b;
@@ -58,6 +63,10 @@ a{
 .bg-red
 {
   background-color: var(--red);
+}
+.bg-darkRed
+{
+  background-color: var(--darkRed);
 }
 .btn-page
 {

@@ -3,6 +3,7 @@ import Layout from '/components/layout'
 import AuthContext from "../context/authContext";
 import {useEffect, useState} from "react";
 import getAuthenticatedUser from "../hooks/getUser";
+import { ChakraProvider } from '@chakra-ui/react';
 
 function MyApp({ Component, pageProps }) {
 
@@ -19,11 +20,14 @@ function MyApp({ Component, pageProps }) {
 
         return (
 
-            <AuthContext.Provider value={{authState,setAuthState}}>
-                <Layout>
-                    <Component {...pageProps} />
-                </Layout>
-            </AuthContext.Provider>
+            <ChakraProvider>
+                <AuthContext.Provider value={{authState,setAuthState}}>
+                    <Layout>
+                        <Component {...pageProps} />
+                    </Layout>
+                </AuthContext.Provider>
+            </ChakraProvider>
+
         );
 }
 
