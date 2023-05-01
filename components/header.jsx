@@ -47,7 +47,7 @@ const Header = ()=>{
                 </div>
             </div>
 
-            <div className='flex w-1/9 justify-between gap-2 items-center divide-x-2 divide-gray-300'>
+            <div className='flex w-1/9 justify-between gap-2 items-center md:divide-x-2 md:divide-gray-300'>
                 <a>
                     <Modal
                         text={<svg width="30" height="30" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -65,6 +65,11 @@ const Header = ()=>{
                     <>
                         <Link href={appRoutes.Dashboard} className='hover:drop-shadow-md darkBlue-color px-2 hidden md:block'>داشبورد من</Link>
                         <button onClick={SignOut} className='bg-darkBlue hover:bg-blue-900 text-white text-center btn-page sm:w-28 hidden md:block'>خروج</button>
+                        <button onClick={SignOut} className='md:hidden block'>
+                            <svg width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.6506 32.8162H0V3.33015L16.6506 0V32.8162ZM2.17183 30.6443H14.4788V2.64962L2.17183 5.11104V30.6443ZM14.4788 3.13465H22.4421V32.8162H14.4787L14.4788 3.13465ZM20.2703 5.30651H16.6506V30.6444H20.2703V5.30651ZM27.915 22.2901L26.3803 20.7553L29.9261 17.2095L26.3818 13.6766L27.915 12.139L33 17.2065L27.915 22.2901ZM31.4914 18.3374H21.3563V16.1656H31.4914V18.3374Z" fill="#143794"/>
+                            </svg>
+                        </button>
                     </>
                 ) : (
                     <>
