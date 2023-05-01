@@ -48,7 +48,8 @@ const PackageCarousel = ({result}) => {
 
 export async function getServerSideProps()
 {
-    const result = await getPackagesList();
+    const result ='test';
+    // const result = await getPackagesList();
 
     console.log('data got');
     console.log(result);

@@ -19,26 +19,22 @@ const Header = ()=>{
         authCtx.setAuthState({authenticated:false,user:null});
     }
 
-    const getpackages = async() =>
-    {
+    const getpackages = async() => {
         const result = await getPackagesList();
         console.log(result);
     }
 
     return(
-        <div className='flex justify-between mb-10 mt-4 px-5'>
-            {/*<SlidingSidebar/>*/}
-            <div className='block md:hidden'>
-                <a>
-                    <svg width="33" height="100%" viewBox="0 0 33 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0 23.1891H32.2376V19.3243H0V23.1891ZM0 13.527H32.2376V9.66214H0V13.527ZM0 0V3.86486H32.2376V0H0Z" fill="#143794"/>
-                    </svg>
-                </a>
+        <div className='flex justify-between mb-8 mt-4 lg:px-5 px-3'>
+
+            <div className='block md:hidden mt-7'>
+                <SlidingSidebar />
             </div>
+
             <div>
                 <Link href={appRoutes.Main}><Image className='w-32' alt='logo' src={Logo}/></Link>
             </div>
-            <div className='w-1/3 hidden md:block'>
+            <div className='lg:w-1/3 w-1/2 hidden md:block'>
                 <div className='flex flex-row justify-between items-center h-full'>
                     <a className='darkBlue-color'>خانه</a>
                     <a className='darkBlue-color'>پکیج های رایگان</a>

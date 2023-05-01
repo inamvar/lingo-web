@@ -8,6 +8,7 @@
   --darkBlue:#143794;
   --red:#F84C4D;
   --paleBlue:#BDCAE1;
+  --bgBlue:#EDEFF3;
   --darkRed: #000000;
   --darkGreen:#47CB78;
 }
@@ -145,3 +146,73 @@ a{
 {
   flex: 1 0 calc(20% / 1 - 0px)!important;
 }
+.panel
+{
+  background-color: var(--bgBlue);
+}
+.sliding-panel-container
+{
+  direction: ltr;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*#sidebar{*/
+/*  height: 100%;*/
+/*}*/
+/*.sidebar{*/
+/*  z-index: 99999;*/
+/*  transform: translateX(-100%);*/
+/*  transition: transform 0.3s ease-out;*/
+/*  position: absolute;*/
+/*  height: 100%;*/
+/*}*/
+/*.sidebar.open{*/
+/*  transform: translateX(0) !important;*/
+/*}*/
+/*.disable-sec*/
+/*{*/
+/*  opacity: 0.2;*/
+/*  transition: opacity 0.3s ease;*/
+/*}*/
+/*.sidebar-items*/
+/*{*/
+/*  display: block;*/
+/*}*/
+/*.header-items*/
+/*{*/
+/*  display: none;*/
+/*}*/
+/*@media screen and (min-width: 639px)*/
+/*{*/
+/*  .sidebar-items*/
+/*  {*/
+/*    display: none;*/
+/*  }*/
+/*  .header-items*/
+/*  {*/
+/*    display: block;*/
+/*  }*/
+/*}*/
