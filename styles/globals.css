@@ -9,6 +9,7 @@
   --red:#F84C4D;
   --paleBlue:#BDCAE1;
   --darkRed: #000000;
+  --darkGreen:#47CB78;
 }
 @font-face {
   font-family: 'IRANSans';
@@ -59,6 +60,10 @@ a{
 .text-disable
 {
   color: #7b7b7b;
+}
+.bg-darkGreen
+{
+  background-color: var(--darkGreen);
 }
 .bg-red
 {
