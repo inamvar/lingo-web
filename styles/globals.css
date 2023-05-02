@@ -141,10 +141,12 @@ a{
 {
   /*transform: translate3d(0px, 0px, 0px) !important;*/
   left: 0px !important;
+  direction: ltr;
 }
 .use-spring-carousel-item
 {
   flex: 1 0 calc(6% / 1 - 0px)!important;
+  justify-content: center;
 }
 .panel
 {
@@ -154,8 +156,24 @@ a{
 {
   direction: ltr;
 }
-
-
+.Previous-button-cersoul
+{
+  position: absolute;
+  top: 50%;
+  left: 0;
+ }
+.next-button-cersoul
+{
+  position: absolute;
+  top: 50%;
+  right: 0;
+  z-index: 999;
+}
+.div-cersoul
+{
+  position: relative;
+  overflow: hidden;
+}
 
 
 
