@@ -144,7 +144,7 @@ a{
 }
 .use-spring-carousel-item
 {
-  flex: 1 0 calc(20% / 1 - 0px)!important;
+  flex: 1 0 calc(6% / 1 - 0px)!important;
 }
 .panel
 {

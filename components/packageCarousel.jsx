@@ -2,25 +2,11 @@ import { useSpringCarousel } from 'react-spring-carousel';
 import Package from "../components/package";
 import {getPackagesList} from '../services/appServices';
 
-const PackageCarousel = ({result}) => {
+const PackageCarousel = (props) => {
 
-    console.log('client data');
-    console.log(result);
-    console.log('client data');
+    console.log(props.packages);
 
-
-    const packageItems = [
-        {
-            name:'page 1',
-            id:1,
-            phone:'123456'
-        },
-        {
-            name:'page 2',
-            id:2,
-            phone:'1234567'
-        }
-    ]
+    const packageItems = props.packages;
 
     const {
         carouselFragment,
@@ -32,7 +18,7 @@ const PackageCarousel = ({result}) => {
         items: packageItems.map((i) => ({
             id: i.id,
             renderItem: (
-                <Package/>
+                <Package name={i.name} picture={i.thumbnailUrl}/>
             )
         })),
     });
@@ -44,20 +30,6 @@ const PackageCarousel = ({result}) => {
             <button onClick={slideToNextItem}>قبلی</button>
         </div>
     );
-}
-
-export async function getServerSideProps()
-{
-    const result ='test';
-    // const result = await getPackagesList();
-
-    console.log('data got');
-    console.log(result);
-    console.log('data got');
-
-    return{
-        props: { result }
-    }
 }
 
 export default PackageCarousel

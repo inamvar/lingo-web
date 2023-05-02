@@ -2,10 +2,14 @@ import Head from 'next/head';
 import Image from 'next/image';
 import banner from '../public/picture/banner.png';
 import logo from '../public/picture/Logo.png';
-import Package from '../components/package';
 import PackageCarousel from '../components/packageCarousel';
+import {getPackagesList} from "../services/appServices";
 
-const Home=()=>{
+const Home=(props)=>{
+
+    const Packages = props.packages
+    console.log(Packages);
+
         return (
             <>
                 <div className='w-full flex items-center justify-center relative'>
@@ -22,12 +26,20 @@ const Home=()=>{
                         <p className='text-2xl font-bold darkBlue-color'>پکیج ها</p>
                     </div>
                     <div className='flex overflow-hidden w-3/4'>
-                        <PackageCarousel />
+                        <PackageCarousel packages={Packages} />
                     </div>
                 </div>
             </>
         );
 };
 
+export async function getServerSideProps()
+{
+     const packages = await getPackagesList();
+
+    return{
+        props: { packages }
+    }
+}
 
 export default Home;

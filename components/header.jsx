@@ -19,10 +19,10 @@ const Header = ()=>{
         authCtx.setAuthState({authenticated:false,user:null});
     }
 
-    const getpackages = async() => {
-        const result = await getPackagesList();
-        console.log(result);
-    }
+    // const getpackages = async() => {
+    //     const result = await getPackagesList();
+    //     console.log(result);
+    // }
 
     return(
         <div className='flex justify-between mb-8 mt-4 lg:px-5 px-3'>
@@ -39,11 +39,11 @@ const Header = ()=>{
                     <a className='darkBlue-color'>خانه</a>
                     <a className='darkBlue-color'>پکیج های رایگان</a>
                     <a className='darkBlue-color'>پکیج ها و مشاوره ها</a>
-                    <a onClick={getpackages} className='darkBlue-color'>تخفیف</a>
+                    <a className='darkBlue-color'>تخفیف</a>
                 </div>
             </div>
 
-            <div className='flex w-1/9 justify-between gap-2 items-center md:divide-x-2 md:divide-gray-300'>
+            <div className='flex w-1/9 justify-between gap-1 items-center md:divide-x-2 md:divide-gray-300'>
                 <a>
                     <Modal
                         text={<svg width="30" height="30" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -59,7 +59,7 @@ const Header = ()=>{
                 </a>
                 {authCtx.authState.authenticated ? (
                     <>
-                        <Link href={appRoutes.Dashboard} className='hover:drop-shadow-md darkBlue-color px-2 hidden md:block'>داشبورد من</Link>
+                        <Link href={appRoutes.Dashboard} className='hover:drop-shadow-md darkBlue-color px-2 hidden md:block whitespace-nowrap'>داشبورد من</Link>
                         <button onClick={SignOut} className='bg-darkBlue hover:bg-blue-900 text-white text-center btn-page sm:w-28 hidden md:block'>خروج</button>
                         <button onClick={SignOut} className='md:hidden block'>
                             <svg width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">

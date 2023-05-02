@@ -5,9 +5,13 @@ import {handleApiError} from "../common/handleApiError";
 import {pushAlert} from "../common/notifier";
 import jwt from 'jsonwebtoken';
 import {Constants} from "../common/constants";
+import * as https from "https";
 
 const ax = axios.create({
-    baseURL: server
+    baseURL: server,
+    httpsAgent: new https.Agent({
+        rejectUnauthorized: false
+    })
 });
 
 export const signUpUser = async (firstname , lastname, password , confirmPassword , email, phoneNumber ,marketerCode ) =>
@@ -69,16 +73,16 @@ export const getPackagesList = async () =>
     try
     {
         let response = await ax.get(API_ROUTES.PACKAGES);
-        if (response.data.success = true)
+
+        if (response.data.success == true)
         {
             const packages = response.data.data.data;
-            console.log('packages is:');
-            console.log(packages);
             console.log(packages);
             return packages;
         }
         else {
             pushAlert({message:response.data.message,type:'error'});
+            return null;
         }
     }
     catch (error)

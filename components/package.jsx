@@ -3,7 +3,7 @@ import pic from '../public/picture/package-pic.png';
 import Link from 'next/link';
 import API_ROUTES from "../common/apiRoutes";
 
-export default function Item()
+export default function Item(props)
 {
     return(
         <Link href={API_ROUTES.DETAIL}>
@@ -12,7 +12,7 @@ export default function Item()
                     <Image alt='picture' src={pic}/>
                 </div>
                 <div className='flex justify-center'>
-                    <p className='grey-color'>پکیج پیشرفته مکالمه</p>
+                    <p className='grey-color'>{props.name}</p>
                 </div>
             </div>
         </Link>

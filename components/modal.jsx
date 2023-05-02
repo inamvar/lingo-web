@@ -14,7 +14,7 @@ export default function BasicUsage(props) {
 
     return (
         <>
-            <Button className='p-0' onClick={onOpen}>{props.text}</Button>
+            <Button className='p-0 bg-transparent' onClick={onOpen}>{props.text}</Button>
 
             <Modal isOpen={isOpen} onClose={onClose}>
 
@@ -35,6 +35,7 @@ export default function BasicUsage(props) {
                     {/*    </Button>*/}
                     {/*    /!*<Button variant='ghost'>Secondary Action</Button>*!/*/}
                     {/*</ModalFooter>*/}
+
                 </ModalContent>
             </Modal>
         </>
