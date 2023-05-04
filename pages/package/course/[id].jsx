@@ -1,12 +1,9 @@
-import {useRouter} from "next/router";
 import Image from "next/image";
-import Professor from '../../public/picture/Professor.png';
-import Accordion from '../../components/accordion';
+import Professor from "../../../public/picture/Professor.png";
+import Accordion from "../../../components/accordion";
 
-const Package=()=>{
-    const router=useRouter();
-    const {id}=router.query;
-    return(<>
+return(
+    <>
         <div className='flex flex-col items-center'>
             <div className='flex flex-col md:flex-row gap-8 md:w-11/12 w-full items-center'>
                 <div className='flex flex-col w-11/12 md:w-1/2 gap-7'>
@@ -47,16 +44,5 @@ const Package=()=>{
 
             </div>
         </div>
-    </>);
-}
-
-export const getServerSideProps=(ctx)=>{
-
-    return{
-        props:{
-
-        }
-    };
-}
-
-export default Package;
+    </>
+);

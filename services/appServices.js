@@ -94,6 +94,32 @@ export const getPackagesList = async () =>
     }
 }
 
+export const getPackageCourseList = async (id) =>
+{
+    try
+    {
+        const response = await ax.get(API_ROUTES.COURSE(id));
+
+        if (response.data.success == true)
+        {
+            const courses = response.data.data.data;
+            console.log(courses);
+            return courses;
+        }
+        else {
+            pushAlert({message:response.data.message,type:'error'});
+            return null;
+        }
+    }
+    catch (error)
+    {
+        pushAlert({
+            message:error.data.message,
+            type:'error'
+        })
+    }
+}
+
 export  const logout= () =>
 {
     localStorage.removeItem(Constants.token);

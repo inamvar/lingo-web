@@ -139,13 +139,12 @@ a{
 }
 .use-spring-carousel-track-wrapper
 {
-  /*transform: translate3d(0px, 0px, 0px) !important;*/
   left: 0px !important;
   direction: ltr;
 }
 .use-spring-carousel-item
 {
-  flex: 1 0 calc(6% / 1 - 0px)!important;
+  flex: 1 0 calc(5.5% / 1 - 0px)!important;
   justify-content: center;
 }
 .panel
@@ -161,6 +160,7 @@ a{
   position: absolute;
   top: 50%;
   left: 0;
+  z-index: 999;
  }
 .next-button-cersoul
 {
