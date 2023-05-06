@@ -6,7 +6,7 @@ const AppRoutes= {
     ForgotPassword:"/auth/forgot-password",
     Profile:"/auth/profile",
     Dashboard:"/auth/dashboard",
-    COURSE:(slug)=>{
+    Package:(slug)=>{
         return `/package/${slug}`
     }
 };

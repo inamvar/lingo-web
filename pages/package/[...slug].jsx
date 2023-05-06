@@ -2,15 +2,20 @@ import Image from "next/image";
 import Professor from '../../public/picture/Professor.png';
 import Accordion from '../../components/accordion';
 import {getPackageCourseList} from "../../services/appServices";
+import Course from '../../components/course';
 
 const Package=(props)=>{
 
-    console.log(props.result)
+    const courses = props.result;
 
     return(
-        <>
-            <p>corses List</p>
-        </>
+        <div className='flex justify-center items-center'>
+            <div className='flex flex-col md:flex-row flex-wrap w-full lg:w-4/5 justify-evenly items-center'>
+                {courses.map((course)=>
+                    <Course key={course.index} name={course.title}/>
+                )}
+            </div>
+        </div>
     );
 }
 

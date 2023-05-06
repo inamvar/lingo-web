@@ -99,7 +99,7 @@ export const getPackageCourseList = async (slug) =>
 {
     try
     {
-        const response = await ax.get(API_ROUTES.COURSE(slug));
+        const response = await ax.get(API_ROUTES.PACKAGE(slug));
         console.log(response);
 
         if (response.data.success == true)
