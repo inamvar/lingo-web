@@ -8,6 +8,10 @@ const API_ROUTES = {
     PACKAGE:(slug)=>
     {
         return `/Package/${slug}`
+    },
+    COURSE:(slug)=>
+    {
+        return `/Course/${slug}`
     }
 };
 

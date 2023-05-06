@@ -8,6 +8,9 @@ const AppRoutes= {
     Dashboard:"/auth/dashboard",
     Package:(slug)=>{
         return `/package/${slug}`
+    },
+    Course:(slug)=>{
+        return `/package/course/${slug}`
     }
 };
 

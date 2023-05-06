@@ -12,7 +12,7 @@ const Package=(props)=>{
         <div className='flex justify-center items-center'>
             <div className='flex flex-col md:flex-row flex-wrap w-full lg:w-4/5 justify-evenly items-center'>
                 {courses.map((course)=>
-                    <Course key={course.index} name={course.title}/>
+                    <Course key={course.index} name={course.title} slug={course.slug}/>
                 )}
             </div>
         </div>
@@ -22,7 +22,6 @@ const Package=(props)=>{
 export async function getServerSideProps(ctx)
 {
     const res = ctx.query.slug;
-    console.log(res);
 
     const slug = `${res[0]}/${res[1]}`;
 

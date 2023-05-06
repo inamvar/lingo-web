@@ -4,13 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7110e458-b35c-4d71-9c86-a88bc37cb642" name="Changes" comment="refactor: refactr package page and add: add courses list">
-      <change afterPath="$PROJECT_DIR$/components/course.jsx" afterDir="false" />
+    <list default="true" id="7110e458-b35c-4d71-9c86-a88bc37cb642" name="Changes" comment="refactor: refactor courses page design">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/apiRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/apiRoutes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/appRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/appRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/package.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/package.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/validator.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/validator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/course.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/course.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/package/[...slug].jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/package/[...slug].jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/package/course/[id].jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/package/course/[...slug].jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/api-request.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/api-request.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/appServices.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/appServices.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -200,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683364423474</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="refactor: refactor courses page design">
+      <created>1683365418671</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1683365418671</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,6 +245,7 @@
     <MESSAGE value="add: add getserverside packages" />
     <MESSAGE value="reafctor: reafctor packageCersoul design" />
     <MESSAGE value="refactor: refactr package page and add: add courses list" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: refactr package page and add: add courses list" />
+    <MESSAGE value="refactor: refactor courses page design" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: refactor courses page design" />
   </component>
 </project>

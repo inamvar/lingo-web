@@ -7,8 +7,7 @@ import {getPackagesList} from "../services/appServices";
 
 const Home=(props)=>{
 
-    const Packages = props.packages
-    console.log(Packages);
+    const Packages = props.packages;
 
         return (
             <>
@@ -35,10 +34,10 @@ const Home=(props)=>{
 
 export async function getServerSideProps()
 {
+    console.log('get packages');
     const packages = await getPackagesList();
+    console.log('get packages ----');
 
-    console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%');
-    console.log(packages);
     return{
         props: { packages }
     }

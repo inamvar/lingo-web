@@ -15,3 +15,6 @@ yup.addMethod(yup.string,'isPhoneNumber',function(){
 
 // Export the customized yup object with the global gender method
 export  const validator = yup;
+
+
+

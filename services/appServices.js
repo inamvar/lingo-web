@@ -1,18 +1,13 @@
-import axios from "axios";
 import API_ROUTES from "/common/apiRoutes";
-import server from "../configs/server";
 import {handleApiError} from "../common/handleApiError";
 import {pushAlert} from "../common/notifier";
 import jwt from 'jsonwebtoken';
 import {Constants} from "../common/constants";
 import * as https from "https";
+import {ax} from "./api-request";
 
-const ax = axios.create({
-    baseURL: server,
-    httpsAgent: new https.Agent({
-        rejectUnauthorized: false
-    })
-});
+
+
 
 export const signUpUser = async (firstname , lastname, password , confirmPassword , email, phoneNumber ,marketerCode ) =>
 {
@@ -77,7 +72,6 @@ export const getPackagesList = async () =>
         if (response.data.success == true)
         {
             const packages = response.data.data.data;
-            console.log('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&')
             console.log(packages);
             return packages;
         }
@@ -88,6 +82,7 @@ export const getPackagesList = async () =>
     }
     catch (error)
     {
+         handleApiError(error);
         // pushAlert({
         //     message:error.data.message,
         //     type:'error'
@@ -100,12 +95,10 @@ export const getPackageCourseList = async (slug) =>
     try
     {
         const response = await ax.get(API_ROUTES.PACKAGE(slug));
-        console.log(response);
 
         if (response.data.success == true)
         {
             const courses = response.data.data.data;
-            console.log('####################################################################################################')
             console.log(courses);
             return courses;
         }
@@ -123,6 +116,36 @@ export const getPackageCourseList = async (slug) =>
     }
 }
 
+export const courseDetail = async (slug) =>
+{
+    try
+    {
+        console.log('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^test^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^');
+        console.log(slug);
+        const response = await ax.get(API_ROUTES.COURSE(slug));
+        console.log(response);
+        console.log('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^test^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^');
+
+        if (response.data.success == true)
+        {
+            const course = response.data.data.data;
+            console.log(course);
+            return course;
+        }
+        else {
+            pushAlert({message:response.data.message,type:'error'});
+            return null;
+        }
+    }
+    catch (error)
+    {
+        handleApiError(error);
+        // pushAlert({
+        //     message:error.data.message,
+        //     type:'error'
+        // })
+    }
+}
 export  const logout= () =>
 {
     localStorage.removeItem(Constants.token);

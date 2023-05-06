@@ -1,12 +1,32 @@
-// import axios from "axios";
-// import apiRoutes from "../common/apiRoutes";
-// const API_BASE_URL = process.env.Base_API_URL;
-//
-// const options = {
-//     method: 'GET',
-//     url: API_BASE_URL+'/api/server/v1/Credit/GetCredits'
-// };
-// export default async function GetData(){
-//     var res = await axios.get(API_BASE_URL+"/api/server/v1/Credit/GetCredits",options);
-//     return res.data;
-// }
+import axios from "axios";
+import server from "../configs/server";
+import https from "https";
+
+const AxiosRequester = axios.create({
+    baseURL: server,
+    httpsAgent: new https.Agent({
+        rejectUnauthorized: false
+    })
+});
+// AxiosRequester.interceptors.request.use(
+//     (config) => {
+//         debugger;
+//         console.log('startttttttttttttttttttttttttttttttttttttttttttttttttt');
+//         debugger;
+//         const accessToken = localStorage.getItem("token");
+//         if (accessToken) {
+//             console.log('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$')
+//             config.headers = {
+//                 'Authorization': `Bearer ${accessToken}`,
+//                 'Accept': 'application/json',
+//                 'Content-Type': 'application/x-www-form-urlencoded'
+//             }
+//         }
+//         console.log('asdadasttttttttttttttttttttttttttttttttt');
+//         return config;
+//     },
+//     (error) => {
+//         Promise.reject(error);
+//     }
+// );
+export const ax=AxiosRequester;
