@@ -18,7 +18,7 @@ const PackageCarousel = (props) => {
         items: packageItems.map((i) => ({
             id: i.id,
             renderItem: (
-                <Package id={i.id} name={i.name} picture={i.thumbnailUrl}/>
+                <Package id={i.id} name={i.name} picture={i.thumbnailUrl} slug={i.slug}/>
             )
         })),
     });

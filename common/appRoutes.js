@@ -6,8 +6,8 @@ const AppRoutes= {
     ForgotPassword:"/auth/forgot-password",
     Profile:"/auth/profile",
     Dashboard:"/auth/dashboard",
-    COURSE:(id,slug)=>{
-        return `/Package/${id}/${slug}`
+    COURSE:(slug)=>{
+        return `/package/${slug}`
     }
 };
 

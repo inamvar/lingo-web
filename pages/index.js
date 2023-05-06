@@ -35,8 +35,10 @@ const Home=(props)=>{
 
 export async function getServerSideProps()
 {
-     const packages = await getPackagesList();
+    const packages = await getPackagesList();
 
+    console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%');
+    console.log(packages);
     return{
         props: { packages }
     }

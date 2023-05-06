@@ -5,9 +5,9 @@ const API_ROUTES = {
     SIGN_UP:"/Auth/SingnUp",
     PACKAGES:"/Package",
     DETAIL:"/package/[id]",
-    COURSE:(id)=>
+    COURSE:(slug)=>
     {
-        return `/package/course/${id}`
+        return `/Package/${slug}`
     }
 };
 

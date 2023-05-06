@@ -5,6 +5,8 @@ import {getPackageCourseList} from "../../services/appServices";
 
 const Package=(props)=>{
 
+    console.log(props.result)
+
     return(
         <>
             <p>corses List</p>
@@ -12,14 +14,17 @@ const Package=(props)=>{
     );
 }
 
-export async function getServerSideProps()
+export async function getServerSideProps(ctx)
 {
-    const result = await getPackageCourseList();
+    const res = ctx.query.slug;
+    console.log(res);
 
-    console.log(result);
+    const slug = `${res[0]}/${res[1]}`;
+
+    const result = await getPackageCourseList(slug);
 
     return{
-         props:result
+         props: {result}
     }
 }
 

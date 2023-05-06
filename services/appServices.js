@@ -77,6 +77,7 @@ export const getPackagesList = async () =>
         if (response.data.success == true)
         {
             const packages = response.data.data.data;
+            console.log('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&')
             console.log(packages);
             return packages;
         }
@@ -87,22 +88,24 @@ export const getPackagesList = async () =>
     }
     catch (error)
     {
-        pushAlert({
-            message:error.data.message,
-            type:'error'
-        });
+        // pushAlert({
+        //     message:error.data.message,
+        //     type:'error'
+        // });
     }
 }
 
-export const getPackageCourseList = async (id) =>
+export const getPackageCourseList = async (slug) =>
 {
     try
     {
-        const response = await ax.get(API_ROUTES.COURSE(id));
+        const response = await ax.get(API_ROUTES.COURSE(slug));
+        console.log(response);
 
         if (response.data.success == true)
         {
             const courses = response.data.data.data;
+            console.log('####################################################################################################')
             console.log(courses);
             return courses;
         }
@@ -113,10 +116,10 @@ export const getPackageCourseList = async (id) =>
     }
     catch (error)
     {
-        pushAlert({
-            message:error.data.message,
-            type:'error'
-        })
+        // pushAlert({
+        //     message:error.data.message,
+        //     type:'error'
+        // })
     }
 }
 
