@@ -36,10 +36,10 @@ const Header = ()=>{
             </div>
             <div className='lg:w-1/3 w-1/2 hidden md:block'>
                 <div className='flex flex-row justify-between items-center h-full'>
-                    <a className='darkBlue-color'>خانه</a>
-                    <a className='darkBlue-color'>پکیج های رایگان</a>
-                    <a className='darkBlue-color'>پکیج ها و مشاوره ها</a>
-                    <a className='darkBlue-color'>تخفیف</a>
+                    <Link href={appRoutes.Main} className='darkBlue-color'>خانه</Link>
+                    <a className='darkBlue-color hover:drop-shadow-lg'>پکیج های رایگان</a>
+                    <a className='darkBlue-color hover:drop-shadow-lg'>پکیج ها و مشاوره ها</a>
+                    <a className='darkBlue-color hover:drop-shadow-lg'>تخفیف</a>
                 </div>
             </div>
 
@@ -59,7 +59,7 @@ const Header = ()=>{
                 </a>
                 {authCtx.authState.authenticated ? (
                     <>
-                        <Link href={appRoutes.Dashboard} className='hover:drop-shadow-md darkBlue-color px-2 hidden md:block whitespace-nowrap'>داشبورد من</Link>
+                        <Link href={appRoutes.Dashboard} className='hover:drop-shadow-lg darkBlue-color px-2 hidden md:block whitespace-nowrap'>داشبورد من</Link>
                         <button onClick={SignOut} className='bg-darkBlue hover:bg-blue-900 text-white text-center btn-page sm:w-28 hidden md:block'>خروج</button>
                         <button onClick={SignOut} className='md:hidden block'>
                             <svg width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">

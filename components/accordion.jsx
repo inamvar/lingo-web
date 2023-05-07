@@ -71,7 +71,7 @@ export default function accordion(props)
                 {/*        <div className='flex justify-between gap-1 sm:gap-2'>*/}
 
                 {/*            <div className='flex items-center justify-between w-4/5 gap-2'>*/}
-                {/*                <div className='flex items-center'>*/}
+                {/*                <div className='flex items-center gap-1'>*/}
                 {/*                    <svg className='w-8' width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">*/}
                 {/*                        <path d="M9.70134 13.7759L23.2847 20.1267L9.70134 26.4775V13.7759ZM19.8646 20.1267L11.1493 16.0521V24.2027L19.8646 20.1267ZM0 0H32V32H0V0ZM30.552 1.44797H1.44797V30.552H30.552V1.44797ZM32 9.84616H0V0H32V9.84616ZM1.44797 8.39819H30.552V1.44797H1.44797V8.39819ZM7.67422 5.64706H4.92312V4.19906H7.67422V5.64706ZM13.1765 5.64706H10.4253V4.19906H13.1765V5.64706ZM18.8235 5.64706H16.0724V4.19906H18.8235V5.64706Z" fill="black"/>*/}
                 {/*                    </svg>*/}

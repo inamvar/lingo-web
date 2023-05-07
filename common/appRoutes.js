@@ -11,7 +11,8 @@ const AppRoutes= {
     },
     Course:(slug)=>{
         return `/package/course/${slug}`
-    }
+    },
+    DetailCourse:'/package/course/courseDetail/video'
 };
 
 export default AppRoutes;

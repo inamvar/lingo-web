@@ -5,6 +5,8 @@ import {courseDetail, getPackageCourseList} from "../../../services/appServices"
 import Tags from '../../../components/tags';
 import Carsoul from '../../../components/packageCarousel';
 import PackageCarousel from "../../../components/packageCarousel";
+import Link from "next/link";
+import AppRoutes from "../../../common/appRoutes";
 
 const course = (props) =>
 {
@@ -41,7 +43,7 @@ const course = (props) =>
                         <div className='flex flex-col'>
                             <Accordion chapters={courseDetail.chapters} />
                         </div>
-                        <button className='bg-red btn-page text-white'>دوره را می خرم</button>
+                        <Link href={AppRoutes.DetailCourse} className='bg-red btn-page text-white text-center'>دوره را می خرم</Link>
                         <div className='flex flex-col gap-3'>
                             <Tags tags={courseDetail.tags} />
                         </div>
