@@ -12,7 +12,8 @@ const API_ROUTES = {
     COURSE:(slug)=>
     {
         return `/Course/${slug}`
-    }
+    },
+    REFRESHTOKEN:"/Auth/RefreshToken"
 };
 
 export default API_ROUTES;

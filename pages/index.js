@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Image from 'next/image';
 import banner from '../public/picture/banner.png';
 import logo from '../public/picture/Logo.png';
@@ -32,11 +31,9 @@ const Home=(props)=>{
         );
 };
 
-export async function getServerSideProps()
+export async function getServerSideProps(context)
 {
-    console.log('get packages');
-    const packages = await getPackagesList();
-    console.log('get packages ----');
+    const packages = await getPackagesList(context);
 
     return{
         props: { packages }

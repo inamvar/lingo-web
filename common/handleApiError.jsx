@@ -2,7 +2,7 @@ import Swal from 'sweetalert2';
 import appRoutes from "./appRoutes";
 import router from 'next/router';
 
-export const handleApiError = (error) => {
+export const handleApiError = (error,res) => {
     console.log(error);
     if (error.response) {
         const { status, data } = error.response;
@@ -11,7 +11,8 @@ export const handleApiError = (error) => {
         const errorMessage = data?.message ?? 'عملیات با شکست مواجه شد';
 
         if (status === 401) {
-            router.push(appRoutes.Login);
+            res.writeHead(302, { Location: appRoutes.Login });
+            res.end();
         }
         else if( status === 400)
         {

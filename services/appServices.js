@@ -3,11 +3,8 @@ import {handleApiError} from "../common/handleApiError";
 import {pushAlert} from "../common/notifier";
 import jwt from 'jsonwebtoken';
 import {Constants} from "../common/constants";
-import * as https from "https";
-import {ax} from "./api-request";
-
-
-
+import ax from "./api-request";
+import Cookies from "js-cookie";
 
 export const signUpUser = async (firstname , lastname, password , confirmPassword , email, phoneNumber ,marketerCode ) =>
 {
@@ -32,15 +29,17 @@ export const loginUser = async (username, password) =>
     try
     {
         let response= await ax.post(API_ROUTES.LOGIN, { userName:username,password: password });
-        console.log(response);
 
         if(response.data.success == true)
         {
             const {accessToken, refreshToken} = response.data.data;
             const  decodedToken=jwt.decode(accessToken);
-            console.log(decodedToken);
-                localStorage.setItem(Constants.token,accessToken);
-                localStorage.setItem(Constants.refreshToken,refreshToken);
+            console.log(accessToken);
+
+            const remainingTime = decodedToken.exp - Date.now() / 1000;
+            Cookies.set(Constants.token, accessToken, { expires: remainingTime / (60 * 60 * 24) });
+            Cookies.set(Constants.refreshToken, refreshToken,{expires:365});
+
             pushAlert({
                 message:'ورود با موفقیت انجام شد',
                 type:'success'
@@ -63,16 +62,15 @@ export const loginUser = async (username, password) =>
     }
 };
 
-export const getPackagesList = async () =>
+export const getPackagesList = async (context) =>
 {
     try
     {
-        let response = await ax.get(API_ROUTES.PACKAGES);
+        let response = await ax.get(API_ROUTES.PACKAGES,{ctx:context});
 
         if (response.data.success == true)
         {
             const packages = response.data.data.data;
-            console.log(packages);
             return packages;
         }
         else {
@@ -82,11 +80,7 @@ export const getPackagesList = async () =>
     }
     catch (error)
     {
-         handleApiError(error);
-        // pushAlert({
-        //     message:error.data.message,
-        //     type:'error'
-        // });
+         handleApiError(error,context.res);
     }
 }
 
@@ -109,26 +103,22 @@ export const getPackageCourseList = async (slug) =>
     }
     catch (error)
     {
-        // pushAlert({
-        //     message:error.data.message,
-        //     type:'error'
-        // })
+       handleApiError(error);
     }
 }
 
-export const courseDetail = async (slug) =>
+export const courseDetail = async (slug,context) =>
 {
     try
     {
         console.log('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^test^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^');
-        console.log(slug);
-        const response = await ax.get(API_ROUTES.COURSE(slug));
+        const response = await ax.get(API_ROUTES.COURSE(slug,{ctx:context}));
         console.log(response);
         console.log('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^test^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^');
 
         if (response.data.success == true)
         {
-            const course = response.data.data.data;
+            const course = response.data.data;
             console.log(course);
             return course;
         }
@@ -139,15 +129,15 @@ export const courseDetail = async (slug) =>
     }
     catch (error)
     {
-        handleApiError(error);
+        handleApiError(error,context.res);
         // pushAlert({
         //     message:error.data.message,
         //     type:'error'
         // })
     }
 }
-export  const logout= () =>
+export const logout= () =>
 {
-    localStorage.removeItem(Constants.token);
-    localStorage.removeItem(Constants.refreshToken);
+    Cookies.remove('accessToken');
+    Cookies.remove('refreshToken');
 }

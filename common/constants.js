@@ -1,4 +1,4 @@
 export const Constants={
-    token:'token',
+    token:'accessToken',
     refreshToken:'refreshToken'
 };
