@@ -23,7 +23,7 @@ const Home=(props)=>{
                     <div className='mb-6'>
                         <p className='text-2xl font-bold darkBlue-color'>پکیج ها</p>
                     </div>
-                    <div className='flex overflow-hidden w-3/4'>
+                    <div className='flex overflow-hidden w-11/12'>
                         <PackageCarousel packages={Packages} />
                     </div>
                 </div>

@@ -4,9 +4,8 @@ import {getPackagesList} from '../services/appServices';
 
 const PackageCarousel = (props) => {
 
-
-
     const packageItems = props.packages;
+
     if (packageItems.length>0){
         const {
             carouselFragment,
@@ -18,7 +17,7 @@ const PackageCarousel = (props) => {
             items: packageItems.map((i) => ({
                 id: i.id,
                 renderItem: (
-                    <Package id={i.id} name={i.name} picture={i.thumbnailUrl} slug={i.slug}/>
+                    <Package id={i.id} name={i.name} title={i.title} picture={i.thumbnailUrl} slug={i.slug}/>
                 )
             })),
         });

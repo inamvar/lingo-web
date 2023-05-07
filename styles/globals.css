@@ -141,10 +141,11 @@ a{
 {
   left: 0px !important;
   direction: ltr;
+  gap: 2rem;
 }
 .use-spring-carousel-item
 {
-  flex: 1 0 calc(5.5% / 1 - 0px)!important;
+  flex: 1 0 calc(0% / 1 - 0px)!important;
   justify-content: center;
 }
 .panel

@@ -14,6 +14,7 @@ export default function Item(props)
                 </div>
                 <div className='flex justify-center'>
                     <p className='grey-color'>{props.name}</p>
+                    <p className='grey-color'>{props.title}</p>
                 </div>
             </div>
         </Link>
