@@ -13,7 +13,7 @@ const Package=(props)=>{
             <div className='flex flex-col md:flex-row flex-wrap gap-4 w-full xl:w-4/5 justify-evenly items-center'>
                 {courses.map((course)=>
                     <div className='flex justify-center'>
-                        <Course key={course.index} name={course.title} slug={course.slug}/>
+                        <Course key={course.index} picture={course.thumbnailUrl} name={course.title} slug={course.slug}/>
                     </div>
                 )}
             </div>

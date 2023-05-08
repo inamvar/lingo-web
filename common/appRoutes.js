@@ -12,7 +12,8 @@ const AppRoutes= {
     Course:(slug)=>{
         return `/package/course/${slug}`
     },
-    DetailCourse:'/package/course/courseDetail/video'
+    DetailCourse:'/package/course/courseDetail/video',
+    Cart:'/auth/dashboard/cart'
 };
 
 export default AppRoutes;

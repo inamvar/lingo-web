@@ -10,7 +10,7 @@ export default function Course(props)
             <div className='flex flex-col rounded bg-white p-3 gap-3 w-56 mt-5'>
                 <div className='relative'>
                     <span className='w-full div-banner object-center bg-darkBlue opacity-30 absolute'></span>
-                    <Image alt='picture' src={pic}/>
+                    <Image alt='picture' src={props.picture}/>
                 </div>
                 <div className='flex justify-center'>
                     <p className='grey-color'>{props.name}</p>
