@@ -1,16 +1,16 @@
 // import { useContext } from "react";
 // import authContext from "../../context/authContext";
-import Meta from "../../components/meta";
-import {withAuth} from "../../components/Authorized";
+import Meta from "../../../components/meta";
+import {withAuth} from "../../../components/Authorized";
 
-const Dashboard = () => {
+const Index = () => {
 
     // const auth = useContext(authContext);
 
         return (
             <>
                 <Meta title="داشبورد" />
-                <div className='flex md:flex-row flex-col items-center justify-evenly gap-6 sm:gap-2 px-2'>
+                <div className='flex md:flex-row flex-col items-center justify-evenly gap-6 sm:gap-2 px-2 w-full mt-20'>
 
                     <div className='bg-white w-2/3 sm:w-72 flex flex-col items-center justify-center gap-6 py-12 rounded'>
                         <svg width="80" height="80" viewBox="0 0 103 104" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -47,4 +47,4 @@ const Dashboard = () => {
 
 };
 
-export default withAuth(Dashboard);
+export default withAuth(Index);

@@ -15,7 +15,6 @@ export default function accordion(props)
             <Accordion allowToggle className='flex flex-col gap-2'>
 
                 {chapters.map((chapter)=>
-
                     <AccordionItem className='bg-white rounded'>
                         <h2>
                             <AccordionButton>
@@ -26,7 +25,7 @@ export default function accordion(props)
                             </AccordionButton>
                         </h2>
 
-                        {chapter.videos.map((vid)=>
+                        { chapter.videos.map((vid)=>
                             <AccordionPanel pb={4}>
                                 <div className='flex justify-between gap-1 sm:gap-2'>
 
@@ -52,10 +51,7 @@ export default function accordion(props)
                             </AccordionPanel>
                         )}
                     </AccordionItem>
-
                 )}
-
-
 
                 {/*<AccordionItem className='bg-white rounded'>*/}
                 {/*    <h2>*/}
@@ -123,6 +119,7 @@ export default function accordion(props)
                 {/*        Lorem*/}
                 {/*    </AccordionPanel>*/}
                 {/*</AccordionItem>*/}
+
             </Accordion>
         </>
     )

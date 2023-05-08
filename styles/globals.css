@@ -94,7 +94,7 @@ a{
 }
 .h-main
 {
-  min-height: 100vh;
+  min-height: 26rem;
 }
 .title-size
 {
@@ -119,7 +119,9 @@ a{
 }
 .css-pv22qu
 {
-  min-width: 45rem;
+  min-width: 40rem !important;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 .div-v-banner
 {
@@ -175,8 +177,25 @@ a{
   position: relative;
   overflow: hidden;
 }
+.discount-icon
+{
+  left: 1rem;
+  top: -2rem;
+}
+.discount-text
+{
+  left: 2rem;
+  top: -0.6rem;
+  rotate: -25deg;
+}
 
-
+@media only screen and (max-width:660px)
+{
+  .css-pv22qu
+  {
+    min-width: 10rem !important;
+  }
+}
 
 
 

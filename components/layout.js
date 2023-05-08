@@ -7,8 +7,8 @@ const Layout = ({ children }) => {
             <Meta title='صفحه اصلی'/>
             <div className='App min-h-screen bg-page flex flex-col justify-between'>
                 <Header/>
-                <div className='h-main flex flex-col justify-between'>
-                    <main>
+                <div className='flex flex-col justify-between'>
+                    <main className='h-main'>
                         {children}
                     </main>
                     <Footer />
