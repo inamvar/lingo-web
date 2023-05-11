@@ -14,7 +14,8 @@ const course = (props) =>
     const courseDetail = props.result;
     const relatesCourses = props.relatesCourses;
 
-    console.log(courseDetail);
+    console.log(props.result);
+    console.log(courseDetail.chapters);
 
     let  num=0;
  courseDetail.chapters.forEach((e,i)=>{
@@ -61,7 +62,7 @@ const course = (props) =>
 
                 <div className='flex flex-col justify-center items-center mt-9 w-full'>
                     <div className='mb-6'>
-                        <p className='text-2xl font-bold darkBlue-color'>دوره های مرتبط</p>
+                        <p className='text-base md:text-xl font-bold darkBlue-color'>دوره های مرتبط</p>
                     </div>
                     <div className='flex overflow-hidden w-full justify-center'>
                         <CourseCarousel courses={relatesCourses} />

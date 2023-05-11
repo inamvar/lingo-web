@@ -12,7 +12,7 @@ const API_ROUTES = {
     {
         return `/Course/${slug}`
     },
-    VIDEO:(slug)=>`/Course/Video/${slug}`,
+    VIDEO:(slug)=>`/Course/Videos/${slug}`,
     REFRESHTOKEN:"/Auth/RefreshToken",
     SITESETTING:"/setting",
     MYPROFILE:"/user/profile",

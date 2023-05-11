@@ -188,6 +188,10 @@ a{
   top: -0.6rem;
   rotate: -25deg;
 }
+.border-red
+{
+  border: 3px solid var(--red);
+}
 
 @media only screen and (max-width:660px)
 {
