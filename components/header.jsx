@@ -19,11 +19,6 @@ const Header = ()=>{
         authCtx.setAuthState({authenticated:false,user:null});
     }
 
-    // const getpackages = async() => {
-    //     const result = await getPackagesList();
-    //     console.log(result);
-    // }
-
     return(
         <div className='flex justify-between mb-8 mt-4 lg:px-5 px-3'>
 

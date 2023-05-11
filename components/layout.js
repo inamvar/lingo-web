@@ -1,7 +1,7 @@
 import Footer from './footer';
 import Header from './header';
 import Meta from "./meta";
-const Layout = ({ children }) => {
+const Layout = ({ children,siteSetting}) => {
     return (
         <>
             <Meta title='صفحه اصلی'/>
@@ -11,11 +11,10 @@ const Layout = ({ children }) => {
                     <main className='h-main'>
                         {children}
                     </main>
-                    <Footer />
+                    <Footer  siteSetting={siteSetting}/>
                 </div>
             </div>
         </>
     )
 }
-
-export default Layout
+export default Layout;

@@ -7,18 +7,20 @@ import Carsoul from '../../../components/packageCarousel';
 import PackageCarousel from "../../../components/packageCarousel";
 import Link from "next/link";
 import AppRoutes from "../../../common/appRoutes";
+import CourseCarousel from "../../../components/courseCarousel";
 
 const course = (props) =>
 {
     const courseDetail = props.result;
     const relatesCourses = props.relatesCourses;
 
-    console.log(relatesCourses);
+    console.log(courseDetail);
 
-    const num = 0;
-    courseDetail.chapters.map((c)=>
-        c.videos.length += num
-    )
+    let  num=0;
+ courseDetail.chapters.forEach((e,i)=>{
+     console.log(e);
+    num+=e.videos.length;
+ });
 
     return(
         <>
@@ -26,7 +28,7 @@ const course = (props) =>
                 <div className='flex flex-col md:flex-row gap-8 md:w-11/12 w-full items-center md:items-start'>
                     <div className='flex flex-col w-11/12 md:w-1/2 gap-7'>
                         <div className='flex bg-white items-center p-4 gap-5 sm:gap-28 rounded justify-center'>
-                            <Image src={Professor} alt='picture'/>
+                            <Image src={courseDetail.thumbnailImageUrl} className='rounded-full' width={100} height={100} alt='picture'/>
                             <p className='whitespace-nowrap font-bold'>{courseDetail.title}</p>
                         </div>
                         <div className='flex flex-col gap-2'>
@@ -35,7 +37,7 @@ const course = (props) =>
                         </div>
                         <div className='flex justify-center md:justify-evenly gap-6'>
                             <div className='bg-white whitespace-nowrap p-3 sm:p-6 font-bold rounded w-1/3 text-center sm:text-md text-sm'>{num} جلسه </div>
-                            <div className='bg-white whitespace-nowrap p-3 sm:p-6 font-bold rounded w-3/4 text-center sm:text-md text-sm'>15 ساعت و 40 دقیقه</div>
+                            <div className='bg-white whitespace-nowrap p-3 sm:p-6 font-bold rounded w-3/4 text-center sm:text-md text-sm'>0 دقیقه</div>
                         </div>
                     </div>
                     <div className='flex flex-col w-11/12 md:w-1/2 gap-6'>
@@ -51,7 +53,6 @@ const course = (props) =>
                             </svg>
                             <p className='absolute text-white discount-text'>%50</p>
                         </div>
-
                         <div className='flex flex-col gap-3'>
                             <Tags tags={courseDetail.tags} />
                         </div>
@@ -63,7 +64,7 @@ const course = (props) =>
                         <p className='text-2xl font-bold darkBlue-color'>دوره های مرتبط</p>
                     </div>
                     <div className='flex overflow-hidden w-full justify-center'>
-                        <PackageCarousel packages={relatesCourses} />
+                        <CourseCarousel courses={relatesCourses} />
                     </div>
                 </div>
 
@@ -76,7 +77,6 @@ export async function getServerSideProps(context)
 {
     const res = context.query.slug;
     const slug = `${res[0]}/${res[1]}`;
-    console.log(slug);
     const result = await courseDetail(slug,context);
     const relatesCourses = await getPackageCourseList(result.package.id);
 

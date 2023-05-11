@@ -5,7 +5,6 @@ import PackageCarousel from '../components/packageCarousel';
 import {getPackagesList} from "../services/appServices";
 
 const Home=(props)=>{
-
     const Packages = props.packages;
 
         return (
@@ -24,7 +23,7 @@ const Home=(props)=>{
                         <p className='text-2xl font-bold darkBlue-color'>پکیج ها</p>
                     </div>
                     <div className='flex overflow-hidden w-full justify-center'>
-                        <PackageCarousel packages={Packages} />
+                         <PackageCarousel packages={Packages} />
                     </div>
                 </div>
             </>

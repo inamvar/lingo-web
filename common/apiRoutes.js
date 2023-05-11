@@ -4,7 +4,6 @@ const API_ROUTES = {
     LOGIN: "/Auth/SignIn",
     SIGN_UP:"/Auth/SingnUp",
     PACKAGES:"/Package",
-    DETAIL:"/package/[id]",
     PACKAGE:(slug)=>
     {
         return `/Package/${slug}`
@@ -13,7 +12,11 @@ const API_ROUTES = {
     {
         return `/Course/${slug}`
     },
-    REFRESHTOKEN:"/Auth/RefreshToken"
+    VIDEO:(slug)=>`/Course/Video/${slug}`,
+    REFRESHTOKEN:"/Auth/RefreshToken",
+    SITESETTING:"/setting",
+    MYPROFILE:"/user/profile",
+    UPDATEMYPROFILE:"/user/profile"
 };
 
 export default API_ROUTES;

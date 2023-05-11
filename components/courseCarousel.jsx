@@ -1,23 +1,23 @@
 import { useSpringCarousel } from 'react-spring-carousel';
-import Package from "./packageCarouselItem";
-import {getPackagesList} from '../services/appServices';
-import PackageCarouselItem from "./packageCarouselItem";
+import CourseCarouselItem from "./courseCarouselItem";
 
-const PackageCarousel = (props) => {
 
-    const packageItems = props.packages;
+const CourseCarousel = (props) =>
+{
+    const packageItems = props.courses;
+    console.log(packageItems);
     if (packageItems.length>0){
         const {
             carouselFragment,
             slideToPrevItem,
             slideToNextItem
         } = useSpringCarousel({
-            itemsPerSlide: 3,
+            itemsPerSlide: 1,
             withLoop: true,
             items: packageItems.map((i) => ({
                 id: i.id,
                 renderItem: (
-                    <PackageCarouselItem id={i.id} name={i.name} title={i.title} picture={i.thumbnailUrl} slug={i.slug}/>
+                    <CourseCarouselItem id={i.id} name={i.name} title={i.title} picture={i.thumbnailImageUrl} slug={i.slug}/>
                 )
             })),
         });
@@ -46,4 +46,4 @@ const PackageCarousel = (props) => {
 
 }
 
-export default PackageCarousel
+export default CourseCarousel
