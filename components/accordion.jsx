@@ -7,6 +7,7 @@ import {
 } from '@chakra-ui/react';
 import Link from "next/link";
 import appRoutes from "../common/appRoutes";
+import AppRoutes from "../common/appRoutes";
 
 export default function accordion(props)
 {
@@ -43,10 +44,9 @@ export default function accordion(props)
                                         </div>
                                     </div>
 
-                                        <Link href={appRoutes.Video(vid.id+"/"+vid.title)} className='flex items-center justify-center gap-1 w-1/6 sm:w-1/5'>
+                                        <Link href={vid.isFree?appRoutes.Video(vid.slug):appRoutes.Cart} className='flex items-center justify-center gap-1 w-1/6 sm:w-1/5'>
                                             <p className='text-sm hidden sm:block'>نمایش</p>
                                             <div>
-                                                {/*className='hidden sm:block'*/}
                                                 <svg  width="22" height="22" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M16.3345 6.30321e-05C25.2432 0.00406557 32.4637 7.22695 32.4637 16.1363C32.4637 20.5887 30.6604 24.6198 27.7444 27.5394L27.7446 27.5392C24.8061 30.5796 20.6916 32.4672 16.1362 32.4672C7.22443 32.4672 0 25.2428 0 16.331C0 11.7774 1.88617 7.66433 4.91988 4.7305L4.92439 4.72618C7.82828 1.80682 11.8483 0 16.2903 0C16.3059 0 16.3214 0 16.3369 6.30321e-05H16.3345H16.3345ZM16.3345 30.121C24.058 30.121 30.3192 23.8598 30.3192 16.1363C30.3192 8.41274 24.058 2.1516 16.3345 2.1516C8.61091 2.1516 2.34974 8.41271 2.34974 16.1362C2.35873 23.8561 8.61451 30.112 16.3336 30.1209H16.3345V30.121ZM11.1565 7.4672L26.7692 16.1363L11.1565 24.8054V7.4672ZM22.3372 16.1363L13.308 11.1161V21.1564L22.3372 16.1363Z" fill="black"/>
                                                 </svg>

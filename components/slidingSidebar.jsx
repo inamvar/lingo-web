@@ -10,7 +10,7 @@ import {useContext} from "react";
 
 const slidingSidebar = () => {
 
-    const authCtx=useContext(authContext);
+    const authCtx = useContext(authContext);
     const [openPanel, setOpenPanel] = useState(false);
 
     return (
@@ -32,11 +32,11 @@ const slidingSidebar = () => {
 
                         {authCtx.authState.authenticated ? (
                             <div className='flex flex-col justify-center items-center gap-6 mb-4'>
-                                <div className='bg-darkBlue w-40 h-40 rounded-full justify-center items-center flex'>مریم ناظری</div>
+                                <div className='bg-darkBlue w-40 h-40 rounded-full justify-center items-center flex text-white'>{authCtx.authState.user.first_name + ' ' + authCtx.authState.user.last_name}</div>
                                 <Link href={AppRoutes.Dashboard} className='darkBlue-color'>مشاهد پروفایل</Link>
                             </div>
                         ):(
-                            <div></div>
+                            <Link href={AppRoutes.Login} className='darkBlue-color py-2 w-full text-right pb-5'>ورود/ثبت نام</Link>
                         )}
 
                         <div className='flex flex-col items-end mb-4 pt-4'>

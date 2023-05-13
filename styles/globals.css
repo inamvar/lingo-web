@@ -196,6 +196,15 @@ a{
 {
   border: 3px solid var(--red);
 }
+.video-div div
+{
+  height: fit-content;
+}
+.negavid-video-stream
+{
+  padding-bottom: 60.25% !important;
+  padding-top: 0px !important;
+}
 
 @media only screen and (max-width:660px)
 {

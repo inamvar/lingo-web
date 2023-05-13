@@ -3,8 +3,12 @@ import banner from '../public/picture/banner.png';
 import logo from '../public/picture/Logo.png';
 import PackageCarousel from '../components/packageCarousel';
 import {getPackagesList} from "../services/appServices";
+import authContext from "../context/authContext";
+import {useContext} from "react";
 
 const Home=(props)=>{
+
+    const authCtx = useContext(authContext);
     const Packages = props.packages;
 
         return (
@@ -15,7 +19,12 @@ const Home=(props)=>{
                     <div className='div-v-banner w-11/12 sm:w-1/4 bg-white flex-col opacity-90 pb-5 md:pb-10 sm:pb-20 gap-5'>
                         <Image className='w-32 md:w-56' src={logo} alt='logo'/>
                         <p className='darkBlue-color text-xl font-bold'>لورم ایپسوم</p>
-                        <p className='darkBlue-color'>کاربر مریم نظری عزیز، خوش آمدید.</p>
+                        {authCtx.authState.authenticated ? (
+                            <p className='darkBlue-color'>کاربر {authCtx.authState.user.first_name + ' ' + authCtx.authState.user.last_name} عزیز، خوش آمدید.</p>
+                        ):(
+                            <p className='darkBlue-color'> خوش آمدید.</p>
+                        )}
+
                     </div>
                 </div>
                 <div className='flex flex-col justify-center items-center mt-9'>
