@@ -8,7 +8,7 @@ const Layout = ({ children,siteSetting}) => {
             <div className='App min-h-screen bg-page flex flex-col justify-between'>
                 <Header/>
                 <div className='flex flex-col justify-between'>
-                    <main className='h-main'>
+                    <main className={'h-main'}>
                         {children}
                     </main>
                     <Footer  siteSetting={siteSetting}/>

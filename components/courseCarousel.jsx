@@ -5,7 +5,7 @@ import CourseCarouselItem from "./courseCarouselItem";
 const CourseCarousel = (props) =>
 {
     const packageItems = props.courses;
-    console.log(packageItems);
+
     if (packageItems.length>0){
         const {
             carouselFragment,

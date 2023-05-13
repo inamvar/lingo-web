@@ -14,15 +14,19 @@
 }
 @font-face {
   font-family: 'IRANSans';
-  src: local('IRANSans'), url("/public/font/IRANSans.ttf") format('ttf') ;
+  src: url('/font/IRANSans.ttf') format('truetype');
+  /*src: url('/font/Vazirmatn-Regular.ttf') format('truetype');*/
+  font-weight: normal;
+  font-style: normal;
 }
-*
-{
-  font-family: IRANSans !important;
+
+* {
+  font-family: 'IRANSans' !important;
 }
 html{
   direction: rtl;
 }
+
 input
 {
   outline: none;

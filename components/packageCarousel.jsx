@@ -12,7 +12,7 @@ const PackageCarousel = (props) => {
             slideToPrevItem,
             slideToNextItem
         } = useSpringCarousel({
-            itemsPerSlide: 3,
+            itemsPerSlide: 1,
             withLoop: true,
             items: packageItems.map((i) => ({
                 id: i.id,

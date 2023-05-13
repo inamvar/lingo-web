@@ -37,7 +37,6 @@ export const loginUser = async (username, password) =>
         {
             const {accessToken, refreshToken} = response.data.data;
             const  decodedToken=jwt.decode(accessToken);
-            console.log(accessToken);
 
             const remainingTime = decodedToken.exp - Date.now() / 1000;
             Cookies.set(Constants.token, accessToken, { expires: remainingTime / (60 * 60 * 24) });
@@ -154,9 +153,11 @@ export const getVideoDetail=async (slug,context)=>{
         handleApiError(error);
     }
 }
-export const  getSiteSetting=async ()=>{
+export const getSiteSetting = async() =>
+{
     try {
         const response=await ax.get(API_ROUTES.SITESETTING);
+
         if (response.data.success==true){
             const result = response.data.data;
             console.log(result);
@@ -168,7 +169,7 @@ export const  getSiteSetting=async ()=>{
         }
     }
     catch (error){
-
+        console.log(error)
     }
 }
 export const getMyProfile=async (ctx)=>{
@@ -188,26 +189,35 @@ export const getMyProfile=async (ctx)=>{
 
     }
 }
-export const updateMyProfile=async (input,ctx)=>{
+
+export const updateMyProfile = async(input,ctx) =>
+{
     try {
-        console.log(input);
-        const response=await ax.put(API_ROUTES.UPDATEMYPROFILE,
-            {firstName:input.firstName,lastName:input.lastName,phoneNumber:input.phoneNumber},{ctx:ctx});
-        if (response.data.success==true){
-            const result=response.data.data;
+        const response=await ax.put(API_ROUTES.UPDATEMYPROFILE, {firstName:input.firstName,lastName:input.lastName,phoneNumber:input.phoneNumber},{ctx:ctx});
+        if (response.data.success==true)
+        {
+            const result = response.data.data;
             console.log(result);
             return result;
         }
         else {
-
+            pushAlert({message:response.data.message,type:'error'});
+            return null;
         }
     }
     catch (error){
-
+        console.log(error);
     }
 }
-export const logout= () =>
+
+export const logout = async() =>
 {
-    Cookies.remove('accessToken');
-    Cookies.remove('refreshToken');
+    const response = await ax.get(API_ROUTES.SIGN_OUT);
+    if(response.status == 200)
+    {
+        console.log(response);
+        Cookies.remove('accessToken');
+        Cookies.remove('refreshToken');
+        return true;
+    }
 }

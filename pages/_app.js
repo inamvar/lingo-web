@@ -7,6 +7,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 import {getSiteSetting} from "../services/appServices";
 import App from "next/app";
 
+
 function MyApp({ Component, pageProps,siteSetting }) {
 
     const [authState,setAuthState]=useState({});
@@ -20,7 +21,7 @@ function MyApp({ Component, pageProps,siteSetting }) {
         return (
             <ChakraProvider>
                 <AuthContext.Provider value={{authState,setAuthState}}>
-                    <Layout siteSetting={siteSetting}>
+                    <Layout   siteSetting={siteSetting} >
                         <Component {...pageProps} />
                     </Layout>
                 </AuthContext.Provider>

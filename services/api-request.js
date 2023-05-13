@@ -18,7 +18,7 @@ ax.interceptors.request.use(function (config) {
     const cookies = parseCookies(config.ctx);
 
    const token= cookies[Constants.token];
-    console.log(token);
+
        if (token) {
            config.headers['Authorization'] = `Bearer ${token}`;
        }

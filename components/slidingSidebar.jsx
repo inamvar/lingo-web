@@ -1,12 +1,16 @@
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
+import AppRoutes from "../common/appRoutes";
 import SlidingPanel from 'react-sliding-side-panel';
 import 'react-sliding-side-panel/lib/index.css';
-//
+import Link from "next/link";
+import App from "next/app";
+import authContext from "../context/authContext";
 // import statusContext from "../Contex/contex";
-// import {useContext} from "react";
+import {useContext} from "react";
 
 const slidingSidebar = () => {
 
+    const authCtx=useContext(authContext);
     const [openPanel, setOpenPanel] = useState(false);
 
     return (
@@ -25,14 +29,19 @@ const slidingSidebar = () => {
             >
                 <div className='flex flex-col h-full justify-between'>
                     <div className='flex flex-col py-7 px-8 divide-y-2 divide-gray-300'>
-                        <div className='flex flex-col justify-center items-center gap-6 mb-4'>
-                            <div className='bg-darkBlue w-40 h-40 rounded-full justify-center items-center flex'>مریم ناظری</div>
-                            <p className='darkBlue-color'>مشاهد پروفایل</p>
-                        </div>
+
+                        {authCtx.authState.authenticated ? (
+                            <div className='flex flex-col justify-center items-center gap-6 mb-4'>
+                                <div className='bg-darkBlue w-40 h-40 rounded-full justify-center items-center flex'>مریم ناظری</div>
+                                <Link href={AppRoutes.Dashboard} className='darkBlue-color'>مشاهد پروفایل</Link>
+                            </div>
+                        ):(
+                            <div></div>
+                        )}
+
                         <div className='flex flex-col items-end mb-4 pt-4'>
-                            <a className='darkBlue-color py-2 w-full text-right'>ثبت نام</a>
-                            <a className='darkBlue-color py-2 w-full text-right'>خانه</a>
-                            <a className='darkBlue-color py-2 w-full text-right'>دانلودهای من</a>
+                            <Link href={AppRoutes.Main} className='darkBlue-color py-2 w-full text-right'>خانه</Link>
+                            <Link href={AppRoutes.MyPackages} className='darkBlue-color py-2 w-full text-right'>دوره های من</Link>
                             <a className='darkBlue-color py-2 w-full text-right'>پکیج های رایگان</a>
                             <a className='darkBlue-color py-2 w-full text-right'>پکیج ها و مشاوره</a>
                             <a className='darkBlue-color py-2 w-full text-right'>تخفیف ها</a>
