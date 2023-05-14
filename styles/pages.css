@@ -27,13 +27,6 @@ a{
 {
     color: var(--darkGrey);
 }
-.green-btn
-{
-    background-color: var(--green);
-    border-radius: 5px;
-    color: black;
-    padding: 0.7rem;
-}
 .bg-grey
 {
     background-color: var(--grey);
@@ -45,12 +38,6 @@ a{
 .bg-red
 {
     background-color: var(--red);
-}
-.btn-page
-{
-    border-radius: 5px;
-    padding: 0.6rem;
-    box-shadow: 0px 2px 4px rgba(136, 144, 194, 0.2), 0px 5px 15px rgba(37, 44, 97, 0.15);
 }
 .bg-darkBlue
 {

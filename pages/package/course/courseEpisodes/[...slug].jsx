@@ -4,25 +4,26 @@ import Accordion from "../../../../components/accordion";
 import {courseDetail, getVideoDetail} from "../../../../services/appServices";
 import {AuthenticatedLink} from "../../../../components/authenticatedLink";
 import Link from "next/link";
+import {useEffect} from "react";
 
 const Slug=(props)=>
 {
-    console.log(props.result);
-
     const result=props.result;
+    console.log(result)
     const currentVideo=result.currentVideo;
 
     console.log(currentVideo);
 
     return(
         <>
-            <div className='flex flex-col md:flex-row gap-5 p-3 justify-center items-center md:items-start'>
+            <div className='flex flex-col md:flex-row gap-5 px-0 md:p-3 justify-center items-center md:items-start'>
                 <div className='w-11/12 md:w-1/3 order-last md:order-first'>
                     <Accordion chapters={result.chapters} />
                 </div>
-                <div className='w-11/12 md:w-2/3 flex order-first md:order-last flex-col gap-5'>
-                    <div className='video-div' dangerouslySetInnerHTML={{ __html: currentVideo.embedPlayer }} />
-                    <div className='flex flex-col gap-4'>
+                <div className='w-full md:w-2/3 flex justify-center order-first md:order-last flex-col gap-5 rounded-none'>
+                    {/*<Accordion chapters={result.chapters} />*/}
+                    <div className='video-div rounded-none' dangerouslySetInnerHTML={{ __html: currentVideo.embedPlayer }} />
+                    <div className='flex flex-col gap-4 px-6 md:px-0 w-full'>
                         <p className='font-bold text-lg'>{currentVideo.title}</p>
                         <p>{currentVideo.description!=undefined?currentVideo.description:'توضیحات ویدیو'}</p>
                         <div className='flex gap-2 mt-3'>
@@ -49,6 +50,7 @@ export async function getServerSideProps(ctx){
     const res = ctx.query.slug;
     const slug = `${res[0]}/${res[1]}`;
     const result = await getVideoDetail(slug,ctx);
+
     return{
         props:{result}
     };

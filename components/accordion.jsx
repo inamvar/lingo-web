@@ -13,6 +13,7 @@ export default function accordion(props)
 {
     const chapters = props.chapters;
     console.log(chapters);
+
     return(
         <>
             <Accordion allowToggle className='flex flex-col gap-2'>

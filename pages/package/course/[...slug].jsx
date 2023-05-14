@@ -29,7 +29,7 @@ const course = (props) =>
                 <div className='flex flex-col md:flex-row gap-8 md:w-11/12 w-full items-center md:items-start'>
                     <div className='flex flex-col w-11/12 md:w-1/2 gap-7'>
                         <div className='flex bg-white items-center p-4 gap-5 sm:gap-28 rounded justify-center'>
-                            <Image src={courseDetail.thumbnailImageUrl} className='rounded-full' width={100} height={100} alt='picture'/>
+                            <Image src={courseDetail.thumbnailImageUrl} className='rounded-full w-40' width={100} height={100} alt='picture'/>
                             <p className='whitespace-nowrap font-bold'>{courseDetail.title}</p>
                         </div>
                         <div className='flex flex-col gap-2'>
