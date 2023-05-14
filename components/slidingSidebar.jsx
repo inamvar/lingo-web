@@ -3,9 +3,7 @@ import AppRoutes from "../common/appRoutes";
 import SlidingPanel from 'react-sliding-side-panel';
 import 'react-sliding-side-panel/lib/index.css';
 import Link from "next/link";
-import App from "next/app";
 import authContext from "../context/authContext";
-// import statusContext from "../Contex/contex";
 import {useContext} from "react";
 
 const slidingSidebar = () => {
@@ -13,8 +11,11 @@ const slidingSidebar = () => {
     const authCtx = useContext(authContext);
     const [openPanel, setOpenPanel] = useState(false);
 
+    const handleLinkClick = () => {
+        setOpenPanel(false);
+    };
     return (
-        <div>
+        <div >
             <div>
                 <button className='mt-0.5' onClick={() => setOpenPanel(true)}>
                     <svg width="33" height="100%" viewBox="0 0 33 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -25,7 +26,9 @@ const slidingSidebar = () => {
             <SlidingPanel
                 type={'right'}
                 isOpen={openPanel}
-                size={80}
+                size={70}
+                backdropClicked={handleLinkClick}
+
             >
                 <div className='flex flex-col h-full justify-between'>
                     <div className='flex flex-col py-7 px-8 divide-y-2 divide-gray-300'>
@@ -33,22 +36,24 @@ const slidingSidebar = () => {
                         {authCtx.authState.authenticated ? (
                             <div className='flex flex-col justify-center items-center gap-6 mb-4'>
                                 <div className='bg-darkBlue w-40 h-40 rounded-full justify-center items-center flex text-white'>{authCtx.authState.user.first_name + ' ' + authCtx.authState.user.last_name}</div>
-                                <Link href={AppRoutes.Dashboard} className='darkBlue-color'>مشاهد پروفایل</Link>
+                                <Link onClick={handleLinkClick} href={AppRoutes.Dashboard} className='darkBlue-color'>مشاهد پروفایل</Link>
                             </div>
                         ):(
-                            <Link href={AppRoutes.Login} className='darkBlue-color py-2 w-full text-right pb-5'>ورود/ثبت نام</Link>
+                            <Link  onClick={handleLinkClick} href={AppRoutes.Login} className='darkBlue-color py-2 w-full text-right pb-5'>ورود/ثبت نام</Link>
                         )}
 
                         <div className='flex flex-col items-end mb-4 pt-4'>
-                            <Link href={AppRoutes.Main} className='darkBlue-color py-2 w-full text-right'>خانه</Link>
-                            <Link href={AppRoutes.MyPackages} className='darkBlue-color py-2 w-full text-right'>دوره های من</Link>
-                            <a className='darkBlue-color py-2 w-full text-right'>پکیج های رایگان</a>
-                            <a className='darkBlue-color py-2 w-full text-right'>پکیج ها و مشاوره</a>
-                            <a className='darkBlue-color py-2 w-full text-right'>تخفیف ها</a>
+                            <Link onClick={handleLinkClick} href={AppRoutes.Main} className='darkBlue-color py-2 w-full text-right'>خانه</Link>
+                            <Link onClick={handleLinkClick} href={AppRoutes.MyPackages} className='darkBlue-color py-2 w-full text-right'>دوره های من</Link>
+                            <Link onClick={handleLinkClick} href='#'  className='darkBlue-color py-2 w-full text-right'>پکیج ها و مشاوره</Link>
+                            <Link onClick={handleLinkClick} href='#' className='darkBlue-color py-2 w-full text-right'>تخفیف ها</Link>
+                            <Link onClick={handleLinkClick} href='#' className='darkBlue-color py-2 w-full text-right'>پکیج های رایگان</Link>
+
                         </div>
+
                         <div className='flex flex-col items-end pt-4'>
-                            <a className='darkBlue-color py-2 w-full text-right'>تماس با ما</a>
-                            <a className='darkBlue-color py-2 w-full text-right'>پرسش های متداول</a>
+                            <Link onClick={handleLinkClick} href='#' className='darkBlue-color py-2 w-full text-right'>تماس با ما</Link>
+                            <Link onClick={handleLinkClick} href='#' className='darkBlue-color py-2 w-full text-right'>پرسش های متداول</Link>
                         </div>
                     </div>
                     <div className='p-4 bg-darkBlue' onClick={() => setOpenPanel(false)}>

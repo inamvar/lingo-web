@@ -47,17 +47,17 @@ export const loginUser = async (username, password) =>
             //     type:'success'
             // })
             return {
-               authenticated:true,
-               user:decodedToken
+                authenticated:true,
+                user:decodedToken
             };
-       }
-       else{
-           console.log(response.data.message);
-           pushAlert({
-               message:response.data.message,
-               type:'error'
-           });
-       }
+        }
+        else{
+            console.log(response.data.message);
+            pushAlert({
+                message:response.data.message,
+                type:'error'
+            });
+        }
     }
     catch (error){
         handleApiError(error);
@@ -82,7 +82,7 @@ export const getPackagesList = async (context) =>
     }
     catch (error)
     {
-         handleApiError(error,context.res);
+        handleApiError(error,context.res);
     }
 }
 
@@ -105,7 +105,7 @@ export const getPackageCourseList = async (slug) =>
     }
     catch (error)
     {
-       handleApiError(error);
+        handleApiError(error);
     }
 }
 
@@ -137,7 +137,7 @@ export const courseDetail = async (slug,context) =>
 }
 export const getVideoDetail=async (slug,context)=>{
     try {
-            const response=await ax.get(API_ROUTES.VIDEO(slug),{ctx:context});
+        const response=await ax.get(API_ROUTES.VIDEO(slug),{ctx:context});
         if (response.data.success == true)
         {
             const course = response.data.data;
@@ -209,7 +209,19 @@ export const updateMyProfile = async(input,ctx) =>
         console.log(error);
     }
 }
+export const getBanner=async ()=>{
+    try {
+        const response=await ax.get(API_ROUTES.BANNER);
+        if (response.data.success==true){
+            const result=response.data.data;
+            console.log(result);
+            return result;
+        }
+    }
+    catch (error){
 
+    }
+}
 export const logout = async() =>
 {
     const response = await ax.get(API_ROUTES.SIGN_OUT);

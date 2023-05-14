@@ -205,6 +205,10 @@ a{
   padding-bottom: 60.25% !important;
   padding-top: 0px !important;
 }
+.vid-div-banner
+{
+  min-width: 55rem;
+}
 .item-size
 {
   width:15rem;

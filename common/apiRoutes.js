@@ -17,7 +17,8 @@ const API_ROUTES = {
     REFRESHTOKEN:"/Auth/RefreshToken",
     SITESETTING:"/setting",
     MYPROFILE:"/user/profile",
-    UPDATEMYPROFILE:"/user/profile"
+    UPDATEMYPROFILE:"/user/profile",
+    BANNER:"/Banner"
 };
 
 export default API_ROUTES;
