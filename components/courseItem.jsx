@@ -5,9 +5,9 @@ import APP_ROUTES from "../common/appRoutes";
 
 export default function CourseItem(props)
 {
-    const itemStyles={width:'200px',height:'250px'};
+    // const itemStyles={width:'200px',height:'250px'};
     return(
-        <Link style={itemStyles} href={APP_ROUTES.Course(props.slug)}>
+        <Link className='item-size' href={APP_ROUTES.Course(props.slug)}>
             <div className='flex flex-col rounded bg-white p-3 h-full w-full gap-3 mt-5'>
                 <div style={{height:"80%"}} className='relative'>
                     <span className='w-full div-banner object-center bg-darkBlue opacity-30 absolute'></span>

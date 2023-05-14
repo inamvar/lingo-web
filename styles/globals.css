@@ -205,6 +205,29 @@ a{
   padding-bottom: 60.25% !important;
   padding-top: 0px !important;
 }
+.item-size
+{
+  width:15rem;
+  height:17rem;
+}
+
+@media only screen and (min-width:700px)
+{
+  .item-size
+  {
+    width:20rem;
+    height:22rem;
+  }
+}
+
+@media only screen and (min-width:1000px)
+{
+  .item-size
+  {
+    width:30rem;
+    height:32rem;
+  }
+}
 
 @media only screen and (max-width:660px)
 {
