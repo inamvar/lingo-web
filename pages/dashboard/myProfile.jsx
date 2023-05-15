@@ -2,8 +2,9 @@ import InputText from "../../components/form-inputs/InputText";
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import {validator} from "../../common/validator";
-import {getMyProfile, updateMyProfile} from "../../services/appServices";
+import {getMyProfile} from "../../services/appServices";
 import {pushAlert} from "../../common/notifier";
+import {updateMyProfile} from "../../services/clientAppService";
 
 function myProfile(props)
 {

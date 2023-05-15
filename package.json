@@ -3,7 +3,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start -p 8080"
   },
   "dependencies": {
     "@chakra-ui/modal": "^2.2.11",
@@ -25,6 +25,7 @@
     "react-hook-form": "^7.43.9",
     "react-player": "^2.12.0",
     "react-sliding-side-panel": "^2.0.3",
+    "react-spinner-animated": "^3.1.1",
     "react-spring-carousel": "^2.0.19",
     "sweetalert2": "^11.7.3",
     "yup": "^1.1.1"

@@ -7,11 +7,11 @@ import authContext from "../context/authContext";
 import {useContext} from "react";
 import ReactPlayer from "react-player";
 
+
 const Home=(props)=>{
 
     const authCtx = useContext(authContext);
     const Packages = props.packages;
-    console.log(props.banner);
     const banner=props.banner;
 
     return (
@@ -21,7 +21,7 @@ const Home=(props)=>{
                     : <Image className='w-full' alt='picture' src={bannerImage}/>}
                 {/*<Image className='w-full' alt='picture' src={bannerImage}/>*/}
                 <span className='w-full div-banner object-center bg-darkBlue opacity-60 absolute'></span>
-                <div className='div-v-banner w-11/12 sm:w-1/4 bg-white flex-col opacity-90 pb-5 md:pb-10 sm:pb-20 gap-5'>
+                <div className='div-v-banner w-11/12 sm:w-1/2 bg-white flex-col opacity-90 pb-5 md:pt-10 md:pb-20 sm:pb-20 gap-5'>
                     <Image className='w-32 md:w-56' src={logo} alt='logo'/>
                     <p className='darkBlue-color text-xl font-bold'>لورم ایپسوم</p>
                     {authCtx.authState.authenticated ? (
@@ -31,8 +31,8 @@ const Home=(props)=>{
                     )}
                 </div>
             </div>
-            <div className='flex flex-col justify-center items-center mt-9'>
-                <div className='mb-6'>
+            <div className='flex flex-col justify-center gap-9 items-center mt-9'>
+                <div>
                     <p className='text-2xl font-bold darkBlue-color'>پکیج ها</p>
                 </div>
                 <div className='flex overflow-hidden w-full justify-center'>
@@ -47,9 +47,6 @@ export async function getServerSideProps(context)
 {
     const packages = await getPackagesList(context);
     const banner=await getBanner();
-    console.log('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$');
-    console.log(banner);
-
     return{
         props: { packages,banner }
     }

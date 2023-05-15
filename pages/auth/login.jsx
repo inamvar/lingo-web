@@ -6,10 +6,10 @@ import Meta from "../../components/meta";
 import {useContext, useState} from "react";
 import { yupResolver } from '@hookform/resolvers/yup';
 import {validator} from "/common/validator";
-import {loginUser} from "../../services/appServices";
 import {router} from "next/router";
 import authContext from "../../context/authContext";
 import useAuth from "../../hooks/useAuth";
+import {loginUser} from "../../services/clientAppService";
 
 export default function Login(){
 
@@ -31,11 +31,20 @@ export default function Login(){
     }
 
     const onSubmit = async (data) => {
+       const {returnUrl}= router.query;
+       console.log(returnUrl);
+
         const result = await loginUser(data.userName,data.password);
         if (result != undefined)
         {
             setContext(result);
-            router.push(appRoutes.Main);
+            if (returnUrl!=undefined){
+                router.push(returnUrl);
+            }
+            else
+            {
+                router.push(appRoutes.Main);
+            }
         }
     };
 
@@ -49,7 +58,7 @@ export default function Login(){
             <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col p-5 bg-white rounded w-5/6 sm:w-96 gap-5'>
                 <p className='text-sm'>لطفا برای ورود به حساب کاربری اطلاعات زیر را تکمیل کنید </p>
                 <div className='flex flex-col gap-3'>
-                    <InputText error={errors.userName?.message} register={register}  placeholder='نام کاربری' name='userName'/>
+                    <InputText error={errors.userName?.message} register={register}  placeholder='ایمیل' name='userName'/>
                     <InputText error={errors.password?.message} type='password' required register={register} placeholder='رمز عبور' name='password'/>
                     {/*<InputSelect name='gender' register={register} error={errors.gender?.message} options={[{name:'mahsa',value:'1'},{name:'araz',value:2}]}/>*/}
                 </div>

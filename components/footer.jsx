@@ -9,10 +9,10 @@ import {Constants} from "../common/constants";
 export default function footer(siteSetting)
 {
     const  result=siteSetting.siteSetting;
-   const  instagram=result.find(x=>x.key===Constants.InstagramAddress)?.value??"#";
-   const  whatsapp=result.find(x=>x.key===Constants.WhatsAppAddress)?.value??"#";
-   const  telegram=result.find(x=>x.key===Constants.TelegramAddress)?.value??"#";
-   const  twitter=result.find(x=>x.key===Constants.TwitterAddress)?.value??"#";
+   const  instagram=result?.find(x=>x.key===Constants.InstagramAddress)?.value??"#";
+   const  whatsapp=result?.find(x=>x.key===Constants.WhatsAppAddress)?.value??"#";
+   const  telegram=result?.find(x=>x.key===Constants.TelegramAddress)?.value??"#";
+   const  twitter=result?.find(x=>x.key===Constants.TwitterAddress)?.value??"#";
 
     return(
         <div className='flex flex-col items-center mt-5'>
@@ -44,7 +44,7 @@ export default function footer(siteSetting)
                         </svg>
                     </a>
                 </div>
-                <div className='flex w-full sm:w-1/2 flex-col gap-6 items-center justify-center'>
+                <div className='flex w-full sm:w-1/2 flex-col gap-9 items-center justify-center'>
                     <a className='font-bold darkBlue-color whitespace-nowrap'>دسترسی های سریع</a>
                     <div className='flex flex-row sm:flex-col items-center gap-6 w-full justify-evenly sm:justify-between'>
                         <a className='darkBlue-color'>سوالات متداول</a>
@@ -53,9 +53,9 @@ export default function footer(siteSetting)
                     </div>
                 </div>
                 <div className='hidden sm:block sm:w-1/2 sm:justify-center sm:mt-0 my-9 items-center'>
-                    <div className='flex flex-col gap-4 items-center sm:w-2/3'>
+                    <div className='flex flex-col gap-9 items-center sm:w-2/3'>
                         <a className='font-bold darkBlue-color'>اطلاعات تماس</a>
-                        <div className='flex justify-evenly w-full justify-between'>
+                        <div className='flex justify-evenly lg:w-80 w-full justify-between'>
                             {/*twitter*/}
                             <a target={"_blank"} href={twitter}>
                                 <svg width="29" height="23" viewBox="0 0 39 33" fill="none" xmlns="http://www.w3.org/2000/svg">

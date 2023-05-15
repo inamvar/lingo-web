@@ -4,10 +4,12 @@ import Link from 'next/link';
 import appRoutes from "../common/appRoutes";
 import React,{useContext} from "react";
 import authContext from "../context/authContext";
-import {logout} from "../services/appServices";
 import Modal from "./modal";
 import SlidingSidebar from "./slidingSidebar";
 import {getPackagesList} from "../services/appServices";
+import {logout} from "../services/clientAppService";
+// import {BarLoader} from "react-spinner-animated";
+// import 'react-spinner-animated/dist/index.css';
 
 
 const Header = ()=>{
@@ -21,17 +23,18 @@ const Header = ()=>{
     }
 
     return(
-        <div className='flex justify-between mb-8 mt-4 lg:px-5 px-3'>
+        <div className='flex justify-between mb-8 mt-4 lg:px-16 px-3'>
 
             <div className='block md:hidden mt-7'>
                 <SlidingSidebar />
             </div>
 
             <div>
+                {/*<BarLoader text={"Loading..."} bgColor={"#F0A500"} center={false} width={"150px"} height={"150px"}/>*/}
                 <Link href={appRoutes.Main}><Image className='w-32' alt='logo' src={Logo}/></Link>
             </div>
-            <div className='lg:w-1/3 w-1/2 hidden md:block'>
-                <div className='flex flex-row justify-between items-center h-full'>
+            <div className='lg:w-1/3 w-1/2 xl:w-1/4 hidden md:block'>
+                <div className='flex flex-row justify-between items-center h-full xl:gap-10 whitespace-nowrap'>
                     <Link href={appRoutes.Main} className='darkBlue-color'>خانه</Link>
                     <a className='darkBlue-color hover:drop-shadow-lg'>پکیج های رایگان</a>
                     <a className='darkBlue-color hover:drop-shadow-lg'>پکیج ها و مشاوره ها</a>
@@ -61,7 +64,7 @@ const Header = ()=>{
                 {authCtx.authState.authenticated ? (
                     <>
                         <Link href={appRoutes.Dashboard} className='hover:drop-shadow-lg darkBlue-color px-2 hidden md:block whitespace-nowrap'>داشبورد من</Link>
-                        <button onClick={SignOut} className='bg-darkBlue hover:bg-blue-900 text-white text-center btn-page sm:w-28 hidden md:block'>خروج</button>
+                        <button onClick={SignOut} className='bg-darkBlue hover:bg-blue-900 text-white text-center btn-page sm:w-28 hidden md:block mr-2'>خروج</button>
                         <button onClick={SignOut} className='md:hidden block'>
                             <svg width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M16.6506 32.8162H0V3.33015L16.6506 0V32.8162ZM2.17183 30.6443H14.4788V2.64962L2.17183 5.11104V30.6443ZM14.4788 3.13465H22.4421V32.8162H14.4787L14.4788 3.13465ZM20.2703 5.30651H16.6506V30.6444H20.2703V5.30651ZM27.915 22.2901L26.3803 20.7553L29.9261 17.2095L26.3818 13.6766L27.915 12.139L33 17.2065L27.915 22.2901ZM31.4914 18.3374H21.3563V16.1656H31.4914V18.3374Z" fill="#143794"/>

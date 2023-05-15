@@ -28,9 +28,9 @@ const course = (props) =>
             <div className='flex flex-col items-center gap-8'>
                 <div className='flex flex-col md:flex-row gap-8 md:w-11/12 w-full items-center md:items-start'>
                     <div className='flex flex-col w-11/12 md:w-1/2 gap-7'>
-                        <div className='flex bg-white items-center p-4 gap-5 sm:gap-28 rounded justify-center'>
-                            <Image src={courseDetail.thumbnailImageUrl} className='rounded-full w-40' width={100} height={100} alt='picture'/>
-                            <p className='whitespace-nowrap font-bold'>{courseDetail.title}</p>
+                        <div className='flex bg-white items-center p-4 gap-5 sm:gap-28 rounded bg-darkBlue text-white justify-center'>
+                            {/*<Image src={courseDetail.thumbnailImageUrl} className='rounded-full w-40' width={100} height={100} alt='picture'/>*/}
+                            <p className='whitespace-nowrap font-bold text-lg whitespace-pre-wrap'>{courseDetail.title}</p>
                         </div>
                         <div className='flex flex-col gap-2'>
                             <p className='darkBlue-color font-bold text-md'>توضیحات دوره</p>
@@ -60,9 +60,9 @@ const course = (props) =>
                     </div>
                 </div>
 
-                <div className='flex flex-col justify-center items-center mt-9 w-full'>
-                    <div className='mb-6'>
-                        <p className='text-base md:text-xl font-bold darkBlue-color'>دوره های مرتبط</p>
+                <div className='flex flex-col justify-center items-center gap-9 mt-9 w-full'>
+                    <div>
+                        <p className='text-base md:text-xl font-extrabold darkBlue-color'>دوره های مرتبط</p>
                     </div>
                     <div className='flex overflow-hidden w-full justify-center'>
                         <CourseCarousel courses={relatesCourses} />

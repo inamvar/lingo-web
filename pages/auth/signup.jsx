@@ -5,17 +5,20 @@ import {useForm} from "react-hook-form";
 import Meta from "../../components/meta";
 import { yupResolver } from '@hookform/resolvers/yup';
 import {validator} from "/common/validator";
-import {signUpUser} from "../../services/appServices";
 import {router} from "next/router";
+import {signUpUser} from "../../services/clientAppService";
+import authContext from "../../context/authContext";
+import {useContext} from "react";
 
 export default function Login(){
+
+    const authCtx = useContext(authContext);
 
     const schema = validator.object({
         firstName:validator.string().required('نوشتن نام اجباری است'),
         lastName:validator.string().required('نوشتن نام خانوادگی اجباری است'),
         email:validator.string().required('انتخاب ایمیل اجباری است'),
         password:validator.string().required('نوشتن رمز عبور اجباری است'),
-        phoneNumber:validator.string().required('نوشتن شماره تلفن اجباری است'),
         confirmPassword:validator.string().required('نوشتن تکرار رمز عبور اجباری است')
     })
 
@@ -24,10 +27,25 @@ export default function Login(){
         resolver:yupResolver(schema)
     });
 
-    const  onSubmit =async (data) => {
-        var result = await signUpUser(data.firstName,data.lastName,data.password,data.confirmPassword,data.email,data.phoneNumber,data.marketerCode);
-        if (result == true){
-            router.push(appRoutes.Login);
+    function setContext(res)
+    {
+        authCtx.setAuthState(res);
+    }
+
+    const  onSubmit =async (data) =>
+    {
+        const {returnUrl}= router.query;
+        const result = await signUpUser(data.firstName,data.lastName,data.password,data.confirmPassword,data.email,data.phoneNumber,data.marketerCode);
+        if (result != undefined)
+        {
+            setContext(result);
+            if (returnUrl!=undefined){
+                router.push(returnUrl);
+            }
+            else
+            {
+                router.push(appRoutes.Main);
+            }
         }
     };
 
@@ -46,7 +64,7 @@ export default function Login(){
                         <InputText error={errors.lastName?.message} register={register} required placeholder='نام خانوادگی' name='lastName'/>
                     </div>
                     <InputText error={errors.email?.message} register={register} required  placeholder='ایمیل' name='email'/>
-                    <InputText error={errors.phoneNumber?.message} required register={register} placeholder='شماره تلفن' name='phoneNumber'/>
+                    <InputText error={errors.phoneNumber?.message} register={register} placeholder='شماره تلفن' name='phoneNumber'/>
                     <InputText error={errors.password?.message} type='password' required register={register} placeholder='رمز عبور' name='password'/>
                     <InputText error={errors.confirmPassword?.message} type='password' required register={register} placeholder='تکرار رمز عبور' name='confirmPassword'/>
                     <InputText register={register} placeholder='کد معرف' name='marketerCode'/>
