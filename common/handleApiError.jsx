@@ -12,15 +12,12 @@ export const handleApiError = (error,context) => {
         });
         return;
     }
-    console.log('gggggggggggggggggggggggggg');
-    console.log(context.ctx.req);
-    console.log('cvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv');
-    const  req = context.ctx.req;
+    //const  req = context.ctx.req;
     const res = context.ctx.res;
-    const currentUrl = req.url;
-    console.log('currentUrl');
-    console.log(currentUrl);
-    console.log('currentUrl');
+   // const currentUrl = req.url;
+    // console.log('currentUrl');
+    // console.log(currentUrl);
+    // console.log('currentUrl');
     if (error.response) {
         const { status, data } = error.response;
         console.log(status);

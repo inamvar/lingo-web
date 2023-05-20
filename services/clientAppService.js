@@ -9,7 +9,6 @@ import Cookies from "js-cookie";
 export const getSiteSetting = async(context) => {
     try {
         const response = await ax.get(API_ROUTES.SITESETTING, { ctx: context });
-        console.log(response);
         if (response.data.success == true) {
             const result = response.data.data;
             return result;
