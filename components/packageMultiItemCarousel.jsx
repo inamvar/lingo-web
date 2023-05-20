@@ -1,9 +1,8 @@
-
-
 import { useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import PackageCarouselItem from "../components/packageCarouselItem";
+
 const PackageMultiItemCarousel = ({ packages }) => {
 
     const [dragging, setDragging] = useState(false);

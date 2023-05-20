@@ -155,7 +155,10 @@ a {
     direction: ltr;
     gap: 2rem;
 }
-
+.App
+{
+    gap: 5rem;
+}
 .use-spring-carousel-item {
     flex: 1 0 calc(0% / 1 - 0px)!important;
     justify-content: center;
@@ -236,8 +239,9 @@ iframe div {
     border-radius: 0px !important;
 }
 
-.carousel-container {
-    /*justify-content: center;*/
+.carousel-container
+{
+    /*direction: rtl;*/
 }
 
 .multi-pack-item {
