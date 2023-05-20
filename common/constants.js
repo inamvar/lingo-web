@@ -4,5 +4,6 @@ export const Constants={
     InstagramAddress:'InstagramAddress',
     WhatsAppAddress:'WhatsappAddress',
     TwitterAddress:"TwitterAddress",
-    TelegramAddress:"TelegramAddress"
+    TelegramAddress:"TelegramAddress",
+    FooterDescription:"FooterDescription"
 };

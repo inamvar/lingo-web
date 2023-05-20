@@ -8,6 +8,7 @@ import PackageCarousel from "../../../components/packageCarousel";
 import Link from "next/link";
 import AppRoutes from "../../../common/appRoutes";
 import CourseCarousel from "../../../components/courseCarousel";
+import CourseMultiItemCarousel from "../../../components/courseMultiItemCarousel";
 
 const course = (props) =>
 {
@@ -64,12 +65,11 @@ const course = (props) =>
                     <div>
                         <p className='text-base md:text-xl font-extrabold darkBlue-color'>دوره های مرتبط</p>
                     </div>
-                    <div className='flex overflow-hidden w-full justify-center'>
-                        <CourseCarousel courses={relatesCourses} />
-                    </div>
+
                 </div>
 
             </div>
+            <CourseMultiItemCarousel courses={relatesCourses} />
         </>
 
 )};
@@ -79,10 +79,11 @@ export async function getServerSideProps(context)
     const res = context.query.slug;
     const slug = `${res[0]}/${res[1]}`;
     const result = await courseDetail(slug,context);
-    const relatesCourses = await getPackageCourseList(result.package.id);
+    const relatesCourses = await getPackageCourseList(result.package.id,context);
 
     return{
-        props: {result,relatesCourses}
+        props: {result,
+            relatesCourses}
     }
 }
 

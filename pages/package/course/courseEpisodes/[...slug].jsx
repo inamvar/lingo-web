@@ -1,18 +1,14 @@
-import pic from '../../../../public/picture/banner.png';
 import AppRoutes from "../../../../common/appRoutes";
 import Accordion from "../../../../components/accordion";
-import {courseDetail, getVideoDetail} from "../../../../services/appServices";
+import {getVideoDetail} from "../../../../services/appServices";
 import {AuthenticatedLink} from "../../../../components/authenticatedLink";
 import Link from "next/link";
-import {useEffect} from "react";
 
 const Slug=(props)=>
 {
     const result=props.result;
-    console.log(result)
     const currentVideo=result.currentVideo;
 
-    console.log(currentVideo);
 
     return(
         <>
@@ -31,7 +27,7 @@ const Slug=(props)=>
                                 <path d="M18 15.6986H0V10.4406H1.56524V14.3311H16.4348V10.4406H18L18 15.6986ZM9.78257 11.097H8.21736V0H9.7826L9.78257 11.097ZM8.99998 12.7134L3.21886 7.66263L4.32546 6.69583L8.99998 10.7798L13.6745 6.69583L14.7811 7.66263L8.99998 12.7134Z" fill="#F84C4D"/>
                             </svg>
                             <AuthenticatedLink filename={currentVideo.examFileName} url={`${currentVideo.examFileUrl}}`}>
-                            دانلود
+                           فایل ضمیمه دانلود
                             </AuthenticatedLink>
                             </> }
                         </div>

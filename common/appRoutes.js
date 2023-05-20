@@ -2,6 +2,9 @@ const AppRoutes= {
 
     Signup:"/auth/signup",
     Login:"/auth/login",
+    LoginReturn:(url)=>{
+        return `auth/login?returnUrl=${url}`;
+    },
     Main:"/",
     ForgotPassword:"/auth/forgot-password",
     Profile:"/dashboard/myProfile",

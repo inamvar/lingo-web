@@ -3,7 +3,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -p 8080"
+    "start": "next start"
   },
   "dependencies": {
     "@chakra-ui/modal": "^2.2.11",
@@ -19,15 +19,19 @@
     "jwt-decode": "^3.1.2",
     "next": "latest",
     "next-cookies": "^2.0.3",
+    "next-pwa": "^5.6.0",
     "nookies": "^2.5.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.43.9",
+    "react-multi-carousel": "^2.8.3",
     "react-player": "^2.12.0",
     "react-sliding-side-panel": "^2.0.3",
     "react-spinner-animated": "^3.1.1",
+    "react-spring": "^9.5.2",
     "react-spring-carousel": "^2.0.19",
     "sweetalert2": "^11.7.3",
+    "ua-parser-js": "^1.0.35",
     "yup": "^1.1.1"
   },
   "devDependencies": {

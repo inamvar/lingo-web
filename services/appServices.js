@@ -22,20 +22,19 @@ export const getPackagesList = async (context) =>
     }
     catch (error)
     {
-        handleApiError(error,context.res);
+        handleApiError(error,context);
     }
 }
 
-export const getPackageCourseList = async (slug) =>
+export const getPackageCourseList = async (slug,ctx) =>
 {
     try
     {
-        const response = await ax.get(API_ROUTES.PACKAGE(slug));
+        const response = await ax.get(API_ROUTES.PACKAGE(slug),{ctx:ctx});
 
         if (response.data.success == true)
         {
             const courses = response.data.data.data;
-            console.log(courses);
             return courses;
         }
         else {
@@ -45,7 +44,7 @@ export const getPackageCourseList = async (slug) =>
     }
     catch (error)
     {
-        handleApiError(error);
+        handleApiError(error,ctx);
     }
 }
 
@@ -53,7 +52,6 @@ export const courseDetail = async (slug,context) =>
 {
     try
     {
-
         const response = await ax.get(API_ROUTES.COURSE(slug),{ctx:context});
         if (response.data.success == true)
         {
@@ -68,11 +66,7 @@ export const courseDetail = async (slug,context) =>
     }
     catch (error)
     {
-        handleApiError(error,context.res);
-        // pushAlert({
-        //     message:error.data.message,
-        //     type:'error'
-        // })
+        handleApiError(error,context);
     }
 }
 
@@ -83,7 +77,6 @@ export const getVideoDetail=async (slug,context)=>
         if (response.data.success == true)
         {
             const course = response.data.data;
-            console.log(course);
             return course;
         }
         else {
@@ -92,28 +85,11 @@ export const getVideoDetail=async (slug,context)=>
         }
     }
     catch (error){
-        handleApiError(error);
+        handleApiError(error,context);
     }
 }
 
-export const getSiteSetting = async() =>
-{
-    try {
-        const response=await ax.get(API_ROUTES.SITESETTING);
 
-        if (response.data.success==true){
-            const result = response.data.data;
-            return result;
-        }
-        else {
-            pushAlert({message:response.data.message,type:'error'});
-            return null;
-        }
-    }
-    catch (error){
-        console.log(error)
-    }
-}
 
 export const getMyProfile=async (ctx)=>
 {
@@ -130,21 +106,20 @@ export const getMyProfile=async (ctx)=>
         }
     }
     catch (error){
-
+        handleApiError(error,ctx);
     }
 }
 
-export const getBanner=async ()=>
+export const getBanner=async (context)=>
 {
     try {
         const response=await ax.get(API_ROUTES.BANNER);
         if (response.data.success==true){
             const result=response.data.data;
-            console.log(result);
             return result;
         }
     }
     catch (error){
-
+    handleApiError(error,context);
     }
 }

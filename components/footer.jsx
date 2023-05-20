@@ -13,15 +13,17 @@ export default function footer(siteSetting)
    const  whatsapp=result?.find(x=>x.key===Constants.WhatsAppAddress)?.value??"#";
    const  telegram=result?.find(x=>x.key===Constants.TelegramAddress)?.value??"#";
    const  twitter=result?.find(x=>x.key===Constants.TwitterAddress)?.value??"#";
+   const  footerDescription=result?.find(x=>x.key===Constants.FooterDescription)?.value??"";
 
     return(
         <div className='flex flex-col items-center mt-5'>
             <hr className="h-px my-5 sm:my-8 bg-paleBlue w-4/5 border-0"/>
             <div className='p-4 flex sm:flex-row flex-col sm:items-start items-center w-full justify-evenly gap-9 sm:gap-0 text-lg'>
-                <Image className='block sm:hidden' src={logo} alt='logo'/>
+                <Image quality={100} className='block sm:hidden' src={logo} alt='logo'/>
                 <div className='flex justify-center items-center text-center block sm:hidden'>
-                    <p className='darkBlue-color'>توضیح سازمان لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع می باشد.</p>
-                </div>
+                    <p className='darkBlue-color'>
+                        {footerDescription}
+                    </p></div>
                 <div className='flex justify-evenly block sm:hidden w-full justify-between'>
                     <a>
                         <svg width="29" height="23" viewBox="0 0 39 33" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -82,7 +84,7 @@ export default function footer(siteSetting)
                             </a>
                         </div>
                         <span>
-                            <Image alt='enamad' src={eNamad}/>
+                            <Image quality={100} alt='enamad' src={eNamad}/>
                         </span>
                     </div>
                 </div>
@@ -91,13 +93,13 @@ export default function footer(siteSetting)
                 <p className='font-bold block sm:hidden darkBlue-color text-lg'>دانلود اپلیکیشن</p>
                 <div className='flex flex-row justify-center items-center flex-wrap'>
                     <a>
-                        <Image className='h-3' alt='bazaar' src={bazaar}/>
+                        <Image quality={100} className='h-3' alt='bazaar' src={bazaar}/>
                     </a>
                     <a>
-                        <Image alt='applestore' src={appleStore}/>
+                        <Image quality={100} alt='applestore' src={appleStore}/>
                     </a>
                     <a>
-                        <Image className='h-3' alt='googleplay' src={googlePlay}/>
+                        <Image quality={100} className='h-3' alt='googleplay' src={googlePlay}/>
                     </a>
                 </div>
             </div>

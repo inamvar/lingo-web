@@ -4,7 +4,7 @@ import AuthContext from "../context/authContext";
 import {useEffect, useState} from "react";
 import getAuthenticatedUser from "../hooks/getUser";
 import { ChakraProvider } from '@chakra-ui/react';
-import {getSiteSetting} from "../services/appServices";
+import {getSiteSetting} from "../services/clientAppService";
 import App from "next/app";
 import {useRouter} from "next/router";
 
@@ -51,7 +51,7 @@ function MyApp({ Component, pageProps,siteSetting }) {
 }
 
 MyApp.getInitialProps = async (appContext) => {
-    const siteSetting = await getSiteSetting();
+    const siteSetting = await getSiteSetting(appContext);
     const appProps = await App.getInitialProps(appContext);
     return { ...appProps, siteSetting }
 }

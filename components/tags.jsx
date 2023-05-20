@@ -1,7 +1,6 @@
 
 export default function tags(props)
 {
-    console.log(props);
     if(props.tags.length != 0)
     {
         return(

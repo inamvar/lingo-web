@@ -16,7 +16,9 @@ export function withAuth(WrappedComponent) {
             console.log(context);
             if ('authenticated' in context.authState && !context.authState.authenticated)
             {
-                router.push(appRoutes.Login);
+               const current= router.asPath;
+               console.log(current);
+                router.push(appRoutes.LoginReturn(current));
             }
             else{
                 console.log('ok');

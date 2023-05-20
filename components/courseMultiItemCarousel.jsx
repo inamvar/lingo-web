@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -12,12 +13,12 @@ const CourseMultiItemCarousel = ({ courses }) => {
             slidesToSlide: 1, // optional, default to 1.
         },
         tablet: {
-            breakpoint: { max: 1024, min: 640 },
+            breakpoint: { max: 1024, min: 760 },
             items: 2,
             slidesToSlide: 1, // optional, default to 1.
         },
         mobile: {
-            breakpoint: { max: 640, min: 1 },
+            breakpoint: { max: 760, min: 1 },
             items: 1,
             slidesToSlide: 1, // optional, default to 1.
         },
@@ -48,9 +49,9 @@ const CourseMultiItemCarousel = ({ courses }) => {
                   itemClass="multi-pack-item"
             // onDragStart={handleDragStart}
             // onDragEnd={handleDragEnd}
-
         >
-            {courses.map((i) => (
+            {
+                courses.map((i) => (
                 <CourseCarouselItem id={i.id} name={i.name} title={i.title} picture={i.thumbnailImageUrl} slug={i.slug}/>
             ))}
         </Carousel>
