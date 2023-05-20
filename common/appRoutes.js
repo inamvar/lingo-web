@@ -22,7 +22,8 @@ const AppRoutes= {
     Cart:'/dashboard/cart',
     MyPackages:"/dashboard/myPackages",
     MyProfile:"/dashboard/myProfile",
-    MyTransactions:"/dashboard/myTransactions"
+    MyTransactions:"/dashboard/myTransactions",
+    FreePackage:"/freePackage"
 };
 
 export default AppRoutes;

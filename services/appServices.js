@@ -3,6 +3,32 @@ import {handleApiError} from "../common/handleApiError";
 import {pushAlert} from "../common/notifier";
 import ax from "../common/apiServerSideRequest";
 
+// export const getFreePackagesList = async (context) =>
+// {
+//     try
+//     {
+//         console.log('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
+//         let response = await ax.get(API_ROUTES.FREEPackage,{ctx:context});
+//         console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+//         console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",response);
+//         console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+//
+//         if (response.data.success == true)
+//         {
+//             const packages = response.data.data.data;
+//             return packages;
+//         }
+//         else {
+//             pushAlert({message:response.data.message,type:'error'});
+//             return null;
+//         }
+//     }
+//     catch (error)
+//     {
+//         console.log("222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222");
+//         handleApiError(error);
+//     }
+// }
 
 export const getPackagesList = async (context) =>
 {
@@ -88,8 +114,6 @@ export const getVideoDetail=async (slug,context)=>
         handleApiError(error,context);
     }
 }
-
-
 
 export const getMyProfile=async (ctx)=>
 {

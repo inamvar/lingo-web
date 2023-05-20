@@ -18,7 +18,8 @@ const API_ROUTES = {
     SITESETTING:"/setting",
     MYPROFILE:"/user/profile",
     UPDATEMYPROFILE:"/user/profile",
-    BANNER:"/Banner"
+    BANNER:"/Banner",
+    FREEPackage:"/Package/Free"
 };
 
 export default API_ROUTES;
