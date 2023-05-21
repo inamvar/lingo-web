@@ -39,7 +39,7 @@ export default function Login(){
         if (result != undefined)
         {
             setContext(result);
-            if (returnUrl!=undefined){
+            if (returnUrl!=undefined && returnUrl!=""){
                 router.push(returnUrl);
             }
             else

@@ -1,24 +1,20 @@
 import {getPackageCourseList} from "../../services/appServices";
-import PackageItem from '../../components/courseItem';
+import CourseItem from '../../components/courseItem';
 import router from "next/router";
 import appRoutes from "../../common/appRoutes";
 import {useEffect} from "react";
 
 
 const Package=(props)=>{
+
     const courses = props.result;
-    useEffect(() => {
-        if (courses.length == 1) {
-            const slug = courses[0].slug;
-            window.location.href = appRoutes.Course(slug);
-        }
-    }, [courses]);
+
         return(
-            <div className='flex justify-center items-center'>
+            <div className='flex justify-center items-center px-4'>
                 <div className='flex flex-col md:flex-row flex-wrap gap-4 w-full xl:w-4/5 justify-evenly items-center'>
                     {courses.map((course)=>
-                        <div className='flex justify-center'>
-                            <PackageItem key={course.index} picture={course.thumbnailImageUrl} name={course.title} slug={course.slug}/>
+                        <div className='flex justify-center course-item'>
+                            <CourseItem key={course.index} picture={course.thumbnailImageUrl} name={course.title} slug={course.slug}/>
                         </div>
                     )}
                 </div>

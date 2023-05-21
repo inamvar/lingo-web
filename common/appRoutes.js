@@ -1,6 +1,9 @@
 const AppRoutes= {
 
     Signup:"/auth/signup",
+    SignupReturn:(url)=>{
+        return `auth/signup?returnUrl=${url}`;
+    },
     Login:"/auth/login",
     LoginReturn:(url)=>{
         return `auth/login?returnUrl=${url}`;

@@ -8,7 +8,7 @@ const Slug=(props)=>
 {
     const result=props.result;
     const currentVideo=result.currentVideo;
-
+    console.log(currentVideo);
 
     return(
         <>

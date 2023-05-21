@@ -11,12 +11,14 @@ const Home=(props)=>{
 
     const authCtx = useContext(authContext);
     const Packages = props.packages;
+    console.log(Packages);
+
     const banner=props.banner;
     console.log(banner);
 
     return (
         <>
-            <div className='w-full flex items-center justify-center relative'>
+            <div className='w-full flex items-center justify-center relative overflow-hidden m-h-50'>
                 {banner!=null && banner.length>=1 && banner!=undefined ?<video className='vid-div-banner' src={banner[0].fileUrl} autoPlay loop muted><source  src={banner[0].fileUrl}/></video>
                     : <Image quality={100} className='w-full' alt='picture' src={bannerImage}/>}
                 {/*<Image className='w-full' alt='picture' src={bannerImage}/>*/}
