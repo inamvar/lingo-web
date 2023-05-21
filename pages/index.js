@@ -9,10 +9,10 @@ import PackageMultiItemCarousel from "../components/packageMultiItemCarousel";
 
 const Home=(props)=>{
 
-
     const authCtx = useContext(authContext);
     const Packages = props.packages;
     const banner=props.banner;
+    console.log(banner);
 
     return (
         <>
@@ -31,12 +31,10 @@ const Home=(props)=>{
                     )}
                 </div>
             </div>
-            <div className='flex flex-col justify-center gap-9 items-center mt-9'>
+            <div className='flex flex-col justify-center gap-9 items-center px-5 mt-9'>
                 <div>
                     <p className='text-2xl font-bold darkBlue-color'>پکیج ها</p>
                 </div>
-
-
             </div>
             <PackageMultiItemCarousel packages={Packages}/>
         </>

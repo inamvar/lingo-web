@@ -157,7 +157,7 @@ a {
 }
 .App
 {
-    gap: 5rem;
+    /*gap: 5rem;*/
 }
 .use-spring-carousel-item {
     flex: 1 0 calc(0% / 1 - 0px)!important;
@@ -245,7 +245,7 @@ iframe div {
 }
 
 .multi-pack-item {
-    height: 32rem !important;
+    height: 28rem !important;
     display: flex;
     justify-content: center;
 }
@@ -315,4 +315,8 @@ iframe div {
     width: 100%;
     background-color: rgba(123, 123, 123, 0.4);
     z-index: 999;
+}
+.carousel-item
+{
+    width: 30rem;
 }

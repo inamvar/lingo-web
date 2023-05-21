@@ -8,18 +8,23 @@ const PackageMultiItemCarousel = ({ packages }) => {
     const [dragging, setDragging] = useState(false);
 
     const responsive = {
+        big:{
+            breakpoint: { max: 3000, min: 1980 },
+            items: 4,
+            slidesToSlide: 1, // optional, default to 1.
+        },
         desktop: {
-            breakpoint: { max: 3000, min: 1024 },
+            breakpoint: { max: 1980, min: 1470 },
             items: 3,
             slidesToSlide: 1, // optional, default to 1.
         },
         tablet: {
-            breakpoint: { max: 1024, min: 760 },
+            breakpoint: { max: 1470, min: 1000 },
             items: 2,
             slidesToSlide: 1, // optional, default to 1.
         },
         mobile: {
-            breakpoint: { max: 760, min: 1 },
+            breakpoint: { max: 1000, min: 1 },
             items: 1,
             slidesToSlide: 1, // optional, default to 1.
         },
@@ -53,7 +58,7 @@ const PackageMultiItemCarousel = ({ packages }) => {
             // onDragEnd={handleDragEnd}
         >
             {packages.map((i) => (
-                <PackageCarouselItem  firstCourse={i.firstCourseSlug} id={i.id} name={i.name} title={i.title} picture={i.thumbnailUrl} slug={i.slug}/>
+                <PackageCarouselItem firstCourse={i.firstCourseSlug} id={i.id} name={i.name} title={i.title} picture={i.thumbnailUrl} slug={i.slug}/>
             ))}
         </Carousel>
     );
