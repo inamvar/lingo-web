@@ -60,7 +60,7 @@ const course = (props) =>
                 </div>
                 <div className='flex flex-col gap-8 w-11/12 lg:w-10/12 mt-9 items-center md:items-start'>
                     <p className='darkBlue-color font-bold text-lg sm:text-xl '>توضیحات دوره</p>
-                    <p dangerouslySetInnerHTML={{ __html: courseDetail.description }} />
+                    <div dangerouslySetInnerHTML={{ __html: courseDetail.description }} />
                     {/*<p>{courseDetail.description}</p>*/}
                 </div>
                 <div className='flex flex-col justify-center items-center w-11/12 lg:w-10/12 gap-9 mt-9'>
@@ -82,13 +82,6 @@ export async function getServerSideProps(context)
     const result = await courseDetail(slug,context);
     const relatesCourses = await getPackageCourseList(result.package.id,context);
 
-    console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
-    relatesCourses.forEach((i,e)=>
-    {
-        console.log(i);
-        console.log(e);
-        console.log("%%%%%%%%%%%%%%%%%%%%%")
-    })
     return{
         props: {result,
             relatesCourses}

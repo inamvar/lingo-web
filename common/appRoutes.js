@@ -2,11 +2,11 @@ const AppRoutes= {
 
     Signup:"/auth/signup",
     SignupReturn:(url)=>{
-        return `auth/signup?returnUrl=${url}`;
+        return `/auth/signup?returnUrl=${url}`;
     },
     Login:"/auth/login",
     LoginReturn:(url)=>{
-        return `auth/login?returnUrl=${url}`;
+        return `/auth/login?returnUrl=${url}`;
     },
     Main:"/",
     ForgotPassword:"/auth/forgot-password",
