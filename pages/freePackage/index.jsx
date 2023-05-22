@@ -1,6 +1,6 @@
 import {getFreePackagesList} from "../../services/appServices";
 import PackageMultiItemCarousel from "../../components/packageMultiItemCarousel";
-import CourseMultiItemCarousel from "../../components/FreeCourseMultiItemCarousel";
+import FreeCourseMultiItemCarousel from "../../components/FreeCourseMultiItemCarousel";
 import packageCarousel from "../../components/packageCarousel";
 
 const freePackage = (props) =>
@@ -14,7 +14,7 @@ const freePackage = (props) =>
                 {PackageCourses.map((p)=>
                     <div className='flex flex-col gap-9 w-11/12 lg:w-10/12'>
                         <h2 className='darkBlue-color font-bold text-2xl'>{p.name}</h2>
-                        <CourseMultiItemCarousel courses={p.courses} />
+                        <FreeCourseMultiItemCarousel courses={p.courses} />
                     </div>
                 )}
             </div>
