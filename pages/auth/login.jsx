@@ -37,10 +37,11 @@ export default function Login(){
         console.log(returnUrl);
 
         const result = await loginUser(data.userName,data.password);
-        if (result != undefined && returnUrl!="")
+        console.log(result);
+        if (result != undefined)
         {
             setContext(result);
-            if (returnUrl!=''){
+            if (returnUrl!=''&& returnUrl!=undefined){
                 router.push(returnUrl);
             }
             else

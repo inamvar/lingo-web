@@ -63,7 +63,7 @@ export const signUpUser = async(firstname, lastname, password, confirmPassword, 
 export const loginUser = async(username, password) => {
     try {
         let response = await ax.post(API_ROUTES.LOGIN, { userName: username, password: password });
-
+            console.log(response);
         if (response.data.success == true) {
             const { accessToken, refreshToken } = response.data.data;
             const decodedToken = jwt.decode(accessToken);
