@@ -4,6 +4,7 @@ import APP_ROUTES from "../common/appRoutes";
 
 export default function PackageCarouselItem(props)
 {
+    console.log(props)
     if(props.firstCourse!=undefined && props.firstCourse!=null){
         return(
 

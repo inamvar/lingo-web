@@ -6,7 +6,7 @@
     --darkGrey: #666262;
     --green: #95CDAA;
     --darkBlue: #143794;
-    --red: #eb2023;
+    --red: #F84C4D;
     --paleBlue: #BDCAE1;
     --bgBlue: #EDEFF3;
     --darkRed: #000000;
@@ -41,7 +41,10 @@ a {
 .darkBlue-color {
     color: var(--darkBlue);
 }
-
+.m-w-pic-c
+{
+    width: 20rem;
+}
 .bg-page {
     background-color: #EDEFF3;
     min-height: 50rem;
@@ -293,7 +296,7 @@ iframe div {
     }
 }
 
-@media only screen and (max-width:350px)
+@media only screen and (max-width:420px)
 {
     .course-item
     {

@@ -23,7 +23,7 @@ const Header = ()=>{
     }
 
     return(
-        <div className='flex justify-between mb-8 mt-4 lg:px-16 px-3'>
+        <div className='flex justify-between mb-3 mt-4 lg:px-16 px-3'>
 
             <div className='block md:hidden mt-7'>
                 <SlidingSidebar />
@@ -37,7 +37,7 @@ const Header = ()=>{
                 <div className='flex flex-row justify-between items-center h-full xl:gap-10 whitespace-nowrap'>
                     <Link href={appRoutes.Main} className='darkBlue-color'>خانه</Link>
                     <Link href={appRoutes.FREEPACKAGE} className='darkBlue-color hover:drop-shadow-lg'>پکیج های رایگان</Link>
-                    <a className='darkBlue-color hover:drop-shadow-lg'>پکیج ها و مشاوره ها</a>
+                    <a className='darkBlue-color hover:drop-shadow-lg'>پکیج های آموزشی</a>
                     <a className='darkBlue-color hover:drop-shadow-lg'>تخفیف</a>
                 </div>
             </div>

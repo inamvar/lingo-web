@@ -20,10 +20,10 @@ const Home=(props)=>{
         <>
             <div className='w-full flex items-center justify-center relative overflow-hidden m-h-50'>
                 {banner!=null && banner.length>=1 && banner!=undefined ?<video className='vid-div-banner' src={banner[0].fileUrl} autoPlay loop muted><source  src={banner[0].fileUrl}/></video>
-                    : <Image quality={100} className='w-full' alt='picture' src={bannerImage}/>}
+                    : <Image quality={100} className='w-full vid-div-banner' alt='picture' src={bannerImage}/>}
                 {/*<Image className='w-full' alt='picture' src={bannerImage}/>*/}
                 <span className='w-full div-banner object-center bg-darkBlue opacity-60 absolute'></span>
-                <div className='div-v-banner w-11/12 sm:w-1/2 bg-white flex-col opacity-90 pb-5 md:pt-10 md:pb-20 sm:pb-20 gap-5'>
+                <div className='div-v-banner w-11/12 sm:w-1/2 bg-white flex-col opacity-80 pb-5 md:pt-10 md:pb-20 sm:pb-20 gap-5'>
                     <Image quality={100}  className='w-32 md:w-56' src={logo} alt='logo'/>
                     {/*<p className='darkBlue-color text-xl font-bold'>لورم ایپسوم</p>*/}
                     {authCtx.authState.authenticated ? (

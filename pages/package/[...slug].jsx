@@ -10,7 +10,7 @@ const Package=(props)=>{
     const courses = props.result;
 
         return(
-            <div className='flex justify-center items-center px-4'>
+            <div className='flex justify-center items-center px-4 mt-16'>
                 <div className='flex flex-col md:flex-row flex-wrap gap-4 w-full xl:w-4/5 justify-evenly items-center'>
                     {courses.map((course)=>
                         <div className='flex justify-center course-item'>

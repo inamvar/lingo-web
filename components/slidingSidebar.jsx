@@ -45,7 +45,7 @@ const slidingSidebar = () => {
                         <div className='flex flex-col items-end mb-4 pt-4'>
                             <Link onClick={handleLinkClick} href={AppRoutes.Main} className='darkBlue-color py-2 w-full text-right'>خانه</Link>
                             <Link onClick={handleLinkClick} href={AppRoutes.MyPackages} className='darkBlue-color py-2 w-full text-right'>دوره های من</Link>
-                            <Link onClick={handleLinkClick} href='#'  className='darkBlue-color py-2 w-full text-right'>پکیج ها و مشاوره</Link>
+                            <Link onClick={handleLinkClick} href='#'  className='darkBlue-color py-2 w-full text-right'>پکیج های آموزشی</Link>
                             <Link onClick={handleLinkClick} href='#' className='darkBlue-color py-2 w-full text-right'>تخفیف ها</Link>
                             <Link onClick={handleLinkClick} href='#' className='darkBlue-color py-2 w-full text-right'>پکیج های رایگان</Link>
 

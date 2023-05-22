@@ -5,21 +5,23 @@ import CourseCarouselItem from "./courseCarouselItem";
 
 const CourseMultiItemCarousel = ({ courses }) => {
 
+    console.log(courses);
+
     const [dragging, setDragging] = useState(false);
 
     const responsive = {
         screen:{
-            breakpoint: { max: 3000, min: 1300 },
+            breakpoint: { max: 3000, min: 1600 },
             items: 4,
             slidesToSlide: 1, // optional, default to 1.
         },
         desktop: {
-            breakpoint: { max: 1300, min: 1024 },
+            breakpoint: { max: 1600, min: 1200 },
             items: 3,
             slidesToSlide: 1, // optional, default to 1.
         },
         tablet: {
-            breakpoint: { max: 1024, min: 760 },
+            breakpoint: { max: 1200, min: 760 },
             items: 2,
             slidesToSlide: 1, // optional, default to 1.
         },
@@ -59,7 +61,8 @@ const CourseMultiItemCarousel = ({ courses }) => {
         >
             {
                 courses.map((i) => (
-                <CourseCarouselItem id={i.id} name={i.name} title={i.title} picture={i.thumbnailImageUrl} slug={i.slug}/>
+                <CourseCarouselItem id={i.id} name={i.name} title={i.title} picture={i.thumbnailImageUrl} pricings={i.pricings} slug={i.slug}/>
+                // <CourseCarouselItem id={i.id} name={i.name} title={i.title} picture={i.thumbnailImageUrl} picture={i.thumbnailUrl} slug={i.slug}/>
             ))}
         </Carousel>
     );

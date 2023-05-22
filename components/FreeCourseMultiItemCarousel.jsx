@@ -1,32 +1,30 @@
 import { useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import PackageCarouselItem from "../components/packageCarouselItem";
+import CourseCarouselItem from "./FreeCourseCarouselItem";
 
-const PackageMultiItemCarousel = ({ packages }) => {
-
-    console.log(packages)
+const FreeCourseMultiItemCarousel = ({ courses }) => {
 
     const [dragging, setDragging] = useState(false);
 
     const responsive = {
         screen:{
-            breakpoint: { max: 3000, min: 1700 },
+            breakpoint: { max: 3000, min: 1600 },
             items: 4,
             slidesToSlide: 1, // optional, default to 1.
         },
         desktop: {
-            breakpoint: { max: 1700, min: 1300 },
+            breakpoint: { max: 1600, min: 1200 },
             items: 3,
             slidesToSlide: 1, // optional, default to 1.
         },
         tablet: {
-            breakpoint: { max: 1300, min: 850 },
+            breakpoint: { max: 1200, min: 760 },
             items: 2,
             slidesToSlide: 1, // optional, default to 1.
         },
         mobile: {
-            breakpoint: { max: 850, min: 1 },
+            breakpoint: { max: 760, min: 1 },
             items: 1,
             slidesToSlide: 1, // optional, default to 1.
         },
@@ -59,10 +57,11 @@ const PackageMultiItemCarousel = ({ packages }) => {
             // onDragStart={handleDragStart}
             // onDragEnd={handleDragEnd}
         >
-            {packages.map((i) => (
-                <PackageCarouselItem firstCourse={i.firstCourseSlug} id={i.id} name={i.name} title={i.title} picture={i.thumbnailUrl} slug={i.slug}/>
-            ))}
+            {
+                courses.map((i) => (
+                    <CourseCarouselItem id={i.id} name={i.name} title={i.title} picture={i.thumbnailImageUrl} slug={i.slug}/>
+                ))}
         </Carousel>
     );
 };
-export default PackageMultiItemCarousel;
+export default FreeCourseMultiItemCarousel;
