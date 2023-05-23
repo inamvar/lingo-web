@@ -11,6 +11,8 @@ const slidingSidebar = () => {
     const authCtx = useContext(authContext);
     const [openPanel, setOpenPanel] = useState(false);
 
+    console.log(authCtx.authState.authenticated)
+
     const handleLinkClick = () => {
         setOpenPanel(false);
     };
@@ -28,7 +30,6 @@ const slidingSidebar = () => {
                 isOpen={openPanel}
                 size={70}
                 backdropClicked={handleLinkClick}
-
             >
                 <div className='flex flex-col h-full justify-between'>
                     <div className='flex flex-col py-7 px-8 divide-y-2 divide-gray-300'>
@@ -36,7 +37,7 @@ const slidingSidebar = () => {
                         {authCtx.authState.authenticated ? (
                             <div className='flex flex-col justify-center items-center gap-6 mb-4'>
                                 <div className='bg-darkBlue w-40 h-40 rounded-full justify-center items-center flex text-white'>{authCtx.authState.user.first_name + ' ' + authCtx.authState.user.last_name}</div>
-                                <Link onClick={handleLinkClick} href={AppRoutes.Dashboard} className='darkBlue-color'>مشاهد پروفایل</Link>
+                                <Link onClick={handleLinkClick} href={AppRoutes.Dashboard} className='darkBlue-color'>ورود به حساب کاربری</Link>
                             </div>
                         ):(
                             <Link  onClick={handleLinkClick} href={AppRoutes.Login} className='darkBlue-color py-2 w-full text-right pb-5'>ورود/ثبت نام</Link>
@@ -44,16 +45,14 @@ const slidingSidebar = () => {
 
                         <div className='flex flex-col items-end mb-4 pt-4'>
                             <Link onClick={handleLinkClick} href={AppRoutes.Main} className='darkBlue-color py-2 w-full text-right'>خانه</Link>
-                            <Link onClick={handleLinkClick} href={AppRoutes.MyPackages} className='darkBlue-color py-2 w-full text-right'>دوره های من</Link>
+                            {authCtx.authState.authenticated && <Link onClick={handleLinkClick} href={AppRoutes.MyPackages} className='darkBlue-color py-2 w-full text-right'>دوره های من</Link>}
+                            <Link onClick={handleLinkClick} href='#' className='darkBlue-color py-2 w-full text-right'>پکیج های رایگان</Link>
                             <Link onClick={handleLinkClick} href='#'  className='darkBlue-color py-2 w-full text-right'>پکیج های آموزشی</Link>
                             <Link onClick={handleLinkClick} href='#' className='darkBlue-color py-2 w-full text-right'>تخفیف ها</Link>
-                            <Link onClick={handleLinkClick} href='#' className='darkBlue-color py-2 w-full text-right'>پکیج های رایگان</Link>
-
                         </div>
 
                         <div className='flex flex-col items-end pt-4'>
                             <Link onClick={handleLinkClick} href='#' className='darkBlue-color py-2 w-full text-right'>تماس با ما</Link>
-                            <Link onClick={handleLinkClick} href='#' className='darkBlue-color py-2 w-full text-right'>پرسش های متداول</Link>
                         </div>
                     </div>
                     <div className='p-4 bg-darkBlue' onClick={() => setOpenPanel(false)}>

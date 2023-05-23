@@ -11,6 +11,6 @@ const InputText=({name,register,placeholder,className,type,error})=>
 }
 InputText.defaultProps={
     type:"text",
-    className:"rounded w-full py-3 px-3 text-black text-sm bg-grey focus:outline-none",
+    className:"rounded w-full py-3 px-3 text-black text-sm bg-grey darkgrey-color focus:outline-none",
 }
 export default InputText;

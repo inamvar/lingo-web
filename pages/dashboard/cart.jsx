@@ -5,12 +5,12 @@ export default function cart()
 {
     return(
         <>
-            <div className='flex flex-col justify-center items-center gap-5'>
+            <div className='flex flex-col justify-center items-center gap-5 mt-16'>
 
-                <p className='darkBlue-color text-lg font-bold'>جزئیات پرداخت</p>
+                <p className='darkBlue-color text-lg font-bold text-center div-mypackage'>جزئیات پرداخت</p>
 
-                <div className='flex bg-white w-4/5 md:w-1/2 gap-1 justify-between p-5'>
-                    <div className='w-20 border border-black rounded'>
+                <div className='flex bg-white w-4/5 md:w-1/2 gap-1 justify-between p-5 div-mypackage'>
+                    <div className='w-20 border border-black rounded '>
                         <Image className='rounded' src={pic} alt='picture' />
                     </div>
                     <div className='flex flex-col w-2/3 md:w-1/2 md:text-base text-xs justify-between'>
@@ -20,7 +20,7 @@ export default function cart()
                     </div>
                 </div>
 
-                <div className='flex bg-white text-xs md:text-base flex-col p-5 gap-3 w-4/5 md:w-1/2 divide-y-2 divide-gray-300"'>
+                <div className='flex bg-white text-xs md:text-base flex-col p-5 gap-3 w-4/5 md:w-1/2 divide-y-2 div-mypackage divide-gray-300"'>
                     <p className='darkBlue-color font-bold'>جزئیات سفارش</p>
                     <p className='grey-color pt-3'>قیمت دوره: 450,000 تومان</p>
                     <p className='grey-color pt-3'>درصد تخفیف: 0%</p>

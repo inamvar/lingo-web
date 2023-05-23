@@ -14,7 +14,7 @@ export default function BasicUsage(props) {
 
     return (
         <>
-            <Button className='p-0 bg-transparent' onClick={onOpen}>{props.text}</Button>
+            <a className='p-0 bg-inherit' onClick={onOpen}>{props.text}</a>
 
             <Modal isOpen={isOpen} onClose={onClose}>
 

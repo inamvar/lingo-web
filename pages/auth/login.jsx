@@ -18,7 +18,7 @@ export default function Login(){
     const [returnUrl,setReturnUrl]=useState('');
 
     const schema = validator.object({
-        userName:validator.string().required('انتخاب نام کاربری اجباری است'),
+        userName:validator.string().required('انتخاب ایمیل اجباری است'),
         password:validator.string().required('نوشتن رمز عبور اجباری است')
     })
 
@@ -34,10 +34,7 @@ export default function Login(){
 
     const onSubmit = async (data) =>
     {
-        console.log(returnUrl);
-
         const result = await loginUser(data.userName,data.password);
-        console.log(result);
         if (result != undefined)
         {
             setContext(result);
@@ -68,17 +65,16 @@ export default function Login(){
 
         return(<>
             <Meta title='ورود'/>
-            <div className='flex flex-col w-full items-center'>
+            <div className='flex flex-col w-full items-center mt-16'>
                 <div className='flex flex-row w-5/6 sm:w-96'>
                     <div className='w-1/2 p-5 bg-white rounded-tr-lg text-sm text-center'>ورود</div>
                     <Link className='w-1/2 p-5 bg-grey rounded-tl-lg text-sm text-disable text-center' href={appRoutes.SignupReturn(returnUrl)}>ثبت نام</Link>
                 </div>
                 <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col p-5 bg-white rounded w-5/6 sm:w-96 gap-5'>
-                    <p className='text-sm'>لطفا برای ورود به حساب کاربری اطلاعات زیر را تکمیل کنید </p>
+                    <p className='text-sm darkgrey-color'>لطفا برای ورود به حساب کاربری اطلاعات زیر را تکمیل کنید </p>
                     <div className='flex flex-col gap-3'>
-                        <InputText error={errors.userName?.message} register={register}  placeholder='ایمیل' name='userName'/>
+                        <InputText error={errors.userName?.message} register={register} required placeholder='ایمیل' name='userName'/>
                         <InputText error={errors.password?.message} type='password' required register={register} placeholder='رمز عبور' name='password'/>
-                        {/*<InputSelect name='gender' register={register} error={errors.gender?.message} options={[{name:'mahsa',value:'1'},{name:'araz',value:2}]}/>*/}
                     </div>
                     <div className='text-right'>
                         <Link href={appRoutes.ForgotPassword} className='text-sm b'>رمز عبور خود را فراموش کرده ام!</Link>

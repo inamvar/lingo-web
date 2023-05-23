@@ -10,8 +10,7 @@ function myProfile(props)
 {
     const schema = validator.object({
         firstName:validator.string().required('نوشتن نام اجباری است'),
-        lastName:validator.string().required('نوشتن نام خانوادگی اجباری است'),
-        phoneNumber:validator.string().required('نوشتن شماره همراه الزامی است')
+        lastName:validator.string().required('نوشتن نام خانوادگی اجباری است')
     })
 
     const { register, handleSubmit, watch,
@@ -68,15 +67,15 @@ function myProfile(props)
                         </div>
                     </div>
 
-                    <div className='flex flex-col md:flex-row'>
-                        <div className='flex flex-col w-full md:w-1/3 gap-2'>
-                            <p>ایمیل</p>
-                            <InputText error={errors.lastName?.message} register={register}  placeholder='ایمیل' name='email'/>
-                        </div>
-                    </div>
+                    {/*<div className='flex flex-col md:flex-row'>*/}
+                    {/*    <div className='flex flex-col w-full md:w-1/3 gap-2'>*/}
+                    {/*        <p>ایمیل</p>*/}
+                    {/*        <InputText error={errors.lastName?.message} register={register}  placeholder='ایمیل' name='email'/>*/}
+                    {/*    </div>*/}
+                    {/*</div>*/}
 
                     <div className='flex flex-row justify-center'>
-                        <button type='submit' className='bg-cyan-500 text-sm btn-page bg-red text-white w-fit px-5 hover:bg-red-800'>ثبت تغییرات</button>
+                        <button type='submit' className='bg-cyan-500 text-sm btn-page bg-red text-white w-fit px-5 p-btn-big hover:bg-red-800'>ثبت تغییرات</button>
                     </div>
                 </form>
 

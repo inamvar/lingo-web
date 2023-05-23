@@ -51,13 +51,13 @@ export default function Login(){
 
     return(<>
         <Meta title='ثبت نام'/>
-        <div className='flex flex-col w-full items-center'>
+        <div className='flex flex-col w-full items-center mt-16'>
             <div className='flex flex-row w-5/6 sm:w-96'>
                 <Link className='w-1/2 p-5 bg-grey rounded-tr-lg text-sm text-center' href={appRoutes.Login}>ورود</Link>
                 <div className='w-1/2 p-5 bg-white rounded-tl-lg text-sm text-disable text-center'>ثبت نام</div>
             </div>
             <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col p-5 bg-white rounded w-5/6 sm:w-96 gap-5'>
-                <p className='text-sm'>لطفا برای ثبت نام اطلاعات زیر را تکمیل کنید </p>
+                <p className='text-sm darkgrey-color'>لطفا برای ثبت نام اطلاعات زیر را تکمیل کنید </p>
                 <div className='flex flex-col gap-3'>
                     <div className='flex gap-2'>
                         <InputText error={errors.firstName?.message} register={register} required placeholder='نام' name='firstName'/>

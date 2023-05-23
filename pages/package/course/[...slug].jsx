@@ -27,8 +27,8 @@ const course = (props) =>
                     <div className='flex flex-col w-11/12 md:w-1/2 gap-7'>
                         <div className='flex flex-col bg-white items-center p-6 gap-5 rounded-xl darkBlue-color justify-center'>
                             <p className='whitespace-nowrap font-bold text-lg sm:text-xl whitespace-pre-wrap'>{courseDetail.title}</p>
-                            <div className='border border-black rounded'>
-                                <Image src={courseDetail.thumbnailImageUrl} className='w-56 border border-black rounded m-w-pic-c' width={450} height={450} quality={100} alt='picture'/>
+                            <div className='rounded'>
+                                <Image src={courseDetail.thumbnailImageUrl} className='w-56 rounded m-w-pic-c' width={450} height={450} quality={100} alt='picture'/>
                             </div>
                         </div>
                         <div className='flex justify-center md:justify-evenly gap-6'>
@@ -60,7 +60,7 @@ const course = (props) =>
                 </div>
                 <div className='flex flex-col gap-8 w-11/12 lg:w-10/12 mt-9 items-center md:items-start'>
                     <p className='darkBlue-color font-bold text-lg sm:text-xl '>توضیحات دوره</p>
-                    <div dangerouslySetInnerHTML={{ __html: courseDetail.description }} />
+                    <div className='leading-9' dangerouslySetInnerHTML={{ __html: courseDetail.description }} />
                     {/*<p>{courseDetail.description}</p>*/}
                 </div>
                 <div className='flex flex-col justify-center items-center w-11/12 lg:w-10/12 gap-9 mt-9'>
