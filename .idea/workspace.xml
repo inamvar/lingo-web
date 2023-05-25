@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7110e458-b35c-4d71-9c86-a88bc37cb642" name="Changes" comment="refactor: responsive design">
-      <change afterPath="$PROJECT_DIR$/components/packagesCarouselItem.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/packagesMultiItemCarousel.jsx" afterDir="false" />
+    <list default="true" id="7110e458-b35c-4d71-9c86-a88bc37cb642" name="Changes" comment="add: packages page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/appRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/appRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/FreeCourseCarouselItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/FreeCourseCarouselItem.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/packageCarouselItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/packageCarouselItem.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/slidingSidebar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/slidingSidebar.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/dashboard/myPackages.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/dashboard/myPackages.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/packages/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/packages/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/globals.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -112,7 +104,7 @@
       <workItem from="1684670388038" duration="3617000" />
       <workItem from="1684730867587" duration="25393000" />
       <workItem from="1684830208465" duration="13091000" />
-      <workItem from="1684991581117" duration="5340000" />
+      <workItem from="1684991581117" duration="6310000" />
     </task>
     <task id="LOCAL-00001" summary="add: add signUp and auth context and notifier">
       <created>1682337059014</created>
@@ -373,7 +365,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684993089032</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="add: packages page">
+      <created>1684997207654</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1684997207654</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -392,7 +391,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="add: add getserverside packages" />
     <MESSAGE value="reafctor: reafctor packageCersoul design" />
     <MESSAGE value="refactor: refactr package page and add: add courses list" />
     <MESSAGE value="refactor: refactor courses page design" />
@@ -417,6 +415,7 @@
     <MESSAGE value="refactor: responsive design&#10;add: _error.js" />
     <MESSAGE value="fix : login bugs" />
     <MESSAGE value="refactor: responsive design" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: responsive design" />
+    <MESSAGE value="add: packages page" />
+    <option name="LAST_COMMIT_MESSAGE" value="add: packages page" />
   </component>
 </project>
