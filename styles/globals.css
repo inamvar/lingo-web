@@ -12,6 +12,7 @@
     --darkRed: #000000;
     --darkGreen: #47CB78;
     --darkGreyy: #505050;
+    --paleRed:#F27B7ACC;
 }
 
 @font-face {
@@ -53,7 +54,10 @@ a {
     background-color: #EDEFF3;
     min-height: 50rem;
 }
-
+.bg-paleRed
+{
+    background-color: var(--paleRed);
+}
 .grey-color {
     color: var(--darkGrey);
 }
@@ -64,11 +68,18 @@ a {
     color: black;
     padding: 0.7rem;
 }
-
+.m-h-discount
+{
+    min-height: 10rem;
+    height: 100%;
+}
 .bg-grey {
     background-color: var(--grey);
 }
-
+.color-red
+{
+    color: var(--red);
+}
 .p-0 {
     padding: 0px !important;
 }
