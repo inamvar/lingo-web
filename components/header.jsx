@@ -37,7 +37,7 @@ const Header = ()=>{
                 <div className='flex flex-row justify-between items-center h-full xl:gap-10 whitespace-nowrap'>
                     <Link href={appRoutes.Main} className='darkBlue-color hover:drop-shadow-lg'>خانه</Link>
                     <Link href={appRoutes.FREEPACKAGE} className='darkBlue-color hover:drop-shadow-lg'>پکیج های رایگان</Link>
-                    <a className='darkBlue-color hover:drop-shadow-lg'>پکیج های آموزشی</a>
+                    <Link href={appRoutes.packages} className='darkBlue-color hover:drop-shadow-lg'>پکیج های آموزشی</Link>
                     <a className='darkBlue-color hover:drop-shadow-lg'>تخفیف</a>
                 </div>
             </div>

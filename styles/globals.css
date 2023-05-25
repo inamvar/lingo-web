@@ -335,6 +335,9 @@ iframe div {
     width: 25rem;
     height: 30rem;
 }
+.package-carsoul-item {
+    width: 22rem;
+}
 
 @media only screen and (min-width:1000px) {
     .css-pv22qu {
@@ -361,7 +364,6 @@ iframe div {
     top: 50%;
     animation: spinner 1.5s linear infinite;
 }
-
 .spinner {
     position: absolute;
     padding-top: 20%;

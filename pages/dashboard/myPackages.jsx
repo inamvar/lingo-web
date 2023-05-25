@@ -20,7 +20,7 @@ export default function myPackages()
                     <div className='flex flex-col w-full divide-y-2 divide-gray-300 overflow-auto'>
 
                         <div className='flex items-center justify-evenly w-full py-4 gap-2'>
-                            <Image className='rounded' src={pic} width={150} height={150} quality={100} alt='picture'/>
+                            <Image className='rounded dashboard-pic' src={pic} width={10} height={10} quality={100} alt='picture'/>
                             <p className='whitespace-nowrap'>پکیج پیشرفته مکالمه</p>
                             <button type='submit' className='bg-cyan-500 text-sm btn-page bg-red text-white p-btn-big hover:bg-red-800'>مشاهده</button>
                         </div>

@@ -48,7 +48,7 @@ const slidingSidebar = () => {
                             {authCtx.authState.authenticated && <Link onClick={handleLinkClick} href={AppRoutes.MyPackages} className='darkBlue-color py-2 w-full text-right'>دوره های من</Link>}
                             {authCtx.authState.authenticated && <Link onClick={handleLinkClick} href={AppRoutes.MyTransactions} className='darkBlue-color py-2 w-full text-right'>تراکنش های من</Link>}
                             <Link onClick={handleLinkClick} href={AppRoutes.FREEPACKAGE} className='darkBlue-color py-2 w-full text-right'>پکیج های رایگان</Link>
-                            <Link onClick={handleLinkClick} href='#'  className='darkBlue-color py-2 w-full text-right'>پکیج های آموزشی</Link>
+                            <Link onClick={handleLinkClick} href={AppRoutes.packages}  className='darkBlue-color py-2 w-full text-right'>پکیج های آموزشی</Link>
                             <Link onClick={handleLinkClick} href='#' className='darkBlue-color py-2 w-full text-right'>تخفیف ها</Link>
                         </div>
 
