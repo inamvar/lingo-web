@@ -20,8 +20,8 @@ const slidingSidebar = () => {
         <div >
             <div>
                 <button className='mt-0.5' onClick={() => setOpenPanel(true)}>
-                    <svg width="33" height="100%" viewBox="0 0 33 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0 23.1891H32.2376V19.3243H0V23.1891ZM0 13.527H32.2376V9.66214H0V13.527ZM0 0V3.86486H32.2376V0H0Z" fill="#143794"/>
+                    <svg width="33" height="29" viewBox="0 0 33 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.17857 5.32653H31.8214C32.4724 5.32653 33 4.79662 33 4.14286V1.18367C33 0.529916 32.4724 0 31.8214 0H1.17857C0.527632 0 0 0.529916 0 1.18367V4.14286C0 4.79662 0.527632 5.32653 1.17857 5.32653ZM1.17857 17.1633H31.8214C32.4724 17.1633 33 16.6334 33 15.9796V13.0204C33 12.3667 32.4724 11.8367 31.8214 11.8367H1.17857C0.527632 11.8367 0 12.3667 0 13.0204V15.9796C0 16.6334 0.527632 17.1633 1.17857 17.1633ZM1.17857 29H31.8214C32.4724 29 33 28.4701 33 27.8163V24.8571C33 24.2034 32.4724 23.6735 31.8214 23.6735H1.17857C0.527632 23.6735 0 24.2034 0 24.8571V27.8163C0 28.4701 0.527632 29 1.17857 29Z" fill="#143794"/>
                     </svg>
                 </button>
             </div>
@@ -46,7 +46,8 @@ const slidingSidebar = () => {
                         <div className='flex flex-col items-end mb-4 pt-4'>
                             <Link onClick={handleLinkClick} href={AppRoutes.Main} className='darkBlue-color py-2 w-full text-right'>خانه</Link>
                             {authCtx.authState.authenticated && <Link onClick={handleLinkClick} href={AppRoutes.MyPackages} className='darkBlue-color py-2 w-full text-right'>دوره های من</Link>}
-                            <Link onClick={handleLinkClick} href='#' className='darkBlue-color py-2 w-full text-right'>پکیج های رایگان</Link>
+                            {authCtx.authState.authenticated && <Link onClick={handleLinkClick} href={AppRoutes.MyTransactions} className='darkBlue-color py-2 w-full text-right'>تراکنش های من</Link>}
+                            <Link onClick={handleLinkClick} href={AppRoutes.FREEPACKAGE} className='darkBlue-color py-2 w-full text-right'>پکیج های رایگان</Link>
                             <Link onClick={handleLinkClick} href='#'  className='darkBlue-color py-2 w-full text-right'>پکیج های آموزشی</Link>
                             <Link onClick={handleLinkClick} href='#' className='darkBlue-color py-2 w-full text-right'>تخفیف ها</Link>
                         </div>

@@ -5,8 +5,6 @@ import PackageCarouselItem from "../components/packageCarouselItem";
 
 const PackageMultiItemCarousel = ({ packages }) => {
 
-    console.log(packages)
-
     const [dragging, setDragging] = useState(false);
 
     const responsive = {

@@ -12,7 +12,7 @@ export default function PackageCarouselItem(props)
                 <div style={{width:'90%'}}  className='flex flex-col rounded-xl bg-white p-3 w-full h-full justify-between'>
                     <div style={{height:"80%"}} className='relative w-full'>
                         {/*<span className='w-full div-banner object-center bg-darkBlue opacity-30 absolute'></span>*/}
-                        <Image quality={100} className='w-full h-full' alt='picture' height={900} width={900} src={props.picture} />
+                        <Image quality={100} className='w-full h-full rounded' alt='picture' height={900} width={900} src={props.picture} />
                     </div>
                     <div style={{height:"10%"}} className='flex justify-center'>
                         <p className='grey-color'>{props.name}</p>

@@ -18,7 +18,7 @@ export default function Login(){
     const [returnUrl,setReturnUrl]=useState('');
 
     const schema = validator.object({
-        userName:validator.string().required('انتخاب ایمیل اجباری است'),
+        userName:validator.string().required('نوشتن ایمیل اجباری است'),
         password:validator.string().required('نوشتن رمز عبور اجباری است')
     })
 
