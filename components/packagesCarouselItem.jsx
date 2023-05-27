@@ -6,7 +6,7 @@ export default function PackagesCarouselItem(props)
 {
     return(
 
-        <Link className='item-size flex justify-center' href={APP_ROUTES.Package(props.slug)}>
+        <Link className='item-size flex justify-center' href={APP_ROUTES.Course(props.slug)}>
             <div style={{width:'90%'}} className='flex flex-col rounded-xl bg-white p-3 w-full h-full gap-3 justify-between'>
                 <div style={{height:"90%"}} className='relative w-full rounded'>
                     {/*<span className='w-full div-banner object-center bg-darkBlue opacity-30 absolute'></span>*/}

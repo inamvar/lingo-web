@@ -96,7 +96,6 @@ a {
 .bg-darkGreen {
     background-color: var(--darkGreen);
 }
-
 .bg-red {
     background-color: var(--red);
 }
@@ -154,11 +153,14 @@ a {
     min-width: 90% !important;
     margin-right: 10px;
     margin-left: 10px;
+    background-color: inherit !important;
+    box-shadow: none !important;
 }
 .css-1u2cvaz
 {
     justify-content: center !important;
-    align-items: center !important;
+    /*align-items: center !important;*/
+    margin-top: 10% !important;
 }
 .css-uttm9k
 {
@@ -323,7 +325,14 @@ iframe div {
     }
 }
 
-@media only screen and (min-width:1024px) {
+@media only screen and (max-width:700px)
+{
+    .css-1u2cvaz
+    {
+        margin-top: 50% !important;
+    }
+}
+    @media only screen and (min-width:1024px) {
     .item-size {
         width: 22rem;
         height: 28rem;

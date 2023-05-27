@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7110e458-b35c-4d71-9c86-a88bc37cb642" name="Changes" comment="add: golden package page">
-      <change afterPath="$PROJECT_DIR$/components/IRRPrice.js" afterDir="false" />
+    <list default="true" id="7110e458-b35c-4d71-9c86-a88bc37cb642" name="Changes" comment="add: IRRPrice.js and paymentDetail page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/appRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/appRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/courseCarouselItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/courseCarouselItem.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/courseItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/courseItem.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/coursePaymentDetail/[...slug].jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/coursePaymentDetail/[...slug].jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/goldenPackage/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/goldenPackage/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/modal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/modal.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/package/[...slug].jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/package/[...slug].jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/package/course/[...slug].jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/package/course/[...slug].jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/globals.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -112,7 +107,7 @@
       <workItem from="1684730867587" duration="25393000" />
       <workItem from="1684830208465" duration="13091000" />
       <workItem from="1684991581117" duration="10430000" />
-      <workItem from="1685163893432" duration="14896000" />
+      <workItem from="1685163893432" duration="20774000" />
     </task>
     <task id="LOCAL-00001" summary="add: add signUp and auth context and notifier">
       <created>1682337059014</created>
@@ -408,7 +403,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685173377363</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="add: IRRPrice.js and paymentDetail page">
+      <created>1685183609032</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1685183609032</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -427,7 +429,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="add: add courseDetail page" />
     <MESSAGE value="refactor: authorition use cookie based authentication" />
     <MESSAGE value="feat: course detail page features" />
     <MESSAGE value="feat: add video page" />
@@ -452,6 +453,7 @@
     <MESSAGE value="add: discount page" />
     <MESSAGE value="refactor : responsive design" />
     <MESSAGE value="add: golden package page" />
-    <option name="LAST_COMMIT_MESSAGE" value="add: golden package page" />
+    <MESSAGE value="add: IRRPrice.js and paymentDetail page" />
+    <option name="LAST_COMMIT_MESSAGE" value="add: IRRPrice.js and paymentDetail page" />
   </component>
 </project>

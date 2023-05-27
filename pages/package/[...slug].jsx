@@ -1,9 +1,6 @@
 import {getPackageCourseList} from "../../services/appServices";
 import CourseItem from '../../components/courseItem';
 import router from "next/router";
-import appRoutes from "../../common/appRoutes";
-import {useEffect} from "react";
-
 
 const Package=(props)=>{
 
