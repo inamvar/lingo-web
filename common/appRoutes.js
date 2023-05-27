@@ -29,7 +29,10 @@ const AppRoutes= {
     FREEPACKAGE:"/freePackage",
     packages:"/packages",
     Discount:"/discount",
-    GoldenPackage:"/goldenPackage"
+    GoldenPackage:"/goldenPackage",
+    PaymentDetail:(slug)=>{
+        return `/coursePaymentDetail/${slug}`;
+    }
 };
 
 export default AppRoutes;

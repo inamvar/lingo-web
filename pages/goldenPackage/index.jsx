@@ -15,7 +15,7 @@ const goldenPackage = ({GoldenPackage}) =>
                 {/*<div className='video-div rounded-none' dangerouslySetInnerHTML={{ __html: currentVideo.embedPlayer }} />*/}
                 <p className='darkBlue-color font-bold text-lg sm:text-xl w-11/12 md:w-4/5'>معرفی و آشنایی با پکیج طلائی</p>
                 <div className='w-11/12 md:w-4/5 leading-9' dangerouslySetInnerHTML={{ __html: GPackage.description }} />
-                <Link href={AppRoutes.Cart} className='bg-red rounded text-white text-center px-8 py-4 hover:bg-red-600'>پکیح طلائی را میخرم</Link>
+                <Link href={AppRoutes.PaymentDetail(GPackage.slug+"/GoldenPackage")} className='bg-red rounded text-white text-center px-8 py-4 hover:bg-red-600'>پکیح طلائی را میخرم</Link>
             </div>
         </>
     )

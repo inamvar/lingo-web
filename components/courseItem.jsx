@@ -2,6 +2,7 @@ import Image from 'next/image';
 import pic from '../public/picture/package-pic.png';
 import Link from 'next/link';
 import APP_ROUTES from "../common/appRoutes";
+import Price from "./IRRPrice";
 
 export default function CourseItem(props)
 {
@@ -12,8 +13,9 @@ export default function CourseItem(props)
                     {/*<span className='w-full div-banner object-center bg-darkBlue opacity-30 absolute'></span>*/}
                     <Image className='w-full h-full rounded' width={450} height={450} quality={100} alt='picture' src={props.picture}/>
                 </div>
-                <div style={{height:"10%"}} className='flex justify-center'>
+                <div style={{height:"20%"}} className='flex justify-center items-center flex-col'>
                     <p className='grey-color'>{props.name}</p>
+                    <div className='paleGreen-color flex gap-2 pt-2 mt-2 pb-1 w-full justify-center text-lg border-gray-200 border-t-2'><Price pricings={props.pricings} />تومان</div>
                 </div>
             </div>
         </Link>

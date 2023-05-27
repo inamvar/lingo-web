@@ -11,6 +11,7 @@
     --bgBlue: #EDEFF3;
     --darkRed: #000000;
     --darkGreen: #47CB78;
+    --paleGreen:#47CB78;
     --darkGreyy: #505050;
     --paleRed:#F27B7ACC;
 }
@@ -79,6 +80,10 @@ a {
 .color-red
 {
     color: var(--red);
+}
+.paleGreen-color
+{
+    color: var(--paleGreen);
 }
 .p-0 {
     padding: 0px !important;
@@ -320,8 +325,8 @@ iframe div {
 
 @media only screen and (min-width:1024px) {
     .item-size {
-        width: 25rem;
-        height: 25rem;
+        width: 22rem;
+        height: 28rem;
     }
 }
 
