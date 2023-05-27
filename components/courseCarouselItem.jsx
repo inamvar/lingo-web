@@ -4,13 +4,14 @@ import APP_ROUTES from "../common/appRoutes";
 
 export default function CourseCarouselItem(props)
 {
-    props.pricings.map((p)=>
-    {
-        if(p.currencyType = "IRR")
-        {
-            // console.log(p.amount);
-        }
-    })
+    // console.log(props.pricings)
+    // props.pricings.map((p)=>
+    // {
+    //     if(p.currencyType = "IRR")
+    //     {
+    //         // console.log(p.amount);
+    //     }
+    // })
 
     return(
         <Link className='item-size flex justify-center' href={APP_ROUTES.Course(props.slug)}>
@@ -25,12 +26,10 @@ export default function CourseCarouselItem(props)
                     {/*<hr className='h-52 border border-black'/>*/}
                     {/*<div className='border-t-2'>*/}
                     {/*    {props.pricings.map((p)=> {*/}
-                    {/*        // console.log(p)*/}
                     {/*        if(p.currencyType == "IRR")*/}
                     {/*        {*/}
-                    {/*            console.log(p.amount)*/}
+                    {/*            console.log(p)*/}
                     {/*            const price = p.amount.toLocaleString();*/}
-                    {/*            // console.log(price);*/}
                     {/*            return (<p className='green-color'>{price}</p>)*/}
                     {/*        }*/}
                     {/*    })*/}
