@@ -28,7 +28,8 @@ const AppRoutes= {
     MyTransactions:"/dashboard/myTransactions",
     FREEPACKAGE:"/freePackage",
     packages:"/packages",
-    Discount:"/discount"
+    Discount:"/discount",
+    GoldenPackage:"/goldenPackage"
 };
 
 export default AppRoutes;

@@ -4,6 +4,30 @@ import {pushAlert} from "../common/notifier";
 import ax from "../common/apiServerSideRequest";
 
 
+export const getGoldenPackage = async (context) =>
+{
+    try
+    {
+        let response = await ax.get(API_ROUTES.GOLDENPACKAGE);
+        console.log("(((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((");
+        console.log(response.data.data.data);
+
+        if (response.data.success == true)
+        {
+            const packages = response.data.data.data;
+            return packages;
+        }
+        else {
+            pushAlert({message:response.data.message,type:'error'});
+            return null;
+        }
+    }
+    catch (error)
+    {
+        handleApiError(error,context);
+    }
+}
+
 export const getFreePackagesList = async (context) =>
 {
     try
@@ -76,9 +100,6 @@ export const courseDetail = async (slug,context) =>
     {
         const response = await ax.get(API_ROUTES.COURSE(slug),{ctx:context});
 
-        console.log("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-        console.log(response);
-        console.log("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
         if (response.data.success == true)
         {
             const course = response.data.data;
