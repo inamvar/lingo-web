@@ -49,7 +49,6 @@ export default function Login(){
     };
 
     useEffect(()=>{
-        console.log(router.query);
         isCsr = true;
        const rUrl= router.query.returnUrl;
        if (rUrl==undefined){

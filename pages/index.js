@@ -10,11 +10,9 @@ import PackageMultiItemCarousel from "../components/packageMultiItemCarousel";
 const Home=(props)=>{
 
     const authCtx = useContext(authContext);
-    const Packages = props.packages;
-    console.log(Packages);
 
+    const Packages = props.packages;
     const banner=props.banner;
-    console.log(banner);
 
     return (
         <>

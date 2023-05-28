@@ -14,7 +14,7 @@ export default function PackagesCarouselItem(props)
                 </div>
                 <div style={{height:"20%"}} className='flex justify-center flex-col items-center'>
                     <p className='grey-color'>{props.title}</p>
-                    <div className='paleGreen-color flex gap-2 pt-2 mt-2 pb-1 w-full justify-center text-lg border-gray-200 border-t-2'><Price pricings={props.pricings} />تومان</div>
+                    <div className='paleGreen-color flex gap-2 pt-2 mt-2 pb-1 w-full justify-center text-lg border-gray-200 border-t-2'>تومان<Price pricings={props.pricings} /></div>
                 </div>
             </div>
         </Link>

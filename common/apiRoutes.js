@@ -20,7 +20,8 @@ const API_ROUTES = {
     UPDATEMYPROFILE:"/user/profile",
     BANNER:"/Banner",
     FREEPACKAGE:"/Package/Free",
-    GOLDENPACKAGE:"/Package/Golden"
+    GOLDENPACKAGE:"/Package/Golden",
+    SEARCH:"/search"
 };
 
 export default API_ROUTES;

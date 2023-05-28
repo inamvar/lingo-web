@@ -2,19 +2,31 @@ import Image from 'next/image';
 import Logo from '/public/picture/Logo.png';
 import Link from 'next/link';
 import appRoutes from "../common/appRoutes";
-import React,{useContext} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import authContext from "../context/authContext";
 import Modal from "./modal";
 import SlidingSidebar from "./slidingSidebar";
 import {getPackagesList} from "../services/appServices";
 import {logout} from "../services/clientAppService";
 // import {BarLoader} from "react-spinner-animated";
-// import 'react-spinner-animated/dist/index.css';
+import {getSearchResult} from "../services/appServices";
 
 
 const Header = ()=>{
 
+    const [search,setSearch]=useState({});
+
+    const [result,setResult]=useState({});
+
     const authCtx=useContext(authContext);
+
+    async function handleChange(e)
+    {
+        setSearch(e.target.value);
+        const resultSearch = await getSearchResult(search);
+        setResult(resultSearch);
+        console.log(result);
+    }
 
     const SignOut=async ()=>
     {
@@ -59,7 +71,7 @@ const Header = ()=>{
                         }
                         body={
                             <div className='flex d-rtl justify-between rounded-lg border-2 border-blue-950'>
-                                <input type='text' className='rounded py-4 px-3 text-black text-xs md:text-sm focus:outline-none w-3/4' placeholder='به دنبال یادگیری چه مهارتی هستید ؟'/>
+                                <input onChange={handleChange} type='text' className='rounded py-4 px-3 text-black text-xs md:text-sm focus:outline-none w-3/4' placeholder='به دنبال یادگیری چه مهارتی هستید ؟'/>
                                 {/*<a className='p-4 w-1/4 text-center bg-darkBlue rounded-tl-md rounded-bl-md text-sm text-white hidden md:block'>جست و جو</a>*/}
                                 <a className='m-2'>
                                     <svg className='hover:drop-shadow-lg' width="28" height="28" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -75,6 +87,7 @@ const Header = ()=>{
                                 </a>
                             </div>
                         }
+                        result={result}
                     />
                 </a>
                 {authCtx.authState.authenticated ? (
@@ -97,4 +110,6 @@ const Header = ()=>{
         </div>
     )
 }
+
+
 export default Header;

@@ -12,7 +12,7 @@ import Link from "next/link";
 export default function BasicUsage(props) {
 
     const { isOpen, onOpen, onClose } = useDisclosure();
-    const data = ["دوره تست 1","دوره تست 1"]
+    const data = props.result;
 
     return (
         <>

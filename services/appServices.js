@@ -3,14 +3,34 @@ import {handleApiError} from "../common/handleApiError";
 import {pushAlert} from "../common/notifier";
 import ax from "../common/apiServerSideRequest";
 
+export const getSearchResult = async (Filter) =>
+{
+    try {
+
+        let response = await ax.get(API_ROUTES.SEARCH,{Filter});
+
+        if (response.status == 200)
+        {
+            const result = response.data.data.data;
+            return result;
+        }
+        else
+        {
+            pushAlert({message:response.data.message,type:'error'});
+            return null;
+        }
+    }
+    catch (error)
+    {
+        handleApiError(error);
+    }
+}
 
 export const getGoldenPackage = async (context) =>
 {
     try
     {
         let response = await ax.get(API_ROUTES.GOLDENPACKAGE);
-        console.log("(((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((");
-        console.log(response.data.data.data);
 
         if (response.data.success == true)
         {
@@ -135,8 +155,6 @@ export const getVideoDetail=async (slug,context)=>
         handleApiError(error,context);
     }
 }
-
-
 
 export const getMyProfile=async (ctx)=>
 {

@@ -11,8 +11,6 @@ const slidingSidebar = () => {
     const authCtx = useContext(authContext);
     const [openPanel, setOpenPanel] = useState(false);
 
-    console.log(authCtx.authState.authenticated)
-
     const handleLinkClick = () => {
         setOpenPanel(false);
     };

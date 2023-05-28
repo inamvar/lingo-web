@@ -1,6 +1,5 @@
 export default function price(props)
 {
-    console.log(props.pricings)
     return(
         <>
             {props.pricings.map((p)=> {
