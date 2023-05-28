@@ -58,7 +58,7 @@ const PackagesMultiItemCarousel = ({ packages }) => {
             // onDragEnd={handleDragEnd}
         >
             {packages.map((i) => (
-                <PackagesCarouselItem firstCourse={i.firstCourseSlug} id={i.id} name={i.name} title={i.title} picture={i.thumbnailImageUrl} slug={i.slug}/>
+                <PackagesCarouselItem firstCourse={i.firstCourseSlug} pricings={i.pricings} id={i.id} name={i.name} title={i.title} picture={i.thumbnailImageUrl} slug={i.slug}/>
             ))}
         </Carousel>
     );

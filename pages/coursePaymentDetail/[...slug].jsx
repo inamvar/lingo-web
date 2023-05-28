@@ -1,11 +1,22 @@
 import Image from "next/image";
 import pic from '../../public/picture/package-pic.png';
 import {courseDetail, getGoldenPackage, getPackageCourseList} from "../../services/appServices";
-import Price from "../../components/IRRPrice";
+import IRRPrice from "../../components/IRRPrice";
+import USDPrice from "../../components/USDTPrace";
+import {useEffect, useState} from "react";
 
 const paymentDetail = ({result}) =>
 {
-    console.log(result);
+    const [port,setPort]=useState('IRR');
+
+    function handleChange(event)
+    {
+        setPort(event.target.value)
+    }
+
+    useEffect(()=>{
+        console.log(port)
+    },[setPort])
 
     return(
         <>
@@ -20,16 +31,31 @@ const paymentDetail = ({result}) =>
                     <div className='flex flex-col w-2/3 md:w-1/2 md:text-base text-xs items-center justify-evenly'>
 
                         <p className='grey-color'>{result.title}</p>
-                        <div className='grey-color flex gap-2'>قیمت دوره: <Price pricings={result.pricings} />تومان</div>
+                        {port=="IRR"?<p className='grey-color pt-3 flex gap-2'>قیمت دوره: <IRRPrice pricings={result.pricings} />تومان</p>:<p className='grey-color pt-3 flex gap-2'>قیمت دوره: <USDPrice pricings={result.pricings} /> تتر</p>}
 
                     </div>
                 </div>
 
-                <div className='flex bg-white text-xs md:text-base flex-col p-5 gap-3 w-4/5 md:w-1/3 rounded divide-y-2 div-mypackage divide-gray-300"'>
+                <div className='flex bg-white text-xs md:text-base flex-col p-5 gap-3 w-4/5 md:w-1/3 rounded divide-y-2 div-mypackage divide-gray-300'>
                     <p className='darkBlue-color font-bold'>جزئیات سفارش</p>
-                    <p className='grey-color pt-3'>قیمت دوره: 450,000 تومان</p>
+                    {port=="IRR"?<p className='grey-color pt-3 flex gap-2'>قیمت دوره: <IRRPrice pricings={result.pricings} />تومان</p>:<p className='grey-color pt-3 flex gap-2'>قیمت دوره: <USDPrice pricings={result.pricings} /> تتر</p>}
                     <p className='grey-color pt-3'>درصد تخفیف: 0%</p>
                     <p className='grey-color pt-3'>قیمت نهایی: 450,000 تومان</p>
+                </div>
+
+                <div className='flex bg-white text-xs md:text-base p-5 gap-5 w-4/5 md:w-1/3 rounded div-mypackage'>
+
+                    <p className='darkBlue-color text-lg font-bold text-center'>روش پرداخت:</p>
+
+                    <div className='flex justify-center items-center gap-2'>
+                        <input defaultChecked onChange={handleChange} type='radio' value='IRR' name='typePort' id='internalPort'/>
+                        <p className='grey-color'>درگاه داخلی</p>
+                    </div>
+                    <div className='flex justify-center items-center gap-2'>
+                        <input onChange={handleChange} type='radio' value='USDT' name='typePort' id='crypto'/>
+                        <p className='grey-color'>کریپتو</p>
+                    </div>
+
                 </div>
 
                 <a className='bg-red btn-page text-white text-center text-sm md:text-base w-4/5 md:w-1/3'>پرداخت میکنم</a>

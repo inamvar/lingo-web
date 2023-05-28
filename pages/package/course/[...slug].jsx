@@ -13,7 +13,7 @@ const course = (props) =>
     const courseDetail = props.result;
     const relatesCourses = props.relatesCourses;
 
-    console.log(relatesCourses);
+    console.log(courseDetail);
 
     let  num=0;
  courseDetail.chapters.forEach((e,i)=>{
@@ -45,7 +45,7 @@ const course = (props) =>
                             </div>
                         </div>
 
-                        <div className='paleGreen-color flex gap-2 pt-2 mt-2 pb-1 w-full justify-start text-lg font-extrabold'><Price pricings={courseDetail.pricings} />تومان</div>
+                        {courseDetail.costType!="Free"&&<div className='paleGreen-color flex gap-2 pt-2 mt-2 pb-1 w-full justify-start text-lg font-extrabold'><Price pricings={courseDetail.pricings} />تومان</div>}
 
                         <div className='flex flex-col gap-6'>
                             <div className='flex relative mt-5'>
@@ -63,7 +63,6 @@ const course = (props) =>
                 <div className='flex flex-col gap-8 w-11/12 lg:w-10/12 mt-9 items-center md:items-start'>
                     <p className='darkBlue-color font-bold text-lg sm:text-xl '>توضیحات دوره</p>
                     <div className='leading-9' dangerouslySetInnerHTML={{ __html: courseDetail.description }} />
-                    {/*<p>{courseDetail.description}</p>*/}
                 </div>
                 <div className='flex flex-col justify-center items-center w-11/12 lg:w-10/12 gap-9 mt-9'>
                     <div>
