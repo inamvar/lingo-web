@@ -3,12 +3,12 @@ import {handleApiError} from "../common/handleApiError";
 import {pushAlert} from "../common/notifier";
 import ax from "../common/apiServerSideRequest";
 
-export const getSearchResult = async (Filter) =>
+export const getSearchResult = async (w) =>
 {
     try {
-
-        let response = await ax.get(API_ROUTES.SEARCH,{Filter});
-
+        console.log(w);
+        let response = await ax.get(API_ROUTES.SEARCH,{params:{Filter:w}});
+        console.log(response)
         if (response.status == 200)
         {
             const result = response.data.data.data;

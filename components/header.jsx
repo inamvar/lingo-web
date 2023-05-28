@@ -24,8 +24,8 @@ const Header = ()=>{
     {
         setSearch(e.target.value);
         const resultSearch = await getSearchResult(search);
+        console.log(resultSearch)
         setResult(resultSearch);
-        console.log(result);
     }
 
     const SignOut=async ()=>
