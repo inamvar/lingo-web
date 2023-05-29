@@ -52,10 +52,7 @@ const PackagesMultiItemCarousel = ({ packages }) => {
                   customTransition="transform 600ms ease-in-out"
                   transitionDuration={600}
                   containerClass="carousel-container"
-            // removeArrowOnDeviceType={["tablet", "mobile"]}
                   itemClass="multi-pack-item"
-            // onDragStart={handleDragStart}
-            // onDragEnd={handleDragEnd}
         >
             {packages.map((i) => (
                 <PackagesCarouselItem firstCourse={i.firstCourseSlug} pricings={i.pricings} id={i.id} name={i.name} title={i.title} picture={i.thumbnailImageUrl} slug={i.slug}/>

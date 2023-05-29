@@ -13,8 +13,8 @@ export default function PackagesCarouselItem(props)
                     <Image quality={100}  className='w-full h-full rounded' alt='picture' height={450} width={450} src={props.picture}/>
                 </div>
                 <div style={{height:"20%"}} className='flex justify-center flex-col items-center'>
-                    <p className='grey-color'>{props.title}</p>
-                    <div className='paleGreen-color flex gap-2 pt-2 mt-2 pb-1 w-full justify-center text-lg border-gray-200 border-t-2'>تومان<Price pricings={props.pricings} /></div>
+                    <p className='grey-color sm:text-base text-xs'>{props.title}</p>
+                    <div className='paleGreen-color sm:text-base text-xs flex gap-2 pt-2 mt-2 pb-1 w-full justify-center text-lg border-gray-200 border-t-2'>تومان<Price pricings={props.pricings} /></div>
                 </div>
             </div>
         </Link>

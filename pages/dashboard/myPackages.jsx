@@ -1,6 +1,8 @@
 import Image from "next/image";
 import pic from '../../public/picture/package-pic.png';
 import {getMyCoursesList} from "../../services/appServices";
+import Link from "next/link";
+import AppRoutes from "../../common/appRoutes";
 
 const myPackages = ({packages}) =>
 {
@@ -21,21 +23,29 @@ const myPackages = ({packages}) =>
 
                 <div className='flex flex-col bg-white justify-evenly items-start div-mypackage gap-3 rounded p-7'>
                     <p className='darkBlue-color font-bold text-base md:text-lg'>پکیج های خریداری شده:</p>
-                    <div className='flex flex-col w-full divide-y-2 divide-gray-300 overflow-auto'>
 
-                        <div className='flex items-center justify-evenly w-full py-4 gap-2'>
-                            <Image className='rounded dashboard-pic' src={pic} width={100} height={100} quality={100} alt='picture'/>
-                            <p className='whitespace-nowrap text-sm sm:text-base'>پکیج پیشرفته مکالمه</p>
-                            <button type='submit' className='bg-cyan-500 text-sm btn-page bg-red text-white p-btn-big hover:bg-red-800'>مشاهده</button>
-                        </div>
+                    {packages.length>=1&&<div className='flex flex-col w-full divide-y-2 divide-gray-300 overflow-auto'>
 
-                        <div className='flex items-center justify-evenly w-full py-4 gap-2'>
-                            <Image className='rounded' src={pic} width={100} height={100} quality={100} alt='picture'/>
-                            <p className='whitespace-nowrap text-sm sm:text-base'>پکیج پیشرفته مکالمه</p>
-                            <button type='submit' className='bg-cyan-500 text-xs sm:text-sm btn-page bg-red text-white p-btn-big hover:bg-red-800'>مشاهده</button>
-                        </div>
+                        {packages.map((p)=>{
+                            return (
+                                <div className='flex items-center justify-evenly w-full py-4 gap-2'>
+                                    <div className='w-1/3 flex justify-center'><Image className='rounded dashboard-pic' src={p.thumbnailImageUrl} width={150} height={150} quality={100} alt='picture'/></div>
+                                    <p className='text-sm sm:text-base w-1/3 text-center'>{p.title}</p>
+                                    <div className='w-1/3 text-center'><Link href={AppRoutes.Course(p.slug)} className='bg-cyan-500 text-xs sm:text-sm btn-page bg-red text-white p-btn-big hover:bg-red-800'>مشاهده</Link></div>
+                                </div>
+                            )
+                        })}
+
+
+                        {/*<div className='flex items-center justify-evenly w-full py-4 gap-2'>*/}
+                        {/*    <Image className='rounded' src={pic} width={100} height={100} quality={100} alt='picture'/>*/}
+                        {/*    <p className='whitespace-nowrap text-sm sm:text-base'>پکیج پیشرفته مکالمه</p>*/}
+                        {/*    <button type='submit' className='bg-cyan-500 text-xs sm:text-sm btn-page bg-red text-white p-btn-big hover:bg-red-800'>مشاهده</button>*/}
+                        {/*</div>*/}
 
                     </div>
+                    }
+
                 </div>
             </div>
         </>
