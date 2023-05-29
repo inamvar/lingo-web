@@ -9,15 +9,12 @@ export function withAuth(WrappedComponent) {
 
         const context = useContext(AuthContext);
         const router = useRouter();
-        console.log(context);
 
         useEffect(() => {
 
-            console.log(context);
             if ('authenticated' in context.authState && !context.authState.authenticated)
             {
-               const current= router.asPath;
-               console.log(current);
+                const current= router.asPath;
                 router.push(appRoutes.LoginReturn(current));
             }
             else{

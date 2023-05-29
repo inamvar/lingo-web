@@ -13,7 +13,9 @@ const course = (props) =>
     const courseDetail = props.result;
     const relatesCourses = props.relatesCourses;
 
-    let  num=0;
+    console.log(courseDetail)
+
+    let num = 0;
     courseDetail.chapters.forEach((e,i)=>{
         num += e.videos.length;
     });

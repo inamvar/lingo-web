@@ -38,12 +38,7 @@ const Index = () => {
                             <p className='darkBlue-color'>تراکنش من</p>
                         </Link>
                     </div>
-
-
                 </div>
-                {/*<div className='bg-white'>*/}
-                {/*    {auth.authState.user?.email}*/}
-                {/*</div>*/}
             </>
         );
     }

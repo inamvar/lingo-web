@@ -21,7 +21,8 @@ const API_ROUTES = {
     BANNER:"/Banner",
     FREEPACKAGE:"/Package/Free",
     GOLDENPACKAGE:"/Package/Golden",
-    SEARCH:"/Search"
+    SEARCH:"/Search",
+    MYCOURSES:"/Report/PurchasedCourses"
 };
 
 export default API_ROUTES;

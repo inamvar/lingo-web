@@ -1,12 +1,15 @@
 import Image from "next/image";
-import pic from '../../public/picture/package-pic.png';
-import {courseDetail, getGoldenPackage, getPackageCourseList} from "../../services/appServices";
+import {courseDetail, getGoldenPackage} from "../../services/appServices";
 import IRRPrice from "../../components/IRRPrice";
 import USDPrice from "../../components/USDTPrace";
-import {useEffect, useState} from "react";
+import {useContext, useState} from "react";
+import AuthContext from "../../context/authContext";
+import {withAuth} from "../../components/Authorized";
+
 
 const paymentDetail = ({result,golden}) =>
 {
+    const context = useContext(AuthContext);
     const goldenPackage = result[0];
     const [port,setPort]=useState('IRR');
 
@@ -15,104 +18,114 @@ const paymentDetail = ({result,golden}) =>
         setPort(event.target.value)
     }
 
-    if(golden == false)
+    if(context.authState.authenticated)
     {
-        return(
-            <>
-                <div className='flex flex-col justify-center items-center gap-6 mt-16'>
+        if(golden == false)
+        {
+            return(
+                <>
+                    <div className='flex flex-col justify-center items-center gap-6 mt-16'>
 
-                    <p className='darkBlue-color text-lg font-bold text-center div-mypackage'>جزئیات پرداخت</p>
+                        <p className='darkBlue-color text-lg font-bold text-center div-mypackage'>جزئیات پرداخت</p>
 
-                    <div className='flex bg-white w-4/5 md:w-1/3 rounded gap-1 justify-between p-5 div-mypackage'>
-                        <div className='flex w-1/2 rounded justify-center'>
-                            <Image className='rounded w-40' src={result.thumbnailImageUrl} width={450} height={450} quality={100} alt='picture' />
+                        <div className='flex bg-white w-4/5 md:w-1/3 rounded gap-1 justify-between p-5 div-mypackage'>
+                            <div className='flex w-1/2 rounded justify-center'>
+                                <Image className='rounded w-40' src={result.thumbnailImageUrl} width={450} height={450} quality={100} alt='picture' />
+                            </div>
+                            <div className='flex flex-col w-2/3 md:w-1/2 md:text-base text-xs items-center justify-evenly'>
+
+                                <p className='grey-color'>{result.title}</p>
+                                {port=="IRR"?<p className='grey-color pt-3 flex gap-2'>قیمت دوره: <IRRPrice pricings={result.pricings} />تومان</p>:<p className='grey-color pt-3 flex gap-2'>قیمت دوره: <USDPrice pricings={result.pricings} /> تتر</p>}
+
+                            </div>
                         </div>
-                        <div className='flex flex-col w-2/3 md:w-1/2 md:text-base text-xs items-center justify-evenly'>
 
-                            <p className='grey-color'>{result.title}</p>
+                        <div className='flex bg-white text-xs md:text-base flex-col p-5 gap-3 w-4/5 md:w-1/3 rounded divide-y-2 div-mypackage divide-gray-300'>
+                            <p className='darkBlue-color font-bold'>جزئیات سفارش</p>
                             {port=="IRR"?<p className='grey-color pt-3 flex gap-2'>قیمت دوره: <IRRPrice pricings={result.pricings} />تومان</p>:<p className='grey-color pt-3 flex gap-2'>قیمت دوره: <USDPrice pricings={result.pricings} /> تتر</p>}
-
-                        </div>
-                    </div>
-
-                    <div className='flex bg-white text-xs md:text-base flex-col p-5 gap-3 w-4/5 md:w-1/3 rounded divide-y-2 div-mypackage divide-gray-300'>
-                        <p className='darkBlue-color font-bold'>جزئیات سفارش</p>
-                        {port=="IRR"?<p className='grey-color pt-3 flex gap-2'>قیمت دوره: <IRRPrice pricings={result.pricings} />تومان</p>:<p className='grey-color pt-3 flex gap-2'>قیمت دوره: <USDPrice pricings={result.pricings} /> تتر</p>}
-                        <p className='grey-color pt-3'>درصد تخفیف: {result.discount.discountValue}%</p>
-                        {port=="IRR"?<p className='grey-color pt-3 flex gap-2'>قیمت نهایی:<IRRPrice pricings={result.discount.finalAmounts} /> تومان</p>:<p className='grey-color pt-3 flex gap-2'>قیمت نهایی: <USDPrice pricings={result.discount.finalAmounts} /> تتر</p>}
-                    </div>
-
-                    <div className='flex bg-white text-xs md:text-base p-5 gap-5 w-4/5 md:w-1/3 rounded div-mypackage'>
-
-                        <p className='darkBlue-color text-lg font-bold text-center'>روش پرداخت:</p>
-
-                        <div className='flex justify-center items-center gap-2'>
-                            <input defaultChecked onChange={handleChange} type='radio' value='IRR' name='typePort' id='internalPort'/>
-                            <p className='grey-color'>درگاه داخلی</p>
-                        </div>
-                        <div className='flex justify-center items-center gap-2'>
-                            <input onChange={handleChange} type='radio' value='USDT' name='typePort' id='crypto'/>
-                            <p className='grey-color'>کریپتو</p>
+                            <p className='grey-color pt-3'>درصد تخفیف: {result.discount.discountValue}%</p>
+                            {port=="IRR"?<p className='grey-color pt-3 flex gap-2'>قیمت نهایی:<IRRPrice pricings={result.discount.finalAmounts} /> تومان</p>:<p className='grey-color pt-3 flex gap-2'>قیمت نهایی: <USDPrice pricings={result.discount.finalAmounts} /> تتر</p>}
                         </div>
 
+                        <div className='flex bg-white text-xs md:text-base p-5 gap-5 w-4/5 md:w-1/3 rounded div-mypackage'>
+
+                            <p className='darkBlue-color text-lg font-bold text-center'>روش پرداخت:</p>
+
+                            <div className='flex justify-center items-center gap-2'>
+                                <input defaultChecked onChange={handleChange} type='radio' value='IRR' name='typePort' id='internalPort'/>
+                                <p className='grey-color'>درگاه داخلی</p>
+                            </div>
+                            <div className='flex justify-center items-center gap-2'>
+                                <input onChange={handleChange} type='radio' value='USDT' name='typePort' id='crypto'/>
+                                <p className='grey-color'>کریپتو</p>
+                            </div>
+
+                        </div>
+
+                        <a className='bg-red btn-page text-white text-center text-sm md:text-base w-4/5 md:w-1/3'>پرداخت میکنم</a>
+
                     </div>
+                </>
+            )
+        }
 
-                    <a className='bg-red btn-page text-white text-center text-sm md:text-base w-4/5 md:w-1/3'>پرداخت میکنم</a>
+        else
+        {
+            console.log(goldenPackage);
+            return(
+                <>
+                    <div className='flex flex-col justify-center items-center gap-6 mt-16'>
 
-                </div>
-            </>
-        )
+                        <p className='darkBlue-color text-lg font-bold text-center div-mypackage'>جزئیات پرداخت</p>
+
+                        <div className='flex bg-white w-4/5 md:w-1/3 rounded gap-1 justify-between p-5 div-mypackage'>
+                            <div className='flex w-1/2 rounded justify-center'>
+                                <Image className='rounded w-40' src={goldenPackage.thumbnailUrl} width={450} height={450} quality={100} alt='picture' />
+                            </div>
+                            <div className='flex flex-col w-2/3 md:w-1/2 md:text-base text-xs items-center justify-evenly'>
+
+                                <p className='grey-color'>{goldenPackage.name}</p>
+                                {port=="IRR"?<p className='grey-color pt-3 flex gap-2'>قیمت دوره: <IRRPrice pricings={goldenPackage.courses[0].pricings} />تومان</p>:<p className='grey-color pt-3 flex gap-2'>قیمت دوره: <USDPrice pricings={goldenPackage.courses[0].pricings} /> تتر</p>}
+
+                            </div>
+                        </div>
+
+                        <div className='flex bg-white text-xs md:text-base flex-col p-5 gap-3 w-4/5 md:w-1/3 rounded divide-y-2 div-mypackage divide-gray-300'>
+                            <p className='darkBlue-color font-bold'>جزئیات سفارش</p>
+                            {port=="IRR"?<p className='grey-color pt-3 flex gap-2'>قیمت دوره: <IRRPrice pricings={goldenPackage.courses[0].pricings} />تومان</p>:<p className='grey-color pt-3 flex gap-2'>قیمت دوره: <USDPrice pricings={goldenPackage.courses[0].pricings} /> تتر</p>}
+                            {/*<p className='grey-color pt-3'>درصد تخفیف: {goldenPackage.courses[0].discount.discountValue}%</p>*/}
+                            {/*{port=="IRR"?<p className='grey-color pt-3 flex gap-2'>قیمت نهایی:<IRRPrice pricings={goldenPackage.courses[0].discount.finalAmounts} /> تومان</p>:<p className='grey-color pt-3 flex gap-2'>قیمت نهایی: <USDPrice pricings={goldenPackage.courses[0].discount.finalAmounts} /> تتر</p>}*/}
+                        </div>
+
+                        <div className='flex bg-white text-xs md:text-base p-5 gap-5 w-4/5 md:w-1/3 rounded div-mypackage'>
+
+                            <p className='darkBlue-color text-lg font-bold text-center'>روش پرداخت:</p>
+
+                            <div className='flex justify-center items-center gap-2'>
+                                <input defaultChecked onChange={handleChange} type='radio' value='IRR' name='typePort' id='internalPort'/>
+                                <p className='grey-color'>درگاه داخلی</p>
+                            </div>
+                            <div className='flex justify-center items-center gap-2'>
+                                <input onChange={handleChange} type='radio' value='USDT' name='typePort' id='crypto'/>
+                                <p className='grey-color'>کریپتو</p>
+                            </div>
+
+                        </div>
+
+                        <a className='bg-red btn-page text-white text-center text-sm md:text-base w-4/5 md:w-1/3'>پرداخت میکنم</a>
+
+                    </div>
+                </>
+            )
+        }
     }
-
     else
     {
-        console.log(goldenPackage);
-        return(
-            <>
-                <div className='flex flex-col justify-center items-center gap-6 mt-16'>
-
-                    <p className='darkBlue-color text-lg font-bold text-center div-mypackage'>جزئیات پرداخت</p>
-
-                    <div className='flex bg-white w-4/5 md:w-1/3 rounded gap-1 justify-between p-5 div-mypackage'>
-                        <div className='flex w-1/2 rounded justify-center'>
-                            <Image className='rounded w-40' src={goldenPackage.thumbnailUrl} width={450} height={450} quality={100} alt='picture' />
-                        </div>
-                        <div className='flex flex-col w-2/3 md:w-1/2 md:text-base text-xs items-center justify-evenly'>
-
-                            <p className='grey-color'>{goldenPackage.name}</p>
-                            {port=="IRR"?<p className='grey-color pt-3 flex gap-2'>قیمت دوره: <IRRPrice pricings={goldenPackage.courses[0].pricings} />تومان</p>:<p className='grey-color pt-3 flex gap-2'>قیمت دوره: <USDPrice pricings={goldenPackage.courses[0].pricings} /> تتر</p>}
-
-                        </div>
-                    </div>
-
-                    <div className='flex bg-white text-xs md:text-base flex-col p-5 gap-3 w-4/5 md:w-1/3 rounded divide-y-2 div-mypackage divide-gray-300'>
-                        <p className='darkBlue-color font-bold'>جزئیات سفارش</p>
-                        {port=="IRR"?<p className='grey-color pt-3 flex gap-2'>قیمت دوره: <IRRPrice pricings={goldenPackage.courses[0].pricings} />تومان</p>:<p className='grey-color pt-3 flex gap-2'>قیمت دوره: <USDPrice pricings={goldenPackage.courses[0].pricings} /> تتر</p>}
-                        {/*<p className='grey-color pt-3'>درصد تخفیف: {goldenPackage.courses[0].discount.discountValue}%</p>*/}
-                        {/*{port=="IRR"?<p className='grey-color pt-3 flex gap-2'>قیمت نهایی:<IRRPrice pricings={goldenPackage.courses[0].discount.finalAmounts} /> تومان</p>:<p className='grey-color pt-3 flex gap-2'>قیمت نهایی: <USDPrice pricings={goldenPackage.courses[0].discount.finalAmounts} /> تتر</p>}*/}
-                    </div>
-
-                    <div className='flex bg-white text-xs md:text-base p-5 gap-5 w-4/5 md:w-1/3 rounded div-mypackage'>
-
-                        <p className='darkBlue-color text-lg font-bold text-center'>روش پرداخت:</p>
-
-                        <div className='flex justify-center items-center gap-2'>
-                            <input defaultChecked onChange={handleChange} type='radio' value='IRR' name='typePort' id='internalPort'/>
-                            <p className='grey-color'>درگاه داخلی</p>
-                        </div>
-                        <div className='flex justify-center items-center gap-2'>
-                            <input onChange={handleChange} type='radio' value='USDT' name='typePort' id='crypto'/>
-                            <p className='grey-color'>کریپتو</p>
-                        </div>
-
-                    </div>
-
-                    <a className='bg-red btn-page text-white text-center text-sm md:text-base w-4/5 md:w-1/3'>پرداخت میکنم</a>
-
-                </div>
-            </>
+        return (
+            <></>
         )
     }
+
 }
 
 export async function getServerSideProps(context)
@@ -141,4 +154,4 @@ export async function getServerSideProps(context)
     }
 }
 
-export default paymentDetail;
+export default withAuth(paymentDetail);
