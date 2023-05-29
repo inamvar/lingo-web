@@ -1,13 +1,10 @@
 import Image from "next/image";
-import pic from '../../public/picture/package-pic.png';
 import {getMyCoursesList} from "../../services/appServices";
 import Link from "next/link";
 import AppRoutes from "../../common/appRoutes";
 
 const myPackages = ({packages}) =>
 {
-
-    console.log(packages);
 
     return(
         <>
@@ -35,13 +32,6 @@ const myPackages = ({packages}) =>
                                 </div>
                             )
                         })}
-
-
-                        {/*<div className='flex items-center justify-evenly w-full py-4 gap-2'>*/}
-                        {/*    <Image className='rounded' src={pic} width={100} height={100} quality={100} alt='picture'/>*/}
-                        {/*    <p className='whitespace-nowrap text-sm sm:text-base'>پکیج پیشرفته مکالمه</p>*/}
-                        {/*    <button type='submit' className='bg-cyan-500 text-xs sm:text-sm btn-page bg-red text-white p-btn-big hover:bg-red-800'>مشاهده</button>*/}
-                        {/*</div>*/}
 
                     </div>
                     }

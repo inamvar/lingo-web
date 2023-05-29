@@ -4,6 +4,28 @@ import {pushAlert} from "../common/notifier";
 import ax from "../common/apiServerSideRequest";
 
 
+export const getOrderHistory = async (context) =>
+{
+    try
+    {
+        let response = await ax.get(API_ROUTES.ORDERHISTORY,{ctx:context});
+        console.log(response);
+
+        if (response.data.success == true)
+        {
+            const history = response.data.data.data;
+            return history;
+        }
+        else {
+            pushAlert({message:response.data.message,type:'error'});
+            return null;
+        }
+    }
+    catch (error)
+    {
+        handleApiError(error,context);
+    }
+}
 
 export const getMyCoursesList = async (context) =>
 {
