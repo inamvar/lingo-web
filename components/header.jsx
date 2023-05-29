@@ -14,17 +14,13 @@ import {getSearchResult} from "../services/appServices";
 
 const Header = ()=>{
 
-    const [search,setSearch]=useState({});
-
     const [result,setResult]=useState({});
 
     const authCtx=useContext(authContext);
 
     async function handleChange(e)
     {
-        setSearch(e.target.value);
-        const resultSearch = await getSearchResult(search);
-        console.log(resultSearch)
+        const resultSearch = await getSearchResult(e.target.value);
         setResult(resultSearch);
     }
 

@@ -5,10 +5,10 @@ import ax from "../common/apiServerSideRequest";
 
 export const getSearchResult = async (w) =>
 {
+
     try {
-        console.log(w);
-        let response = await ax.get(API_ROUTES.SEARCH,{params:{Filter:w}});
-        console.log(response)
+        console.log(w)
+        let response = await ax.get(API_ROUTES.SEARCH,{params:{Filter:w,PageNumber:1}});
         if (response.status == 200)
         {
             const result = response.data.data.data;
