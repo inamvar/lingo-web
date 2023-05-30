@@ -242,14 +242,12 @@ a {
     overflow: hidden;
 }
 
-.discount-icon {
-    left: 1rem;
-    top: -2rem;
+.discount-text {
+    top: -0.5rem;
 }
 
-.discount-text {
-    left: 2rem;
-    top: -0.6rem;
+.discount-icon {
+    left: 3rem;
     rotate: -25deg;
 }
 
