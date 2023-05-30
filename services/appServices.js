@@ -8,6 +8,7 @@ export const getOrderHistory = async (context) =>
 {
     try
     {
+
         let response = await ax.get(API_ROUTES.ORDERHISTORY,{ctx:context});
         console.log(response);
 
@@ -23,6 +24,7 @@ export const getOrderHistory = async (context) =>
     }
     catch (error)
     {
+        console.log(error,"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
         handleApiError(error,context);
     }
 }
@@ -46,29 +48,6 @@ export const getMyCoursesList = async (context) =>
     catch (error)
     {
         handleApiError(error,context);
-    }
-}
-
-export const getSearchResult = async (w) =>
-{
-
-    try {
-        console.log(w)
-        let response = await ax.get(API_ROUTES.SEARCH,{params:{Filter:w,PageNumber:1}});
-        if (response.status == 200)
-        {
-            const result = response.data.data.data;
-            return result;
-        }
-        else
-        {
-            pushAlert({message:response.data.message,type:'error'});
-            return null;
-        }
-    }
-    catch (error)
-    {
-        handleApiError(error);
     }
 }
 

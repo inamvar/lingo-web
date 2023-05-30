@@ -10,7 +10,7 @@ import {
 import Link from "next/link";
 import AppRoutes from "../common/appRoutes";
 import {useEffect, useState} from "react";
-import {getSearchResult} from "../services/appServices";
+import {getSearchResult} from "../services/clientAppService";
 
 export default function BasicUsage(props) {
 

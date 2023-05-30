@@ -11,42 +11,42 @@ import {useContext} from "react";
 
 function myProfile(props)
 {
-    const schema = validator.object({
-        firstName:validator.string().required('نوشتن نام اجباری است'),
-        lastName:validator.string().required('نوشتن نام خانوادگی اجباری است')
-    })
-
-    const { register, handleSubmit, watch,
-        formState: { errors } } = useForm({
-        resolver:yupResolver(schema),
-        defaultValues:{
-            firstName:props.profile.firstName,
-            lastName:props.profile.lastName,
-            phoneNumber:props.profile.phoneNumber,
-            email:props.profile.email
-        }
-    });
-
-    const onSubmit = async (data) => {
-       var result= await updateMyProfile({
-            firstName:data.firstName,
-            lastName:data.lastName,
-            phoneNumber:data.phoneNumber
-        },props.ctx);
-
-       if (result!=undefined &&  result!=null)
-       {
-           pushAlert({
-               type:'success',
-               message:'عملیات با موفقیت انجام شد'
-           });
-       }
-    };
-
     const context = useContext(AuthContext);
 
     if(context.authState.authenticated)
     {
+        const schema = validator.object({
+            firstName:validator.string().required('نوشتن نام اجباری است'),
+            lastName:validator.string().required('نوشتن نام خانوادگی اجباری است')
+        })
+
+        const { register, handleSubmit, watch,
+            formState: { errors } } = useForm({
+            resolver:yupResolver(schema),
+            defaultValues:{
+                firstName:props.profile.firstName,
+                lastName:props.profile.lastName,
+                phoneNumber:props.profile.phoneNumber,
+                email:props.profile.email
+            }
+        });
+
+        const onSubmit = async (data) => {
+            var result= await updateMyProfile({
+                firstName:data.firstName,
+                lastName:data.lastName,
+                phoneNumber:data.phoneNumber
+            },props.ctx);
+
+            if (result!=undefined &&  result!=null)
+            {
+                pushAlert({
+                    type:'success',
+                    message:'عملیات با موفقیت انجام شد'
+                });
+            }
+        };
+
         return(
             <div className='flex justify-center items-center'>
                 <div className='w-2/3 bg-white gap-8 flex flex-col justify-center items-center p-7 rounded'>
@@ -100,9 +100,21 @@ function myProfile(props)
 }
 export async function getServerSideProps(ctx){
 
-   const profile= await getMyProfile(ctx);
-    return{
-        props:{profile}
+   const result= await getMyProfile(ctx);
+
+    if(result!=undefined)
+    {
+        const profile = result;
+        return{
+            props: { profile }
+        }
+    }
+    else
+    {
+        return{
+            props: {  }
+        }
     }
 }
+
 export default withAuth(myProfile);

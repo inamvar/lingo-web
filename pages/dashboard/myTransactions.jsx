@@ -8,7 +8,7 @@ import {withAuth} from "../../components/Authorized";
 import AuthContext from "../../context/authContext";
 import {useContext} from "react";
 
-const myPackages = ({orders}) =>
+const MyTransactions = ({orders}) =>
 {
     console.log(orders);
     const context = useContext(AuthContext);
@@ -81,10 +81,21 @@ const myPackages = ({orders}) =>
 }
 export async function getServerSideProps(context)
 {
-    const orders = await getOrderHistory(context);
-    return{
-        props: { orders }
+    const result = await getOrderHistory(context);
+
+    if(result!=undefined)
+    {
+        const orders = result;
+        return{
+            props: { orders }
+        }
+    }
+    else
+    {
+        return{
+            props: {  }
+        }
     }
 }
 
-export default withAuth(myPackages);
+export default withAuth(MyTransactions);

@@ -60,6 +60,29 @@ export const signUpUser = async(firstname, lastname, password, confirmPassword, 
     }
 }
 
+export const getSearchResult = async (w) =>
+{
+
+    try {
+        console.log(w)
+        let response = await ax.get(API_ROUTES.SEARCH,{params:{Filter:w}});
+        if (response.status == 200)
+        {
+            const result = response.data.data.data;
+            return result;
+        }
+        else
+        {
+            pushAlert({message:response.data.message,type:'error'});
+            return null;
+        }
+    }
+    catch (error)
+    {
+        handleApiError(error);
+    }
+}
+
 export const loginUser = async(username, password) => {
     try {
         let response = await ax.post(API_ROUTES.LOGIN, { userName: username, password: password });

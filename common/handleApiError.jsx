@@ -3,6 +3,11 @@ import appRoutes from "./appRoutes";
 import router from 'next/router';
 
 export const handleApiError = (error,context) => {
+
+    console.log("_________________________________________________________________________________________________________")
+    console.log(context.ctx);
+    console.log("_____________________________________________________________________________________________________________")
+
     if (context==undefined || context.ctx==undefined){
         Swal.fire({
             icon: 'error',
@@ -10,7 +15,7 @@ export const handleApiError = (error,context) => {
             text: 'عدم امکان ارتباط با سرور',
             confirmButtonText: 'باشه',
         });
-        return;
+        return "401";
     }
     //const  req = context.ctx.req;
     const res = context.ctx.res;
@@ -19,11 +24,14 @@ export const handleApiError = (error,context) => {
     // console.log(currentUrl);
     // console.log('currentUrl');
     if (error.response) {
-        const { status, data } = error.response;
+        const status = error.response.status;
+        const data = error.response.data;
         console.log(status);
         console.log(data);
         const errorMessage = data?.message ?? 'عملیات با شکست مواجه شد';
         if (status === 401 && res!=undefined && res!=null) {
+
+            console.log("get 401");
             // if (currentUrl!=undefined){
             //     res.writeHead(302, { Location: appRoutes.LoginReturn(currentUrl) });
             //     res.end();

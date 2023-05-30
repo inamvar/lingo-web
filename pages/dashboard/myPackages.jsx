@@ -58,9 +58,20 @@ const myPackages = ({packages}) =>
 
 export async function getServerSideProps(context)
 {
-    const packages = await getMyCoursesList(context);
-    return{
-        props: { packages }
+    const result = await getMyCoursesList(context);
+
+    if(result!=undefined)
+    {
+        const packages = result;
+        return{
+            props: { packages }
+        }
+    }
+    else
+    {
+        return{
+            props: {  }
+        }
     }
 }
 
