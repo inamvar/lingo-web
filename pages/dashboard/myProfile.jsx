@@ -8,6 +8,8 @@ import {updateMyProfile} from "../../services/clientAppService";
 import {withAuth} from "../../components/Authorized";
 import AuthContext from "../../context/authContext";
 import {useContext} from "react";
+import Link from "next/link";
+import AppRoutes from "../../common/appRoutes";
 
 function myProfile(props)
 {
@@ -80,6 +82,10 @@ function myProfile(props)
                         {/*        <InputText error={errors.lastName?.message} register={register}  placeholder='ایمیل' name='email'/>*/}
                         {/*    </div>*/}
                         {/*</div>*/}
+
+                        <div className='flex'>
+                            <Link className='text-blue-800' href={AppRoutes.ChangePassword}>قصد تغییر رمز دارم</Link>
+                        </div>
 
                         <div className='flex flex-row justify-center'>
                             <button type='submit' className='bg-cyan-500 text-sm btn-page bg-red text-white w-fit px-5 p-btn-big hover:bg-red-800'>ثبت تغییرات</button>

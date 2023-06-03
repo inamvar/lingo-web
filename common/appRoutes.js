@@ -32,7 +32,8 @@ const AppRoutes= {
     GoldenPackage:"/goldenPackage",
     PaymentDetail:(slug)=>{
         return `/coursePaymentDetail/${slug}`;
-    }
+    },
+    ChangePassword:"/dashboard/changePassword"
 };
 
 export default AppRoutes;

@@ -86,7 +86,6 @@ export const getSearchResult = async (w) =>
 export const loginUser = async(username, password) => {
     try {
         let response = await ax.post(API_ROUTES.LOGIN, { userName: username, password: password });
-            console.log(response);
         if (response.data.success == true) {
             const { accessToken, refreshToken } = response.data.data;
             const decodedToken = jwt.decode(accessToken);
@@ -132,6 +131,35 @@ export const updateMyProfile = async(input, ctx) => {
         }
     } catch (error) {
         console.log(error);
+    }
+}
+
+export const updateMyPass = async(input, ctx) => {
+    try {
+        const response = await ax.put(API_ROUTES.CHANGEPASSWORD, { currentPassword: input.currentPassword, newPassword: input.newPassword, confirmNewPassword: input.confirmNewPassword }, { ctx: ctx });
+
+        console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+        console.log(response);
+        console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+        if (response.data.success == true)
+        {
+            const result = response.data.success;
+            return result;
+        }
+        else
+        {
+            console.log(response.response.data)
+            pushAlert({ message: response.data.message, type: 'error' });
+            // const error = response.res
+            return null;
+        }
+    }
+    catch (error)
+    {
+        console.log(error);
+        const errorMassage = error.response.data.errorMessages;
+        console.log(errorMassage)
+        return errorMassage;
     }
 }
 

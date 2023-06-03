@@ -21,7 +21,7 @@ const Header = ()=>{
     const SignOut=async ()=>
     {
        await logout();
-        authCtx.setAuthState({authenticated:false,user:null});
+       authCtx.setAuthState({authenticated:false,user:null});
     }
 
     return(

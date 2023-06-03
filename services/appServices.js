@@ -24,7 +24,6 @@ export const getOrderHistory = async (context) =>
     }
     catch (error)
     {
-        console.log(error,"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
         handleApiError(error,context);
     }
 }
@@ -188,6 +187,26 @@ export const getMyProfile=async (ctx)=>
         if (response.data.success==true)
         {
             const result =response.data.data;
+            return result;
+        }
+        else {
+            pushAlert({message:response.data.message,type:'error'});
+            return null;
+        }
+    }
+    catch (error){
+        handleApiError(error,ctx);
+    }
+}
+
+export const getMyPassword = async (ctx) =>
+{
+    try {
+        const response=await ax.get(API_ROUTES.CHANGEPASSWORD,{ctx:ctx});
+
+        if (response.data.success==true)
+        {
+            const result =response.data.success;
             return result;
         }
         else {

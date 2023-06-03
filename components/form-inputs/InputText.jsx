@@ -3,7 +3,7 @@ const InputText=({name,register,placeholder,className,type,error})=>
     return(
         <>
             <div className='flex-auto'>
-            <input name={name}  type={type} className={className} placeholder={placeholder}  {...register(name)} />
+            <input name={name} type={type} className={className} placeholder={placeholder}  {...register(name)} />
             {error && <div className="text-red-600 text-xs mt-1">{error}</div>}
             </div>
         </>

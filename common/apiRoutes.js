@@ -17,6 +17,7 @@ const API_ROUTES = {
     REFRESHTOKEN:"/Auth/RefreshToken",
     SITESETTING:"/setting",
     MYPROFILE:"/user/profile",
+    CHANGEPASSWORD:"/User/ChangePassword",
     UPDATEMYPROFILE:"/user/profile",
     BANNER:"/Banner",
     FREEPACKAGE:"/Package/Free",

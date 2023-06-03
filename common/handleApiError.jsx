@@ -8,7 +8,8 @@ export const handleApiError = (error,context) => {
     console.log(context.ctx);
     console.log("_____________________________________________________________________________________________________________")
 
-    if (context==undefined || context.ctx==undefined){
+    if (context==undefined || context.ctx==undefined)
+    {
         Swal.fire({
             icon: 'error',
             title: 'خطا',
@@ -17,7 +18,7 @@ export const handleApiError = (error,context) => {
         });
         return "401";
     }
-    //const  req = context.ctx.req;
+
     const res = context.ctx.res;
    // const currentUrl = req.url;
     // console.log('currentUrl');
