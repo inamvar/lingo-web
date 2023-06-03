@@ -2,6 +2,7 @@ import {getFreePackagesList} from "../../services/appServices";
 import PackageMultiItemCarousel from "../../components/packageMultiItemCarousel";
 import FreeCourseMultiItemCarousel from "../../components/FreeCourseMultiItemCarousel";
 import packageCarousel from "../../components/packageCarousel";
+import Meta from "../../components/meta";
 
 const freePackage = (props) =>
 {
@@ -12,6 +13,7 @@ const freePackage = (props) =>
     {
         return(
             <>
+                <Meta title="پکیج های رایگان" />
                 <div className='flex w-full h-screen justify-center items-center'>
                     <p className='darkBlue-color'>پکیج رایگان موجود نیست</p>
                 </div>
@@ -22,6 +24,7 @@ const freePackage = (props) =>
     {
         return(
             <>
+                <Meta title="پکیج های رایگان" />
                 <div className='flex flex-col px-2 sm:px-8 gap-16 mt-16 justify-center items-center'>
                     {PackageCourses.map((p)=>
                         <div className='flex flex-col gap-9 w-11/12 lg:w-10/12'>

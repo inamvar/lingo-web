@@ -1,6 +1,7 @@
 import {getPackagesList} from "../../services/appServices";
 import FreeCourseMultiItemCarousel from "../../components/FreeCourseMultiItemCarousel";
 import PackagesMultiItemCarousel from "../../components/PackagesMultiItemCarousel";
+import Meta from "../../components/meta";
 
 const packages = ({packages}) =>
 {
@@ -10,6 +11,7 @@ const packages = ({packages}) =>
     {
         return(
             <>
+                <Meta title="پکیج های آموزشی" />
                 <div className='flex w-full h-screen justify-center items-center'>
                     <p className='darkBlue-color'>پکیج آموزشی موجود نیست</p>
                 </div>
@@ -20,6 +22,7 @@ const packages = ({packages}) =>
     {
         return (
             <>
+                <Meta title="پکیج های آموزشی" />
                 <div className='flex flex-col px-2 sm:px-8 gap-16 mt-16 justify-center items-center'>
                     {packages.map((p)=>
                         <div className='flex flex-col gap-9 w-11/12 lg:w-10/12'>

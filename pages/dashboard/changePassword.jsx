@@ -1,5 +1,4 @@
 import InputText from "../../components/form-inputs/InputText";
-import Link from "next/link";
 import AppRoutes from "../../common/appRoutes";
 import {withAuth} from "../../components/Authorized";
 import AuthContext from "../../context/authContext";
@@ -10,7 +9,7 @@ import {logout, updateMyPass} from "../../services/clientAppService";
 import {pushAlert} from "../../common/notifier";
 import {getMyPassword} from "../../services/appServices";
 import {useContext} from "react";
-import router, {useRouter} from "next/router";
+import {useRouter} from "next/router";
 
 const ChangePassword = (props) =>
 {

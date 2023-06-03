@@ -8,6 +8,7 @@ import {useContext} from "react";
 
 const myPackages = ({packages}) =>
 {
+    console.log(packages);
     const context = useContext(AuthContext);
 
     if(context.authState.authenticated)

@@ -138,9 +138,6 @@ export const updateMyPass = async(input, ctx) => {
     try {
         const response = await ax.put(API_ROUTES.CHANGEPASSWORD, { currentPassword: input.currentPassword, newPassword: input.newPassword, confirmNewPassword: input.confirmNewPassword }, { ctx: ctx });
 
-        console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-        console.log(response);
-        console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
         if (response.data.success == true)
         {
             const result = response.data.success;
