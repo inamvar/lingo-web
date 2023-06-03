@@ -26,6 +26,7 @@ export default function BasicUsage(props) {
     async function handleChange(e)
     {
         const resultSearch = await getSearchResult(e.target.value);
+        console.log(resultSearch)
         setData(resultSearch);
     }
 

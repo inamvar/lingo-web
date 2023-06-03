@@ -1,7 +1,6 @@
 import {getOrderHistory} from "../../services/appServices";
 import Link from "next/link";
 import AppRoutes from "../../common/appRoutes";
-import moment from "moment";
 import TimeMaker from '../../components/timeMaker';
 import DateMaker from '../../components/dateMaker';
 import {withAuth} from "../../components/Authorized";
@@ -10,7 +9,6 @@ import {useContext} from "react";
 
 const MyTransactions = ({orders}) =>
 {
-    console.log(orders);
     const context = useContext(AuthContext);
 
     if(context.authState.authenticated)

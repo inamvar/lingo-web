@@ -48,7 +48,7 @@ function myProfile(props)
         };
 
         return(
-            <div className='flex justify-center items-center'>
+            <div className='flex justify-center items-center mt-16'>
                 <div className='w-2/3 bg-white gap-8 flex flex-col justify-center items-center p-7 rounded'>
 
                     <div className='flex justify-evenly items-center gap-1 w-full'>
