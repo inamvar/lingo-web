@@ -13,7 +13,7 @@ const packages = ({packages}) =>
             <>
                 <Meta title="پکیج های آموزشی" />
                 <div className='flex w-full h-screen justify-center items-center'>
-                    <p className='darkBlue-color'>پکیج آموزشی موجود نیست</p>
+                    <p className='darkBlue-color'>پکیج آموزشی موجود نیست</p>-
                 </div>
             </>
         )

@@ -10,6 +10,7 @@ import AuthContext from "../../context/authContext";
 import {useContext} from "react";
 import Link from "next/link";
 import AppRoutes from "../../common/appRoutes";
+import Meta from "../../components/meta";
 
 function myProfile(props)
 {
@@ -49,8 +50,11 @@ function myProfile(props)
             }
         };
 
+
         return(
+
             <div className='flex justify-center items-center mt-16'>
+                <Meta title="پروفایل من" />
                 <div className='w-2/3 bg-white gap-8 flex flex-col justify-center items-center p-7 rounded'>
 
                     <div className='flex justify-evenly items-center gap-1 w-full'>

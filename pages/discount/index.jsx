@@ -1,10 +1,12 @@
 import picDiscount from "../../public/picture/discount.png";
 import Image from "next/image";
+import Meta from "../../components/meta";
 
 export default function discount()
 {
     return(
         <>
+            <Meta title="تخفیفات" />
             <div className='flex flex-col justify-center items-center gap-7'>
 
                 <Image src={picDiscount} alt="pic" width={400} height={400} quality={100}/>

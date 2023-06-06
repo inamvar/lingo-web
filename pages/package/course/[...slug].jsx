@@ -6,6 +6,7 @@ import AppRoutes from "../../../common/appRoutes";
 import CourseMultiItemCarousel from "../../../components/courseMultiItemCarousel";
 import Image from "next/image";
 import Price from "../../../components/IRRPrice";
+import Meta from "../../../components/meta";
 
 
 const course = (props) =>
@@ -22,6 +23,7 @@ const course = (props) =>
 
     return(
         <>
+            <Meta title = {courseDetail.title} />
             <div className='flex flex-col items-center gap-8 mt-16'>
                 <div className='flex flex-col md:flex-row gap-8 md:w-11/12 lg:w-10/12 w-full items-center md:items-start'>
                     <div className='flex flex-col w-11/12 md:w-1/2 gap-7'>

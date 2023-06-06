@@ -1,12 +1,15 @@
 import {getPackageCourseList} from "../../services/appServices";
 import CourseItem from '../../components/courseItem';
+import Meta from "../../components/meta";
 
 const Package=(props)=>{
 
     const courses = props.result;
+    console.log(courses)
 
         return(
             <div className='flex justify-center items-center px-4 mt-16'>
+                <Meta title="" />
                 <div className='flex flex-col md:flex-row flex-wrap gap-4 w-full xl:w-4/5 justify-evenly items-center'>
                     {courses.map((course)=>
                         <div className='flex justify-center course-item'>
@@ -24,6 +27,7 @@ export async function getServerSideProps(ctx)
 
     const slug = `${res[0]}/${res[1]}`;
     const result = await getPackageCourseList(slug,ctx);
+
     return{
          props: {result}
     }

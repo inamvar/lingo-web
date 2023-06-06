@@ -40,7 +40,7 @@ const Header = ()=>{
                     <Link href={appRoutes.Main} className='darkBlue-color hover:drop-shadow-lg'>خانه</Link>
                     <Link href={appRoutes.FREEPACKAGE} className='darkBlue-color hover:drop-shadow-lg'>پکیج های رایگان</Link>
                     <Link href={appRoutes.packages} className='darkBlue-color hover:drop-shadow-lg'>پکیج های آموزشی</Link>
-                    <Link href={appRoutes.Discount} className='darkBlue-color hover:drop-shadow-lg'>تخفیف</Link>
+                    <Link href={appRoutes.Discount} className='darkBlue-color hover:drop-shadow-lg'>تخفیفات</Link>
                 </div>
             </div>
 

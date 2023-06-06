@@ -332,7 +332,7 @@ iframe div {
 }
     @media only screen and (min-width:1024px) {
     .item-size {
-        width: 22rem;
+        width: 24rem;
         height: 28rem;
     }
 }

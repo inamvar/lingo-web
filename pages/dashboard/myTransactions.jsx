@@ -6,6 +6,7 @@ import DateMaker from '../../components/dateMaker';
 import {withAuth} from "../../components/Authorized";
 import AuthContext from "../../context/authContext";
 import {useContext} from "react";
+import Meta from "../../components/meta";
 
 const MyTransactions = ({orders}) =>
 {
@@ -15,6 +16,7 @@ const MyTransactions = ({orders}) =>
     {
         return(
             <>
+                <Meta title="تراکنش های من" />
                 <div className='flex flex-col justify-center items-center gap-7 mt-16'>
 
                     <div className='flex bg-white justify-evenly gap-3 items-center div-mypackage rounded p-5'>

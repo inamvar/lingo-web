@@ -1,6 +1,7 @@
 import AppRoutes from "../../common/appRoutes";
 import Link from "next/link";
 import {courseDetail, getGoldenPackage, getPackageCourseList} from "../../services/appServices";
+import Meta from "../../components/meta";
 
 const goldenPackage = ({GoldenPackage}) =>
 {
@@ -11,6 +12,7 @@ const goldenPackage = ({GoldenPackage}) =>
     {
         return(
             <>
+                <Meta title="پکیج طلایی"/>
                 <div className='flex flex-col justify-center items-center mt-16 gap-5'>
                     <div className='video-div rounded-none h-96 w-full md:w-4/5' />
                     {/*<div className='video-div rounded-none' dangerouslySetInnerHTML={{ __html: currentVideo.embedPlayer }} />*/}
