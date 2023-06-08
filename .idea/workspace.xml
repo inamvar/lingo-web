@@ -4,19 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7110e458-b35c-4d71-9c86-a88bc37cb642" name="Changes" comment="refactor: meta tags">
+    <list default="true" id="7110e458-b35c-4d71-9c86-a88bc37cb642" name="Changes" comment="refactor: meta tags and package carousel design">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/packageCarouselItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/packageCarouselItem.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/dashboard/myPackages.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/dashboard/myPackages.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/dashboard/myProfile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/dashboard/myProfile.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/dashboard/myTransactions.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/dashboard/myTransactions.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/discount/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/discount/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/goldenPackage/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/goldenPackage/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/package/[...slug].jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/package/[...slug].jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/apiRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/apiRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/auth/login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/auth/login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/coursePaymentDetail/[...slug].jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/coursePaymentDetail/[...slug].jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/package/course/[...slug].jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/package/course/[...slug].jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/packages/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/packages/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/package/course/courseEpisodes/[...slug].jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/package/course/courseEpisodes/[...slug].jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/clientAppService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/clientAppService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,14 +115,8 @@
       <workItem from="1685440660205" duration="8136000" />
       <workItem from="1685596340630" duration="2218000" />
       <workItem from="1685769991068" duration="16332000" />
-      <workItem from="1686045821343" duration="2984000" />
-    </task>
-    <task id="LOCAL-00009" summary="add: add package deails and accordion">
-      <created>1682855913321</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1682855913321</updated>
+      <workItem from="1686045821343" duration="6406000" />
+      <workItem from="1686201265188" duration="5324000" />
     </task>
     <task id="LOCAL-00010" summary="refactor: refactor detailPackage page design">
       <created>1682923416574</created>
@@ -465,7 +454,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685797468239</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="refactor: meta tags and package carousel design">
+      <created>1686048887881</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1686048887881</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -484,7 +480,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="refactor: refactor style pages" />
     <MESSAGE value="add: add Loading spinner and save token in signUp refactor: refactor style pages" />
     <MESSAGE value="add: Free packages list" />
     <MESSAGE value="refactor: free Packages List" />
@@ -509,6 +504,7 @@
     <MESSAGE value="fix: bugs" />
     <MESSAGE value="add: changePassword" />
     <MESSAGE value="refactor: meta tags" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: meta tags" />
+    <MESSAGE value="refactor: meta tags and package carousel design" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: meta tags and package carousel design" />
   </component>
 </project>

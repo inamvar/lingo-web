@@ -5,6 +5,7 @@ import USDPrice from "../../components/USDTPrace";
 import {useContext, useState} from "react";
 import AuthContext from "../../context/authContext";
 import {withAuth} from "../../components/Authorized";
+import {loginUser, postOrder} from "../../services/clientAppService";
 
 
 const paymentDetail = ({result,golden}) =>
@@ -18,13 +19,21 @@ const paymentDetail = ({result,golden}) =>
         setPort(event.target.value)
     }
 
+    const handleClick = async() =>
+    {
+        console.log('here');
+        const res = await postOrder(result.id,port);
+        console.log(res);
+    }
+
     if(context.authState.authenticated)
     {
         if(golden == false)
         {
+            console.log(result)
             return(
                 <>
-                    <div className='flex flex-col justify-center items-center gap-6 mt-16'>
+                    <form className='flex flex-col justify-center items-center gap-6 mt-16'>
 
                         <p className='darkBlue-color text-lg font-bold text-center div-mypackage'>جزئیات پرداخت</p>
 
@@ -55,16 +64,16 @@ const paymentDetail = ({result,golden}) =>
                                 <input defaultChecked onChange={handleChange} type='radio' value='IRR' name='typePort' id='internalPort'/>
                                 <p className='grey-color'>درگاه داخلی</p>
                             </div>
-                            <div className='flex justify-center items-center gap-2'>
-                                <input onChange={handleChange} type='radio' value='USDT' name='typePort' id='crypto'/>
-                                <p className='grey-color'>کریپتو</p>
-                            </div>
+                            {/*<div className='flex justify-center items-center gap-2'>*/}
+                            {/*    <input onChange={handleChange} type='radio' value='USDT' name='typePort' id='crypto'/>*/}
+                            {/*    <p className='grey-color'>کریپتو</p>*/}
+                            {/*</div>*/}
 
                         </div>
 
-                        <a className='bg-red btn-page text-white text-center text-sm md:text-base w-4/5 md:w-1/3'>پرداخت میکنم</a>
+                        <a onClick={handleClick} className='bg-red btn-page text-white text-center text-sm md:text-base w-4/5 md:w-1/3'>پرداخت میکنم</a>
 
-                    </div>
+                    </form>
                 </>
             )
         }

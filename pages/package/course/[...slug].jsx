@@ -8,7 +8,6 @@ import Image from "next/image";
 import Price from "../../../components/IRRPrice";
 import Meta from "../../../components/meta";
 
-
 const course = (props) =>
 {
     const courseDetail = props.result;

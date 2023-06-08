@@ -10,7 +10,7 @@ const Slug=(props)=>
     const currentVideo=result.currentVideo;
 
     return(
-        <div className='flex justify-center items-center'>
+        <div className='flex justify-center items-center mt-16'>
             <div className='flex flex-col md:flex-row gap-5 px-0 md:p-3 justify-center items-center md:items-start w-full lg:w-10/12'>
                 <div className='w-11/12 md:w-1/3 order-last md:order-first'>
                     <Accordion chapters={result.chapters} />
