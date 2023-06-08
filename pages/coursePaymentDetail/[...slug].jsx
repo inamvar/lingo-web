@@ -21,7 +21,6 @@ const paymentDetail = ({result,golden}) =>
 
     const handleClick = async() =>
     {
-        console.log('here');
         const res = await postOrder(result.id,port);
         console.log(res);
     }

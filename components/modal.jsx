@@ -63,11 +63,35 @@ export default function BasicUsage(props) {
 
                         {data.length>0&&
                             <div className='bg-white w-full rounded divide-gray-200 divide-y-2 flex flex-col max-h-[20rem] overflow-y-auto'>
-                                { data.map((d)=>d.productType=="Package"?
+                                {/*{ data.map((d)=>d.productType=="Package"?*/}
 
-                                        <Link onClick={close} href={AppRoutes.Package(d.slug)} className='pt-3 pb-3 hover:bg-gray-200 hover:rounded pr-4 sm:text-sm text-xs'>{d.title}</Link>
-                                        :
-                                        <Link onClick={close} href={AppRoutes.Course(d.slug)} className='pt-3 pb-3 hover:bg-gray-200 hover:rounded pr-4 sm:text-sm text-xs'>{d.title}</Link>
+                                {/*        <Link onClick={close} href={AppRoutes.Package(d.slug)} className='pt-3 pb-3 hover:bg-gray-200 hover:rounded pr-4 sm:text-sm text-xs'>{d.title}</Link>*/}
+                                {/*        :*/}
+                                {/*        <Link onClick={close} href={AppRoutes.Course(d.slug)} className='pt-3 pb-3 hover:bg-gray-200 hover:rounded pr-4 sm:text-sm text-xs'>{d.title}</Link>*/}
+                                {/*)}   */}
+                                { data.map((d)=>{
+                                    switch (d.productType)
+                                    {
+                                        case "Package":
+                                            if(d.firstCourseSlug!='')
+                                            {
+                                                return(<Link onClick={close} href={AppRoutes.Course(d.firstCourseSlug)} className='pt-3 pb-3 hover:bg-gray-200 hover:rounded pr-4 sm:text-sm text-xs'>{d.title}</Link>);
+                                            }
+                                            else
+                                            {
+                                                return(<Link onClick={close} href={AppRoutes.Package(d.slug)} className='pt-3 pb-3 hover:bg-gray-200 hover:rounded pr-4 sm:text-sm text-xs'>{d.title}</Link>);
+                                            }
+                                            break;
+
+                                        case "Course" :
+                                            return(<Link onClick={close} href={AppRoutes.Course(d.slug)} className='pt-3 pb-3 hover:bg-gray-200 hover:rounded pr-4 sm:text-sm text-xs'>{d.title}</Link>);
+                                            break;
+
+                                        case"GoldenPackage":
+                                            return(<Link onClick={close} href={AppRoutes.GoldenPackage} className='pt-3 pb-3 hover:bg-gray-200 hover:rounded pr-4 sm:text-sm text-xs'>{d.title}</Link>);
+                                            break;
+                                    }
+                                    }
                                 )}
                             </div>
                         }
