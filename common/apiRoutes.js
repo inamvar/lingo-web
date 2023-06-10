@@ -26,7 +26,11 @@ const API_ROUTES = {
     MYCOURSES:"/Report/PurchasedCourses",
     ORDERHISTORY:"/Report/OrderHistory",
     ORDER:"/Order",
-    SENDMESSAGES:"/Comment"
+    SENDMESSAGES:"/Comment",
+    NEWMESSAGE:"/Comment/ToAdmin",
+    MESSAGEDETAIL:(id)=>{
+        return `/Comment/${id}`
+    }
 };
 
 export default API_ROUTES;

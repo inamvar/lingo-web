@@ -11,6 +11,36 @@ import {router} from "next/router";
 
 
 
+export const postMessage = async (titleMessage, bodyMessage) =>
+{
+    try
+    {
+        let response = await ax.post(API_ROUTES.NEWMESSAGE, { subject: titleMessage, body: bodyMessage });
+        console.log(response);
+
+        if (response.data.success == true)
+        {
+            pushAlert({
+                message: "پیام ارسال شد",
+                type: 'success'
+            });
+            return true;
+        }
+        else {
+            console.log(response.data.message);
+            pushAlert({
+                message: "بروز خطا",
+                type: 'error'
+            });
+        }
+    } catch (error) {
+        pushAlert({
+            message: error.response.data.errorMessages,
+            type: 'error'
+        })
+        console.log(error)
+    }
+};
 
 
 export const postOrder = async(courseId, CurrencyType) =>

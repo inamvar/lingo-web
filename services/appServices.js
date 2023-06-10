@@ -120,12 +120,47 @@ export const getSendMessages = async (context) =>
 {
     try
     {
-        let response = await ax.get(API_ROUTES.SENDMESSAGES,{ctx:context});
-        console.log(response);
+        let response = await ax({
+            method: "get",
+            url: API_ROUTES.SENDMESSAGES,
+            data:{},
+            ctx:context
+        });
+        if (response.data.success == true)
+        {
+            const res = response.data.data.data;
+            return res;
+        }
+
+        // let response = await ax.get(API_ROUTES.SENDMESSAGES,{ctx:context});
+        // console.log(response);
     }
     catch (error)
     {
         handleApiError(error,context);
+    }
+}
+
+export const getMessageDetail = async (id,ctx) =>
+{
+    try
+    {
+        const response = await ax.get(API_ROUTES.MESSAGEDETAIL(id),{ctx:ctx});
+
+        if (response.data.success == true)
+        {
+            const detail = response.data.data;
+
+            return detail;
+        }
+        else {
+            pushAlert({message:response.data.message,type:'error'});
+            return null;
+        }
+    }
+    catch (error)
+    {
+        handleApiError(error,ctx);
     }
 }
 
@@ -196,7 +231,7 @@ export const getVideoDetail=async (slug,context)=>
 export const getMyProfile=async (ctx)=>
 {
     try {
-        const response=await ax.get(API_ROUTES.MYPROFILE,{ctx:ctx});
+        const response = await ax.get(API_ROUTES.MYPROFILE,{ctx:ctx});
         if (response.data.success==true)
         {
             const result =response.data.data;

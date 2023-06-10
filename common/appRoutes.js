@@ -34,9 +34,11 @@ const AppRoutes= {
         return `/coursePaymentDetail/${slug}`;
     },
     ChangePassword:"/dashboard/changePassword",
-    SendMessages:"/dashboard/myMessages/sentMessages",
-    ReceivedMessages:"/dashboard/myMessages/receivedMessages",
-    NewMessage:"/dashboard/myMessages/newMessage"
+    SendMessages:"/dashboard/myMessages/sendMessages",
+    NewMessage:"/dashboard/myMessages/newMessage",
+    DetailMessage:(id)=> {
+        return `/dashboard/myMessages/sendMessages/${id}`;
+    }
 };
 
 export default AppRoutes;

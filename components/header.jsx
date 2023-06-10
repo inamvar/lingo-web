@@ -75,7 +75,7 @@ const Header = ()=>{
                 ) : (
                     <>
                         <Link href={appRoutes.Login} className='hover:drop-shadow-md darkBlue-color px-2 hidden md:block whitespace-nowrap'>ورود کاربران</Link>
-                        <Link href={appRoutes.Signup} className='bg-red hover:bg-red-600 text-white text-center btn-page sm:w-28 hidden md:block whitespace-nowrap'>ثبت نام</Link>
+                        <Link href={appRoutes.Signup} className='bg-red hover:bg-red-600 text-white text-center btn-page sm:w-28 hidden md:block whitespace-nowrap mr-2'>ثبت نام</Link>
                     </>
                 )}
             </div>

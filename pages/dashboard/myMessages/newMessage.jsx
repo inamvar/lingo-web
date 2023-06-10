@@ -8,6 +8,9 @@ import {validator} from "../../../common/validator";
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import {router} from "next/router";
+import InputTextarea from "../../../components/form-inputs/InputTextarea";
+import {getSendMessages} from "../../../services/appServices";
+import {postMessage} from "../../../services/clientAppService";
 
 const sendMessages = () =>
 {
@@ -16,7 +19,8 @@ const sendMessages = () =>
     if(context.authState.authenticated)
     {
         const schema = validator.object({
-            titleMessage:validator.string().required('نوشتن عنوان پیام اجباری است')
+            titleMessage:validator.string().required('نوشتن عنوان پیام اجباری است'),
+            bodyMessage:validator.string().required('نوشتن متن پیام اجباری است')
         })
 
         const { register, handleSubmit, watch,
@@ -26,7 +30,8 @@ const sendMessages = () =>
 
         const onSubmit = async (data) =>
         {
-            console.log('ss')
+            const result = await postMessage(data.titleMessage,data.bodyMessage);
+            console.log(result);
         };
 
         return(
@@ -34,23 +39,12 @@ const sendMessages = () =>
                 <div className='flex flex-col mt-16 gap-7 w-[85rem]'>
                     <div className='flex justify-evenly gap-7'>
 
-                        <Link href={AppRoutes.SendMessages} className='bg-white flex w-2/3 flex-col items-center justify-center gap-7 py-10 rounded active-div-message'>
+                        <Link href={AppRoutes.SendMessages} className='bg-white flex w-2/3 flex-col items-center justify-center gap-7 py-10 rounded'>
                             <svg width="83" height="63" viewBox="0 0 83 63" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M81.4275 20.6755C82.0598 20.17 83 20.6429 83 21.4419V54.7868C83 59.1078 79.5146 62.6135 75.2188 62.6135H7.78125C3.48535 62.6135 0 59.1078 0 54.7868V21.4582C0 20.6429 0.924023 20.1863 1.57246 20.6918C5.20371 23.529 10.0184 27.1325 26.5535 39.215C29.974 41.726 35.7451 47.009 41.5 46.9764C47.2873 47.0253 53.1719 41.6282 56.4627 39.215C72.9978 27.1325 77.7963 23.5127 81.4275 20.6755ZM41.5 41.7423C45.2609 41.8076 50.6754 36.9811 53.3988 34.9918C74.9107 19.2895 76.548 17.9199 81.5086 14.0065C82.4488 13.2728 83 12.1314 83 10.9248V7.82669C83 3.5057 79.5146 0 75.2188 0H7.78125C3.48535 0 0 3.5057 0 7.82669V10.9248C0 12.1314 0.551172 13.2565 1.49141 14.0065C6.45195 17.9035 8.08926 19.2895 29.6012 34.9918C32.3246 36.9811 37.7391 41.8076 41.5 41.7423Z" fill="#F84C4D"/>
                             </svg>
                             <div className='flex gap-2'>
-                                <p className='darkBlue-color font-bold text-sm md:text-lg whitespace-nowrap'>پیام های ارسال شده:</p>
-                                <p className='darkBlue-color font-bold text-sm md:text-lg whitespace-nowrap'>3</p>
-                            </div>
-                        </Link>
-
-                        <Link href={AppRoutes.ReceivedMessages} className='bg-white flex w-2/3 flex-col items-center justify-center gap-7 py-10 rounded'>
-                            <svg width="83" height="83" viewBox="0 0 83 83" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M28.5312 34.8011H54.4688C55.9018 34.8011 57.0625 33.6475 57.0625 32.2233V29.6454C57.0625 28.2212 55.9018 27.0676 54.4688 27.0676H28.5312C27.0982 27.0676 25.9375 28.2212 25.9375 29.6454V32.2233C25.9375 33.6475 27.0982 34.8011 28.5312 34.8011ZM25.9375 47.6902C25.9375 49.1145 27.0982 50.268 28.5312 50.268H54.4688C55.9018 50.268 57.0625 49.1145 57.0625 47.6902V45.1124C57.0625 43.6881 55.9018 42.5346 54.4688 42.5346H28.5312C27.0982 42.5346 25.9375 43.6881 25.9375 45.1124V47.6902ZM41.5 67.2059C38.8382 67.2059 36.1763 66.3907 33.9036 64.7586L0 40.4175V74.7573C0 79.0285 3.48373 82.4908 7.78125 82.4908H75.2188C79.5163 82.4908 83 79.0285 83 74.7573V40.4175L49.0964 64.7586C46.8237 66.3891 44.1618 67.2059 41.5 67.2059ZM80.0188 26.254C78.5841 25.1359 77.224 24.0838 75.2188 22.579V15.4674C75.2188 11.1963 71.735 7.73396 67.4375 7.73396H54.8659C54.3731 7.37951 53.9143 7.04762 53.4005 6.67706C50.6754 4.70019 45.2609 -0.0558928 41.5 0.000497096C37.7391 -0.0558928 32.3262 4.70019 29.5996 6.67706C29.0857 7.04762 28.6269 7.37951 28.1341 7.73396H15.5625C11.265 7.73396 7.78125 11.1963 7.78125 15.4674V22.579C5.77596 24.0822 4.41586 25.1359 2.98119 26.254C2.05256 26.9773 1.3016 27.901 0.785118 28.9553C0.268636 30.0095 0.000159808 31.1667 0 32.3393L0 34.0551L15.5625 45.2284V15.4674H67.4375V45.2284L83 34.0551V32.3393C83 29.9645 81.9009 27.7201 80.0188 26.254Z" fill="#F84C4D"/>
-                            </svg>
-                            <div className='flex gap-2'>
-                                <p className='darkBlue-color font-bold text-sm md:text-lg whitespace-nowrap'>پیام های دریافت شده:</p>
-                                <p className='darkBlue-color font-bold text-sm md:text-lg whitespace-nowrap'>3</p>
+                                <p className='darkBlue-color font-bold text-sm md:text-lg whitespace-nowrap'>پیام های ارسال شده</p>
                             </div>
                         </Link>
 
@@ -67,34 +61,17 @@ const sendMessages = () =>
 
                     <form onSubmit={handleSubmit(onSubmit)} name='titleMessage' className='flex flex-col gap-5 mx-[2rem]'>
 
-                        <p className='darkBlue-color'>پیام های ارسال شده :</p>
-                        <div className='bg-white flex p-4 rounded w-full darkBlue-color font-bold text-sm md:text-lg whitespace-nowrap text-center'>
-                            <InputText register={register} required placeholder='عنوان پیام'/>
-                            {/*<InputText error={errors.titleMessage?.message} register={register} required placeholder='عنوان پیام'/>*/}
+                        <p className='darkBlue-color'>ایجاد پیام جدید :</p>
+                        <div className='flex w-full flex-col gap-3'>
 
-                            {/*</div>*/}
-                        {/*<div className='bg-white flex p-4 rounded'>*/}
-                        {/*    <div className='w-1/3 darkBlue-color font-bold text-sm md:text-base whitespace-nowrap text-center flex justify-center items-center'>1401/12/08</div>*/}
-                        {/*    <div className='w-1/3 darkBlue-color font-bold text-sm md:text-base whitespace-nowrap text-center flex justify-center items-center'>پکیج Speak now</div>*/}
-                        {/*    <div className='w-1/3 darkBlue-color font-bold text-sm md:text-base whitespace-nowrap text-center flex justify-center'>*/}
-                        {/*        <svg width="40" height="35" viewBox="0 0 43 39" fill="none" xmlns="http://www.w3.org/2000/svg">*/}
-                        {/*            <path d="M36.3119 8.4195C30.5688 4.6249 22.9356 3.76117 16.5946 4.9056C9.50031 -1.93707 1.55054 1.21029 0 2.11508C0 2.11508 5.45562 6.75101 4.5695 10.8114C-1.88946 17.3958 1.18101 24.7267 4.5695 28.1883C5.45562 32.2487 0 36.8846 0 36.8846C1.53561 37.7924 9.46373 40.93 16.5946 34.1224C22.9214 35.2594 30.5546 34.4031 36.3119 30.6018C45.2149 24.9178 45.2441 14.1334 36.3119 8.4195ZM21.9614 30.5652C19.7411 30.5716 17.5296 30.2862 15.3837 29.7164L13.9078 31.1416C13.088 31.9366 12.1701 32.6237 11.1763 33.1863C9.97051 33.7934 8.66064 34.1665 7.31597 34.2859C7.39062 34.1531 7.45632 34.0202 7.52276 33.8948C8.99939 31.1575 9.39754 28.7017 8.7172 26.5273C6.28875 24.6154 4.83526 22.172 4.83526 19.5002C4.83526 13.3787 12.5051 8.4195 21.9614 8.4195C31.4176 8.4195 39.0874 13.3787 39.0874 19.5002C39.0874 25.6217 31.4176 30.5652 21.9614 30.5652ZM13.7451 22.1355C13.0671 22.145 12.4129 21.8855 11.926 21.4136C11.439 20.9418 11.1589 20.2961 11.1472 19.6182C11.0949 16.2297 16.2108 16.1558 16.2624 19.5368V19.5749C16.2655 19.9084 16.2029 20.2394 16.078 20.5487C15.9532 20.8581 15.7686 21.1398 15.5348 21.3777C15.301 21.6157 15.0226 21.8052 14.7155 21.9355C14.4084 22.0658 14.0786 22.1342 13.7451 22.1369V22.1355ZM19.2522 19.6182C19.1932 16.2297 24.3092 16.1483 24.3682 19.5293V19.5749C24.3973 22.9402 19.3112 22.9768 19.2522 19.6182ZM29.9559 22.1355C29.2778 22.145 28.6236 21.8855 28.1365 21.4137C27.6495 20.9418 27.3692 20.2962 27.3573 19.6182C27.3057 16.2297 32.4217 16.1558 32.4732 19.5368V19.5749C32.4774 19.9087 32.4156 20.2401 32.2911 20.55C32.1667 20.8598 31.9821 21.1419 31.7481 21.3801C31.5141 21.6183 31.2353 21.8078 30.9277 21.9377C30.6201 22.0676 30.2898 22.1353 29.9559 22.1369V22.1355Z" fill="#F84C4D"/>*/}
-                        {/*        </svg>*/}
-                        {/*    </div>*/}
-                        {/*</div><div className='bg-white flex p-4 rounded'>*/}
-                        {/*<div className='w-1/3 darkBlue-color font-bold text-sm md:text-base whitespace-nowrap text-center flex justify-center items-center'>1401/12/08</div>*/}
-                        {/*<div className='w-1/3 darkBlue-color font-bold text-sm md:text-base whitespace-nowrap text-center flex justify-center items-center'>پکیج Speak now</div>*/}
-                        {/*<div className='w-1/3 darkBlue-color font-bold text-sm md:text-base whitespace-nowrap text-center flex justify-center'>*/}
-                        {/*    <svg width="40" height="35" viewBox="0 0 43 39" fill="none" xmlns="http://www.w3.org/2000/svg">*/}
-                        {/*        <path d="M36.3119 8.4195C30.5688 4.6249 22.9356 3.76117 16.5946 4.9056C9.50031 -1.93707 1.55054 1.21029 0 2.11508C0 2.11508 5.45562 6.75101 4.5695 10.8114C-1.88946 17.3958 1.18101 24.7267 4.5695 28.1883C5.45562 32.2487 0 36.8846 0 36.8846C1.53561 37.7924 9.46373 40.93 16.5946 34.1224C22.9214 35.2594 30.5546 34.4031 36.3119 30.6018C45.2149 24.9178 45.2441 14.1334 36.3119 8.4195ZM21.9614 30.5652C19.7411 30.5716 17.5296 30.2862 15.3837 29.7164L13.9078 31.1416C13.088 31.9366 12.1701 32.6237 11.1763 33.1863C9.97051 33.7934 8.66064 34.1665 7.31597 34.2859C7.39062 34.1531 7.45632 34.0202 7.52276 33.8948C8.99939 31.1575 9.39754 28.7017 8.7172 26.5273C6.28875 24.6154 4.83526 22.172 4.83526 19.5002C4.83526 13.3787 12.5051 8.4195 21.9614 8.4195C31.4176 8.4195 39.0874 13.3787 39.0874 19.5002C39.0874 25.6217 31.4176 30.5652 21.9614 30.5652ZM13.7451 22.1355C13.0671 22.145 12.4129 21.8855 11.926 21.4136C11.439 20.9418 11.1589 20.2961 11.1472 19.6182C11.0949 16.2297 16.2108 16.1558 16.2624 19.5368V19.5749C16.2655 19.9084 16.2029 20.2394 16.078 20.5487C15.9532 20.8581 15.7686 21.1398 15.5348 21.3777C15.301 21.6157 15.0226 21.8052 14.7155 21.9355C14.4084 22.0658 14.0786 22.1342 13.7451 22.1369V22.1355ZM19.2522 19.6182C19.1932 16.2297 24.3092 16.1483 24.3682 19.5293V19.5749C24.3973 22.9402 19.3112 22.9768 19.2522 19.6182ZM29.9559 22.1355C29.2778 22.145 28.6236 21.8855 28.1365 21.4137C27.6495 20.9418 27.3692 20.2962 27.3573 19.6182C27.3057 16.2297 32.4217 16.1558 32.4732 19.5368V19.5749C32.4774 19.9087 32.4156 20.2401 32.2911 20.55C32.1667 20.8598 31.9821 21.1419 31.7481 21.3801C31.5141 21.6183 31.2353 21.8078 30.9277 21.9377C30.6201 22.0676 30.2898 22.1353 29.9559 22.1369V22.1355Z" fill="#F84C4D"/>*/}
-                        {/*    </svg>*/}
-                        {/*</div>*/}
+                            <InputText error={errors.titleMessage?.message} name='titleMessage' className='rounded w-full py-5 px-3 text-black text-sm darkgrey-color focus:outline-none' register={register} required placeholder='عنوان پیام'/>
+                            <InputTextarea name="bodyMessage" rows="7" placeholder="متن پیام یا پرسش" className="rounded w-full py-5 px-3 text-black text-sm darkgrey-color focus:outline-none" register={register} required/>
 
-                        {/*<div>*/}
-                        {/*    <button type='submit' className='bg-cyan-500 p-1 text-sm btn-page bg-red text-white w-[20rem]'>ارسال پیام</button>*/}
-                        {/*</div>*/}
+                        </div>
 
-                    </div>
+                        <div className='w-full flex justify-center items-center'>
+                            <button type='submit' className='bg-cyan-500 p-1 text-sm btn-page bg-red text-white w-[20rem]'>ثبت</button>
+                        </div>
 
                     </form>
                 </div>
