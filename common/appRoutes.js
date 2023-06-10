@@ -33,7 +33,10 @@ const AppRoutes= {
     PaymentDetail:(slug)=>{
         return `/coursePaymentDetail/${slug}`;
     },
-    ChangePassword:"/dashboard/changePassword"
+    ChangePassword:"/dashboard/changePassword",
+    SendMessages:"/dashboard/myMessages/sentMessages",
+    ReceivedMessages:"/dashboard/myMessages/receivedMessages",
+    NewMessage:"/dashboard/myMessages/newMessage"
 };
 
 export default AppRoutes;

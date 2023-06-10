@@ -25,7 +25,8 @@ const API_ROUTES = {
     SEARCH:"/Search",
     MYCOURSES:"/Report/PurchasedCourses",
     ORDERHISTORY:"/Report/OrderHistory",
-    ORDER:"/Order"
+    ORDER:"/Order",
+    SENDMESSAGES:"/Comment"
 };
 
 export default API_ROUTES;

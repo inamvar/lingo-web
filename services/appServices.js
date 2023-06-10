@@ -116,6 +116,19 @@ export const getPackagesList = async (context) =>
     }
 }
 
+export const getSendMessages = async (context) =>
+{
+    try
+    {
+        let response = await ax.get(API_ROUTES.SENDMESSAGES,{ctx:context});
+        console.log(response);
+    }
+    catch (error)
+    {
+        handleApiError(error,context);
+    }
+}
+
 export const getPackageCourseList = async (slug,ctx) =>
 {
     try

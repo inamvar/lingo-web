@@ -4,17 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7110e458-b35c-4d71-9c86-a88bc37cb642" name="Changes" comment="refactor: footer">
-      <change afterPath="$PROJECT_DIR$/pages/_document.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/picture/Logo(192).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/picture/Logo(256).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/picture/Logo(384).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/picture/Logo(512).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/workbox-588899ac.js" afterDir="false" />
+    <list default="true" id="7110e458-b35c-4d71-9c86-a88bc37cb642" name="Changes" comment="add:PWA">
+      <change afterPath="$PROJECT_DIR$/pages/dashboard/myMessages/newMessage.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/dashboard/myMessages/receivedMessages.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/dashboard/myMessages/sentMessages.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/sw.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/workbox-327c579b.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/workbox-327c579b.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/apiRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/apiRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/appRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/appRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/dashboard/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/dashboard/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/sw.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/sw.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/workbox-588899ac.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/appServices.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/appServices.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/globals.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,14 +124,7 @@
       <workItem from="1685769991068" duration="16332000" />
       <workItem from="1686045821343" duration="6406000" />
       <workItem from="1686201265188" duration="9489000" />
-      <workItem from="1686372946539" duration="4616000" />
-    </task>
-    <task id="LOCAL-00013" summary="add: add getserverside packages">
-      <created>1683025498570</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1683025498570</updated>
+      <workItem from="1686372946539" duration="11955000" />
     </task>
     <task id="LOCAL-00014" summary="reafctor: reafctor packageCersoul design">
       <created>1683029013004</created>
@@ -465,7 +462,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686374015987</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="add:PWA">
+      <created>1686377621074</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1686377621074</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -484,7 +488,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="refactor: carousel item responsive" />
     <MESSAGE value="refactor: responsive design&#10;fix: bugs" />
     <MESSAGE value="refactor: responsive design&#10;add: _error.js" />
     <MESSAGE value="fix : login bugs" />
@@ -509,6 +512,7 @@
     <MESSAGE value="add: postOrder request" />
     <MESSAGE value="refactor: search items" />
     <MESSAGE value="refactor: footer" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: footer" />
+    <MESSAGE value="add:PWA" />
+    <option name="LAST_COMMIT_MESSAGE" value="add:PWA" />
   </component>
 </project>
