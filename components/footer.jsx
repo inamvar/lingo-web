@@ -8,14 +8,15 @@ import {Constants} from "../common/constants";
 
 export default function footer(siteSetting)
 {
-    const  result=siteSetting.siteSetting;
-   const  instagram=result?.find(x=>x.key===Constants.InstagramAddress)?.value??"#";
-   const  whatsapp=result?.find(x=>x.key===Constants.WhatsAppAddress)?.value??"#";
-   const  telegram=result?.find(x=>x.key===Constants.TelegramAddress)?.value??"#";
-   const  twitter=result?.find(x=>x.key===Constants.TwitterAddress)?.value??"#";
+    const  result = siteSetting.siteSetting;
+    const  instagram = result?.find(x=>x.key===Constants.InstagramAddress)?.value??"#";
+    const  whatsapp = result?.find(x=>x.key===Constants.WhatsAppAddress)?.value??"#";
+    const  telegram = result?.find(x=>x.key===Constants.TelegramAddress)?.value??"#";
+    const  twitter = result?.find(x=>x.key===Constants.TwitterAddress)?.value??"#";
     const  MobileAppAndroidDownloadLink=result?.find(x=>x.key===Constants.MobileAppAndroidDownloadLink)?.value??"#";
+    const  MobileAppBazarDownloadLink = result?.find(x=>x.key===Constants.MobileAppBazarDownloadLink)?.value??"#";
     const  MobileAppIOSDownloadLink=result?.find(x=>x.key===Constants.MobileAppIOSDownloadLink)?.value??"#";
-   const  footerDescription=result?.find(x=>x.key===Constants.FooterDescription)?.value??"";
+    const  footerDescription=result?.find(x=>x.key===Constants.FooterDescription)?.value??"";
 
     return(
         <div className='flex flex-col items-center mt-5'>
@@ -101,8 +102,8 @@ export default function footer(siteSetting)
             <div className='p-4 flex flex-col w-full justify-center items-center gap-5 sm:gap-0 sm:mt-0 mt-6'>
                 <p className='font-bold block sm:hidden darkBlue-color text-lg'>دانلود اپلیکیشن</p>
                 <div className='flex flex-row justify-center items-center flex-wrap'>
-                    <a>
-                        <Image target={"_blank"} quality={100} className='h-3' alt='bazaar' src={bazaar}/>
+                    <a target={"_blank"} href={MobileAppBazarDownloadLink}>
+                        <Image quality={100} className='h-3' alt='bazaar' src={bazaar}/>
                     </a>
                     <a target={"_blank"} href={MobileAppIOSDownloadLink}>
                         <Image target={"_blank"} quality={100} alt='applestore' src={appleStore}/>

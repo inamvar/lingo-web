@@ -14,7 +14,7 @@ const Layout = ({ children,siteSetting}) => {
                     <main className={'h-main'}>
                         {children}
                     </main>
-                    <Footer  siteSetting={siteSetting}/>
+                    <Footer siteSetting={siteSetting}/>
                 </div>
             </div>
         </>
