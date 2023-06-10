@@ -28,6 +28,10 @@ export const postOrder = async(courseId, CurrencyType) =>
         console.log(response);
         if (response.data.success == true)
         {
+            pushAlert({
+                message: "درگاه پرداخت یافت نشد",
+                type: 'warning'
+            })
             var form = new FormData();
             form.append('sign', response.data.data.paymentUrlDetails.params.sign);
             form.append('transaction_id', response.data.data.paymentUrlDetails.params.transaction_id);

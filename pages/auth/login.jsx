@@ -10,6 +10,7 @@ import {router} from "next/router";
 import authContext from "../../context/authContext";
 import useAuth from "../../hooks/useAuth";
 import {loginUser} from "../../services/clientAppService";
+import AppRoutes from "/common/appRoutes";
 
 export default function Login(){
 
@@ -51,7 +52,7 @@ export default function Login(){
     useEffect(()=>{
         isCsr = true;
        const rUrl= router.query.returnUrl;
-       if (rUrl==undefined){
+       if (rUrl==undefined || rUrl == appRoutes.ChangePassword){
            setReturnUrl('');
        }
        else{

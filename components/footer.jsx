@@ -13,6 +13,8 @@ export default function footer(siteSetting)
    const  whatsapp=result?.find(x=>x.key===Constants.WhatsAppAddress)?.value??"#";
    const  telegram=result?.find(x=>x.key===Constants.TelegramAddress)?.value??"#";
    const  twitter=result?.find(x=>x.key===Constants.TwitterAddress)?.value??"#";
+    const  MobileAppAndroidDownloadLink=result?.find(x=>x.key===Constants.MobileAppAndroidDownloadLink)?.value??"#";
+    const  MobileAppIOSDownloadLink=result?.find(x=>x.key===Constants.MobileAppIOSDownloadLink)?.value??"#";
    const  footerDescription=result?.find(x=>x.key===Constants.FooterDescription)?.value??"";
 
     return(
@@ -22,7 +24,7 @@ export default function footer(siteSetting)
 
                 <div className='hidden sm:block sm:w-1/3 mt-6'>
                     <div className='flex flex-col  justify-center items-center gap-5'>
-                        <a className='font-bold darkBlue-color'>اطلاعات تماس</a>
+                        <p className='font-bold darkBlue-color'>اطلاعات تماس</p>
                         <div className='flex justify-evenly lg:w-80 w-full justify-between'>
                             {/*twitter*/}
                             <a target={"_blank"} href={twitter}>
@@ -80,7 +82,7 @@ export default function footer(siteSetting)
                     </a>
                 </div>
                 <div className='flex w-full sm:w-1/3 flex-col gap-9 items-center justify-center lg:w-96 mt-6'>
-                    <a className='font-bold darkBlue-color whitespace-nowrap'>دسترسی های سریع</a>
+                    <p className='font-bold darkBlue-color whitespace-nowrap'>دسترسی های سریع</p>
                     <div className='flex flex-row items-center gap-2 w-full justify-evenly sm:justify-between'>
                         <a className='darkBlue-color whitespace-nowrap'>سوالات متداول</a>
                         <a className='darkBlue-color whitespace-nowrap'>نمونه پکیج</a>
@@ -100,12 +102,12 @@ export default function footer(siteSetting)
                 <p className='font-bold block sm:hidden darkBlue-color text-lg'>دانلود اپلیکیشن</p>
                 <div className='flex flex-row justify-center items-center flex-wrap'>
                     <a>
-                        <Image quality={100} className='h-3' alt='bazaar' src={bazaar}/>
+                        <Image target={"_blank"} quality={100} className='h-3' alt='bazaar' src={bazaar}/>
                     </a>
-                    <a>
-                        <Image quality={100} alt='applestore' src={appleStore}/>
+                    <a target={"_blank"} href={MobileAppIOSDownloadLink}>
+                        <Image target={"_blank"} quality={100} alt='applestore' src={appleStore}/>
                     </a>
-                    <a>
+                    <a target={"_blank"} href={MobileAppAndroidDownloadLink}>
                         <Image quality={100} className='h-3' alt='googleplay' src={googlePlay}/>
                     </a>
                 </div>
