@@ -17,18 +17,18 @@ const id = ({detail}) =>
         return(
             <>
                 <div className='flex justify-center'>
-                    <div className='flex flex-col mt-16 gap-7 w-[75rem]'>
+                    <div className='flex flex-col mt-16 gap-7 w-full sm:w-[75rem]'>
 
                         <div className='flex justify-evenly gap-7 mx-[0.5rem]'>
 
-                            <div className='bg-white flex w-2/3 flex-col items-center justify-center gap-7 py-10 rounded active-div-message'>
+                            <Link href={appRoutes.SendMessages} className='bg-white flex w-2/3 flex-col items-center justify-center gap-7 py-10 rounded active-div-message'>
                                 <svg width="83" height="63" viewBox="0 0 83 63" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M81.4275 20.6755C82.0598 20.17 83 20.6429 83 21.4419V54.7868C83 59.1078 79.5146 62.6135 75.2188 62.6135H7.78125C3.48535 62.6135 0 59.1078 0 54.7868V21.4582C0 20.6429 0.924023 20.1863 1.57246 20.6918C5.20371 23.529 10.0184 27.1325 26.5535 39.215C29.974 41.726 35.7451 47.009 41.5 46.9764C47.2873 47.0253 53.1719 41.6282 56.4627 39.215C72.9978 27.1325 77.7963 23.5127 81.4275 20.6755ZM41.5 41.7423C45.2609 41.8076 50.6754 36.9811 53.3988 34.9918C74.9107 19.2895 76.548 17.9199 81.5086 14.0065C82.4488 13.2728 83 12.1314 83 10.9248V7.82669C83 3.5057 79.5146 0 75.2188 0H7.78125C3.48535 0 0 3.5057 0 7.82669V10.9248C0 12.1314 0.551172 13.2565 1.49141 14.0065C6.45195 17.9035 8.08926 19.2895 29.6012 34.9918C32.3246 36.9811 37.7391 41.8076 41.5 41.7423Z" fill="#F84C4D"/>
                                 </svg>
                                 <div className='flex gap-2'>
                                     <p className='darkBlue-color font-bold text-sm md:text-lg whitespace-nowrap'>پیام های ارسال شده</p>
                                 </div>
-                            </div>
+                            </Link>
 
                             <Link href={appRoutes.NewMessage} className='bg-white flex w-2/3 flex-col items-center justify-center gap-7 py-10 rounded'>
                                 <svg width="85" height="75" viewBox="0 0 85 75" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -51,10 +51,10 @@ const id = ({detail}) =>
                             </div>
 
                             <div className='bg-white flex p-4 rounded'>
-                                <p>{detail.subject}</p>
+                                <p className='leading-10'>{detail.subject}</p>
                             </div>
                             <div className='bg-white flex p-4 rounded'>
-                                <p>{detail.body}</p>
+                                <p className='leading-9'>{detail.body}</p>
                             </div>
                         </div>
 
