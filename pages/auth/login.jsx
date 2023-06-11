@@ -77,7 +77,7 @@ export default function Login(){
                         <InputText error={errors.password?.message} type='password' required register={register} placeholder='رمز عبور' name='password'/>
                     </div>
                     <div className='text-right'>
-                        <Link href={appRoutes.ForgotPassword} className='text-sm b'>رمز عبور خود را فراموش کرده ام!</Link>
+                        <Link href={appRoutes.ForgetPassword} className='text-sm darkBlue-color'>رمز عبور خود را فراموش کرده ام!</Link>
                     </div>
                     <div className='flex flex-row justify-center'>
                         <button type='submit' className='bg-cyan-500 p-1 text-sm btn-page bg-red text-white w-full'>ورود به حساب کاربری</button>

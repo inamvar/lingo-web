@@ -9,7 +9,67 @@ import axios from "axios";
 import {router} from "next/router";
 
 
+export const postResetPassword = async (securityCode,NewPass,RetryNewPass,email) =>
+{
+    try
+    {
+        let response = await ax.put(API_ROUTES.RESETPASSWORD, { password:NewPass,retypePassword:RetryNewPass,securityCode:securityCode,userName:email });
+        console.log(response);
 
+        if (response.data.success == true)
+        {
+            pushAlert({
+                message: "عملیات با موفقیت انجام شد",
+                type: 'success'
+            });
+            return true;
+        }
+        else {
+            console.log(response.data.message);
+            pushAlert({
+                message: "بروز خطا",
+                type: 'error'
+            });
+        }
+    } catch (error) {
+        pushAlert({
+            message: error.response.data.errorMessages,
+            type: 'error'
+        })
+        console.log(error)
+    }
+};
+
+export const postResetPasswordRequest = async (email) =>
+{
+    try
+    {
+        let response = await ax.post(API_ROUTES.RESETPASSWORDREQUEST, { email:email });
+        console.log(response);
+
+        if (response.data.success == true)
+        {
+            pushAlert({
+                message: "پیام ارسال شد",
+                type: 'success'
+            });
+            return true;
+        }
+        else {
+            console.log(response.data.message);
+            pushAlert({
+                message: "بروز خطا",
+                type: 'error'
+            });
+        }
+    } catch (error) {
+        pushAlert({
+            message: error.response.data.errorMessages,
+            type: 'error'
+        })
+        console.log(error)
+    }
+};
 
 export const postMessage = async (titleMessage, bodyMessage) =>
 {

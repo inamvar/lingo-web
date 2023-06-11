@@ -9,7 +9,6 @@ const AppRoutes= {
         return `/auth/login?returnUrl=${url}`;
     },
     Main:"/",
-    ForgotPassword:"/auth/forgot-password",
     Profile:"/dashboard/myProfile",
     Dashboard:"/dashboard",
     Package:(slug)=>{
@@ -38,7 +37,9 @@ const AppRoutes= {
     NewMessage:"/dashboard/myMessages/newMessage",
     DetailMessage:(id)=> {
         return `/dashboard/myMessages/sendMessages/${id}`;
-    }
+    },
+    ForgetPassword:"/auth/forgetPassword",
+    NewPassword:"/auth/forgetPassword/newPassword"
 };
 
 export default AppRoutes;

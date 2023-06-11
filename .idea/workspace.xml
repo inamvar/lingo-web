@@ -4,14 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7110e458-b35c-4d71-9c86-a88bc37cb642" name="Changes" comment="refactor: footer">
+    <list default="true" id="7110e458-b35c-4d71-9c86-a88bc37cb642" name="Changes" comment="refactor: design">
+      <change afterPath="$PROJECT_DIR$/pages/auth/forgetPassword/newPassword.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/dashboard/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/dashboard/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/dashboard/myMessages/newMessage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/dashboard/myMessages/newMessage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/dashboard/myMessages/sendMessages/[...id].jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/dashboard/myMessages/sendMessages/[...id].jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/dashboard/myMessages/sendMessages/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/dashboard/myMessages/sendMessages/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/apiRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/apiRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/appRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/appRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/auth/forgetPassword/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/auth/forgetPassword/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/auth/login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/auth/login.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/sw.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/sw.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/clientAppService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/clientAppService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,26 +34,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/darik/Desktop/projects/lingo-web&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;settings.editor.splitter.proportion&quot;: &quot;0.3027523&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2022.1\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/darik/Desktop/projects/lingo-web",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "settings.editor.splitter.proportion": "0.3027523",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2022.1\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "HgIgnore"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="H:\Projects\nextjs\nextjs-blog\public" />
@@ -118,14 +124,7 @@
       <workItem from="1686045821343" duration="6406000" />
       <workItem from="1686201265188" duration="9489000" />
       <workItem from="1686372946539" duration="27363000" />
-      <workItem from="1686460702041" duration="2339000" />
-    </task>
-    <task id="LOCAL-00018" summary="refactor: authorition use cookie based authentication">
-      <created>1683443737112</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1683443737112</updated>
+      <workItem from="1686460702041" duration="8443000" />
     </task>
     <task id="LOCAL-00019" summary="feat: course detail page features">
       <created>1683453373607</created>
@@ -463,7 +462,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686402152858</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="refactor: design">
+      <created>1686463779596</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1686463779596</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -482,7 +488,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="refactor: responsive design&#10;add: _error.js" />
     <MESSAGE value="fix : login bugs" />
     <MESSAGE value="add: packages page" />
     <MESSAGE value="refactor: responsive design" />
@@ -507,6 +512,7 @@
     <MESSAGE value="add:PWA" />
     <MESSAGE value="add: myMessages" />
     <MESSAGE value="refactor: footer" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: footer" />
+    <MESSAGE value="refactor: design" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: design" />
   </component>
 </project>

@@ -30,7 +30,9 @@ const API_ROUTES = {
     NEWMESSAGE:"/Comment/ToAdmin",
     MESSAGEDETAIL:(id)=>{
         return `/Comment/${id}`
-    }
+    },
+    RESETPASSWORDREQUEST:"/User/ResetPasswordRequest",
+    RESETPASSWORD:"/User/ResetPassword"
 };
 
 export default API_ROUTES;
