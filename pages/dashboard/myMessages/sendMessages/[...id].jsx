@@ -58,22 +58,29 @@ const id = ({detail}) =>
                             </div>
                         </div>
 
-                        {detail.replies.length>=1&&<div className='flex flex-col gap-5 mx-[2rem]'>
+                        {detail.replies.length>=1&& detail.replies.map((d)=>{
+                            return(<div className='flex flex-col gap-5 mx-[1rem]'>
 
-                            <div className='flex justify-between w-full'>
-                                <p className='darkBlue-color'>پاسخ مدیر</p>
-                                <p className='darkBlue-color'>
-                                    <DateMaker date={detail.replies.updatedAt}/>
-                                </p>
-                            </div>
+                                <div className='flex justify-between w-full'>
+                                    <p className='darkBlue-color'>پاسخ مدیر</p>
+                                    <p className='darkBlue-color'>
+                                        <DateMaker date={detail.replies.updatedAt}/>
+                                    </p>
+                                </div>
 
-                            <div className='bg-white flex p-4 rounded'>
-                                <p>{detail.replies.subject}</p>
-                            </div>
-                            <div className='bg-white flex p-4 rounded'>
-                                <p>{detail.replies.body}</p>
-                            </div>
-                        </div>}
+                                {/*{d.subject!=null&&*/}
+                                {/*    <div className='bg-white flex p-4 rounded'>*/}
+                                {/*        <p>{d.subject}</p>*/}
+                                {/*    </div>*/}
+                                {/*}*/}
+
+                                {/*{d.subject!=null&&*/}
+                                <div className='bg-white flex p-4 rounded'>
+                                    <p className='leading-9'>{d.body}</p>
+                                </div>
+                                {/*}*/}
+                            </div>)
+                        }) }
 
                         <div className='w-full flex justify-center items-center'>
                             <Link href={appRoutes.SendMessages} className='bg-cyan-500 p-1 text-sm btn-page bg-red text-white w-[20rem] text-center'>بازگشت</Link>

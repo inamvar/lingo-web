@@ -37,6 +37,7 @@ export default function discount()
                             <span className='bg-red rounded-full absolute red-color w-5 h-5'></span>
                             {/*<span className='h-full w-4 border border-red'></span>*/}
                             <hr className='m-h-discount border border-red' />
+                            {/*<div className="inline-block h-full w-0.5 self-stretch bg-red"></div>*/}
                         </div>
 
                         <p className='darkBlue-color font-bold text-lg w-1/3'>%20</p>

@@ -13,7 +13,7 @@ const course = (props) =>
     const courseDetail = props.result;
     const relatesCourses = props.relatesCourses;
 
-    console.log(courseDetail.costType)
+    console.log(courseDetail)
 
     let num = 0;
     courseDetail.chapters.forEach((e,i)=>{
@@ -51,7 +51,7 @@ const course = (props) =>
                         <div className='flex flex-col gap-6'>
                             <div className='flex relative mt-5'>
 
-                                {courseDetail.chapters.length<1 || courseDetail.userHasPurchasedCourse ?<p></p>:<Link href={AppRoutes.PaymentDetail(courseDetail.slug)} className='bg-red btn-page text-white text-center w-full py-4'>دوره را می خرم</Link>}
+                                {courseDetail.costType="Free" || courseDetail.userHasPurchasedCours || courseDetail.chapters.length<1 ?<p></p>:<Link href={AppRoutes.PaymentDetail(courseDetail.slug)} className='bg-red btn-page text-white text-center w-full py-4'>دوره را می خرم</Link>}
                                 {/*{courseDetail.userHasPurchasedCourse ?<p></p>:<Link href={AppRoutes.PaymentDetail(courseDetail.slug)} className='bg-red btn-page text-white text-center w-full py-4'>دوره را می خرم</Link>}*/}
 
                                 {courseDetail.chapters.length>=1 && courseDetail.discount!=null && courseDetail.discount.discountValue!=0 &&<div className='absolute discount-icon'>

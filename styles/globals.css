@@ -218,7 +218,11 @@ a {
 .sliding-panel-container {
     direction: ltr;
 }
-
+.badge-message
+{
+    top: -0.5rem;
+    left: -0.6rem;
+}
 .Previous-button-cersoul {
     position: absolute;
     top: 50%;
