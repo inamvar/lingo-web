@@ -16,7 +16,7 @@ const Index = () => {
                 <Meta title="داشبورد" />
                 <div className='flex justify-center mt-20'>
 
-                    <div className='flex md:flex-row flex-col items-center justify-between gap-6 sm:gap-2 px-2 div-dashboard'>
+                    <div className='flex lg:flex-row flex-col items-center justify-between gap-6 sm:gap-4 m-3 div-dashboard'>
                         <Link className='bg-white w-2/3 sm:w-72 flex flex-col items-center justify-center gap-6 py-16 rounded' href={appRoutes.Profile}>
                             <svg width="92" height="104" viewBox="0 0 92 104" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M46 52C60.5188 52 72.2857 40.3609 72.2857 26C72.2857 11.6391 60.5188 0 46 0C31.4813 0 19.7143 11.6391 19.7143 26C19.7143 40.3609 31.4813 52 46 52ZM64.4 58.5H60.9705C56.4116 60.5719 51.3393 61.75 46 61.75C40.6607 61.75 35.6089 60.5719 31.0295 58.5H27.6C12.3625 58.5 0 70.7281 0 85.8V94.25C0 99.6328 4.41518 104 9.85714 104H82.1429C87.5848 104 92 99.6328 92 94.25V85.8C92 70.7281 79.6375 58.5 64.4 58.5Z" fill="#F84C4D"/>

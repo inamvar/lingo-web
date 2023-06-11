@@ -181,11 +181,11 @@ a {
 {
     width: 100%;
 }
-@media only screen and (min-width: 1000px)
+@media only screen and (min-width: 1400px)
 {
     .div-dashboard
     {
-        width: 80rem !important;
+        width: 85rem !important;
     }
 }
 .div-banner {

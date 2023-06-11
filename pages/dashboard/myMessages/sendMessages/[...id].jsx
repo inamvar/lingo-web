@@ -17,8 +17,9 @@ const id = ({detail}) =>
         return(
             <>
                 <div className='flex justify-center'>
-                    <div className='flex flex-col mt-16 gap-7 w-[85rem]'>
-                        <div className='flex justify-evenly gap-7'>
+                    <div className='flex flex-col mt-16 gap-7 w-[75rem]'>
+
+                        <div className='flex justify-evenly gap-7 mx-[0.5rem]'>
 
                             <div className='bg-white flex w-2/3 flex-col items-center justify-center gap-7 py-10 rounded active-div-message'>
                                 <svg width="83" height="63" viewBox="0 0 83 63" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -40,7 +41,7 @@ const id = ({detail}) =>
 
                         </div>
 
-                        <div className='flex flex-col gap-4 mx-[2rem]'>
+                        <div className='flex flex-col gap-4 mx-[1rem]'>
 
                             <div className='flex justify-between w-full'>
                                 <p className='darkBlue-color'>پیام شما</p>
