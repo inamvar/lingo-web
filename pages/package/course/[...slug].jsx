@@ -13,7 +13,7 @@ const course = (props) =>
     const courseDetail = props.result;
     const relatesCourses = props.relatesCourses;
 
-    console.log(courseDetail)
+    console.log(courseDetail);
 
     let num = 0;
     courseDetail.chapters.forEach((e,i)=>{
@@ -46,12 +46,14 @@ const course = (props) =>
                             </div>
                         </div>
 
-                        {courseDetail.costType="Free" || courseDetail.userHasPurchasedCours || courseDetail.chapters.length<1 ? <p></p> :<div className='paleGreen-color flex gap-2 pt-2 mt-2 pb-1 w-full justify-start text-lg font-extrabold'><Price pricings={courseDetail.pricings} />تومان</div>}
+                        {/*{courseDetail.costType="Free" || courseDetail.userHasPurchasedCours || courseDetail.chapters.length<1 ? <p></p> :<div className='paleGreen-color flex gap-2 pt-2 mt-2 pb-1 w-full justify-start text-lg font-extrabold'><Price pricings={courseDetail.pricings} />تومان</div>}*/}
+
+                        {courseDetail.costType!="Paid"|| courseDetail.userHasPurchasedCours || courseDetail.chapters.length<1 ? <p></p> :<div className='paleGreen-color flex gap-2 pt-2 mt-2 pb-1 w-full justify-start text-lg font-extrabold'><Price pricings={courseDetail.pricings} />تومان</div>}
 
                         <div className='flex flex-col gap-6'>
                             <div className='flex relative mt-5'>
 
-                                {courseDetail.costType="Free" || courseDetail.userHasPurchasedCours || courseDetail.chapters.length<1 ?<p></p>:<Link href={AppRoutes.PaymentDetail(courseDetail.slug)} className='bg-red btn-page text-white text-center w-full py-4'>دوره را می خرم</Link>}
+                                {courseDetail.costType!="Paid"|| courseDetail.userHasPurchasedCours || courseDetail.chapters.length<1 ?<p></p>:<Link href={AppRoutes.PaymentDetail(courseDetail.slug)} className='bg-red btn-page text-white text-center w-full py-4'>دوره را می خرم</Link>}
                                 {/*{courseDetail.userHasPurchasedCourse ?<p></p>:<Link href={AppRoutes.PaymentDetail(courseDetail.slug)} className='bg-red btn-page text-white text-center w-full py-4'>دوره را می خرم</Link>}*/}
 
                                 {courseDetail.chapters.length>=1 && courseDetail.discount!=null && courseDetail.discount.discountValue!=0 &&<div className='absolute discount-icon'>
@@ -97,9 +99,9 @@ export async function getServerSideProps(context)
     const result = await courseDetail(slug,context);
     const relatesCourses = await getPackageCourseList(result.package.id,context);
 
+
     return{
-        props: {result,
-            relatesCourses}
+        props: {result, relatesCourses}
     }
 }
 
