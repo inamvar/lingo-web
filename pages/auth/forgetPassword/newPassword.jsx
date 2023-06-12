@@ -7,6 +7,9 @@ import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import {postResetPassword} from "../../../services/clientAppService";
 import {router} from "next/router";
+import ProgressTimer from "../../../components/progressTimer";
+import {useEffect, useState} from "react";
+import moment from "moment";
 
 export default function forgetPassword()
 {
@@ -29,7 +32,19 @@ export default function forgetPassword()
         {
             router.push(appRoutes.Login);
         }
+    };
 
+
+    const requestTime = sessionStorage.getItem("ResetPassword-expireTime");
+    const expireTime = moment(requestTime);
+    let timestamp = moment().format();
+    const diffInDays = expireTime.diff(timestamp, "seconds");
+
+
+    const [message, setMessage] = useState(0);
+
+    const handleChildClick = (m) => {
+        setMessage(message+1);
     };
 
     return(<>
@@ -42,6 +57,9 @@ export default function forgetPassword()
                 <p className='text-sm darkBlue-color text-center'>لطفا برای تغییر رمز عبور اطلاعات زیر را تکمیل کنید </p>
                 <div className='flex flex-col gap-3'>
                     <InputText error={errors.securityCode?.message} required register={register} placeholder='کد تایید' name='securityCode'/>
+
+                    <ProgressTimer handle={message} onChildClick={handleChildClick}/>
+
                     <InputText error={errors.NewPass?.message} type='password' required register={register} placeholder="رمز عبور" name='NewPass'/>
                     <InputText error={errors.RetryNewPass?.message} type='password' required register={register} placeholder='تکرار رمز عبور' name='RetryNewPass'/>
                 </div>

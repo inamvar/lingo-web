@@ -11,6 +11,7 @@ import authContext from "../../context/authContext";
 import useAuth from "../../hooks/useAuth";
 import {loginUser} from "../../services/clientAppService";
 import AppRoutes from "/common/appRoutes";
+import ProgressTimer from '../../components/progressTimer';
 
 export default function Login(){
 
@@ -72,6 +73,7 @@ export default function Login(){
                 </div>
                 <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col p-5 bg-white rounded w-5/6 sm:w-96 gap-5'>
                     <p className='text-sm darkgrey-color'>لطفا برای ورود به حساب کاربری اطلاعات زیر را تکمیل کنید </p>
+
                     <div className='flex flex-col gap-3'>
                         <InputText error={errors.userName?.message} register={register} required placeholder='ایمیل' name='userName'/>
                         <InputText error={errors.password?.message} type='password' required register={register} placeholder='رمز عبور' name='password'/>

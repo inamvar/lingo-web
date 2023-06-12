@@ -7,6 +7,8 @@ import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import {postResetPasswordRequest} from "../../../services/clientAppService";
 import {router} from "next/router";
+import ProgressTimer from "../../../components/progressTimer";
+import moment from "moment";
 
 export default function forgetPassword()
 {
@@ -22,9 +24,20 @@ export default function forgetPassword()
     const onSubmit = async (data) =>
     {
         const result = await postResetPasswordRequest(data.email);
-        if(result)
+
+        // const expireTime = moment('2023-06-12T12:36:35.4612618+00:00');
+        // let timestamp = moment().format();
+        // const diffInDays = expireTime.diff(timestamp, "seconds");
+
+
+        if(result.success)
         {
+
             sessionStorage.setItem("ResetPassword-Key", data.email);
+            sessionStorage.setItem("ResetPassword-expireTime", result.dateTime);
+
+
+
             router.push(appRoutes.NewPassword);
         }
 

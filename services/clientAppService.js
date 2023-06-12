@@ -53,7 +53,8 @@ export const postResetPasswordRequest = async (email) =>
                 message: "پیام ارسال شد",
                 type: 'success'
             });
-            return true;
+            const result = response.data;
+            return result;
         }
         else {
             console.log(response.data.message);
@@ -64,7 +65,7 @@ export const postResetPasswordRequest = async (email) =>
         }
     } catch (error) {
         pushAlert({
-            message: error.response.data.errorMessages,
+            message: error.response.data.data.errorMessage,
             type: 'error'
         })
         console.log(error)
