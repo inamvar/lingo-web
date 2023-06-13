@@ -4,15 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7110e458-b35c-4d71-9c86-a88bc37cb642" name="Changes" comment="fix: detailCourse bugs">
-      <change afterPath="$PROJECT_DIR$/components/progressTimer.jsx" afterDir="false" />
+    <list default="true" id="7110e458-b35c-4d71-9c86-a88bc37cb642" name="Changes" comment="add: progressTimer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/timeMaker.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/timeMaker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/apiClientSideRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/apiClientSideRequest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/progressTimer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/progressTimer.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/auth/forgetPassword/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/auth/forgetPassword/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/auth/forgetPassword/newPassword.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/auth/forgetPassword/newPassword.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/auth/login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/auth/login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/auth/signup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/auth/signup.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/sw.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/sw.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/clientAppService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/clientAppService.js" afterDir="false" />
     </list>
@@ -127,14 +126,8 @@
       <workItem from="1686201265188" duration="9489000" />
       <workItem from="1686372946539" duration="27363000" />
       <workItem from="1686460702041" duration="16765000" />
-      <workItem from="1686546805926" duration="21298000" />
-    </task>
-    <task id="LOCAL-00023" summary="refactor: reafactor videoDetail page and courseDetail page">
-      <created>1683791508130</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1683791508130</updated>
+      <workItem from="1686546805926" duration="21618000" />
+      <workItem from="1686650229673" duration="10904000" />
     </task>
     <task id="LOCAL-00024" summary="refactor: reafctor styles pages and signOut user">
       <created>1683962743931</created>
@@ -472,7 +465,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686557020849</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="add: progressTimer">
+      <created>1686575143830</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1686575143830</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -491,7 +491,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="refactor : responsive design" />
     <MESSAGE value="add: golden package page" />
     <MESSAGE value="add: IRRPrice.js and paymentDetail page" />
     <MESSAGE value="fix: packages bugs&#10;refactor: modal responsive design&#10;add: search result" />
@@ -516,6 +515,7 @@
     <MESSAGE value="refactor: myMassages design" />
     <MESSAGE value="add:messages badge&#10;fix:messages bugs" />
     <MESSAGE value="fix: detailCourse bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: detailCourse bugs" />
+    <MESSAGE value="add: progressTimer" />
+    <option name="LAST_COMMIT_MESSAGE" value="add: progressTimer" />
   </component>
 </project>

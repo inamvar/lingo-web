@@ -237,15 +237,11 @@ export const loginUser = async(username, password) => {
             const remainingTime = decodedToken.exp - Date.now() / 1000;
             Cookies.set(Constants.token, accessToken, { expires: remainingTime / (60 * 60 * 24) });
             Cookies.set(Constants.refreshToken, refreshToken, { expires: 365 });
-            //
-            // pushAlert({
-            //     message:'ورود با موفقیت انجام شد',
-            //     type:'success'
-            // })
             return {
                 authenticated: true,
                 user: decodedToken
             };
+
         } else {
             console.log(response.data.message);
             pushAlert({

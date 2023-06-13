@@ -51,14 +51,17 @@ export default function Login(){
     };
 
     useEffect(()=>{
+
         isCsr = true;
-       const rUrl= router.query.returnUrl;
-       if (rUrl==undefined || rUrl == appRoutes.ChangePassword){
+        const rUrl= router.query.returnUrl;
+
+        if (rUrl==undefined || rUrl == appRoutes.ChangePassword){
            setReturnUrl('');
-       }
-       else{
-           setReturnUrl(rUrl);
-       }
+        }
+        else
+        {
+            setReturnUrl(rUrl);
+        }
 
     },[]);
 

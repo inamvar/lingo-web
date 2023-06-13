@@ -9,6 +9,8 @@ import {postResetPasswordRequest} from "../../../services/clientAppService";
 import {router} from "next/router";
 import ProgressTimer from "../../../components/progressTimer";
 import moment from "moment";
+import Cookies from "js-cookie";
+import {Constants} from "../../../common/constants";
 
 export default function forgetPassword()
 {
@@ -25,22 +27,12 @@ export default function forgetPassword()
     {
         const result = await postResetPasswordRequest(data.email);
 
-        // const expireTime = moment('2023-06-12T12:36:35.4612618+00:00');
-        // let timestamp = moment().format();
-        // const diffInDays = expireTime.diff(timestamp, "seconds");
-
-
-        if(result.success)
+        if(result != undefined && result.success)
         {
-
             sessionStorage.setItem("ResetPassword-Key", data.email);
-            sessionStorage.setItem("ResetPassword-expireTime", result.dateTime);
-
-
-
+            sessionStorage.setItem("ResetPassword-expireTime", result.data.expirationTime);
             router.push(appRoutes.NewPassword);
         }
-
     };
 
     return(<>

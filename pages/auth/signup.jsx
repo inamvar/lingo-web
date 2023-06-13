@@ -10,7 +10,7 @@ import {signUpUser} from "../../services/clientAppService";
 import authContext from "../../context/authContext";
 import {useContext} from "react";
 
-export default function Login(){
+export default function signUp(){
 
     const authCtx = useContext(authContext);
 
@@ -34,17 +34,19 @@ export default function Login(){
 
     const  onSubmit =async (data) =>
     {
-        const {returnUrl}= router.query;
+        const returnUrl= router.query.returnUrl;
         const result = await signUpUser(data.firstName,data.lastName,data.password,data.confirmPassword,data.email,data.phoneNumber,data.marketerCode);
         if (result != undefined)
         {
             setContext(result);
-            if (returnUrl!=undefined && returnUrl!=""){
+            if (returnUrl==undefined || returnUrl == appRoutes.ChangePassword){
                 router.push(returnUrl);
+                return;
             }
             else
             {
                 router.push(appRoutes.Main);
+                return;
             }
         }
     };
@@ -70,7 +72,7 @@ export default function Login(){
                     <InputText register={register} placeholder='کد معرف' name='marketerCode'/>
                 </div>
                 <div className='text-right'>
-                    <Link href={appRoutes.ForgotPassword} className='text-sm b'>رمز عبور خود را فراموش کرده ام!</Link>
+                    <Link href={appRoutes.ForgetPassword} className='text-sm b'>رمز عبور خود را فراموش کرده ام!</Link>
                 </div>
                 <div className='flex flex-row justify-center'>
                     <button type='submit' className='bg-cyan-500 p-1 text-sm btn-page bg-red text-white w-full'>ورود به حساب کاربری</button>
