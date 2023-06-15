@@ -71,11 +71,8 @@ export default function signUp(){
                     <InputText error={errors.confirmPassword?.message} type='password' required register={register} placeholder='تکرار رمز عبور' name='confirmPassword'/>
                     <InputText register={register} placeholder='کد معرف' name='marketerCode'/>
                 </div>
-                <div className='text-right'>
-                    <Link href={appRoutes.ForgetPassword} className='text-sm b'>رمز عبور خود را فراموش کرده ام!</Link>
-                </div>
                 <div className='flex flex-row justify-center'>
-                    <button type='submit' className='bg-cyan-500 p-1 text-sm btn-page bg-red text-white w-full'>ورود به حساب کاربری</button>
+                    <button type='submit' className='bg-cyan-500 p-1 text-sm btn-page bg-red text-white w-full hover:bg-red-600'>ورود به حساب کاربری</button>
                 </div>
             </form>
         </div>

@@ -29,7 +29,7 @@ const ProgressBarTimer = ({ expireTime,requestTime,onProgressFinished }) => {
     }, []);
 
     useEffect(() => {
-        console.log('remain time:'+remainingTime);
+        // console.log('remain time:'+remainingTime);
         if (remainingTime <= 0) {
             setFinished(true);
             setFinalProgress(0);
@@ -50,20 +50,18 @@ const ProgressBarTimer = ({ expireTime,requestTime,onProgressFinished }) => {
         const email = localStorage.getItem("ResetPassword-Key");
         const result = await postResetPasswordRequest(email);
 
-            if(result != undefined && result.success)
-            {
+        if(result != undefined && result.success)
+        {
+            localStorage.removeItem("ResetPassword-expireTime");
+            localStorage.removeItem("ResetPassword-Key");
+            localStorage.removeItem("ResetPassword-RequestTime");
 
-                localStorage.removeItem("ResetPassword-expireTime");
-                localStorage.removeItem("ResetPassword-Key");
-                localStorage.removeItem("ResetPassword-RequestTime");
+            localStorage.setItem("ResetPassword-Key", email);localStorage.setItem("ResetPassword-expireTime", result.data.expirationTime);
+            localStorage.setItem("ResetPassword-RequestTime",moment());
 
-                localStorage.setItem("ResetPassword-Key", email);
-                localStorage.setItem("ResetPassword-expireTime", result.data.expirationTime);
-                localStorage.setItem("ResetPassword-RequestTime",moment());
-
-                await router.push(appRoutes.NewPassword);
-                window.location.reload();
-            }
+            await router.push(appRoutes.NewPassword);
+            window.location.reload();
+        }
     }
 
     return (

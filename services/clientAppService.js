@@ -65,10 +65,10 @@ export const postResetPasswordRequest = async (email) =>
         }
     } catch (error) {
         pushAlert({
-            message: error.response.data.data.errorMessage,
+            message: error.response.data.errorMessages,
             type: 'error'
         })
-        console.log(error)
+        // console.log(error.response.data.errorMessages)
     }
 };
 

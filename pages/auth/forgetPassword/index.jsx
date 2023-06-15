@@ -47,10 +47,10 @@ export default function forgetPassword()
                     <InputText error={errors.email?.message} required register={register} placeholder='ایمیل' name='email'/>
                 </div>
                 <div className='flex flex-row justify-center'>
-                    <button type='submit' className='bg-cyan-500 p-1 text-sm btn-page bg-red text-white w-full'>ثبت</button>
+                    <button type='submit' className='bg-cyan-500 p-1 text-sm btn-page bg-red text-white w-full hover:bg-red-600'>ثبت</button>
                 </div>
                 <div>
-                    <p className='text-xs darkBlue-color'>لطفا پس از ثبت، برای دریافت کد تایید ایمیل خود را بررسی کنید. </p>
+                    <p className='text-xs darkBlue-color text-center'>لطفا پس از ثبت، برای دریافت کد تایید ایمیل خود را بررسی کنید. </p>
                 </div>
             </form>
         </div>

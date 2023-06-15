@@ -92,7 +92,7 @@ export default function NewPassword()
                         <InputText error={errors.RetryNewPass?.message} type='password' required register={register} placeholder='تکرار رمز عبور' name='RetryNewPass'/>
                     </div>
                     <div className='flex flex-row justify-center'>
-                        <button type='submit' className='bg-cyan-500 p-1 text-sm btn-page bg-red text-white w-full'>تغییر رمز عبور</button>
+                        <button type='submit' className='bg-cyan-500 p-1 text-sm btn-page bg-red text-white w-full hover:bg-red-600'>تغییر رمز عبور</button>
                     </div>
                 </form>
             </div>
