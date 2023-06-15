@@ -1,104 +1,97 @@
 import React, { useState, useEffect } from "react";
-import {postResetPasswordRequest} from "../services/clientAppService";
+import { postResetPasswordRequest } from "../services/clientAppService";
 import moment from "moment";
+import {useRouter} from "next/router";
+import appRoutes from "../common/appRoutes";
 
-const ProgressBarTimer = ({onChildClick,handle,remainTime}) => {
+const ProgressBarTimer = ({ expireTime,requestTime,onProgressFinished }) => {
 
-    const time = 120;
-    const [timer, setTimer] = useState(2);
-    const [timing,setTiming] = useState(true);
-    let progress = (time - timer) / time;
+    const router=useRouter();
+    const [finished, setFinished] = useState(false);
+    let currentTime= new Date().getTime();
+    let expTime= new Date(expireTime).getTime();
+    let reqTime=new Date(requestTime).getTime();
+    let remain= expTime-currentTime;
 
+    const [remainingTime, setRemainingTime] = useState(remain);
 
-    useEffect(()=>{
-        console.log('kkkkk');
-       setTimer(time);
-        console.log('kkkkk');
-    },[]);
-
-    useEffect(()=>{
-        console.log('xxxxxxxxx');
-        console.log(timer);
-        console.log('xxxxxxxxx')
-    },[remainTime])
-
-    useEffect(()=>{
-
-        setTiming(true);
+    const [finalProgress,setFinalProgress]=useState(100);
+    useEffect(() => {
+        setFinished(false);
         const interval = setInterval(() => {
-
-            console.log('changingtimer');
-            let v = timer-1;
-            setTimer(v);
-            progress = (time - timer) / time;
-
+            setRemainingTime((prev) =>{
+                let currentTime= new Date().getTime();
+                let remain= expTime-currentTime;
+                return remain;
+            });
         }, 1000);
         return () => clearInterval(interval);
-
-    },[]);
-
-
-    // useEffect(() => {
-    //
-    //     // setTimer(time);
-    //     // console.log(time)
-    //     // let progress = (time - timer) / time;
-    //     setTiming(true)
-    //
-    //     const interval = setInterval(() => {
-    //        let v= timer-1;
-    //         setTimer(v);
-    //         //setTimer((prevTimer) => prevTimer - 1);
-    //     }, 1000);
-    //     return () => clearInterval(interval);
-    //
-    // }, [handle]);
-
-    // useEffect(() => {
-    //
-    //     const interval = setInterval(() => {
-    //         setTimer((prevTimer) => prevTimer - 1);
-    //     }, 1000);
-    //     return () => clearInterval(interval);
-    //
-    // }, []);
+    }, []);
 
     useEffect(() => {
-        if (timer === 0) {
-            progress = 0;
-            setTiming(false);
-        }
-    }, [timer]);
+        console.log('remain time:'+remainingTime);
+        if (remainingTime <= 0) {
+            setFinished(true);
+            setFinalProgress(0);
 
-    async function handleClick()
-    {
-        const email = sessionStorage.getItem("ResetPassword-Key");
-        const result = await postResetPasswordRequest(email);
-        if(result)
-        {
-            onChildClick("Hello!");
         }
+        else {
+            setFinalProgress((prev)=>{
+               let vv= expTime-currentTime;
+               let total=expTime-reqTime;
+               let res=vv/total ;
+                return res;
+            });
+        }
+    }, [remainingTime]);
+
+    async function handleClick() {
+
+        const email = localStorage.getItem("ResetPassword-Key");
+        const result = await postResetPasswordRequest(email);
+
+            if(result != undefined && result.success)
+            {
+
+                localStorage.removeItem("ResetPassword-expireTime");
+                localStorage.removeItem("ResetPassword-Key");
+                localStorage.removeItem("ResetPassword-RequestTime");
+
+                localStorage.setItem("ResetPassword-Key", email);
+                localStorage.setItem("ResetPassword-expireTime", result.data.expirationTime);
+                localStorage.setItem("ResetPassword-RequestTime",moment());
+
+                await router.push(appRoutes.NewPassword);
+                window.location.reload();
+            }
     }
 
     return (
         <div>
-            {timing?
-                <div className='bg-grey rounded flex justify-end'
-                     style={{
-                         height: "10px",
-                         width: "100%",
-                     }}
+            {finished===false ? (
+                <div
+                    className="bg-grey rounded flex justify-end"
+                    style={{
+                        height: "10px",
+                        width: "100%",
+                    }}
                 >
-                        <div className='bg-darkGreen rounded'
-                             style={{
-                                 height: "10px",
-                                 width: `${100 - progress * 100}%`,
-                             }}
-                        ></div>
+                    <div
+                        className="bg-darkGreen rounded"
+                        style={{
+                            height: "10px",
+                            width: `${finalProgress * 100}%`,
+                        }}
+                    ></div>
                 </div>
-            :
-                <p onClick={handleClick} className='darkBlue-color text-sm text-center cursor-pointer'>ارسال مجدد پیام</p>
-            }
+            ) : (
+                <p
+                    onClick={handleClick}
+                    className="darkBlue-color text-sm text-center cursor-pointer"
+                >
+                    ارسال مجدد پیام
+                </p>
+            )}
         </div>
     );
 };

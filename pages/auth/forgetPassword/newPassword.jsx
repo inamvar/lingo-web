@@ -11,35 +11,36 @@ import ProgressTimer from "../../../components/progressTimer";
 import {useEffect, useState} from "react";
 import moment from "moment";
 import Cookies from "js-cookie";
-export default function forgetPassword()
+export default function NewPassword()
 {
 
-    const [requestExpTime, setRequestExpTime] = useState(null);
-    const [progressTimer,setprogressTimer] = useState();
+    const [requestExpTime, setRequestExpTime] = useState();
+    const [requestTime,setRequestTime]=useState(null);
+    const [progressFinished, setProgressFinished] = useState(false);
+
+    const handleProgressFinished = () => {
+        setProgressFinished(true);
+        setProgressFinished(false);
+    };
 
     useEffect(() => {
         if (typeof window === 'undefined') return;
 
-        const storedData = sessionStorage.getItem('ResetPassword-expireTime');
-        setRequestExpTime(storedData);
+        const expireTime = localStorage.getItem('ResetPassword-expireTime');
+        const reqTime = localStorage.getItem('ResetPassword-RequestTime');
+        setRequestExpTime(expireTime);
+        setRequestTime(reqTime);
     }, []);
 
-    useEffect(()=>{
 
-        if(requestExpTime == null)
-        {
-            alert(requestExpTime)
+    useEffect(() => {
+
+        if (requestExpTime===null){
+            router.push(appRoutes.ForgetPassword);
         }
-        else
-        {
-            const expTime = moment(requestExpTime);
-            const now = moment();
-            // const expTime = moment('2023-06-13T11:36:35.4612618+00:00');
-            const dif = now.diff(expTime,'seconds');
-            console.log(dif);
-            setprogressTimer((dif*(-1)));
-        }
-    },[requestExpTime])
+    }, [requestExpTime]);
+
+
 
     const schema = validator.object({
         securityCode:validator.string().required('نوشتن کد تایید اجباری است'),
@@ -62,13 +63,8 @@ export default function forgetPassword()
         }
     };
 
-    const [message, setMessage] = useState(0);
 
-    const handleChildClick = (m) => {
-        setMessage(message+1);
-    };
-
-    if(requestExpTime==null)
+    if(requestExpTime===undefined)
     {
         return (<></>);
     }
@@ -84,7 +80,13 @@ export default function forgetPassword()
                     <div className='flex flex-col gap-3'>
                         <InputText error={errors.securityCode?.message} required register={register} placeholder='کد تایید' name='securityCode'/>
 
-                        <ProgressTimer remainTime={progressTimer} handle={message} onChildClick={handleChildClick}/>
+                        {!progressFinished && (
+                            <ProgressTimer
+                                expireTime={requestExpTime}
+                                requestTime={requestTime}
+                                onProgressFinished={handleProgressFinished}
+                            />
+                        )}
 
                         <InputText error={errors.NewPass?.message} type='password' required register={register} placeholder="رمز عبور" name='NewPass'/>
                         <InputText error={errors.RetryNewPass?.message} type='password' required register={register} placeholder='تکرار رمز عبور' name='RetryNewPass'/>

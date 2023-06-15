@@ -29,8 +29,9 @@ export default function forgetPassword()
 
         if(result != undefined && result.success)
         {
-            sessionStorage.setItem("ResetPassword-Key", data.email);
-            sessionStorage.setItem("ResetPassword-expireTime", result.data.expirationTime);
+            localStorage.setItem("ResetPassword-Key", data.email);
+            localStorage.setItem("ResetPassword-expireTime", result.data.expirationTime);
+            localStorage.setItem("ResetPassword-RequestTime",moment());
             router.push(appRoutes.NewPassword);
         }
     };
