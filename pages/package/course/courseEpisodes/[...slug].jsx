@@ -3,11 +3,42 @@ import Accordion from "../../../../components/accordion";
 import {getVideoDetail} from "../../../../services/appServices";
 import {AuthenticatedLink} from "../../../../components/authenticatedLink";
 import Link from "next/link";
+import {useEffect, useState} from "react";
+import useScript from "../../../../components/useScript";
+
 
 const Slug=(props)=>
 {
     const result=props.result;
     const currentVideo=result.currentVideo;
+
+    const [scriptLoaded, setScriptLoaded] = useState(false);
+
+    useEffect(() => {
+        // If the script has already been loaded, return early
+        if (scriptLoaded) {
+            return;
+        }
+
+        // Load the script asynchronously
+        const script = document.createElement('script');
+        script.src = 'https://negavid.com/uploads/native/dynamic-watermark/latest/negavid-dynamic-watermark-production-min.js';
+        script.async = true;
+        document.body.appendChild(script);
+
+        // Define the window.message variable after the script has loaded
+        script.onload = () => {
+            window.message = ["DEMO", "Negavid", "0990993888", "negavid@gmail.com", "#fff", "3"];
+            setScriptLoaded(true); // mark the script as loaded
+        };
+    }, [scriptLoaded]);
+
+    // Reload the page if the script has just been loaded
+    useEffect(() => {
+        if (scriptLoaded) {
+            window.location.reload();
+        }
+    }, [scriptLoaded]);
 
     return(
         <div className='flex justify-center items-center mt-16'>
@@ -38,6 +69,7 @@ const Slug=(props)=>
                 </div>
             </div>
         </div>
+
     )
 }
 

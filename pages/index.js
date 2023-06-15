@@ -6,12 +6,12 @@ import authContext from "../context/authContext";
 import {useContext} from "react";
 import PackageMultiItemCarousel from "../components/packageMultiItemCarousel";
 import moment from "moment";
+import UseScript from "../components/useScript";
 
 
 const Home=(props)=>{
 
     const authCtx = useContext(authContext);
-
     const Packages = props.packages;
     const banner=props.banner;
 

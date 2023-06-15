@@ -9,6 +9,7 @@ import {Constants} from "../common/constants";
 export default function footer(siteSetting)
 {
     const  result = siteSetting.siteSetting;
+    console.log(result);
     const  instagram = result?.find(x=>x.key===Constants.InstagramAddress)?.value??"#";
     const  whatsapp = result?.find(x=>x.key===Constants.WhatsAppAddress)?.value??"#";
     const  telegram = result?.find(x=>x.key===Constants.TelegramAddress)?.value??"#";
@@ -16,7 +17,7 @@ export default function footer(siteSetting)
     const  MobileAppAndroidDownloadLink=result?.find(x=>x.key===Constants.MobileAppAndroidDownloadLink)?.value??"#";
     const  MobileAppBazarDownloadLink = result?.find(x=>x.key===Constants.MobileAppBazarDownloadLink)?.value??"#";
     const  MobileAppIOSDownloadLink=result?.find(x=>x.key===Constants.MobileAppIOSDownloadLink)?.value??"#";
-    const  footerDescription=result?.find(x=>x.key===Constants.FooterDescription)?.value??"";
+    const  footerDescription="";
 
     return(
         <div className='flex flex-col items-center mt-5'>

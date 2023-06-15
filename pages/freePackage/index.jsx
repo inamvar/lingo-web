@@ -1,7 +1,5 @@
 import {getFreePackagesList} from "../../services/appServices";
-import PackageMultiItemCarousel from "../../components/packageMultiItemCarousel";
 import FreeCourseMultiItemCarousel from "../../components/FreeCourseMultiItemCarousel";
-import packageCarousel from "../../components/packageCarousel";
 import Meta from "../../components/meta";
 
 const freePackage = (props) =>

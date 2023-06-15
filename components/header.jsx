@@ -10,6 +10,7 @@ import {getPackagesList} from "../services/appServices";
 import {logout} from "../services/clientAppService";
 // import {BarLoader} from "react-spinner-animated";
 import {getSearchResult} from "../services/appServices";
+import ClientSideRenderer from "./clientSideRenderer";
 
 
 const Header = ()=>{
@@ -25,6 +26,7 @@ const Header = ()=>{
     }
 
     return(
+        <ClientSideRenderer>
         <div className='flex justify-between mb-3 mt-4 lg:px-16 px-3'>
 
             <div className='block md:hidden mt-7'>
@@ -80,8 +82,9 @@ const Header = ()=>{
                 )}
             </div>
         </div>
+       </ClientSideRenderer>
     )
 }
 
 
-export default Header;
+export default  (Header);
