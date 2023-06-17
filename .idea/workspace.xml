@@ -4,12 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7110e458-b35c-4d71-9c86-a88bc37cb642" name="Changes" comment="refactor: pages&#10;add : apiClientSideRequest">
-      <change afterPath="$PROJECT_DIR$/components/hardRefreshLink.js" afterDir="false" />
+    <list default="true" id="7110e458-b35c-4d71-9c86-a88bc37cb642" name="Changes" comment="add : hardRefreshLink">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.next.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/apiClientSideRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/apiClientSideRequest.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/final.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lingo-web.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/dashboard/changePassword.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/dashboard/changePassword.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/sw.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/sw.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/r.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/clientAppService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/clientAppService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/xz.zip" beforeDir="false" />
     </list>
@@ -127,14 +132,7 @@
       <workItem from="1686546805926" duration="21618000" />
       <workItem from="1686650229673" duration="10904000" />
       <workItem from="1686804616897" duration="18930000" />
-      <workItem from="1686979013646" duration="3342000" />
-    </task>
-    <task id="LOCAL-00027" summary="refactor: refactor style pages">
-      <created>1684051706581</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1684051706581</updated>
+      <workItem from="1686979013646" duration="4940000" />
     </task>
     <task id="LOCAL-00028" summary="add: Free packages list">
       <created>1684583838202</created>
@@ -472,7 +470,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686982366341</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="add : hardRefreshLink">
+      <created>1686982535994</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1686982535994</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -491,7 +496,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="fix: packages bugs&#10;refactor: modal responsive design&#10;add: search result" />
     <MESSAGE value="reafactor: price conversion in paymentDetail&#10;add: USDTPrice.js" />
     <MESSAGE value="refactor: golden package&#10;add: search box" />
     <MESSAGE value="refactor: search modal" />
@@ -516,6 +520,7 @@
     <MESSAGE value="refactor: progressTimer" />
     <MESSAGE value="refactor: myMassages design" />
     <MESSAGE value="refactor: pages&#10;add : apiClientSideRequest" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: pages&#10;add : apiClientSideRequest" />
+    <MESSAGE value="add : hardRefreshLink" />
+    <option name="LAST_COMMIT_MESSAGE" value="add : hardRefreshLink" />
   </component>
 </project>

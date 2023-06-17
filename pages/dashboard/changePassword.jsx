@@ -18,8 +18,6 @@ const ChangePassword = (props) =>
 
     if(context.authState.authenticated)
     {
-        console.log(props.password);
-
         const schema = validator.object({
             oldPass:validator.string().required('نوشتن رمز عبور قدیمی اجباری است'),
             newPass:validator.string().required('نوشتن رمز عبور جدید اجباری است'),

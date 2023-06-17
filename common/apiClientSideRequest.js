@@ -6,6 +6,7 @@ import {Constants} from "./constants";
 import appRoutes from "./appRoutes";
 import API_ROUTES from "./apiRoutes";
 import {handleApiError} from "./handleApiError";
+import {pushAlert} from "./notifier";
 
 const ax = axios.create({
     baseURL: Configs.clientSideUrl,
@@ -38,6 +39,16 @@ ax.interceptors.response.use(
             return response;
     },
     async (error) => {
+
+
+        // console.log('error responseee');
+        // console.log(error);
+        // console.log(error.response.data.errorMessages);
+
+        pushAlert({
+            message: error.response.data.errorMessages,
+            type: 'error'
+        })
 
         if (error===null && error===undefined && error.res===undefined){
            return error;
