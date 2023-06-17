@@ -3,9 +3,10 @@ import Accordion from "../../../../components/accordion";
 import {getVideoDetail} from "../../../../services/appServices";
 import {AuthenticatedLink} from "../../../../components/authenticatedLink";
 import Link from "next/link";
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import useScript from "../../../../components/useScript";
 import {useRouter} from "next/router";
+import authContext from "../../../../context/authContext";
 
 
 const Slug=(props)=>
@@ -15,6 +16,12 @@ const Slug=(props)=>
     const [videoPayerExist,setVideoPlayerExist]=useState(false);
     const router=useRouter();
     const isNavigatedByLink = router.asPath !== router.pathname;
+
+    const authCtx = useContext(authContext);
+
+    console.log("-------------------------------------------------------------------------------------------------")
+    console.log(authCtx.authState)
+    console.log("-------------------------------------------------------------------------------------------------")
 
     if (isNavigatedByLink) {
         console.log('User arrived via link');
@@ -38,27 +45,41 @@ const Slug=(props)=>
             return;
         }
         else if(videoPayerExist===true){
-            const script = document.createElement('script');
-            script.src = 'https://negavid.com/uploads/native/dynamic-watermark/latest/negavid-dynamic-watermark-production-min.js';
-            script.async = true;
-            videoDiv.innerHTML = currentVideo.embedPlayer;
-            const existingScript = document.querySelector(`script[src="${script.src}"]`);
-            if (existingScript) {
-                return;
+            if(authCtx.authState!=null && authCtx.authState!=undefined)
+            {
+                console.log('setting scripts');
+                console.log('contex:');
+                console.log(authCtx);
+                console.log('-----------------');
+                const script = document.createElement('script');
+                script.src = 'https://negavid.com/uploads/native/dynamic-watermark/latest/negavid-dynamic-watermark-production-min.js';
+                script.async = true;
+                videoDiv.innerHTML = currentVideo.embedPlayer;
+                const existingScript = document.querySelector(`script[src="${script.src}"]`);
+                if (existingScript) {
+                    return;
+                }
+                // Load the script asynchronously
+
+                document.body.appendChild(script);
+                let key="test";
+                // Define the window.message variable after the script has loaded
+                if (authCtx.authState.authenticated==true){
+                    console.log('is authenticated');
+                    key=authCtx.authState.user.email;
+                    console.log('key is :'+key);
+                }
+                console.log('add onload');
+                script.onload = () => {
+                    window.message = [null,key, key, key, "#fff", "2"];
+                };
+
             }
-            // Load the script asynchronously
 
-            document.body.appendChild(script);
-            // Define the window.message variable after the script has loaded
-            script.onload = () => {
-                window.message = ["test", "testi", "099999999", "test@gmail.com", "#fff", "4"];
-            };
         }
-
-
         // Cleanup function to remove the video div when the component unmounts
 
-    }, [videoPayerExist]);
+    }, [videoPayerExist,authCtx.authState]);
 
 
     return(
@@ -79,9 +100,10 @@ const Slug=(props)=>
                             {currentVideo.examFileName!=null &&<><svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M18 15.6986H0V10.4406H1.56524V14.3311H16.4348V10.4406H18L18 15.6986ZM9.78257 11.097H8.21736V0H9.7826L9.78257 11.097ZM8.99998 12.7134L3.21886 7.66263L4.32546 6.69583L8.99998 10.7798L13.6745 6.69583L14.7811 7.66263L8.99998 12.7134Z" fill="#F84C4D"/>
                             </svg>
-                            <AuthenticatedLink filename={currentVideo.examFileName} url={`${currentVideo.examFileUrl}}`}>
-                           فایل ضمیمه دانلود
-                            </AuthenticatedLink>
+                                <a href={currentVideo.examFileUrl}>فایل ضمیمه دانلود</a>
+                           {/* <AuthenticatedLink filename={currentVideo.examFileName} url={`${currentVideo.examFileUrl}}`}>*/}
+                           {/*فایل ضمیمه دانلود*/}
+                           {/* </AuthenticatedLink>*/}
                             </> }
                         </div>
                     </div>

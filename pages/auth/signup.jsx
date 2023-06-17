@@ -5,15 +5,15 @@ import {useForm} from "react-hook-form";
 import Meta from "../../components/meta";
 import { yupResolver } from '@hookform/resolvers/yup';
 import {validator} from "/common/validator";
-import {router} from "next/router";
+import {useRouter} from "next/router";
 import {signUpUser} from "../../services/clientAppService";
 import authContext from "../../context/authContext";
-import {useContext} from "react";
+import {useContext, useEffect, useState} from "react";
 
 export default function signUp(){
-
+    const [returnUrl,setReturnUrl]=useState('');
     const authCtx = useContext(authContext);
-
+    const router=useRouter();
     const schema = validator.object({
         firstName:validator.string().required('نوشتن نام اجباری است'),
         lastName:validator.string().required('نوشتن نام خانوادگی اجباری است'),
@@ -27,7 +27,21 @@ export default function signUp(){
         resolver:yupResolver(schema)
     });
 
-    function setContext(res)
+    useEffect(()=>{
+
+
+        const rUrl= router.query.returnUrl;
+
+        if (rUrl==undefined || rUrl == appRoutes.ChangePassword){
+            setReturnUrl('');
+        }
+        else
+        {
+            setReturnUrl(rUrl);
+        }
+
+    },[]);
+   async function setContext(res)
     {
         authCtx.setAuthState(res);
     }
@@ -35,18 +49,19 @@ export default function signUp(){
     const  onSubmit =async (data) =>
     {
         const returnUrl= router.query.returnUrl;
+
         const result = await signUpUser(data.firstName,data.lastName,data.password,data.confirmPassword,data.email,data.phoneNumber,data.marketerCode);
         if (result != undefined)
         {
-            setContext(result);
-            if (returnUrl==undefined || returnUrl == appRoutes.ChangePassword){
-                router.push(returnUrl);
-                return;
+           await setContext(result);
+           console.log(returnUrl);
+
+            if (returnUrl!='' && returnUrl!=undefined && returnUrl!=appRoutes.ChangePassword){
+                await router.push(returnUrl);
             }
             else
             {
-                router.push(appRoutes.Main);
-                return;
+                await router.push(appRoutes.Main);
             }
         }
     };

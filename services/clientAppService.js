@@ -33,10 +33,10 @@ export const postResetPassword = async (securityCode,NewPass,RetryNewPass,email)
         }
     } catch (error)
     {
-        // pushAlert({
-        //     message: error.response.data.errorMessages,
-        //     type: 'error'
-        // })
+        pushAlert({
+            message: error.response.data.errorMessages,
+            type: 'error'
+        })
         console.log(error)
     }
 };
@@ -172,6 +172,7 @@ export const signUpUser = async(firstname, lastname, password, confirmPassword, 
     try {
         let response = await ax.post(API_ROUTES.SIGN_UP, { confirmPassword: confirmPassword, email: email, firstName: firstname, lastName: lastname, password: password, phoneNumber: phoneNumber, marketerCode: marketerCode })
         if (response.data.success == true) {
+            console.log('signup Success');
             const { accessToken, refreshToken } = response.data.data.authToken;
             const decodedToken = jwt.decode(accessToken);
 
@@ -192,13 +193,14 @@ export const signUpUser = async(firstname, lastname, password, confirmPassword, 
             });
         }
     } catch (error) {
-        console.log(error.response);
-        // if (error.response.status == '400' || error.response.status == '404') {
-        //     pushAlert({
-        //         message: error.response.data.errorMessages,
-        //         type: 'error'
-        //     })
-        // }
+        console.log('got error in signup');
+        console.log(error);
+        if (error.response.status == '400' || error.response.status == '404') {
+            pushAlert({
+                message: error.response.data.errorMessages,
+                type: 'error'
+            })
+        }
     }
 }
 
@@ -252,10 +254,10 @@ export const loginUser = async(username, password) => {
             });
         }
     } catch (error) {
-        // pushAlert({
-        //     message: error.response.data.errorMessages,
-        //     type: 'error'
-        // })
+        pushAlert({
+            message: error.response.data.errorMessages,
+            type: 'error'
+        })
         console.log(error)
     }
 };
@@ -296,9 +298,9 @@ export const updateMyPass = async(input, ctx) => {
     catch (error)
     {
         console.log(error);
-        // const errorMassage = error.response.data.errorMessages;
-        // console.log(errorMassage)
-        // return errorMassage;
+        const errorMassage = error.response.data.errorMessages;
+        console.log(errorMassage)
+        return errorMassage;
     }
 }
 
