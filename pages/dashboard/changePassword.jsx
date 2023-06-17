@@ -13,7 +13,7 @@ import {useRouter} from "next/router";
 
 const ChangePassword = (props) =>
 {
-    const context = useContext(AuthContext);
+    const context = props.authContext;
     const router = useRouter();
 
     if(context.authState.authenticated)

@@ -5,40 +5,61 @@ import {AuthenticatedLink} from "../../../../components/authenticatedLink";
 import Link from "next/link";
 import {useEffect, useState} from "react";
 import useScript from "../../../../components/useScript";
+import {useRouter} from "next/router";
 
 
 const Slug=(props)=>
 {
     const result=props.result;
     const currentVideo=result.currentVideo;
+    const [videoPayerExist,setVideoPlayerExist]=useState(false);
+    const router=useRouter();
+    const isNavigatedByLink = router.asPath !== router.pathname;
 
-    const [scriptLoaded, setScriptLoaded] = useState(false);
-
-    useEffect(() => {
-        // If the script has already been loaded, return early
-        if (scriptLoaded) {
-            return;
-        }
-
-        // Load the script asynchronously
-        const script = document.createElement('script');
-        script.src = 'https://negavid.com/uploads/native/dynamic-watermark/latest/negavid-dynamic-watermark-production-min.js';
-        script.async = true;
-        document.body.appendChild(script);
-
-        // Define the window.message variable after the script has loaded
-        script.onload = () => {
-            window.message = ["DEMO", "Negavid", "0990993888", "negavid@gmail.com", "#fff", "3"];
-            setScriptLoaded(true); // mark the script as loaded
-        };
-    }, [scriptLoaded]);
-
-    // Reload the page if the script has just been loaded
-    useEffect(() => {
-        if (scriptLoaded) {
+    if (isNavigatedByLink) {
+        console.log('User arrived via link');
+    }
+    else {
+        console.log('User did not arrive via link');
+    }
+    useEffect(()=>{
+        const hasSession= sessionStorage.getItem('reloadVideo');
+        if (hasSession){
+            sessionStorage.removeItem('reloadVideo');
             window.location.reload();
         }
-    }, [scriptLoaded]);
+        setVideoPlayerExist(true);
+    },[]);
+
+    useEffect(() => {
+        // Create the video div element
+        const videoDiv = document.getElementById('videoPlayerTag');
+        if (videoDiv==null){
+            return;
+        }
+        else if(videoPayerExist===true){
+            const script = document.createElement('script');
+            script.src = 'https://negavid.com/uploads/native/dynamic-watermark/latest/negavid-dynamic-watermark-production-min.js';
+            script.async = true;
+            videoDiv.innerHTML = currentVideo.embedPlayer;
+            const existingScript = document.querySelector(`script[src="${script.src}"]`);
+            if (existingScript) {
+                return;
+            }
+            // Load the script asynchronously
+
+            document.body.appendChild(script);
+            // Define the window.message variable after the script has loaded
+            script.onload = () => {
+                window.message = ["test", "testi", "099999999", "test@gmail.com", "#fff", "4"];
+            };
+        }
+
+
+        // Cleanup function to remove the video div when the component unmounts
+
+    }, [videoPayerExist]);
+
 
     return(
         <div className='flex justify-center items-center mt-16'>
@@ -48,7 +69,8 @@ const Slug=(props)=>
                 </div>
                 <div className='w-full md:w-2/3 flex justify-center order-first md:order-last flex-col gap-5 rounded-none'>
                     {/*<Accordion chapters={result.chapters} />*/}
-                    <div className='video-div rounded-none' dangerouslySetInnerHTML={{ __html: currentVideo.embedPlayer }} />
+                    <div id='videoPlayerTag' className='video-div rounded-none'></div>
+                    {/*<div id='videoPlayerTag' className='video-div rounded-none' dangerouslySetInnerHTML={{ __html: currentVideo.embedPlayer }} />*/}
                     <div className='flex flex-col gap-4 px-6 md:px-0 w-full'>
                         <p className='font-bold text-lg'>{currentVideo.title}</p>
                         {/*<p>{currentVideo.description!=undefined?currentVideo.description:'توضیحات ویدیو'}</p>*/}
@@ -64,7 +86,7 @@ const Slug=(props)=>
                         </div>
                     </div>
                     <div className='w-full flex justify-center items-center'>
-                        <Link href={AppRoutes.Course(result.slug)} className='bg-red btn-page text-white text-center w-fit hidden md:block'>بازکشت به صفحه ی خرید دوره</Link>
+                        <Link href={AppRoutes.Course(result.slug)} className='bg-red btn-page hover:bg-red-600 text-white text-center w-fit hidden md:block'>بازکشت به صفحه ی خرید دوره</Link>
                     </div>
                 </div>
             </div>

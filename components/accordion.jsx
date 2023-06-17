@@ -7,11 +7,16 @@ import {
 } from '@chakra-ui/react';
 import Link from "next/link";
 import appRoutes from "../common/appRoutes";
-import AppRoutes from "../common/appRoutes";
-
+import HardRefreshLink from "./hardRefreshLink";
 export default function accordion(props)
 {
     const chapters = props.chapters;
+    const gotoDetail=()=>{
+       const hasSession= sessionStorage.getItem('reloadVideo');
+        if (hasSession == undefined){
+            sessionStorage.setItem('reloadVideo',true);
+        }
+    }
 
     return(
         <>
@@ -45,7 +50,7 @@ export default function accordion(props)
                                         </div>
                                     </div>
 
-                                        <Link href={vid.isFree?appRoutes.Video(vid.slug):appRoutes.Cart} className='flex items-center justify-center gap-1 w-1/6 sm:w-1/5'>
+                                        <Link onClick={gotoDetail}  href={vid.isFree?appRoutes.Video(vid.slug):appRoutes.Cart} className='flex items-center justify-center gap-1 w-1/6 sm:w-1/5'>
                                             {vid.isFree? <p className='text-sm hidden lg:block'>نمایش</p>:<p className='text-white text-sm hidden lg:block'>نمایش</p>}
                                             <div>
                                                 {vid.isFree?<svg width="17" height="19" viewBox="0 0 17 19" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.1049 7.96587L2.7474 0.243722C1.6621 -0.383401 0 0.225169 0 1.77628V17.2169C0 18.6084 1.54446 19.447 2.7474 18.7494L16.1049 11.031C17.2965 10.3445 17.3003 8.65237 16.1049 7.96587Z" fill="#525252"/></svg>

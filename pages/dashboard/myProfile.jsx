@@ -14,9 +14,9 @@ import Meta from "../../components/meta";
 
 function myProfile(props)
 {
-    const context = useContext(AuthContext);
+    //const context = useContext(AuthContext);
 
-    if(context.authState.authenticated)
+    if(props.authContext.authState.authenticated)
     {
         const schema = validator.object({
             firstName:validator.string().required('نوشتن نام اجباری است'),

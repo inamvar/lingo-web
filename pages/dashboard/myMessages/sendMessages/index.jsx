@@ -9,12 +9,9 @@ import appRoutes from "../../../../common/appRoutes";
 
 const sendMessages = (props) =>
 {
-    const context = useContext(AuthContext);
-
-    console.log(props.messages);
+console.log(props);
     const messages = props.messages;
-
-    if(context.authState.authenticated)
+    if(props.authContext.authState.authenticated)
     {
         return(
             <div className='flex justify-center'>
@@ -56,7 +53,7 @@ const sendMessages = (props) =>
 
                         {messages.map((m)=>{
 
-                            return(<div className='bg-white flex p-4 rounded'>
+                            return(<div key={m.id} className='bg-white flex p-4 rounded'>
                                 <div className='w-1/3 darkBlue-color font-bold text-xs sm:text-sm whitespace-nowrap text-center flex justify-center items-center'>
                                     <DateMaker date={m.updatedAt}/>
                                 </div>

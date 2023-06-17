@@ -5,11 +5,11 @@ import appRoutes from "../../common/appRoutes";
 import AuthContext from "../../context/authContext";
 import {useContext} from "react";
 
-const Index = () => {
+const Index = ({authContext}) => {
 
-    const context = useContext(AuthContext);
+    //const context = useContext(AuthContext);
 
-    if(context.authState.authenticated)
+    if(authContext.authState.authenticated)
     {
         return (
             <>

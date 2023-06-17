@@ -15,7 +15,7 @@ export const handleApiError = (error,context) => {
             text: 'عدم امکان ارتباط با سرور',
             confirmButtonText: 'باشه',
         });
-        return "401";
+        return "";
     }
 
     const res = context.ctx.res;

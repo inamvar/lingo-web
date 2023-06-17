@@ -6,7 +6,7 @@ import { Constants } from "../common/constants";
 import ax from "../common/apiClientSideRequest";
 import Cookies from "js-cookie";
 import axios from "axios";
-import {router} from "next/router";
+import {Router} from "next/router";
 
 
 export const postResetPassword = async (securityCode,NewPass,RetryNewPass,email) =>
@@ -31,11 +31,12 @@ export const postResetPassword = async (securityCode,NewPass,RetryNewPass,email)
                 type: 'error'
             });
         }
-    } catch (error) {
-        pushAlert({
-            message: error.response.data.errorMessages,
-            type: 'error'
-        })
+    } catch (error)
+    {
+        // pushAlert({
+        //     message: error.response.data.errorMessages,
+        //     type: 'error'
+        // })
         console.log(error)
     }
 };
@@ -134,7 +135,8 @@ export const postOrder = async(courseId, CurrencyType) =>
             }).then(function (response) {
                 //handle success
                 console.log(response);
-                router.push(response.data.data.paymentUrlDetails.paymentUrl);
+
+                Router.push(response.data.data.paymentUrlDetails.paymentUrl);
             })
                 .catch(function (response) {
                     //handle error
@@ -294,9 +296,9 @@ export const updateMyPass = async(input, ctx) => {
     catch (error)
     {
         console.log(error);
-        const errorMassage = error.response.data.errorMessages;
-        console.log(errorMassage)
-        return errorMassage;
+        // const errorMassage = error.response.data.errorMessages;
+        // console.log(errorMassage)
+        // return errorMassage;
     }
 }
 

@@ -1,5 +1,5 @@
 import AuthContext from "../../../context/authContext";
-import {useContext} from "react";
+import {useCallback, useContext, useEffect, useState} from "react";
 import {withAuth} from "../../../components/Authorized";
 import Link from "next/link";
 import AppRoutes from "../../../common/appRoutes";
@@ -7,31 +7,48 @@ import InputText from "../../../components/form-inputs/InputText";
 import {validator} from "../../../common/validator";
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
-import {router} from "next/router";
+import {useRouter} from "next/router";
 import InputTextarea from "../../../components/form-inputs/InputTextarea";
 import {getSendMessages} from "../../../services/appServices";
 import {postMessage} from "../../../services/clientAppService";
 
-const sendMessages = () =>
+const sendMessages = ({authContext}) =>
 {
-    const context = useContext(AuthContext);
-
-    if(context.authState.authenticated)
+    if(authContext.authState.authenticated)
     {
+        const router=useRouter();
+
+
+
         const schema = validator.object({
             titleMessage:validator.string().required('نوشتن عنوان پیام اجباری است'),
             bodyMessage:validator.string().required('نوشتن متن پیام اجباری است')
         })
 
-        const { register, handleSubmit, watch,
+
+        const { register,reset, handleSubmit, watch,
             formState: { errors } } = useForm({
-            resolver:yupResolver(schema)
+            resolver:yupResolver(schema),
+            defaultValues:{
+                titleMessage:'',
+                bodyMessage:''
+            }
         });
+
+
+
 
         const onSubmit = async (data) =>
         {
             const result = await postMessage(data.titleMessage,data.bodyMessage);
             console.log(result);
+           if (result===true){
+           reset({
+               titleMessage:'',
+               bodyMessage:''
+           });
+
+           }
         };
 
         return(
@@ -60,7 +77,7 @@ const sendMessages = () =>
 
                     </div>
 
-                    <form onSubmit={handleSubmit(onSubmit)} name='titleMessage' className='flex flex-col gap-5 mx-[1rem]'>
+                    <form  onSubmit={handleSubmit(onSubmit)} name='titleMessage' className='flex flex-col gap-5 mx-[1rem]'>
 
                         <p className='darkBlue-color text-xs sm:text-sm md:text-lg'>ایجاد پیام جدید :</p>
                         <div className='flex w-full flex-col gap-3'>

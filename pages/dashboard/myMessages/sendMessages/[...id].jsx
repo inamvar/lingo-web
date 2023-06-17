@@ -6,13 +6,10 @@ import Link from "next/link";
 import appRoutes from "../../../../common/appRoutes";
 import DateMaker from "../../../../components/DateMaker";
 
-const id = ({detail}) =>
+const id = ({detail,authContext}) =>
 {
-    const context = useContext(AuthContext);
 
-    console.log(detail)
-
-    if(context.authState.authenticated)
+    if(authContext.authState.authenticated)
     {
         return(
             <>
@@ -59,7 +56,7 @@ const id = ({detail}) =>
                         </div>
 
                         {detail.replies.length>=1&& detail.replies.map((d)=>{
-                            return(<div className='flex flex-col gap-5 mx-[1rem]'>
+                            return(<div key={d.id} className='flex flex-col gap-5 mx-[1rem]'>
 
                                 <div className='flex justify-between w-full'>
                                     <p className='darkBlue-color'>پاسخ مدیر</p>

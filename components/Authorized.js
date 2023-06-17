@@ -17,11 +17,8 @@ export function withAuth(WrappedComponent) {
                 const current= router.asPath;
                 router.push(appRoutes.LoginReturn(current));
             }
-            else{
-                console.log('ok');
-            }
         },[context.authState]);
 
-        return <WrappedComponent {...props} />;
+        return <WrappedComponent authContext={context} {...props} />;
     };
 }

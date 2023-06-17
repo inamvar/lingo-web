@@ -8,11 +8,11 @@ import AuthContext from "../../context/authContext";
 import {useContext} from "react";
 import Meta from "../../components/meta";
 
-const MyTransactions = ({orders}) =>
+const MyTransactions = ({orders,authContext}) =>
 {
-    const context = useContext(AuthContext);
+    //const context = useContext(AuthContext);
 
-    if(context.authState.authenticated)
+    if(authContext.authState.authenticated)
     {
         return(
             <>
@@ -42,7 +42,7 @@ const MyTransactions = ({orders}) =>
                             <tbody className='whitespace-nowrap'>
                             {orders.length>=1&&orders.map((o)=>{
                                 return(
-                                    <tr className='text-center'>
+                                    <tr key={o.id} className='text-center'>
                                         <td>{o.courseName}</td>
                                         <td>
                                             <div className='flex flex-col'>

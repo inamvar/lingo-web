@@ -9,7 +9,6 @@ import {Constants} from "../common/constants";
 export default function footer(siteSetting)
 {
     const  result = siteSetting.siteSetting;
-    console.log(result);
     const  instagram = result?.find(x=>x.key===Constants.InstagramAddress)?.value??"#";
     const  whatsapp = result?.find(x=>x.key===Constants.WhatsAppAddress)?.value??"#";
     const  telegram = result?.find(x=>x.key===Constants.TelegramAddress)?.value??"#";

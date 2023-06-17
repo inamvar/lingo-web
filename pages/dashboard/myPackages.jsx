@@ -7,12 +7,9 @@ import AuthContext from "../../context/authContext";
 import {useContext} from "react";
 import Meta from "../../components/meta";
 
-const myPackages = ({packages}) =>
+const myPackages = ({packages,authContext}) =>
 {
-    console.log(packages);
-    const context = useContext(AuthContext);
-
-    if(context.authState.authenticated)
+      if(authContext.authState.authenticated)
     {
         return(
             <>
