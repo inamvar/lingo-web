@@ -5,6 +5,8 @@ import googlePlay from '/public/picture/google-play-download 1.png';
 import logo from '/public/picture/Logo.png';
 import Image from 'next/image';
 import {Constants} from "../common/constants";
+import Link from "next/link";
+import appRoutes from "../common/appRoutes";
 
 export default function footer(siteSetting)
 {
@@ -87,7 +89,7 @@ export default function footer(siteSetting)
                     <div className='flex flex-row items-center gap-2 w-full justify-evenly sm:justify-between'>
                         <a className='darkBlue-color whitespace-nowrap'>سوالات متداول</a>
                         <a className='darkBlue-color whitespace-nowrap'>نمونه پکیج</a>
-                        <a className='darkBlue-color whitespace-nowrap'>تخفیف</a>
+                        <Link href={appRoutes.Discount} className='darkBlue-color whitespace-nowrap hover:drop-shadow-lg'>تخفیفات</Link>
                     </div>
                 </div>
                 <div className='hidden sm:block sm:w-1/3 sm:justify-center sm:mt-0 my-9 items-center'>
