@@ -9,7 +9,7 @@ export default function PackageCarouselItem(props)
 
             <Link className='item-size flex justify-center' href={APP_ROUTES.Course(props.firstCourse)}>
                 <div style={{width:'90%'}}  className='flex flex-col rounded-xl bg-white p-3 w-full h-full justify-between'>
-                    <div style={{height:"80%"}} className='relative w-full'>
+                    <div style={{height:"85%"}} className='relative w-full'>
                         <Image quality={100} className='w-full h-full rounded' alt='picture' height={900} width={900} src={props.picture} />
                     </div>
                     <div style={{height:"10%"}} className='flex justify-center'>
@@ -24,7 +24,7 @@ export default function PackageCarouselItem(props)
         return(
             <Link className='item-size flex justify-center' href={APP_ROUTES.Package(props.slug)}>
                 <div style={{width:'90%'}}  className='flex flex-col rounded-xl bg-white p-3 w-full h-full justify-between'>
-                    <div style={{height:"80%"}} className='relative w-full'>
+                    <div style={{height:"85%"}} className='relative w-full'>
                         <Image quality={100}  className='w-full h-full rounded' alt='picture' height={450} width={450} src={props.picture}/>
                     </div>
                     <div style={{height:"10%"}} className='flex justify-center'>

@@ -34,7 +34,7 @@ const course = (props) =>
                         </div>
                         <div className='flex justify-center md:justify-evenly gap-6'>
                             <div className='bg-white whitespace-nowrap p-3 sm:p-6 font-bold rounded w-1/3 text-center darkBlue-color sm:text-md text-sm'>{num} جلسه </div>
-                            <div className='bg-white whitespace-nowrap p-3 sm:p-6 font-bold rounded w-3/4 text-center darkBlue-color sm:text-md text-sm'>00:00:00</div>
+                            <div className='bg-white whitespace-nowrap p-3 sm:p-6 font-bold rounded w-3/4 text-center darkBlue-color sm:text-md text-sm'>{courseDetail.videoTotalDuration}</div>
                         </div>
                     </div>
                     <div className='flex flex-col w-11/12 md:w-1/2 gap-6'>
@@ -42,7 +42,7 @@ const course = (props) =>
                         <div  className='flex flex-col gap-6'>
                             <p className='darkBlue-color font-bold text-lg sm:text-xl'>ویدئوهای دوره</p>
                             <div className='flex flex-col'>
-                                {courseDetail.chapters.length>=1?<Accordion chapters={courseDetail.chapters} />:<div>در حال حاضر ویدیویی برای نمایش وجود ندارد</div>}
+                                {courseDetail.chapters.length>=1?<Accordion chapters={courseDetail.chapters} slug={courseDetail.slug} />:<div>در حال حاضر ویدیویی برای نمایش وجود ندارد</div>}
                             </div>
                         </div>
 
