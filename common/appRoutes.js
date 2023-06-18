@@ -21,7 +21,6 @@ const AppRoutes= {
     Video:(slug)=>{
         return `/package/course/courseEpisodes/${slug}`;
     },
-    Cart:'/dashboard/cart',
     MyPackages:"/dashboard/myPackages",
     MyProfile:"/dashboard/myProfile",
     MyTransactions:"/dashboard/myTransactions",
