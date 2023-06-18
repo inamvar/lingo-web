@@ -5,15 +5,15 @@ import {useForm} from "react-hook-form";
 import Meta from "../../components/meta";
 import { yupResolver } from '@hookform/resolvers/yup';
 import {validator} from "/common/validator";
-import {router} from "next/router";
+import {useRouter} from "next/router";
 import {signUpUser} from "../../services/clientAppService";
 import authContext from "../../context/authContext";
-import {useContext} from "react";
+import {useContext, useEffect, useState} from "react";
 
-export default function Login(){
-
+export default function signUp(){
+    const [returnUrl,setReturnUrl]=useState('');
     const authCtx = useContext(authContext);
-
+    const router=useRouter();
     const schema = validator.object({
         firstName:validator.string().required('نوشتن نام اجباری است'),
         lastName:validator.string().required('نوشتن نام خانوادگی اجباری است'),
@@ -27,37 +27,54 @@ export default function Login(){
         resolver:yupResolver(schema)
     });
 
-    function setContext(res)
+    useEffect(()=>{
+
+
+        const rUrl= router.query.returnUrl;
+
+        if (rUrl==undefined || rUrl == appRoutes.ChangePassword){
+            setReturnUrl('');
+        }
+        else
+        {
+            setReturnUrl(rUrl);
+        }
+
+    },[]);
+   async function setContext(res)
     {
         authCtx.setAuthState(res);
     }
 
     const  onSubmit =async (data) =>
     {
-        const {returnUrl}= router.query;
+        const returnUrl= router.query.returnUrl;
+
         const result = await signUpUser(data.firstName,data.lastName,data.password,data.confirmPassword,data.email,data.phoneNumber,data.marketerCode);
         if (result != undefined)
         {
-            setContext(result);
-            if (returnUrl!=undefined){
-                router.push(returnUrl);
+           await setContext(result);
+           console.log(returnUrl);
+
+            if (returnUrl!='' && returnUrl!=undefined && returnUrl!=appRoutes.ChangePassword){
+                await router.push(returnUrl);
             }
             else
             {
-                router.push(appRoutes.Main);
+                await router.push(appRoutes.Main);
             }
         }
     };
 
     return(<>
         <Meta title='ثبت نام'/>
-        <div className='flex flex-col w-full items-center'>
+        <div className='flex flex-col w-full items-center mt-16'>
             <div className='flex flex-row w-5/6 sm:w-96'>
                 <Link className='w-1/2 p-5 bg-grey rounded-tr-lg text-sm text-center' href={appRoutes.Login}>ورود</Link>
                 <div className='w-1/2 p-5 bg-white rounded-tl-lg text-sm text-disable text-center'>ثبت نام</div>
             </div>
             <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col p-5 bg-white rounded w-5/6 sm:w-96 gap-5'>
-                <p className='text-sm'>لطفا برای ثبت نام اطلاعات زیر را تکمیل کنید </p>
+                <p className='text-sm darkgrey-color'>لطفا برای ثبت نام اطلاعات زیر را تکمیل کنید </p>
                 <div className='flex flex-col gap-3'>
                     <div className='flex gap-2'>
                         <InputText error={errors.firstName?.message} register={register} required placeholder='نام' name='firstName'/>
@@ -69,11 +86,8 @@ export default function Login(){
                     <InputText error={errors.confirmPassword?.message} type='password' required register={register} placeholder='تکرار رمز عبور' name='confirmPassword'/>
                     <InputText register={register} placeholder='کد معرف' name='marketerCode'/>
                 </div>
-                <div className='text-right'>
-                    <Link href={appRoutes.ForgotPassword} className='text-sm b'>رمز عبور خود را فراموش کرده ام!</Link>
-                </div>
                 <div className='flex flex-row justify-center'>
-                    <button type='submit' className='bg-cyan-500 p-1 text-sm btn-page bg-red text-white w-full'>ورود به حساب کاربری</button>
+                    <button type='submit' className='bg-cyan-500 p-1 text-sm btn-page bg-red text-white w-full hover:bg-red-600'>ورود به حساب کاربری</button>
                 </div>
             </form>
         </div>

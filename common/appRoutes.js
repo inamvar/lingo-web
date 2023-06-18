@@ -1,12 +1,14 @@
 const AppRoutes= {
 
     Signup:"/auth/signup",
+    SignupReturn:(url)=>{
+        return `/auth/signup?returnUrl=${url}`;
+    },
     Login:"/auth/login",
     LoginReturn:(url)=>{
-        return `auth/login?returnUrl=${url}`;
+        return `/auth/login?returnUrl=${url}`;
     },
     Main:"/",
-    ForgotPassword:"/auth/forgot-password",
     Profile:"/dashboard/myProfile",
     Dashboard:"/dashboard",
     Package:(slug)=>{
@@ -19,11 +21,24 @@ const AppRoutes= {
     Video:(slug)=>{
         return `/package/course/courseEpisodes/${slug}`;
     },
-    Cart:'/dashboard/cart',
     MyPackages:"/dashboard/myPackages",
     MyProfile:"/dashboard/myProfile",
     MyTransactions:"/dashboard/myTransactions",
-    FreePackage:"/freePackage"
+    FREEPACKAGE:"/freePackage",
+    packages:"/packages",
+    Discount:"/discount",
+    GoldenPackage:"/goldenPackage",
+    PaymentDetail:(slug)=>{
+        return `/coursePaymentDetail/${slug}`;
+    },
+    ChangePassword:"/dashboard/changePassword",
+    SendMessages:"/dashboard/myMessages/sendMessages",
+    NewMessage:"/dashboard/myMessages/newMessage",
+    DetailMessage:(id)=> {
+        return `/dashboard/myMessages/sendMessages/${id}`;
+    },
+    ForgetPassword:"/auth/forgetPassword",
+    NewPassword:"/auth/forgetPassword/newPassword"
 };
 
 export default AppRoutes;

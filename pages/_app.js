@@ -40,7 +40,7 @@ function MyApp({ Component, pageProps,siteSetting }) {
     }, [])
 
         return (
-            <ChakraProvider>
+            <ChakraProvider >
                 <AuthContext.Provider value={{authState,setAuthState}}>
                     <Layout siteSetting={siteSetting} >
                         <Component {...pageProps} />

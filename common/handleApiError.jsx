@@ -1,41 +1,36 @@
 import Swal from 'sweetalert2';
 import appRoutes from "./appRoutes";
-import router from 'next/router';
 
 export const handleApiError = (error,context) => {
-    if (context==undefined || context.ctx==undefined){
+
+    console.log("_________________________________________________________________________________________________________")
+    console.log(error);
+    console.log("_____________________________________________________________________________________________________________")
+
+    if (context==undefined || context.ctx==undefined)
+    {
         Swal.fire({
             icon: 'error',
             title: 'خطا',
             text: 'عدم امکان ارتباط با سرور',
             confirmButtonText: 'باشه',
         });
-        return;
+        return "";
     }
-    console.log('gggggggggggggggggggggggggg');
-    console.log(context.ctx.req);
-    console.log('cvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv');
-    const  req = context.ctx.req;
-    const res = context.ctx.res;
-    const currentUrl = req.url;
-    console.log('currentUrl');
-    console.log(currentUrl);
-    console.log('currentUrl');
-    if (error.response) {
-        const { status, data } = error.response;
-        console.log(status);
-        console.log(data);
-        const errorMessage = data?.message ?? 'عملیات با شکست مواجه شد';
-        if (status === 401 && res!=undefined && res!=null) {
-            // if (currentUrl!=undefined){
-            //     res.writeHead(302, { Location: appRoutes.LoginReturn(currentUrl) });
-            //     res.end();
-            // }
-            // else{
-                res.writeHead(302, { Location: appRoutes.Login });
-                res.end();
-            // }
 
+    const res = context.ctx.res;
+
+    if (error.response) {
+
+        const status = error.response.status;
+        const data = error.response.data;
+        const errorMessage = data?.message ?? 'عملیات با شکست مواجه شد';
+
+        if (status === 401 && res!=undefined && res!=null)
+        {
+            console.log("get 401");
+            res.writeHead(302, { Location: appRoutes.Login });
+            res.end();
         }
         else if( status === 400)
         {
@@ -46,7 +41,8 @@ export const handleApiError = (error,context) => {
                 confirmButtonText: 'باشه',
             });
         }
-        else {
+        else
+        {
             Swal.fire({
                 icon: 'error',
                 title: 'خطا',
@@ -54,7 +50,9 @@ export const handleApiError = (error,context) => {
                 confirmButtonText: 'باشه',
             });
         }
-    } else {
+    }
+    else
+    {
         Swal.fire({
             icon: 'error',
             title: 'خطا',

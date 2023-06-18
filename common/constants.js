@@ -1,9 +1,12 @@
-export const Constants={
+export const Constants = {
     token:'accessToken',
     refreshToken:'refreshToken',
     InstagramAddress:'InstagramAddress',
-    WhatsAppAddress:'WhatsappAddress',
+    WhatsAppAddress:'شماره واتس اپ',
     TwitterAddress:"TwitterAddress",
-    TelegramAddress:"TelegramAddress",
-    FooterDescription:"FooterDescription"
+    TelegramAddress:"TelegramChannelAddress",
+    YouTubeChannelAddress:"YouTubeChannelAddress",
+    MobileAppIOSDownloadLink:"MobileAppIOSLink",
+    MobileAppAndroidDownloadLink:"MobileAndroidAppGooglePlayLink",
+    MobileAppBazarDownloadLink:"MobileAppAndroidBazarLink"
 };

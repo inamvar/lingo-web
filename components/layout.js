@@ -4,6 +4,9 @@ import Meta from "./meta";
 import Loading from './loading';
 
 const Layout = ({ children,siteSetting}) => {
+
+
+
     return (
         <>
             <Loading/>
@@ -14,7 +17,7 @@ const Layout = ({ children,siteSetting}) => {
                     <main className={'h-main'}>
                         {children}
                     </main>
-                    <Footer  siteSetting={siteSetting}/>
+                    <Footer siteSetting={siteSetting}/>
                 </div>
             </div>
         </>

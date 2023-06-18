@@ -6,6 +6,7 @@ import {Constants} from "./constants";
 import appRoutes from "./appRoutes";
 import API_ROUTES from "./apiRoutes";
 import {handleApiError} from "./handleApiError";
+import {pushAlert} from "./notifier";
 
 const ax = axios.create({
     baseURL: Configs.clientSideUrl,
@@ -22,7 +23,7 @@ ax.interceptors.request.use(function (config) {
         if (token) {
             config.headers['Authorization'] = `Bearer ${token}`;
         }
-
+            config.headers['Content-Type']='application/json';
         return config;
 
     },
@@ -34,15 +35,26 @@ ax.interceptors.request.use(function (config) {
 
 // ax.interceptors.response.use(
 //     (response) => {
+//
 //             return response;
 //     },
 //     async (error) => {
 //
-//         if (error!=null && error!=undefined && error.res!=undefined){
-//             const originalRequest = error.res;
+//
+//         // console.log('error responseee');
+//         // console.log(error);
+//         // console.log(error.response.data.errorMessages);
+//
+//         pushAlert({
+//             message: error.response.data.errorMessages,
+//             type: 'error'
+//         })
+//
+//         if (error===null && error===undefined && error.res===undefined){
+//            return error;
 //         }
 //
-//
+//         const originalRequest = error.res;
 //         const res = error.config.ctx.res;
 //         const cookies = parseCookies(error.config.ctx);
 //         const refreshToken = cookies[Constants.refreshToken];

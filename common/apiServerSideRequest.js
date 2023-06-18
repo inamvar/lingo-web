@@ -22,7 +22,7 @@ ax.interceptors.request.use(function (config) {
        if (token) {
            config.headers['Authorization'] = `Bearer ${token}`;
        }
-
+       // config.headers['ContentType'] = 'application/json';
     return config;
 
 },

@@ -17,9 +17,22 @@ const API_ROUTES = {
     REFRESHTOKEN:"/Auth/RefreshToken",
     SITESETTING:"/setting",
     MYPROFILE:"/user/profile",
+    CHANGEPASSWORD:"/User/ChangePassword",
     UPDATEMYPROFILE:"/user/profile",
     BANNER:"/Banner",
-    FREEPackage:"/Package/Free"
+    FREEPACKAGE:"/Package/Free",
+    GOLDENPACKAGE:"/Package/Golden",
+    SEARCH:"/Search",
+    MYCOURSES:"/Report/PurchasedCourses",
+    ORDERHISTORY:"/Report/OrderHistory",
+    ORDER:"/Order",
+    SENDMESSAGES:"/Comment",
+    NEWMESSAGE:"/Comment/ToAdmin",
+    MESSAGEDETAIL:(id)=>{
+        return `/Comment/${id}`
+    },
+    RESETPASSWORDREQUEST:"/User/ResetPasswordRequest",
+    RESETPASSWORD:"/User/ResetPassword"
 };
 
 export default API_ROUTES;

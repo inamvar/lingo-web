@@ -6,11 +6,14 @@
     --darkGrey: #666262;
     --green: #95CDAA;
     --darkBlue: #143794;
-    --red: #eb2023;
+    --red: #F84C4D;
     --paleBlue: #BDCAE1;
     --bgBlue: #EDEFF3;
     --darkRed: #000000;
     --darkGreen: #47CB78;
+    --paleGreen:#47CB78;
+    --darkGreyy: #505050;
+    --paleRed:#F27B7ACC;
 }
 
 @font-face {
@@ -37,16 +40,25 @@ input {
 a {
     cursor: pointer;
 }
-
+.darkgrey-color
+{
+    color: var(--darkGreyy);
+}
 .darkBlue-color {
     color: var(--darkBlue);
 }
-
+.m-w-pic-c
+{
+    width: 20rem;
+}
 .bg-page {
     background-color: #EDEFF3;
     min-height: 50rem;
 }
-
+.bg-paleRed
+{
+    background-color: var(--paleRed);
+}
 .grey-color {
     color: var(--darkGrey);
 }
@@ -57,11 +69,22 @@ a {
     color: black;
     padding: 0.7rem;
 }
-
+.m-h-discount
+{
+    min-height: 10rem;
+    height: 100%;
+}
 .bg-grey {
     background-color: var(--grey);
 }
-
+.color-red
+{
+    color: var(--red);
+}
+.paleGreen-color
+{
+    color: var(--paleGreen);
+}
 .p-0 {
     padding: 0px !important;
 }
@@ -73,7 +96,6 @@ a {
 .bg-darkGreen {
     background-color: var(--darkGreen);
 }
-
 .bg-red {
     background-color: var(--red);
 }
@@ -110,7 +132,6 @@ a {
 .title-size {
     font-size: 1.7rem;
 }
-
 .green-color {
     color: var(--green);
 }
@@ -132,15 +153,41 @@ a {
     min-width: 90% !important;
     margin-right: 10px;
     margin-left: 10px;
+    background-color: inherit !important;
+    box-shadow: none !important;
 }
-
+.css-1u2cvaz
+{
+    justify-content: center !important;
+    /*align-items: center !important;*/
+    margin-top: 10% !important;
+}
+.css-uttm9k
+{
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+}
+.css-1hb5ode
+{
+    padding-top: 1rem !important;
+}
 .div-v-banner {
     position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
+.div-dashboard
+{
+    width: 100%;
+}
+@media only screen and (min-width: 1400px)
+{
+    .div-dashboard
+    {
+        width: 85rem !important;
+    }
+}
 .div-banner {
     position: absolute;
     top: 0;
@@ -155,7 +202,10 @@ a {
     direction: ltr;
     gap: 2rem;
 }
-
+.App
+{
+    /*gap: 5rem;*/
+}
 .use-spring-carousel-item {
     flex: 1 0 calc(0% / 1 - 0px)!important;
     justify-content: center;
@@ -168,7 +218,11 @@ a {
 .sliding-panel-container {
     direction: ltr;
 }
-
+.badge-message
+{
+    top: -0.5rem;
+    left: -0.6rem;
+}
 .Previous-button-cersoul {
     position: absolute;
     top: 50%;
@@ -182,20 +236,22 @@ a {
     right: 0;
     z-index: 999;
 }
-
+.p-btn-big
+{
+    padding-right: 10% !important;
+    padding-left: 10% !important;
+}
 .div-cersoul {
     position: relative;
     overflow: hidden;
 }
 
-.discount-icon {
-    left: 1rem;
-    top: -2rem;
+.discount-text {
+    top: -0.5rem;
 }
 
-.discount-text {
-    left: 2rem;
-    top: -0.6rem;
+.discount-icon {
+    left: 3rem;
     rotate: -25deg;
 }
 
@@ -216,32 +272,21 @@ a {
     width: 100% !important;
     /*width: 55rem !important;*/
 }
-
-
-/*.item-size*/
-
-
-/*{*/
-
-
-/*  width: 100% !important;*/
-
-
-/*  height:17rem;*/
-
-
-/*}*/
-
+.div-mypackage
+{
+    width: 55rem;
+}
 iframe div {
     border-radius: 0px !important;
 }
 
-.carousel-container {
-    /*justify-content: center;*/
+.carousel-container
+{
+    /*direction: rtl;*/
 }
 
 .multi-pack-item {
-    height: 32rem !important;
+    height: 28rem !important;
     display: flex;
     justify-content: center;
 }
@@ -254,26 +299,70 @@ iframe div {
 
 @media only screen and (min-width:400px) and (max-width: 640px) {
     .item-size {
-        width: 400px;
+        width: 25rem;
+        height: 25rem;
     }
 }
 
 @media only screen and (max-width: 400px) {
+    .carousel-item
+    {
+        width: 90% !important;
+        height: 20rem !important;
+    }
     .item-size {
-        width: 100% !important;
+        width: 20rem !important;
+        height: 20rem !important;
+    }
+    .multi-pack-item
+    {
+        height: 100% !important;
     }
 }
 
 @media only screen and (min-width:640px) and (max-width: 1024px) {
     .item-size {
-        width: 600px;
+        width: 25rem;
+        height: 25rem;
     }
 }
 
-@media only screen and (min-width:1024px) {
-    .item-size {
-        width: 700px;
+@media only screen and (max-width:700px)
+{
+    .css-1u2cvaz
+    {
+        margin-top: 50% !important;
     }
+}
+    @media only screen and (min-width:1024px) {
+    .item-size {
+        width: 24rem;
+        height: 28rem;
+    }
+}
+
+@media only screen and (max-width:1000px)
+{
+    .div-mypackage
+    {
+        width: 90% !important;
+    }
+}
+@media only screen and (max-width:420px)
+{
+    .course-item
+    {
+        width: 100% !important;
+        height: 100% !important;
+    }
+}
+.course-item
+{
+    width: 25rem;
+    height: 30rem;
+}
+.package-carsoul-item {
+    width: 22rem;
 }
 
 @media only screen and (min-width:1000px) {
@@ -301,7 +390,6 @@ iframe div {
     top: 50%;
     animation: spinner 1.5s linear infinite;
 }
-
 .spinner {
     position: absolute;
     padding-top: 20%;
@@ -311,4 +399,25 @@ iframe div {
     width: 100%;
     background-color: rgba(123, 123, 123, 0.4);
     z-index: 999;
+}
+.carousel-item
+{
+    width: 30rem;
+}
+.py-4
+{
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+}
+.course-item a
+{
+    width: 80%;
+}
+.m-h-50
+{
+    max-height: 50rem;
+}
+.active-div-message
+{
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
