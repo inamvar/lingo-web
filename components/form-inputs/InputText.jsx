@@ -4,7 +4,7 @@ const InputText=({name,register,placeholder,className,type,error})=>
         <>
             <div className='flex-auto'>
             <input name={name} type={type} className={className} placeholder={placeholder}  {...register(name)} />
-            {error && <div className="text-red-600 text-xs mt-1">{error}</div>}
+            {error && <div className="text-red-500 text-xs mt-1">{error}</div>}
             </div>
         </>
     );

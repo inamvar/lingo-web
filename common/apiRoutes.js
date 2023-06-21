@@ -32,7 +32,11 @@ const API_ROUTES = {
         return `/Comment/${id}`
     },
     RESETPASSWORDREQUEST:"/User/ResetPasswordRequest",
-    RESETPASSWORD:"/User/ResetPassword"
+    RESETPASSWORD:"/User/ResetPassword",
+    SEENMESSAGE:(id)=>
+    {
+        return `/Comment/SeenReply/${id}`
+    }
 };
 
 export default API_ROUTES;

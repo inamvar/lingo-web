@@ -4,9 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7110e458-b35c-4d71-9c86-a88bc37cb642" name="Changes" comment="merge master develop">
+    <list default="true" id="7110e458-b35c-4d71-9c86-a88bc37cb642" name="Changes" comment="refactor: discount link in footer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/footer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/apiRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/apiRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/form-inputs/InputText.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/form-inputs/InputText.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/auth/signup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/auth/signup.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/coursePaymentDetail/[...slug].jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/coursePaymentDetail/[...slug].jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/dashboard/myMessages/sendMessages/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/dashboard/myMessages/sendMessages/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/goldenPackage/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/goldenPackage/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/package/course/[...slug].jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/package/course/[...slug].jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/package/course/courseEpisodes/[...slug].jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/package/course/courseEpisodes/[...slug].jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/clientAppService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/clientAppService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/globals.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,6 +111,9 @@
       <workItem from="1683951404951" duration="9649000" />
       <workItem from="1683961383486" duration="4780000" />
       <workItem from="1684127766133" duration="14338000" />
+      <workItem from="1687154074168" duration="2055000" />
+      <workItem from="1687239060281" duration="5610000" />
+      <workItem from="1687327916325" duration="6541000" />
     </task>
     <task id="LOCAL-00001" summary="add: add signUp and auth context and notifier">
       <created>1682337059014</created>
@@ -299,7 +311,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687071156577</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="refactor: discount link in footer">
+      <created>1687085524589</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1687085524589</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -318,7 +337,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="refactor: refactor Authentication and context add: add dashboardItems" />
     <MESSAGE value="add: add modal refactor: reafctor header styles" />
     <MESSAGE value="add: add package deails and accordion" />
     <MESSAGE value="refactor: refactor detailPackage page design" />
@@ -343,6 +361,7 @@
     <MESSAGE value="refactor: refactor style pages" />
     <MESSAGE value="add: add Loading spinner and save token in signUp refactor: refactor style pages" />
     <MESSAGE value="merge master develop" />
-    <option name="LAST_COMMIT_MESSAGE" value="merge master develop" />
+    <MESSAGE value="refactor: discount link in footer" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: discount link in footer" />
   </component>
 </project>

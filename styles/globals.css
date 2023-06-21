@@ -258,7 +258,16 @@ a {
 .border-red {
     border: 3px solid var(--red);
 }
-
+.price-line
+{
+    position: absolute;
+    top: 13px;
+}
+.hr-price
+{
+    position: absolute;
+    top: 0;
+}
 .video-div div {
     height: fit-content;
 }

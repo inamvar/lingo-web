@@ -9,6 +9,7 @@ import {useRouter} from "next/router";
 import {signUpUser} from "../../services/clientAppService";
 import authContext from "../../context/authContext";
 import {useContext, useEffect, useState} from "react";
+import {pushAlert} from "../../common/notifier";
 
 export default function signUp(){
     const [returnUrl,setReturnUrl]=useState('');
@@ -28,8 +29,6 @@ export default function signUp(){
     });
 
     useEffect(()=>{
-
-
         const rUrl= router.query.returnUrl;
 
         if (rUrl==undefined || rUrl == appRoutes.ChangePassword){
@@ -39,7 +38,6 @@ export default function signUp(){
         {
             setReturnUrl(rUrl);
         }
-
     },[]);
    async function setContext(res)
     {
@@ -51,18 +49,25 @@ export default function signUp(){
         const returnUrl= router.query.returnUrl;
 
         const result = await signUpUser(data.firstName,data.lastName,data.password,data.confirmPassword,data.email,data.phoneNumber,data.marketerCode);
-        if (result != undefined)
+        if (result)
         {
-           await setContext(result);
-           console.log(returnUrl);
+            pushAlert({
+                message:"کد فعالسازی برای ایمیل شما ارسال شد",
+                type: 'success'
+            });
+            router.push(appRoutes.Login);
 
-            if (returnUrl!='' && returnUrl!=undefined && returnUrl!=appRoutes.ChangePassword){
-                await router.push(returnUrl);
-            }
-            else
-            {
-                await router.push(appRoutes.Main);
-            }
+           // await setContext(result);
+           // console.log(returnUrl);
+
+            // if (returnUrl!='' && returnUrl!=undefined && returnUrl!=appRoutes.ChangePassword){
+            //     await router.push(returnUrl);
+            // }
+            // else
+            // {
+            //     await pushAlert("success","کد فعالسازی برای ایمیل شما ارسال شد");
+            //     router.push(appRoutes.Login);
+            // }
         }
     };
 

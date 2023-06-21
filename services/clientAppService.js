@@ -104,6 +104,24 @@ export const postMessage = async (titleMessage, bodyMessage) =>
     }
 };
 
+export const SeenReplyMessage = async(MessageId) =>
+{
+    try
+    {
+        let response = await ax.put(API_ROUTES.SEENMESSAGE(MessageId));
+        if (response.data.success == true)
+        {
+            console.log(response);
+            return true;
+        }
+    } catch (error) {
+        pushAlert({
+            message: error.response.data.errorMessages,
+            type: 'error'
+        })
+        console.log(error)
+    }
+};
 
 export const postOrder = async(courseId, CurrencyType) =>
 {
@@ -173,20 +191,18 @@ export const signUpUser = async(firstname, lastname, password, confirmPassword, 
         let response = await ax.post(API_ROUTES.SIGN_UP, { confirmPassword: confirmPassword, email: email, firstName: firstname, lastName: lastname, password: password, phoneNumber: phoneNumber, marketerCode: marketerCode })
         if (response.data.success == true) {
             console.log('signup Success');
-            const { accessToken, refreshToken } = response.data.data.authToken;
-            const decodedToken = jwt.decode(accessToken);
+            // const { accessToken, refreshToken } = response.data.data.authToken;
+            // const decodedToken = jwt.decode(accessToken);
+            //
+            // const remainingTime = decodedToken.exp - Date.now() / 1000;
+            // Cookies.set(Constants.token, accessToken, { expires: remainingTime / (60 * 60 * 24) });
+            // Cookies.set(Constants.refreshToken, refreshToken, { expires: 365 });
 
-            const remainingTime = decodedToken.exp - Date.now() / 1000;
-            Cookies.set(Constants.token, accessToken, { expires: remainingTime / (60 * 60 * 24) });
-            Cookies.set(Constants.refreshToken, refreshToken, { expires: 365 });
-
-            return {
-                authenticated: true,
-                user: decodedToken
-            };
+            return true;
 
         } else {
             console.log(response.data.message);
+
             pushAlert({
                 message: response.data.message,
                 type: 'error'
@@ -195,7 +211,7 @@ export const signUpUser = async(firstname, lastname, password, confirmPassword, 
     } catch (error) {
         console.log('got error in signup');
         console.log(error);
-        if (error.response.status == '400' || error.response.status == '404') {
+        if (error.response.status == 400 || error.response.status == '404') {
             pushAlert({
                 message: error.response.data.errorMessages,
                 type: 'error'

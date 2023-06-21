@@ -70,7 +70,7 @@ const paymentDetail = ({result,golden}) =>
 
                         </div>
 
-                        <a onClick={handleClick} className='bg-red btn-page text-white text-center text-sm md:text-base w-4/5 md:w-1/3'>پرداخت میکنم</a>
+                        <a onClick={handleClick} className='bg-red btn-page text-white text-center text-sm hover:bg-red-600 md:text-base w-4/5 md:w-1/3'>پرداخت میکنم</a>
 
                     </form>
                 </>
