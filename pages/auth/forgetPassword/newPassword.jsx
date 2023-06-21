@@ -38,6 +38,7 @@ export default function NewPassword()
         if (requestExpTime===null){
             router.push(appRoutes.ForgetPassword);
         }
+
     }, [requestExpTime]);
 
 

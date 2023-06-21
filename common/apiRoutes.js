@@ -36,7 +36,10 @@ const API_ROUTES = {
     SEENMESSAGE:(id)=>
     {
         return `/Comment/SeenReply/${id}`
-    }
+    },
+    STATUSPHONENUMBER:"/user/PhoneNumberStatus",
+    CONFIRMPHONENUMBERREQUEST:"/User/ConfirmPhoneNumberRequest",
+    CONFIRMPHONENUMBER:"/User/ConfirmPhoneNumber"
 };
 
 export default API_ROUTES;

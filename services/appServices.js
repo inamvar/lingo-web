@@ -212,6 +212,28 @@ export const getPackageCourseList = async (slug,ctx) =>
     }
 }
 
+export const getStatusPhoneNumber = async (context) =>
+{
+    try
+    {
+        const response = await ax.get(API_ROUTES.STATUSPHONENUMBER,{ctx:context});
+
+        if (response.data.success == true)
+        {
+            const data = response.data.data;
+            return data;
+        }
+        else {
+            pushAlert({message:response.data.message,type:'error'});
+            return null;
+        }
+    }
+    catch (error)
+    {
+        handleApiError(error,context);
+    }
+}
+
 export const courseDetail = async (slug,context) =>
 {
     try

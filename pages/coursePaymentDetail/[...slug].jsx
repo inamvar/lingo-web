@@ -1,18 +1,21 @@
 import Image from "next/image";
-import {courseDetail, getGoldenPackage} from "../../services/appServices";
+import {courseDetail, getConfirmPhoneNumber, getGoldenPackage, getStatusPhoneNumber} from "../../services/appServices";
 import IRRPrice from "../../components/IRRPrice";
 import USDPrice from "../../components/USDTPrace";
 import {useContext, useState} from "react";
 import AuthContext from "../../context/authContext";
 import {withAuth} from "../../components/Authorized";
-import {loginUser, postOrder} from "../../services/clientAppService";
+import {ConfirmPhoneNumberRequest, loginUser, postOrder} from "../../services/clientAppService";
 import InputText from "../../components/form-inputs/InputText";
 import {validator} from "../../common/validator";
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
+import Modal from "./../../components/PhoneNumberModal";
+import {useRef} from 'react';
+import moment from "moment";
 
 
-const paymentDetail = ({result,golden}) =>
+const paymentDetail = ({result,golden,confirmPhoneNumber}) =>
 {
     const context = useContext(AuthContext);
     const goldenPackage = result[0];
@@ -37,15 +40,43 @@ const paymentDetail = ({result,golden}) =>
         resolver:yupResolver(schema)
     });
 
+    const [openModal,setOpenModal] = useState(false);
+
+    const inputNumber = useRef(null);
+
+    async function handleClickModal()
+    {
+        const test = localStorage.getItem('test-key');
+        console.log(test);
+        if(test == null)
+        {
+            const number = inputNumber.current.value;
+            const result = await ConfirmPhoneNumberRequest(number);
+
+            console.log(result)
+            // localStorage.setItem('test-key',"123");
+            localStorage.setItem("ResetPassword-expireTime", result.securityCodeExpiresAt);
+            localStorage.setItem("ConfirmPhoneNumber-RequestTime",moment());
+
+            if(result!=null)
+            {
+                setOpenModal(true);
+            }
+        }
+        else
+        {
+            setOpenModal(true)
+        }
+    }
+
+    function handleChildClick() {
+        setOpenModal(false);
+    }
+
     if(context.authState.authenticated)
     {
-
-
         if(golden == false)
         {
-            console.log(result)
-
-
             return(
                 <>
                     <form className='flex flex-col justify-center items-center gap-6 mt-16'>
@@ -64,13 +95,26 @@ const paymentDetail = ({result,golden}) =>
                             </div>
                         </div>
 
-                        <div className='flex bg-white text-xs md:text-base justify-center items-center flex-col p-5 gap-3 w-4/5 md:w-1/3 rounded div-mypackage'>
-                            <p className='text-gray-500'>شماره همراه خود را وارد کنید.</p>
-                            <div className='flex w-11/12 md:w-4/5 gap-3'>
-                                <InputText error={errors.phoneNumber?.message} register={register} required name='phoneNumber'/>
-                                <a className='bg-darkBlue btn-page text-white text-center text-xs md:text-sm hover:bg-blue-950 whitespace-nowrap flex justify-center items-center'>ارسال کد فعال سازی</a>
+                        {confirmPhoneNumber.phoneNumberConfirmed == false &&
+                            <div className='flex bg-white text-xs md:text-base justify-center items-center flex-col p-5 gap-3 w-4/5 md:w-1/3 rounded div-mypackage'>
+                                <p className='text-gray-500'>شماره همراه خود را وارد کنید.</p>
+                                <form className='flex w-11/12 md:w-4/5 gap-3'>
+
+                                    <div className='flex-auto'>
+                                        <input name='phoneNumber' ref={inputNumber} type='text' required className="rounded w-full py-3 px-3 text-black text-sm bg-grey darkgrey-color focus:outline-none" />
+                                        {errors.phoneNumber?.message && <div className="text-red-500 text-xs mt-1">{errors.phoneNumber?.message}</div>}
+                                    </div>
+
+                                    <Modal onClick={handleChildClick}
+                                        text={
+                                            <a onClick={handleClickModal} className='bg-darkBlue btn-page text-white text-center text-xs md:text-sm hover:bg-blue-950 whitespace-nowrap flex justify-center items-center'>ارسال کد فعال سازی</a>
+                                        }
+                                        setOpen={openModal}
+                                    />
+
+                                </form>
                             </div>
-                        </div>
+                        }
 
                         <div className='flex bg-white text-xs md:text-base flex-col p-5 gap-3 w-4/5 md:w-1/3 rounded divide-y-2 div-mypackage divide-gray-300'>
                             <p className='darkBlue-color font-bold'>جزئیات سفارش</p>
@@ -177,11 +221,13 @@ export async function getServerSideProps(context)
     else
     {
         const slug = `${res[0]}/${res[1]}`;
+
+        const confirmPhoneNumber = await getStatusPhoneNumber(context);
         const result = await courseDetail(slug,context);
         const golden = false;
 
         return{
-            props: {result,golden}
+            props: {result,golden,confirmPhoneNumber}
         }
     }
 }

@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7110e458-b35c-4d71-9c86-a88bc37cb642" name="Changes" comment="refactor: signUp">
+    <list default="true" id="7110e458-b35c-4d71-9c86-a88bc37cb642" name="Changes" comment="add: phoneNumber design PaymentDetail">
+      <change afterPath="$PROJECT_DIR$/components/PhoneNumberModal.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/apiRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/apiRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/auth/forgetPassword/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/auth/forgetPassword/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/auth/forgetPassword/newPassword.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/auth/forgetPassword/newPassword.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/coursePaymentDetail/[...slug].jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/coursePaymentDetail/[...slug].jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/appServices.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/appServices.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/clientAppService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/clientAppService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +110,7 @@
       <workItem from="1684127766133" duration="14338000" />
       <workItem from="1687154074168" duration="2055000" />
       <workItem from="1687239060281" duration="5610000" />
-      <workItem from="1687327916325" duration="8579000" />
+      <workItem from="1687327916325" duration="21371000" />
     </task>
     <task id="LOCAL-00001" summary="add: add signUp and auth context and notifier">
       <created>1682337059014</created>
@@ -316,7 +322,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687335001081</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="add: phoneNumber design PaymentDetail">
+      <created>1687337740838</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1687337740838</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -335,7 +348,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="add: add package deails and accordion" />
     <MESSAGE value="refactor: refactor detailPackage page design" />
     <MESSAGE value="refactor: refactor responsive signOut design" />
     <MESSAGE value="add: add sidebar and header responsive" />
@@ -360,6 +372,7 @@
     <MESSAGE value="merge master develop" />
     <MESSAGE value="refactor: discount link in footer" />
     <MESSAGE value="refactor: signUp" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: signUp" />
+    <MESSAGE value="add: phoneNumber design PaymentDetail" />
+    <option name="LAST_COMMIT_MESSAGE" value="add: phoneNumber design PaymentDetail" />
   </component>
 </project>

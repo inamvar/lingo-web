@@ -9,6 +9,44 @@ import axios from "axios";
 import {Router} from "next/router";
 
 
+export const ConfirmPhoneNumber = async(OTPCodeNumber) =>
+{
+    try
+    {
+        let response = await ax.post(API_ROUTES.CONFIRMPHONENUMBER,{securityCode:OTPCodeNumber});
+        if (response.data.success == true)
+        {
+            console.log(response);
+            return true;
+        }
+    }
+    catch (error)
+    {
+        console.log(error)
+    }
+};
+
+export const ConfirmPhoneNumberRequest = async(phoneNumber) =>
+{
+    try
+    {
+        let response = await ax.post(API_ROUTES.CONFIRMPHONENUMBERREQUEST,{phoneNumber:phoneNumber});
+        if (response.data.success == true)
+        {
+            const result = response.data.data;
+            return result;
+        }
+    }
+    catch (error)
+    {
+        pushAlert({
+            message: error.response.data.errorMessages,
+            type: 'error'
+        });
+        return false;
+    }
+};
+
 export const postResetPassword = async (securityCode,NewPass,RetryNewPass,email) =>
 {
     try
