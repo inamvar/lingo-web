@@ -6,6 +6,10 @@ import {useContext, useState} from "react";
 import AuthContext from "../../context/authContext";
 import {withAuth} from "../../components/Authorized";
 import {loginUser, postOrder} from "../../services/clientAppService";
+import InputText from "../../components/form-inputs/InputText";
+import {validator} from "../../common/validator";
+import {useForm} from "react-hook-form";
+import {yupResolver} from "@hookform/resolvers/yup";
 
 
 const paymentDetail = ({result,golden}) =>
@@ -22,14 +26,26 @@ const paymentDetail = ({result,golden}) =>
     const handleClick = async() =>
     {
         const res = await postOrder(result.id,port);
-        console.log(res);
     }
+
+    const schema = validator.object({
+        phoneNumber:validator.string().required('نوشتن تلفن همراه اجباری است')
+    })
+
+    const { register, handleSubmit, watch,
+        formState: { errors } } = useForm({
+        resolver:yupResolver(schema)
+    });
 
     if(context.authState.authenticated)
     {
+
+
         if(golden == false)
         {
             console.log(result)
+
+
             return(
                 <>
                     <form className='flex flex-col justify-center items-center gap-6 mt-16'>
@@ -45,6 +61,14 @@ const paymentDetail = ({result,golden}) =>
                                 <p className='grey-color'>{result.title}</p>
                                 {port=="IRR"?<p className='grey-color pt-3 flex gap-2'>قیمت دوره: <IRRPrice pricings={result.pricings} />تومان</p>:<p className='grey-color pt-3 flex gap-2'>قیمت دوره: <USDPrice pricings={result.pricings} /> تتر</p>}
 
+                            </div>
+                        </div>
+
+                        <div className='flex bg-white text-xs md:text-base justify-center items-center flex-col p-5 gap-3 w-4/5 md:w-1/3 rounded div-mypackage'>
+                            <p className='text-gray-500'>شماره همراه خود را وارد کنید.</p>
+                            <div className='flex w-11/12 md:w-4/5 gap-3'>
+                                <InputText error={errors.phoneNumber?.message} register={register} required name='phoneNumber'/>
+                                <a className='bg-darkBlue btn-page text-white text-center text-xs md:text-sm hover:bg-blue-950 whitespace-nowrap flex justify-center items-center'>ارسال کد فعال سازی</a>
                             </div>
                         </div>
 
