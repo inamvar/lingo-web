@@ -1,12 +1,11 @@
 import Image from "next/image";
-import {courseDetail, getConfirmPhoneNumber, getGoldenPackage, getStatusPhoneNumber} from "../../services/appServices";
+import {courseDetail, getGoldenPackage, getStatusPhoneNumber} from "../../services/appServices";
 import IRRPrice from "../../components/IRRPrice";
 import USDPrice from "../../components/USDTPrace";
-import {useContext, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import AuthContext from "../../context/authContext";
 import {withAuth} from "../../components/Authorized";
-import {ConfirmPhoneNumberRequest, loginUser, postOrder} from "../../services/clientAppService";
-import InputText from "../../components/form-inputs/InputText";
+import {ConfirmPhoneNumberRequest, postOrder} from "../../services/clientAppService";
 import {validator} from "../../common/validator";
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
@@ -42,25 +41,58 @@ const paymentDetail = ({result,golden,confirmPhoneNumber}) =>
 
     const [openModal,setOpenModal] = useState(false);
 
+    const [expireTime,setExpireTime] = useState();
+    const [reqTime,setReqTime] = useState();
+
+    const [progressFinished, setProgressFinished] = useState(false);
+
+    const handleProgressFinished = () => {
+        setProgressFinished(true);
+        setProgressFinished(false);
+    };
+
+    useEffect(()=>{
+        if(expireTime!=undefined)
+        {
+            const date1 = moment(expireTime);
+            const date2 = moment();
+
+            const duration = date1.diff(date2, 'milliseconds');
+
+            localStorage.setItem("PhoneNumberConfirm-expireTime",expireTime);
+
+            setTimeout(()=>{
+                localStorage.removeItem("PhoneNumberConfirm-expireTime")
+            },duration)
+
+            console.log(duration)
+        }
+    },[expireTime])
+
     const inputNumber = useRef(null);
 
     async function handleClickModal()
     {
-        const test = localStorage.getItem('test-key');
-        console.log(test);
-        if(test == null)
+        const check = localStorage.getItem('PhoneNumberConfirm-expireTime');
+
+        console.log(result)
+
+        if(check == null)
         {
+            const moment = require('moment');
             const number = inputNumber.current.value;
             const result = await ConfirmPhoneNumberRequest(number);
 
-            console.log(result)
-            // localStorage.setItem('test-key',"123");
-            localStorage.setItem("ResetPassword-expireTime", result.securityCodeExpiresAt);
-            localStorage.setItem("ConfirmPhoneNumber-RequestTime",moment());
+
+
+            setExpireTime(result.securityCodeExpiresAt);
+            setReqTime(moment().format());
 
             if(result!=null)
             {
                 setOpenModal(true);
+
+
             }
         }
         else
@@ -105,7 +137,7 @@ const paymentDetail = ({result,golden,confirmPhoneNumber}) =>
                                         {errors.phoneNumber?.message && <div className="text-red-500 text-xs mt-1">{errors.phoneNumber?.message}</div>}
                                     </div>
 
-                                    <Modal onClick={handleChildClick}
+                                    <Modal onClick={handleChildClick} expireTime={expireTime} reqTime={reqTime} onProgressFinished={handleProgressFinished} request={handleClickModal}
                                         text={
                                             <a onClick={handleClickModal} className='bg-darkBlue btn-page text-white text-center text-xs md:text-sm hover:bg-blue-950 whitespace-nowrap flex justify-center items-center'>ارسال کد فعال سازی</a>
                                         }

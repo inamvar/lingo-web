@@ -11,6 +11,7 @@ import {yupResolver} from "@hookform/resolvers/yup";
 import InputText from "./form-inputs/InputText";
 import {useEffect, useRef} from 'react';
 import {ConfirmPhoneNumber, ConfirmPhoneNumberRequest} from "../services/clientAppService";
+import ProgressTimer from "./progressTimerPhoneNumberRequest";
 
 
 export default function BasicUsage(props) {
@@ -48,10 +49,8 @@ export default function BasicUsage(props) {
 
     async function handleClick()
     {
-        console.log(OTPCode)
         const OTPCodeNumber = OTPCode.current.value
         const result = await ConfirmPhoneNumber(OTPCodeNumber);
-        console.log(result)
         if(result)
         {
             close();
@@ -68,12 +67,19 @@ export default function BasicUsage(props) {
                 <ModalContent>
                     <ModalBody>
 
-                        <div className='bg-white flex flex-col justify-center items-center rounded p-4 gap-4'>
+                        <div className='bg-white flex flex-col justify-center items-center rounded p-5 gap-4'>
                             <p className='text-gray-500'>لطفا کد فعال سازی دریافت شده را وارد نمایید.</p>
 
                             <input name='code' ref={OTPCode} type='text' required className="rounded w-full py-3 px-3 text-black text-sm bg-grey darkgrey-color focus:outline-none" />
 
-                            <a onClick={handleClick} className='bg-red btn-page text-white text-center text-sm hover:bg-red-600 md:text-base w-4/5 md:w-1/3'>فعالسازی</a>
+                            <ProgressTimer
+                                expireTime={props.expireTime}
+                                requestTime={props.reqTime}
+                                onProgressFinished={props.onProgressFinished}
+                                request={props.request}
+                            />
+
+                            <a onClick={handleClick} className='bg-red btn-page text-white text-center text-sm hover:bg-red-600 md:text-base w-full'>فعالسازی</a>
                         </div>
 
                     </ModalBody>

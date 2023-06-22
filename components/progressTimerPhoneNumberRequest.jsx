@@ -4,20 +4,19 @@ import moment from "moment";
 import {useRouter} from "next/router";
 import appRoutes from "../common/appRoutes";
 
-const ProgressBarTimer = ({ expireTime,requestTime,onProgressFinished }) => {
+const ProgressBarTimer = ({ expireTime,requestTime,onProgressFinished,request }) => {
 
     const router = useRouter();
     const [finished, setFinished] = useState(false);
     let currentTime= new Date().getTime();
-    let expTime= new Date(expireTime).getTime();
-    let reqTime=new Date(requestTime).getTime();
-    let remain= expTime-currentTime;
+    let expTime = new Date(expireTime).getTime();
+    let reqTime = new Date(requestTime).getTime();
+    let remain = expTime - currentTime;
 
     const [remainingTime, setRemainingTime] = useState(remain);
 
-    const [finalProgress,setFinalProgress]=useState(100);
+    const [finalProgress,setFinalProgress] = useState(100);
 
-    console.log(`${finalProgress * 100}%`)
 
     useEffect(() => {
 
@@ -32,10 +31,9 @@ const ProgressBarTimer = ({ expireTime,requestTime,onProgressFinished }) => {
         return () => clearInterval(interval);
     }, []);
 
-    console.log(remainingTime)
 
-    useEffect(() => {
-        // console.log('remain time:'+remainingTime);
+    useEffect(() =>
+    {
         if (remainingTime <= 0)
         {
             setFinished(true);
@@ -44,32 +42,33 @@ const ProgressBarTimer = ({ expireTime,requestTime,onProgressFinished }) => {
         else
         {
             setFinalProgress((prev)=>{
-               let vv = expTime - currentTime ;
-               let total = expTime - reqTime ;
-               let res = vv/total ;
-               return res;
+                let vv = expTime - currentTime ;
+                let total = expTime - reqTime ;
+                let res = vv/total ;
+                return res;
             });
         }
     }, [remainingTime]);
 
     async function handleClick() {
 
-        const email = localStorage.getItem("ResetPassword-Key");
-        const result = await postResetPasswordRequest(email);
-
-        if(result != undefined && result.success)
-        {
-            localStorage.removeItem("ResetPassword-expireTime");
-            localStorage.removeItem("ResetPassword-Key");
-            localStorage.removeItem("ResetPassword-RequestTime");
-
-            localStorage.setItem("ResetPassword-Key", email);localStorage.setItem("ResetPassword-expireTime", result.data.expirationTime);
-            localStorage.setItem("ResetPassword-RequestTime",moment());
-
-            await router.push(appRoutes.NewPassword);
-            window.location.reload();
-        }
+        request();
+        setFinished(false);
+        //
+        // if(result != undefined && result.success)
+        // {
+        //     localStorage.removeItem("ResetPassword-expireTime");
+        //     localStorage.removeItem("ResetPassword-Key");
+        //     localStorage.removeItem("ResetPassword-RequestTime");
+        //
+        //     localStorage.setItem("ResetPassword-Key", email);localStorage.setItem("ResetPassword-expireTime", result.data.expirationTime);
+        //     localStorage.setItem("ResetPassword-RequestTime",moment());
+        //
+        //     await router.push(appRoutes.NewPassword);
+        //     window.location.reload();
+        // }
     }
+
 
     return (
         <div className='w-full'>
