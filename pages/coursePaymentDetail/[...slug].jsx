@@ -12,101 +12,113 @@ import {yupResolver} from "@hookform/resolvers/yup";
 import Modal from "./../../components/PhoneNumberModal";
 import {useRef} from 'react';
 import moment from "moment";
+import appRoutes from "../../common/appRoutes";
+import router from "next/router";
 
 
-const paymentDetail = ({result,golden,confirmPhoneNumber}) =>
+const paymentDetail = ({result,golden,confirmPhoneNumber,authContext}) =>
 {
-    const context = useContext(AuthContext);
-    const goldenPackage = result[0];
-    const [port,setPort]=useState('IRR');
-
-    function handleChange(event)
+    if(authContext.authState.authenticated)
     {
-        setPort(event.target.value)
-    }
+        const goldenPackage = result;
+        const [port,setPort] = useState('IRR');
 
-    const handleClick = async() =>
-    {
-        const res = await postOrder(result.id,port);
-    }
+        let confirmNumber = confirmPhoneNumber.phoneNumberConfirmed;
+        const [ConfirmNumber,setConfirmNumber] = useState(confirmNumber);
 
-    const schema = validator.object({
-        phoneNumber:validator.string().required('نوشتن تلفن همراه اجباری است')
-    })
+        useEffect(()=>{
 
-    const { register, handleSubmit, watch,
-        formState: { errors } } = useForm({
-        resolver:yupResolver(schema)
-    });
+            console.log(ConfirmNumber)
 
-    const [openModal,setOpenModal] = useState(false);
+        },[ConfirmNumber])
 
-    const [expireTime,setExpireTime] = useState();
-    const [reqTime,setReqTime] = useState();
 
-    const [progressFinished, setProgressFinished] = useState(false);
-
-    const handleProgressFinished = () => {
-        setProgressFinished(true);
-        setProgressFinished(false);
-    };
-
-    useEffect(()=>{
-        if(expireTime!=undefined)
+        function handleConfirm()
         {
-            const date1 = moment(expireTime);
-            const date2 = moment();
-
-            const duration = date1.diff(date2, 'milliseconds');
-
-            localStorage.setItem("PhoneNumberConfirm-expireTime",expireTime);
-
-            setTimeout(()=>{
-                localStorage.removeItem("PhoneNumberConfirm-expireTime")
-            },duration)
-
-            console.log(duration)
+            setConfirmNumber(true);
         }
-    },[expireTime])
 
-    const inputNumber = useRef(null);
-
-    async function handleClickModal()
-    {
-        const check = localStorage.getItem('PhoneNumberConfirm-expireTime');
-
-        console.log(result)
-
-        if(check == null)
+        function handleChange(event)
         {
-            const moment = require('moment');
-            const number = inputNumber.current.value;
-            const result = await ConfirmPhoneNumberRequest(number);
+            setPort(event.target.value)
+        }
 
+        const handleClick = async() =>
+        {
+            const res = await postOrder(result.id,port);
+        }
 
+        const schema = validator.object({
+            phoneNumber:validator.string().required('نوشتن تلفن همراه اجباری است')
+        })
 
-            setExpireTime(result.securityCodeExpiresAt);
-            setReqTime(moment().format());
+        const { register, handleSubmit, watch,
+            formState: { errors } } = useForm({
+            resolver:yupResolver(schema)
+        });
 
-            if(result!=null)
+        const [openModal,setOpenModal] = useState(false);
+
+        const [expireTime,setExpireTime] = useState();
+        const [reqTime,setReqTime] = useState();
+
+        const [progressFinished, setProgressFinished] = useState(false);
+
+        const handleProgressFinished = () => {
+            setProgressFinished(true);
+            setProgressFinished(false);
+        };
+
+        useEffect(()=>{
+
+            if(expireTime!=undefined)
             {
-                setOpenModal(true);
+                const date1 = moment(expireTime);
+                const date2 = moment();
 
+                const duration = date1.diff(date2, 'milliseconds');
 
+                localStorage.setItem("PhoneNumberConfirm-expireTime",expireTime);
+
+                setTimeout(()=>{
+                    localStorage.removeItem("PhoneNumberConfirm-expireTime");
+                    setOpenModal(false);
+                },duration)
+            }
+
+        },[expireTime])
+
+        const inputNumber = useRef(null);
+
+        async function handleClickModal()
+        {
+            const check = localStorage.getItem('PhoneNumberConfirm-expireTime');
+
+            if(check == null)
+            {
+                const moment = require('moment');
+                const number = inputNumber.current.value;
+
+                const result = await ConfirmPhoneNumberRequest(number);
+                console.log(result)
+
+                if(result)
+                {
+                    setExpireTime(result.securityCodeExpiresAt);
+                    setReqTime(moment().format());
+                    setOpenModal(true);
+                }
+            }
+            else
+            {
+                setOpenModal(true)
             }
         }
-        else
-        {
-            setOpenModal(true)
+
+        function handleChildClick() {
+            setOpenModal(false);
         }
-    }
 
-    function handleChildClick() {
-        setOpenModal(false);
-    }
-
-    if(context.authState.authenticated)
-    {
         if(golden == false)
         {
             return(
@@ -127,7 +139,7 @@ const paymentDetail = ({result,golden,confirmPhoneNumber}) =>
                             </div>
                         </div>
 
-                        {confirmPhoneNumber.phoneNumberConfirmed == false &&
+                        {ConfirmNumber == false &&
                             <div className='flex bg-white text-xs md:text-base justify-center items-center flex-col p-5 gap-3 w-4/5 md:w-1/3 rounded div-mypackage'>
                                 <p className='text-gray-500'>شماره همراه خود را وارد کنید.</p>
                                 <form className='flex w-11/12 md:w-4/5 gap-3'>
@@ -137,9 +149,9 @@ const paymentDetail = ({result,golden,confirmPhoneNumber}) =>
                                         {errors.phoneNumber?.message && <div className="text-red-500 text-xs mt-1">{errors.phoneNumber?.message}</div>}
                                     </div>
 
-                                    <Modal onClick={handleChildClick} expireTime={expireTime} reqTime={reqTime} onProgressFinished={handleProgressFinished} request={handleClickModal}
+                                    <Modal onClick={handleChildClick} expireTime={expireTime} reqTime={reqTime} onProgressFinished={handleProgressFinished} request={handleClickModal} confirmNumber={handleConfirm}
                                         text={
-                                            <a onClick={handleClickModal} className='bg-darkBlue btn-page text-white text-center text-xs md:text-sm hover:bg-blue-950 whitespace-nowrap flex justify-center items-center'>ارسال کد فعال سازی</a>
+                                            <a onClick={handleClickModal} className='bg-darkBlue btn-page text-white text-center text-xs md:text-sm hover:bg-blue-950 whitespace-nowrap flex justify-center items-center h-full'>ارسال کد فعال سازی</a>
                                         }
                                         setOpen={openModal}
                                     />
@@ -179,7 +191,6 @@ const paymentDetail = ({result,golden,confirmPhoneNumber}) =>
 
         else
         {
-            console.log(goldenPackage);
             return(
                 <>
                     <div className='flex flex-col justify-center items-center gap-6 mt-16'>
@@ -188,19 +199,40 @@ const paymentDetail = ({result,golden,confirmPhoneNumber}) =>
 
                         <div className='flex bg-white w-4/5 md:w-1/3 rounded gap-1 justify-between p-5 div-mypackage'>
                             <div className='flex w-1/2 rounded justify-center'>
-                                <Image className='rounded w-40' src={goldenPackage.thumbnailUrl} width={450} height={450} quality={100} alt='picture' />
+                                <Image className='rounded w-40' src={goldenPackage[0].thumbnailUrl} width={450} height={450} quality={100} alt='picture' />
                             </div>
                             <div className='flex flex-col w-2/3 md:w-1/2 md:text-base text-xs items-center justify-evenly'>
 
                                 <p className='grey-color'>{goldenPackage.name}</p>
-                                {port=="IRR"?<p className='grey-color pt-3 flex gap-2'>قیمت دوره: <IRRPrice pricings={goldenPackage.courses[0].pricings} />تومان</p>:<p className='grey-color pt-3 flex gap-2'>قیمت دوره: <USDPrice pricings={goldenPackage.courses[0].pricings} /> تتر</p>}
+                                {port=="IRR"?<p className='grey-color pt-3 flex gap-2'>قیمت دوره: <IRRPrice pricings={goldenPackage[0].courses[0].pricings} />تومان</p>:<p className='grey-color pt-3 flex gap-2'>قیمت دوره: <USDPrice pricings={goldenPackage[0].courses[0].pricings} /> تتر</p>}
 
                             </div>
                         </div>
 
+                        {ConfirmNumber == false &&
+                            <div className='flex bg-white text-xs md:text-base justify-center items-center flex-col p-5 gap-3 w-4/5 md:w-1/3 rounded div-mypackage'>
+                                <p className='text-gray-500'>شماره همراه خود را وارد کنید.</p>
+                                <form className='flex w-11/12 md:w-4/5 gap-3'>
+
+                                    <div className='flex-auto'>
+                                        <input name='phoneNumber' ref={inputNumber} type='text' required className="rounded w-full py-3 px-3 text-black text-sm bg-grey darkgrey-color focus:outline-none" />
+                                        {errors.phoneNumber?.message && <div className="text-red-500 text-xs mt-1">{errors.phoneNumber?.message}</div>}
+                                    </div>
+
+                                    <Modal onClick={handleChildClick} expireTime={expireTime} reqTime={reqTime} onProgressFinished={handleProgressFinished} request={handleClickModal} confirmNumber={handleConfirm}
+                                           text={
+                                               <a onClick={handleClickModal} className='bg-darkBlue btn-page text-white text-center text-xs md:text-sm hover:bg-blue-950 whitespace-nowrap flex justify-center items-center h-full'>ارسال کد فعال سازی</a>
+                                           }
+                                           setOpen={openModal}
+                                    />
+
+                                </form>
+                            </div>
+                        }
+
                         <div className='flex bg-white text-xs md:text-base flex-col p-5 gap-3 w-4/5 md:w-1/3 rounded divide-y-2 div-mypackage divide-gray-300'>
                             <p className='darkBlue-color font-bold'>جزئیات سفارش</p>
-                            {port=="IRR"?<p className='grey-color pt-3 flex gap-2'>قیمت دوره: <IRRPrice pricings={goldenPackage.courses[0].pricings} />تومان</p>:<p className='grey-color pt-3 flex gap-2'>قیمت دوره: <USDPrice pricings={goldenPackage.courses[0].pricings} /> تتر</p>}
+                            {port=="IRR"?<p className='grey-color pt-3 flex gap-2'>قیمت دوره: <IRRPrice pricings={goldenPackage[0].courses[0].pricings} />تومان</p>:<p className='grey-color pt-3 flex gap-2'>قیمت دوره: <USDPrice pricings={goldenPackage[0].courses[0].pricings} /> تتر</p>}
                             {/*<p className='grey-color pt-3'>درصد تخفیف: {goldenPackage.courses[0].discount.discountValue}%</p>*/}
                             {/*{port=="IRR"?<p className='grey-color pt-3 flex gap-2'>قیمت نهایی:<IRRPrice pricings={goldenPackage.courses[0].discount.finalAmounts} /> تومان</p>:<p className='grey-color pt-3 flex gap-2'>قیمت نهایی: <USDPrice pricings={goldenPackage.courses[0].discount.finalAmounts} /> تتر</p>}*/}
                         </div>
@@ -213,20 +245,21 @@ const paymentDetail = ({result,golden,confirmPhoneNumber}) =>
                                 <input defaultChecked onChange={handleChange} type='radio' value='IRR' name='typePort' id='internalPort'/>
                                 <p className='grey-color'>درگاه داخلی</p>
                             </div>
-                            <div className='flex justify-center items-center gap-2'>
-                                <input onChange={handleChange} type='radio' value='USDT' name='typePort' id='crypto'/>
-                                <p className='grey-color'>کریپتو</p>
-                            </div>
+                            {/*<div className='flex justify-center items-center gap-2'>*/}
+                            {/*    <input onChange={handleChange} type='radio' value='USDT' name='typePort' id='crypto'/>*/}
+                            {/*    <p className='grey-color'>کریپتو</p>*/}
+                            {/*</div>*/}
 
                         </div>
 
-                        <a className='bg-red btn-page text-white text-center text-sm md:text-base w-4/5 md:w-1/3'>پرداخت میکنم</a>
+                        <a className='bg-red btn-page text-white text-center text-sm md:text-base w-4/5 md:w-1/3 hover:bg-red-600'>پرداخت میکنم</a>
 
                     </div>
                 </>
             )
         }
     }
+
     else
     {
         return (
@@ -240,26 +273,57 @@ export async function getServerSideProps(context)
 {
     const res = context.query.slug;
 
-    if(res.length >= 2 && res[2] == "GoldenPackage")
+    if(res!=undefined)
     {
-        const slug = `${res[0]}/${res[1]}`;
-        const result = await getGoldenPackage();
-        const golden = true;
+        if(res.length >= 2 && res[2] == "GoldenPackage")
+        {
+            const slug = `${res[0]}/${res[1]}`;
+            const test = await getStatusPhoneNumber(context);
 
-        return{
-            props: {result,golden}
+            if(test!=undefined)
+            {
+                const confirmPhoneNumber = test;
+                const result = await getGoldenPackage(context);
+                const golden = true;
+
+                return{
+                    props: {result,golden,confirmPhoneNumber}
+                }
+            }
+            else
+            {
+                return{
+                    props: {  }
+                }
+            }
+        }
+        else
+        {
+            const slug = `${res[0]}/${res[1]}`;
+            const test = await getStatusPhoneNumber(context);
+
+            if(test!=undefined)
+            {
+                const confirmPhoneNumber = test;
+                const result = await courseDetail(slug,context);
+                const golden = false;
+
+                return{
+                    props: {result,golden,confirmPhoneNumber}
+                }
+            }
+            else
+            {
+                return{
+                    props: {  }
+                }
+            }
         }
     }
     else
     {
-        const slug = `${res[0]}/${res[1]}`;
-
-        const confirmPhoneNumber = await getStatusPhoneNumber(context);
-        const result = await courseDetail(slug,context);
-        const golden = false;
-
         return{
-            props: {result,golden,confirmPhoneNumber}
+            props: {  }
         }
     }
 }

@@ -8,10 +8,10 @@ import {
 import {validator} from "../common/validator";
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
-import InputText from "./form-inputs/InputText";
 import {useEffect, useRef} from 'react';
-import {ConfirmPhoneNumber, ConfirmPhoneNumberRequest} from "../services/clientAppService";
+import {ConfirmPhoneNumber} from "../services/clientAppService";
 import ProgressTimer from "./progressTimerPhoneNumberRequest";
+import {pushAlert} from "../common/notifier";
 
 
 export default function BasicUsage(props) {
@@ -54,12 +54,16 @@ export default function BasicUsage(props) {
         if(result)
         {
             close();
+            pushAlert({
+                message:"شماره شما تایید شد",
+                type:"success"
+            });
+            props.confirmNumber();
         }
     }
 
     return (
         <>
-
             <a className='p-0 bg-inherit'>{props.text}</a>
 
             <Modal isOpen={isOpen} onClose={close}>

@@ -8,10 +8,11 @@ const ProgressBarTimer = ({ expireTime,requestTime,onProgressFinished,request })
 
     const router = useRouter();
     const [finished, setFinished] = useState(false);
-    let currentTime= new Date().getTime();
+    let currentTime = new Date().getTime();
     let expTime = new Date(expireTime).getTime();
     let reqTime = new Date(requestTime).getTime();
     let remain = expTime - currentTime;
+
 
     const [remainingTime, setRemainingTime] = useState(remain);
 
@@ -50,52 +51,25 @@ const ProgressBarTimer = ({ expireTime,requestTime,onProgressFinished,request })
         }
     }, [remainingTime]);
 
-    async function handleClick() {
-
-        request();
-        setFinished(false);
-        //
-        // if(result != undefined && result.success)
-        // {
-        //     localStorage.removeItem("ResetPassword-expireTime");
-        //     localStorage.removeItem("ResetPassword-Key");
-        //     localStorage.removeItem("ResetPassword-RequestTime");
-        //
-        //     localStorage.setItem("ResetPassword-Key", email);localStorage.setItem("ResetPassword-expireTime", result.data.expirationTime);
-        //     localStorage.setItem("ResetPassword-RequestTime",moment());
-        //
-        //     await router.push(appRoutes.NewPassword);
-        //     window.location.reload();
-        // }
-    }
-
 
     return (
         <div className='w-full'>
-            {finished===false ? (
+
+            <div
+                className="bg-grey rounded flex justify-end"
+                style={{
+                    height: "10px",
+                    width: "100%",
+                }}
+            >
                 <div
-                    className="bg-grey rounded flex justify-end"
+                    className="bg-darkGreen rounded"
                     style={{
                         height: "10px",
-                        width: "100%",
+                        width: `${finalProgress * 100}%`,
                     }}
-                >
-                    <div
-                        className="bg-darkGreen rounded"
-                        style={{
-                            height: "10px",
-                            width: `${finalProgress * 100}%`,
-                        }}
-                    ></div>
-                </div>
-            ) : (
-                <p
-                    onClick={handleClick}
-                    className="darkBlue-color text-sm text-center cursor-pointer"
-                >
-                    ارسال مجدد پیام
-                </p>
-            )}
+                ></div>
+            </div>
         </div>
     );
 };

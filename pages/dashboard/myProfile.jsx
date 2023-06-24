@@ -110,7 +110,7 @@ function myProfile(props)
 }
 export async function getServerSideProps(ctx){
 
-   const result= await getMyProfile(ctx);
+   const result = await getMyProfile(ctx);
 
     if(result!=undefined)
     {

@@ -22,6 +22,10 @@ export const ConfirmPhoneNumber = async(OTPCodeNumber) =>
     }
     catch (error)
     {
+        pushAlert({
+            message: error.response.data.errorMessages,
+            type: 'error'
+        });
         console.log(error)
     }
 };

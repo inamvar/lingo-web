@@ -281,6 +281,10 @@ a {
     width: 100% !important;
     /*width: 55rem !important;*/
 }
+.swal2-container.swal2-center
+{
+    z-index:99999;
+}
 .div-mypackage
 {
     width: 55rem;
