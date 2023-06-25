@@ -14,6 +14,7 @@ const course = (props) =>
     const relatesCourses = props.relatesCourses;
 
     console.log(courseDetail);
+    console.log(relatesCourses)
 
     let num = 0;
     courseDetail.chapters.forEach((e,i)=>{
@@ -109,7 +110,6 @@ export async function getServerSideProps(context)
     const slug = `${res[0]}/${res[1]}`;
     const result = await courseDetail(slug,context);
     const relatesCourses = await getPackageCourseList(result.package.id,context);
-
 
     return{
         props: {result, relatesCourses}
