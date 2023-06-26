@@ -8,14 +8,18 @@ import {
 import Link from "next/link";
 import appRoutes from "../common/appRoutes";
 import HardRefreshLink from "./hardRefreshLink";
+
+
 export default function accordion(props)
 {
     const chapters = props.chapters;
     const slug = props.slug;
 
-    const gotoDetail=()=>{
+    const gotoDetail=()=>
+    {
        const hasSession= sessionStorage.getItem('reloadVideo');
-        if (hasSession == undefined){
+        if (hasSession == undefined)
+        {
             sessionStorage.setItem('reloadVideo',true);
         }
     }

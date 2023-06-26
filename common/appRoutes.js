@@ -38,7 +38,8 @@ const AppRoutes= {
         return `/dashboard/myMessages/sendMessages/${id}`;
     },
     ForgetPassword:"/auth/forgetPassword",
-    NewPassword:"/auth/forgetPassword/newPassword"
+    NewPassword:"/auth/forgetPassword/newPassword",
+    FAQ:"/FAQ"
 };
 
 export default AppRoutes;

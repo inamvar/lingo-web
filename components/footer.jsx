@@ -87,7 +87,7 @@ export default function footer(siteSetting)
                 <div className='flex w-full sm:w-1/3 flex-col gap-9 items-center justify-center lg:w-96 mt-6'>
                     <p className='font-bold darkBlue-color whitespace-nowrap'>دسترسی های سریع</p>
                     <div className='flex flex-row items-center gap-2 w-full justify-evenly sm:justify-between'>
-                        <a className='darkBlue-color whitespace-nowrap'>سوالات متداول</a>
+                        <Link href={appRoutes.FAQ} className='darkBlue-color whitespace-nowrap'>سوالات متداول</Link>
                         <a className='darkBlue-color whitespace-nowrap'>نمونه پکیج</a>
                         <Link href={appRoutes.Discount} className='darkBlue-color whitespace-nowrap hover:drop-shadow-lg'>تخفیفات</Link>
                     </div>
