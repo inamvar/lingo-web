@@ -50,15 +50,14 @@ const course = (props) =>
                         {/*{courseDetail.costType="Free" || courseDetail.userHasPurchasedCours || courseDetail.chapters.length<1 ? <p></p> :<div className='paleGreen-color flex gap-2 pt-2 mt-2 pb-1 w-full justify-start text-lg font-extrabold'><Price pricings={courseDetail.pricings} />تومان</div>}*/}
 
                         <div className='flex justify-between'>
-                            <div className='relative'>
-                                {courseDetail.costType!="Paid"|| courseDetail.userHasPurchasedCours || courseDetail.chapters.length<1 || courseDetail.discount.discountValue==0 ? <p></p> :<div className='flex gap-2 pt-2 mt-2 pb-1 justify-start text-lg font-extrabold'><Price pricings={courseDetail.discount.finalAmounts} />تومان</div>}
+                            {courseDetail.costType!="Paid"|| courseDetail.userHasPurchasedCours || courseDetail.chapters.length<1 || courseDetail.discount.discountValue==0 ? <p></p> :<div className='relative'>
+                                <div className='flex gap-2 pt-2 mt-2 pb-1 justify-start text-lg font-extrabold'><Price pricings={courseDetail.pricings} />تومان</div>
                                 <svg className='price-line' width="63" height="37" viewBox="0 0 63 37" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <line x1="62.2511" y1="0.432395" x2="0.251069" y2="36.4324" stroke="black"/>
                                 </svg>
+                            </div>}
 
-                            </div>
-
-                            {courseDetail.costType!="Paid"|| courseDetail.userHasPurchasedCours || courseDetail.chapters.length<1 ? <p></p> :<div className='paleGreen-color flex gap-2 pt-2 mt-2 pb-1 justify-start text-lg font-extrabold'><Price pricings={courseDetail.pricings} />تومان</div>}
+                            {courseDetail.costType!="Paid"|| courseDetail.userHasPurchasedCours || courseDetail.chapters.length<1 ? <p></p> :<div className='paleGreen-color flex gap-2 pt-2 mt-2 pb-1 justify-start text-lg font-extrabold'><Price pricings={courseDetail.discount.finalAmounts} />تومان</div>}
                         </div>
 
 
