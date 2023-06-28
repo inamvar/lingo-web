@@ -7,7 +7,6 @@ const goldenPackage = ({GoldenPackage}) =>
 {
     const GPackage = GoldenPackage;
     const embedPlayer = GPackage[0].courses[0].chapters[0].videos[0].embedPlayer;
-    console.log(embedPlayer)
 
     if(GPackage.length>=1)
     {

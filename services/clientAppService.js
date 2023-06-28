@@ -292,12 +292,13 @@ export const loginUser = async(username, password) => {
 
         if (response.data.success == true)
         {
-            const { accessToken, refreshToken } = response.data.data;
+            const { accessToken, refreshToken,accessTokenExpiresAt } = response.data.data;
             const decodedToken = jwt.decode(accessToken);
 
             const remainingTime = decodedToken.exp - Date.now() / 1000;
             Cookies.set(Constants.token, accessToken, { expires: remainingTime / (60 * 60 * 24) });
             Cookies.set(Constants.refreshToken, refreshToken, { expires: 365 });
+            Cookies.set(Constants.tokenExpireTime,accessTokenExpiresAt,{expires:365});
             return {
                 authenticated: true,
                 user: decodedToken
@@ -365,9 +366,9 @@ export const updateMyPass = async(input, ctx) => {
 export const logout = async() => {
     const response = await ax.get(API_ROUTES.SIGN_OUT);
     if (response.status == 200) {
-        console.log(response);
         Cookies.remove('accessToken');
         Cookies.remove('refreshToken');
+        Cookies.remove('accessTokenExpireTime');
         return true;
     }
 }

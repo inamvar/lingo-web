@@ -5,7 +5,6 @@ import Meta from "../../components/meta";
 const freePackage = (props) =>
 {
     const PackageCourses = props.packages;
-    console.log(PackageCourses);
 
     if(PackageCourses.length < 1)
     {

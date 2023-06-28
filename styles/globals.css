@@ -272,6 +272,24 @@ a {
     height: fit-content;
 }
 
+.test:before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 1px;
+    background-color: #CBD5E0;
+    margin-right: 16px;
+}
+
+@media (min-width: 640px) {
+    .test:before {
+        width: 40px;
+    }
+}
+
+
+
+
 .negavid-video-stream {
     padding-bottom: 60.25% !important;
     padding-top: 0px !important;
@@ -347,7 +365,7 @@ iframe div {
         margin-top: 50% !important;
     }
 }
-    @media only screen and (min-width:1024px) {
+@media only screen and (min-width:1024px) {
     .item-size {
         width: 24rem;
         height: 28rem;

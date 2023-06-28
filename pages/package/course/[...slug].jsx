@@ -13,9 +13,6 @@ const course = (props) =>
     const courseDetail = props.result;
     const relatesCourses = props.relatesCourses;
 
-    console.log(courseDetail);
-    console.log(relatesCourses)
-
     let num = 0;
     courseDetail.chapters.forEach((e,i)=>{
         num += e.videos.length;
@@ -49,13 +46,16 @@ const course = (props) =>
 
                         {/*{courseDetail.costType="Free" || courseDetail.userHasPurchasedCours || courseDetail.chapters.length<1 ? <p></p> :<div className='paleGreen-color flex gap-2 pt-2 mt-2 pb-1 w-full justify-start text-lg font-extrabold'><Price pricings={courseDetail.pricings} />تومان</div>}*/}
 
-                        <div className='flex justify-between'>
-                            {courseDetail.costType!="Paid"|| courseDetail.userHasPurchasedCours || courseDetail.chapters.length<1 || courseDetail.discount.discountValue==0 ? <p></p> :<div className='relative'>
-                                <div className='flex gap-2 pt-2 mt-2 pb-1 justify-start text-lg font-extrabold'><Price pricings={courseDetail.pricings} />تومان</div>
-                                <svg className='price-line' width="63" height="37" viewBox="0 0 63 37" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <line x1="62.2511" y1="0.432395" x2="0.251069" y2="36.4324" stroke="black"/>
-                                </svg>
-                            </div>}
+                        <div className='flex  justify-between'>
+                            {courseDetail.costType!="Paid"|| courseDetail.userHasPurchasedCours || courseDetail.chapters.length<1 || courseDetail.discount.discountValue==0 ? <p></p> :<div className='w-1/5'><div className='relative flex justify-center'>
+                                <div className='flex gap-2 pt-2 mt-2 pb-1 justify-start text-lg font-extrabold absolute'><Price pricings={courseDetail.pricings} />تومان</div>
+                                <div className='border border-black w-full mt-7'></div>
+                                {/*<svg className='price-line' width="63" height="37" viewBox="0 0 63 37" fill="none" xmlns="http://www.w3.org/2000/svg">*/}
+                                {/*    <line x1="62.2511" y1="0.432395" x2="0.251069" y2="36.4324" stroke="black"/>*/}
+                                {/*</svg>*/}
+                            </div>
+                            </div>
+                            }
 
                             {courseDetail.costType!="Paid"|| courseDetail.userHasPurchasedCours || courseDetail.chapters.length<1 ? <p></p> :<div className='paleGreen-color flex gap-2 pt-2 mt-2 pb-1 justify-start text-lg font-extrabold'><Price pricings={courseDetail.discount.finalAmounts} />تومان</div>}
                         </div>

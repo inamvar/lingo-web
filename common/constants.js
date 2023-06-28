@@ -1,6 +1,7 @@
 export const Constants = {
     token:'accessToken',
     refreshToken:'refreshToken',
+    tokenExpireTime:'accessTokenExpireTime',
     InstagramAddress:'InstagramAddress',
     WhatsAppAddress:'شماره واتس اپ',
     TwitterAddress:"TwitterAddress",
