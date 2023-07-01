@@ -45,17 +45,14 @@ const PackageMultiItemCarousel = ({ packages }) => {
                   draggable={false}
                   showDots={false}
                   responsive={responsive}
-                  ssr={true} // means to render carousel on server-side.
                   infinite={true}
                   autoPlay={false}
                   keyBoardControl={true}
                   customTransition="transform 600ms ease-in-out"
                   transitionDuration={600}
                   containerClass="carousel-container"
-            // removeArrowOnDeviceType={["tablet", "mobile"]}
                   itemClass="multi-pack-item"
-            // onDragStart={handleDragStart}
-            // onDragEnd={handleDragEnd}
+                  rtl={true}
         >
             {packages.map((i) => (
                 <PackageCarouselItem firstCourse={i.firstCourseSlug} id={i.id} name={i.name} title={i.title} picture={i.thumbnailUrl} slug={i.slug}/>

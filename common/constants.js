@@ -3,7 +3,7 @@ export const Constants = {
     refreshToken:'refreshToken',
     tokenExpireTime:'accessTokenExpireTime',
     InstagramAddress:'InstagramAddress',
-    WhatsAppAddress:'شماره واتس اپ',
+    WhatsAppAddress:'WhatsappNumber',
     TwitterAddress:"TwitterAddress",
     TelegramAddress:"TelegramChannelAddress",
     YouTubeChannelAddress:"YouTubeChannelAddress",

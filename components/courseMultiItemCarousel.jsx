@@ -54,8 +54,7 @@ const CourseMultiItemCarousel = ({ courses }) => {
                   containerClass="carousel-container"
             // removeArrowOnDeviceType={["tablet", "mobile"]}
                   itemClass="multi-pack-item"
-            // onDragStart={handleDragStart}
-            // onDragEnd={handleDragEnd}
+                  rtl={true}
         >
             {
                 courses.map((i) => (

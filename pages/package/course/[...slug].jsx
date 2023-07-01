@@ -11,6 +11,7 @@ import Meta from "../../../components/meta";
 const course = (props) =>
 {
     const courseDetail = props.result;
+    console.log(courseDetail)
     const relatesCourses = props.relatesCourses;
 
     let num = 0;
@@ -108,10 +109,11 @@ export async function getServerSideProps(context)
     const res = context.query.slug;
     const slug = `${res[0]}/${res[1]}`;
     const result = await courseDetail(slug,context);
+
     const relatesCourses = await getPackageCourseList(result.package.id,context);
 
     return{
-        props: {result, relatesCourses}
+        props: {result , relatesCourses}
     }
 }
 

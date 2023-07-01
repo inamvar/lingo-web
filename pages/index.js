@@ -45,7 +45,7 @@ const Home=(props)=>{
 export async function getServerSideProps(context)
 {
     const packages = await getPackagesList(context);
-    const banner=await getBanner(context);
+    const banner = await getBanner(context);
     return{
         props: { packages,banner }
     }

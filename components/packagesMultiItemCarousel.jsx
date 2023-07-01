@@ -53,6 +53,7 @@ const PackagesMultiItemCarousel = ({ packages }) => {
                   transitionDuration={600}
                   containerClass="carousel-container"
                   itemClass="multi-pack-item"
+                  rtl={true}
         >
             {packages.map((i) => (
                 <PackagesCarouselItem firstCourse={i.firstCourseSlug} pricings={i.pricings} id={i.id} name={i.name} title={i.title} picture={i.thumbnailImageUrl} slug={i.slug}/>

@@ -52,10 +52,8 @@ const FreeCourseMultiItemCarousel = ({ courses }) => {
                   customTransition="transform 600ms ease-in-out"
                   transitionDuration={600}
                   containerClass="carousel-container"
-            // removeArrowOnDeviceType={["tablet", "mobile"]}
                   itemClass="multi-pack-item"
-            // onDragStart={handleDragStart}
-            // onDragEnd={handleDragEnd}
+                  rtl={true}
         >
             {
                 courses.map((i) => (

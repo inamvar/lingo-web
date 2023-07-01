@@ -23,7 +23,7 @@ export default function discount()
 
 
 
-                <div className='w-full'>
+                <div className='w-full min-h-[10rem] relative'>
 
                     <div className='flex justify-center items-center gap-4 w-full'>
 
@@ -34,16 +34,16 @@ export default function discount()
                         </div>
 
                         <div className='flex justify-center items-center w-1/8'>
-                            <span className='bg-red rounded-full absolute red-color w-5 h-5'></span>
+                            <span className='bg-red rounded-full red-color w-5 h-5'></span>
                             {/*<span className='h-full w-4 border border-red'></span>*/}
-                            <hr className='m-h-discount border border-red' />
+                            <hr className='m-h-discount border absolute top-0 border-red' />
                             {/*<div className="inline-block h-full w-0.5 self-stretch bg-red"></div>*/}
                         </div>
 
                         <p className='darkBlue-color font-bold text-lg w-1/3'>%20</p>
                     </div>
 
-                    <div className='flex justify-center items-center gap-4 w-full'>
+                    <div className='flex justify-center items-center gap-4 w-full '>
 
                         <p className='darkBlue-color font-bold text-lg w-1/3 text-left'>%30</p>
 
@@ -60,7 +60,7 @@ export default function discount()
 
                     </div>
 
-                    <div className='flex justify-center items-center gap-4 w-full'>
+                    <div className='flex justify-center items-center gap-4 w-full '>
 
                         <div className='w-1/3 flex justify-end'>
                             <div className='bg-paleRed rounded-xl w-80 p-5 '>
@@ -76,7 +76,7 @@ export default function discount()
                         <p className='darkBlue-color font-bold text-lg w-1/3'>%40</p>
                     </div>
 
-                    <div className='flex justify-center items-center gap-4 w-full'>
+                    <div className='flex justify-center items-center gap-4 w-full '>
 
                         <p className='darkBlue-color font-bold text-lg w-1/3 text-left'>%50</p>
 

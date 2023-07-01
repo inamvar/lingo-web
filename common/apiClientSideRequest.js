@@ -97,7 +97,7 @@ ax.interceptors.request.use(
 async function isTokenExpired(token)
 {
     const expDate = new Date(token);
-    const newExpDate = new Date(expDate.getTime() - 1 * 60 * 1000);
+    const newExpDate = expDate;
     const utcExp = newExpDate.toUTCString();
     console.log(utcExp);
     const currentDate = new Date();

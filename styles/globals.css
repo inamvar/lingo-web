@@ -71,7 +71,7 @@ a {
 }
 .m-h-discount
 {
-    min-height: 10rem;
+    /*min-height: 10rem;*/
     height: 100%;
 }
 .bg-grey {
@@ -128,7 +128,10 @@ a {
     flex-direction: column;
     gap: 2rem;
 }
-
+.min-h-screen
+{
+    height: 100vh;
+}
 .title-size {
     font-size: 1.7rem;
 }
