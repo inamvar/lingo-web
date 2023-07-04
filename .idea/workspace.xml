@@ -4,18 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7110e458-b35c-4d71-9c86-a88bc37cb642" name="Changes" comment="add: refreshToken">
+    <list default="true" id="7110e458-b35c-4d71-9c86-a88bc37cb642" name="Changes" comment="refactor: rtl carousel and refreshToken and whatsApp Constans and discount page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/apiClientSideRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/apiClientSideRequest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/apiServerSideRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/apiServerSideRequest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/FreeCourseMultiItemCarousel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/FreeCourseMultiItemCarousel.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/courseMultiItemCarousel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/courseMultiItemCarousel.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/packageMultiItemCarousel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/packageMultiItemCarousel.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/packagesMultiItemCarousel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/packagesMultiItemCarousel.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/discount/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/discount/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/package/course/[...slug].jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/package/course/[...slug].jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/globals.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -121,7 +112,10 @@
       <workItem from="1687687238079" duration="7223000" />
       <workItem from="1687756716459" duration="21155000" />
       <workItem from="1687940755757" duration="9339000" />
-      <workItem from="1688204703182" duration="9373000" />
+      <workItem from="1688204703182" duration="10184000" />
+      <workItem from="1688361410981" duration="1470000" />
+      <workItem from="1688373768459" duration="1389000" />
+      <workItem from="1688445882767" duration="1928000" />
     </task>
     <task id="LOCAL-00001" summary="add: add signUp and auth context and notifier">
       <created>1682337059014</created>
@@ -382,7 +376,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687957064504</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="refactor: rtl carousel and refreshToken and whatsApp Constans and discount page">
+      <created>1688215534185</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1688215534185</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -401,7 +402,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="refactor: refactor courses page design" />
     <MESSAGE value="add: add courseDetail page" />
     <MESSAGE value="refactor: authorition use cookie based authentication" />
     <MESSAGE value="feat: course detail page features" />
@@ -426,6 +426,7 @@
     <MESSAGE value="add:FAQ page&#10;refactor: accordion and IRRPrice" />
     <MESSAGE value="refactor: courseDetail" />
     <MESSAGE value="add: refreshToken" />
-    <option name="LAST_COMMIT_MESSAGE" value="add: refreshToken" />
+    <MESSAGE value="refactor: rtl carousel and refreshToken and whatsApp Constans and discount page" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: rtl carousel and refreshToken and whatsApp Constans and discount page" />
   </component>
 </project>

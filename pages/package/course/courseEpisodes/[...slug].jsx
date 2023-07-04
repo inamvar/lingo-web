@@ -130,7 +130,7 @@ const Slug=(props)=>
                         </div>
 
                     </div>
-                    <div className='w-full flex justify-center items-center'>
+                    <div className='w-full flex justify-center items-center mt-3'>
                         <Link href={AppRoutes.Course(result.slug)} className='bg-red btn-page hover:bg-red-600 text-white text-center w-fit hidden md:block'>بازکشت به صفحه ی خرید دوره</Link>
                     </div>
 

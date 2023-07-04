@@ -130,7 +130,7 @@ a {
 }
 .min-h-screen
 {
-    height: 100vh;
+    /*height: 100vh;*/
 }
 .title-size {
     font-size: 1.7rem;

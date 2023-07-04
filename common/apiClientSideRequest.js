@@ -23,6 +23,7 @@ ax.interceptors.request.use(
     async (config) => {
         // Parse
         const cookies = parseCookies();
+         console.log(config);
         console.log( cookies );
         //const cookies = nookies.get(config.ctx);
         const token = cookies[Constants.token];
@@ -73,7 +74,6 @@ ax.interceptors.request.use(
                         isRefreshing = false;
                     }
                 }
-
             }
             else{
                 console.log('token is not expired');
