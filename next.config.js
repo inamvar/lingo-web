@@ -15,7 +15,7 @@ const nextConfig={
         autoPrerender:false
     }
 };
-module.exports=nextConfig;
+module.exports = nextConfig ;
 
 
 
@@ -37,4 +37,3 @@ module.exports=nextConfig;
 //         autoPrerender:false
 //     }
 // });
-

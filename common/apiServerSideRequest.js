@@ -7,8 +7,8 @@ import appRoutes from "./appRoutes";
 import API_ROUTES from "./apiRoutes";
 import {handleApiError} from "./handleApiError";
 import jwt from 'jsonwebtoken';
-import Cookies from "js-cookie";
-import * as constants from "constants";
+
+
 const ax = axios.create({
     baseURL: Configs.serverSideUrl,
     httpsAgent: new https.Agent({
@@ -21,8 +21,8 @@ let refreshSubscribers = [];
 
 ax.interceptors.request.use(
     async (config) => {
-        console.log('fff');
 
+        console.log('fff');
         const cookies = nookies.get(config.ctx);
         const token = cookies[Constants.token];
         const refreshToken = cookies[Constants.refreshToken];
@@ -72,17 +72,15 @@ ax.interceptors.request.use(
                         isRefreshing = false;
                     }
                 }
-
             }
-            else{
+            else
+            {
                 console.log('token is not expired');
-                    config.headers['Authorization'] = `Bearer ${token}`;
-
+                config.headers['Authorization'] = `Bearer ${token}`;
             }
         }
 
         // Check if token is expired and refresh if needed
-
 
         // config.headers['ContentType'] = 'application/json';
         return config;
@@ -92,30 +90,28 @@ ax.interceptors.request.use(
     }
 );
 
-async function isTokenExpired(token) {
-
+async function isTokenExpired(token)
+{
     const expDate = new Date(token);
     const newExpDate = expDate;
     const utcExp= newExpDate.toUTCString();
-   console.log(utcExp);
+    console.log(utcExp);
     const currentDate = new Date();
-const currentUtc= currentDate.toUTCString();
-console.log(currentUtc);
+    const currentUtc= currentDate.toUTCString();
+    console.log(currentUtc);
     var result= currentUtc >= utcExp;
     console.log('is Token expired:'+result);
     return result;
 }
 
-async function refreshAccessToken(refreshToken) {
+async function refreshAccessToken(refreshToken)
+{
     console.log('getting refresh token');
     try {
         const response = await ax.post("/Auth/RefreshToken", {
             refreshToken,
         });
         console.log(response);
-
-
-
         if (response.data.success == true)
         {
             const { accessToken, refreshToken,accessTokenExpiresAt } = response.data.data;
@@ -124,8 +120,8 @@ async function refreshAccessToken(refreshToken) {
         else {
             return  null;
         }
-
-    } catch (error) {
+    }
+    catch (error) {
 
         // Handle refresh token failure
         throw error;

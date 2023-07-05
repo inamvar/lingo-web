@@ -1,12 +1,9 @@
 import axios from "axios";
 import {Configs} from "../configs/configs";
 import https from "https";
-import { parseCookies, setCookie, destroyCookie } from 'nookies'
+import { parseCookies, setCookie } from 'nookies'
 import {Constants} from "./constants";
-import appRoutes from "./appRoutes";
-import API_ROUTES from "./apiRoutes";
 import {handleApiError} from "./handleApiError";
-import {pushAlert} from "./notifier";
 import jwt from "jsonwebtoken";
 
 const ax = axios.create({
@@ -23,7 +20,7 @@ ax.interceptors.request.use(
     async (config) => {
         // Parse
         const cookies = parseCookies();
-         console.log(config);
+        console.log(config);
         console.log( cookies );
         //const cookies = nookies.get(config.ctx);
         const token = cookies[Constants.token];
@@ -35,12 +32,16 @@ ax.interceptors.request.use(
             if (await isTokenExpired(accessTokenExpires)===true)
             {
                 console.log('token is expired');
-                if (!isRefreshing) {
+
+                if (!isRefreshing)
+                {
                     isRefreshing = true;
+
                     try {
                         const refreshTokenResult = await refreshAccessToken(refreshToken);
                         console.log('refreshToken Result is:');
                         console.log(refreshTokenResult);
+
                         if (refreshTokenResult==null){
                             return Promise.reject('expired');
                         }
@@ -75,15 +76,14 @@ ax.interceptors.request.use(
                     }
                 }
             }
-            else{
+            else
+            {
                 console.log('token is not expired');
                 config.headers['Authorization'] = `Bearer ${token}`;
-
             }
         }
 
         // Check if token is expired and refresh if needed
-
 
         // config.headers['ContentType'] = 'application/json';
         return config;
@@ -104,20 +104,19 @@ async function isTokenExpired(token)
     const currentUtc= currentDate.toUTCString();
     console.log(currentUtc);
     var result = currentUtc >= utcExp;
-    console.log('is Token expired:'+result);
+    console.log('is Token expired:'+ result );
     return result;
 }
 
 
 async function refreshAccessToken(refreshToken) {
     console.log('getting refresh token');
-    try {
+    try
+    {
         const response = await ax.post("/Auth/RefreshToken", {
             refreshToken,
         });
         console.log(response);
-
-
 
         if (response.data.success == true)
         {
@@ -127,9 +126,9 @@ async function refreshAccessToken(refreshToken) {
         else {
             return  null;
         }
-
-    } catch (error) {
-
+    }
+    catch (error)
+    {
         // Handle refresh token failure
         throw error;
     }

@@ -5,6 +5,7 @@ import 'react-sliding-side-panel/lib/index.css';
 import Link from "next/link";
 import authContext from "../context/authContext";
 import {useContext} from "react";
+import appRoutes from "../common/appRoutes";
 
 const slidingSidebar = () => {
 
@@ -45,9 +46,9 @@ const slidingSidebar = () => {
                             <Link onClick={handleLinkClick} href={AppRoutes.Main} className='darkBlue-color py-2 w-full text-right'>خانه</Link>
                             {authCtx.authState.authenticated && <Link onClick={handleLinkClick} href={AppRoutes.MyPackages} className='darkBlue-color py-2 w-full text-right'>دوره های من</Link>}
                             {authCtx.authState.authenticated && <Link onClick={handleLinkClick} href={AppRoutes.MyTransactions} className='darkBlue-color py-2 w-full text-right'>تراکنش های من</Link>}
-                            <Link onClick={handleLinkClick} href={AppRoutes.FREEPACKAGE} className='darkBlue-color py-2 w-full text-right'>پکیج های رایگان</Link>
-                            <Link onClick={handleLinkClick} href={AppRoutes.packages}  className='darkBlue-color py-2 w-full text-right'>پکیج های آموزشی</Link>
-                            <Link onClick={handleLinkClick} href='#' className='darkBlue-color py-2 w-full text-right'>تخفیف ها</Link>
+                            <Link onClick={handleLinkClick} href={appRoutes.FREEPACKAGE} className='darkBlue-color py-2 w-full text-right'>پکیج های رایگان</Link>
+                            <Link onClick={handleLinkClick} href={appRoutes.packages}  className='darkBlue-color py-2 w-full text-right'>پکیج های آموزشی</Link>
+                            <Link onClick={handleLinkClick} href={appRoutes.Discount} className='darkBlue-color py-2 w-full text-right'>تخفیفات</Link>
                         </div>
 
                         <div className='flex flex-col items-end pt-4'>
