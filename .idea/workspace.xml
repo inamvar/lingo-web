@@ -8,11 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/apiClientSideRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/apiClientSideRequest.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/apiServerSideRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/apiServerSideRequest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/slidingSidebar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/slidingSidebar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/dashboard/myPackages.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/dashboard/myPackages.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/dashboard/myTransactions.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/dashboard/myTransactions.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/package/course/[...slug].jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/package/course/[...slug].jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +117,8 @@
       <workItem from="1688373768459" duration="1389000" />
       <workItem from="1688445882767" duration="1928000" />
       <workItem from="1688472909829" duration="2070000" />
-      <workItem from="1688534429817" duration="7509000" />
+      <workItem from="1688534429817" duration="7672000" />
+      <workItem from="1688620479977" duration="3273000" />
     </task>
     <task id="LOCAL-00001" summary="add: add signUp and auth context and notifier">
       <created>1682337059014</created>
@@ -390,7 +386,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688215534185</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="refactor: design">
+      <created>1688561907092</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1688561907092</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -409,7 +412,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="add: add courseDetail page" />
     <MESSAGE value="refactor: authorition use cookie based authentication" />
     <MESSAGE value="feat: course detail page features" />
     <MESSAGE value="feat: add video page" />
@@ -434,6 +436,7 @@
     <MESSAGE value="refactor: courseDetail" />
     <MESSAGE value="add: refreshToken" />
     <MESSAGE value="refactor: rtl carousel and refreshToken and whatsApp Constans and discount page" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: rtl carousel and refreshToken and whatsApp Constans and discount page" />
+    <MESSAGE value="refactor: design" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: design" />
   </component>
 </project>

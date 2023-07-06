@@ -21,9 +21,8 @@ ax.interceptors.request.use(
         // Parse
         const cookies = parseCookies();
         console.log(config);
-        console.log( cookies );
-        //const cookies = nookies.get(config.ctx);
-        const token = cookies[Constants.token];
+        console.log(cookies);
+
         const refreshToken = cookies[Constants.refreshToken];
         const accessTokenExpires = cookies[Constants.tokenExpireTime];
 
@@ -43,8 +42,10 @@ ax.interceptors.request.use(
                         console.log(refreshTokenResult);
 
                         if (refreshTokenResult==null){
-                            return Promise.reject('expired');
+                            console.log('refreshToken NotFound');
+                            return config;
                         }
+
 
                         console.log('decoding');
                         const decodedToken = jwt.decode(refreshTokenResult.accessToken);
@@ -65,30 +66,29 @@ ax.interceptors.request.use(
 
                         console.log('cookies seted');
                         config.headers['Authorization'] = `Bearer ${refreshTokenResult.accessToken}`;
-                    } catch (error) {
+                        isRefreshing = false;
+                    }
+                    catch (error) {
+                        isRefreshing = false;
                         console.log('got error');
                         console.log(error);
                         // Handle refresh token failure
                         handleApiError(error);
-                        return Promise.reject(error);
-                    } finally {
-                        isRefreshing = false;
+                        return config;
                     }
                 }
             }
             else
             {
+                const token = cookies[Constants.token];
                 console.log('token is not expired');
                 config.headers['Authorization'] = `Bearer ${token}`;
             }
         }
-
-        // Check if token is expired and refresh if needed
-
-        // config.headers['ContentType'] = 'application/json';
         return config;
     },
     function (error) {
+        console.log('--- request rejected ---');
         return Promise.reject(error);
     }
 );
@@ -96,16 +96,24 @@ ax.interceptors.request.use(
 
 async function isTokenExpired(token)
 {
-    const expDate = new Date(token);
-    const newExpDate = expDate;
-    const utcExp = newExpDate.toUTCString();
-    console.log(utcExp);
-    const currentDate = new Date();
-    const currentUtc= currentDate.toUTCString();
-    console.log(currentUtc);
-    var result = currentUtc >= utcExp;
-    console.log('is Token expired:'+ result );
-    return result;
+    try {
+        const expDate = new Date(token);
+        const newExpDate = expDate;
+        const utcExp= newExpDate.toUTCString();
+        console.log(utcExp);
+        const currentDate = new Date();
+        const currentUtc= currentDate.toUTCString();
+        console.log(currentUtc);
+        var result= currentUtc >= utcExp;
+        console.log('is Token expired:'+result);
+        return result;
+    }
+    catch (e) {
+        console.log('checking is tokenexpired got error');
+        console.log(e);
+        return false;
+    }
+
 }
 
 
@@ -129,8 +137,9 @@ async function refreshAccessToken(refreshToken) {
     }
     catch (error)
     {
-        // Handle refresh token failure
-        throw error;
+        console.log('got error while trying to get refresh token');
+        console.log(error);
+        return null;
     }
 }
 export default ax;
