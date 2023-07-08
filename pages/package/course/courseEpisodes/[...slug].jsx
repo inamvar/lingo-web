@@ -12,15 +12,16 @@ import Black from "../../../../public/picture/black.jpg";
 const Slug=(props)=>
 {
     const result = props.result;
-    console.log(result);
     const currentVideo = result.currentVideo;
     const [videoPayerExist,setVideoPlayerExist] = useState(false);
     const router=useRouter();
     const isNavigatedByLink = router.asPath !== router.pathname;
 
     const authCtx = useContext(authContext);
+    console.log(authCtx);
 
-    if (isNavigatedByLink) {
+    if (isNavigatedByLink)
+    {
         console.log('User arrived via link');
     }
     else
@@ -34,13 +35,13 @@ const Slug=(props)=>
 
     useEffect(()=>{
 
-        console.log('here')
         const hasSession= sessionStorage.getItem('reloadVideo');
         if (hasSession){
             sessionStorage.removeItem('reloadVideo');
             window.location.reload();
         }
         setVideoPlayerExist(true);
+
     },[currentVideo.id]);
 
     useEffect(() => {
@@ -65,12 +66,16 @@ const Slug=(props)=>
                 // Load the script asynchronously
 
                 document.body.appendChild(script);
+
                 let key="test";
+
                 // Define the window.message variable after the script has loaded
+
                 if (authCtx.authState.authenticated==true)
                 {
-                    key=authCtx.authState.user.email;
+                    key = authCtx.authState.user.phone_number;
                 }
+
                 script.onload = () => {
 
                     setTimeout(function(){
