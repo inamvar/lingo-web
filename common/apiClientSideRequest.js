@@ -7,8 +7,8 @@ import {handleApiError} from "./handleApiError";
 import jwt from "jsonwebtoken";
 
 const ax = axios.create({
-    baseURL: Configs.clientSideUrl,
-    httpsAgent: new https.Agent({
+    baseURL : Configs.clientSideUrl,
+    httpsAgent : new https.Agent({
         rejectUnauthorized: false
     })
 });
@@ -36,7 +36,8 @@ ax.interceptors.request.use(
                 {
                     isRefreshing = true;
 
-                    try {
+                    try
+                    {
                         const refreshTokenResult = await refreshAccessToken(refreshToken);
                         console.log('refreshToken Result is:');
                         console.log(refreshTokenResult);
@@ -45,7 +46,6 @@ ax.interceptors.request.use(
                             console.log('refreshToken NotFound');
                             return config;
                         }
-
 
                         console.log('decoding');
                         const decodedToken = jwt.decode(refreshTokenResult.accessToken);
@@ -68,7 +68,8 @@ ax.interceptors.request.use(
                         config.headers['Authorization'] = `Bearer ${refreshTokenResult.accessToken}`;
                         isRefreshing = false;
                     }
-                    catch (error) {
+                    catch (error)
+                    {
                         isRefreshing = false;
                         console.log('got error');
                         console.log(error);
@@ -87,7 +88,8 @@ ax.interceptors.request.use(
         }
         return config;
     },
-    function (error) {
+    function (error)
+    {
         console.log('--- request rejected ---');
         return Promise.reject(error);
     }
@@ -108,8 +110,8 @@ async function isTokenExpired(token)
         console.log('is Token expired:'+result);
         return result;
     }
-    catch (e) {
-        console.log('checking is tokenexpired got error');
+    catch (e)
+    {
         console.log(e);
         return false;
     }
@@ -117,7 +119,8 @@ async function isTokenExpired(token)
 }
 
 
-async function refreshAccessToken(refreshToken) {
+async function refreshAccessToken(refreshToken)
+{
     console.log('getting refresh token');
     try
     {

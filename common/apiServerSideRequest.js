@@ -22,22 +22,26 @@ let refreshSubscribers = [];
 ax.interceptors.request.use(
     async (config) => {
 
-        console.log('fff');
         const cookies = nookies.get(config.ctx);
-
         const refreshToken = cookies[Constants.refreshToken];
         const accessTokenExpires = cookies[Constants.tokenExpireTime];
 
-        if (accessTokenExpires) {
-            if (await isTokenExpired(accessTokenExpires)===true) {
+        if (accessTokenExpires)
+        {
+            if (await isTokenExpired(accessTokenExpires)===true)
+            {
                 console.log('token is expired');
-                if (!isRefreshing) {
+                if (!isRefreshing)
+                {
                     isRefreshing = true;
-                    try {
+                    try
+                    {
                         const refreshTokenResult = await refreshAccessToken(refreshToken);
                         console.log('refreshToken Result is:');
                         console.log(refreshTokenResult);
-                        if (refreshTokenResult==null){
+
+                        if (refreshTokenResult==null)
+                        {
                             console.log('refreshToken NotFound');
                             return config;
                         }
@@ -64,11 +68,9 @@ ax.interceptors.request.use(
 
                         isRefreshing = false;
 
-                    } catch (error) {
-
-                        console.log('got error');
-                        console.log(error);
-                        // Handle refresh token failure
+                    }
+                    catch (error)
+                    {
                         handleApiError(error);
                         isRefreshing = false;
                         return config;
@@ -93,7 +95,8 @@ ax.interceptors.request.use(
 
 async function isTokenExpired(token)
 {
-    try {
+    try
+    {
         const expDate = new Date(token);
         const newExpDate = expDate;
         const utcExp= newExpDate.toUTCString();
@@ -105,7 +108,8 @@ async function isTokenExpired(token)
         console.log('is Token expired:'+result);
         return result;
     }
-    catch (e) {
+    catch (e)
+    {
         console.log('checking is tokenexpired got error');
         console.log(e);
         return false;
@@ -115,24 +119,23 @@ async function isTokenExpired(token)
 
 async function refreshAccessToken(refreshToken)
 {
-    console.log('getting refresh token');
-    try {
+    try
+    {
         const response = await ax.post("/Auth/RefreshToken", {
             refreshToken,
         });
-        console.log(response);
         if (response.data.success == true)
         {
             const { accessToken, refreshToken,accessTokenExpiresAt } = response.data.data;
             return { accessToken, refreshToken,accessTokenExpiresAt };
         }
-        else {
+        else
+        {
             return  null;
         }
     }
-    catch (error) {
-        console.log('got error while trying to get refresh token');
-        console.log(error);
+    catch (error)
+    {
         return null;
     }
 }

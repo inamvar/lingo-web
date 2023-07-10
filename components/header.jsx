@@ -2,13 +2,12 @@ import Image from 'next/image';
 import Logo from '/public/picture/Logo.png';
 import Link from 'next/link';
 import appRoutes from "../common/appRoutes";
-import React, {useContext, useEffect, useState} from "react";
+import React, {useContext, useState} from "react";
 import authContext from "../context/authContext";
+import HeaderContext from "../context/headerContext";
 import Modal from "./modal";
 import SlidingSidebar from "./slidingSidebar";
-import {getPackagesList} from "../services/appServices";
 import {logout} from "../services/clientAppService";
-// import {BarLoader} from "react-spinner-animated";
 import {getSearchResult} from "../services/appServices";
 import ClientSideRenderer from "./clientSideRenderer";
 
@@ -16,13 +15,29 @@ import ClientSideRenderer from "./clientSideRenderer";
 const Header = ()=>{
 
     const [result,setResult]=useState({});
+    const [selectedItem,setSelectedItem] = useState(null);
 
-    const authCtx=useContext(authContext);
+    const authCtx = useContext(authContext);
+    const headerCtx = useContext(HeaderContext);
+
+    console.log(headerCtx);
 
     const SignOut=async ()=>
     {
        await logout();
        authCtx.setAuthState({authenticated:false,user:null});
+    }
+
+    const handleItemClick = (item) => {
+        console.log(selectedItem);
+        if (selectedItem === item)
+        {
+            setSelectedItem(null);
+        }
+        else
+        {
+            setSelectedItem(item.name);
+        }
     }
 
     return(
@@ -39,10 +54,10 @@ const Header = ()=>{
             </div>
             <div className='lg:w-1/3 w-1/2 xl:w-1/4 hidden md:block'>
                 <div className='flex flex-row justify-between items-center h-full xl:gap-10 whitespace-nowrap'>
-                    <Link href={appRoutes.Main} className='darkBlue-color hover:drop-shadow-lg'>خانه</Link>
-                    <Link href={appRoutes.FREEPACKAGE} className='darkBlue-color hover:drop-shadow-lg'>پکیج های رایگان</Link>
-                    <Link href={appRoutes.packages} className='darkBlue-color hover:drop-shadow-lg'>پکیج های آموزشی</Link>
-                    <Link href={appRoutes.Discount} className='darkBlue-color hover:drop-shadow-lg'>تخفیفات</Link>
+                    <Link href={appRoutes.Main} onClick={handleItemClick} name='home' className={ selectedItem == 'home' ? 'darkBlue-color hover:drop-shadow-lg active-header-item' : 'darkBlue-color hover:drop-shadow-lg'}>خانه</Link>
+                    <Link href={appRoutes.FREEPACKAGE} onClick={handleItemClick} className='darkBlue-color hover:drop-shadow-lg'>پکیج های رایگان</Link>
+                    <Link href={appRoutes.packages} onClick={handleItemClick} name='packages' className={ headerCtx.headerItemState = 'packages' ? 'darkBlue-color hover:drop-shadow-lg active-header-item' : 'darkBlue-color hover:drop-shadow-lg'}>پکیج های آموزشی</Link>
+                    <Link href={appRoutes.Discount} onClick={handleItemClick} name='discount' className={ headerCtx.headerItemState = 'discount' ? 'darkBlue-color hover:drop-shadow-lg active-header-item' : 'darkBlue-color hover:drop-shadow-lg'}>تخفیفات</Link>
                 </div>
             </div>
 

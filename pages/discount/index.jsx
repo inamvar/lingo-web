@@ -1,9 +1,14 @@
 import picDiscount from "../../public/picture/discount.png";
 import Image from "next/image";
 import Meta from "../../components/meta";
+import HeaderContext from "../../context/headerContext";
+import {useContext} from "react";
 
 export default function discount()
 {
+    const headerCtx = useContext(HeaderContext);
+    headerCtx.setHeaderItemState("discount");
+
     return(
         <>
             <Meta title="تخفیفات" />
@@ -11,17 +16,6 @@ export default function discount()
 
                 <Image src={picDiscount} alt="pic" width={400} height={400} quality={100}/>
                 <p className='darkBlue-color font-bold text-lg'>تخفیف های لینگو</p>
-
-                {/*<div className='flex flex-col gap-4'>*/}
-                {/*    <div className='flex'>*/}
-                {/*        <div></div>*/}
-                {/*        <div></div>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
-
-
-
-
 
                 <div className='w-full min-h-[10rem] relative'>
 

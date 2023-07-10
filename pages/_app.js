@@ -1,6 +1,7 @@
 import '/styles/globals.css';
 import Layout from '/components/layout'
 import AuthContext from "../context/authContext";
+import HeaderContext from "../context/headerContext";
 import {useEffect, useState} from "react";
 import getAuthenticatedUser from "../hooks/getUser";
 import { ChakraProvider } from '@chakra-ui/react';
@@ -11,7 +12,8 @@ import {useRouter} from "next/router";
 function MyApp({ Component, pageProps,siteSetting }) {
 
     const router = useRouter();
-    const [authState,setAuthState]=useState({});
+    const [authState,setAuthState] = useState({});
+    const [headerItemState,setHeaderItemState] = useState()
 
     useEffect(() => {
         getAuthenticatedUser().then(res => {
@@ -42,9 +44,11 @@ function MyApp({ Component, pageProps,siteSetting }) {
         return (
             <ChakraProvider >
                 <AuthContext.Provider value={{authState,setAuthState}}>
-                    <Layout siteSetting={siteSetting} >
-                        <Component {...pageProps} />
-                    </Layout>
+                    <HeaderContext.Provider value={{headerItemState,setHeaderItemState}}>
+                        <Layout siteSetting={siteSetting} >
+                            <Component {...pageProps} />
+                        </Layout>
+                    </HeaderContext.Provider>
                 </AuthContext.Provider>
             </ChakraProvider>
         );

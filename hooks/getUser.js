@@ -19,7 +19,7 @@ export default async function getAuthenticatedUser() {
         }
         else
         {
-            const userInfo =jwtDecode(token);
+            const userInfo = jwtDecode(token);
             const userObject = {authenticated: true , user: userInfo}
             return userObject;
         }

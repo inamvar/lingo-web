@@ -16,9 +16,7 @@ const Slug=(props)=>
     const [videoPayerExist,setVideoPlayerExist] = useState(false);
     const router=useRouter();
     const isNavigatedByLink = router.asPath !== router.pathname;
-
     const authCtx = useContext(authContext);
-    console.log(authCtx);
 
     if (isNavigatedByLink)
     {
@@ -36,7 +34,8 @@ const Slug=(props)=>
     useEffect(()=>{
 
         const hasSession= sessionStorage.getItem('reloadVideo');
-        if (hasSession){
+        if (hasSession)
+        {
             sessionStorage.removeItem('reloadVideo');
             window.location.reload();
         }
@@ -84,9 +83,7 @@ const Slug=(props)=>
 
                     // window.message = [null,key, key, key, "#fff", "2"];
                 };
-
             }
-
         }
         // Cleanup function to remove the video div when the component unmounts
 

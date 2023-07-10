@@ -2,10 +2,14 @@ import {getPackagesList} from "../../services/appServices";
 import FreeCourseMultiItemCarousel from "../../components/FreeCourseMultiItemCarousel";
 import PackagesMultiItemCarousel from "../../components/PackagesMultiItemCarousel";
 import Meta from "../../components/meta";
+import HeaderContext from "../../context/headerContext";
+import {useContext} from "react";
 
 const packages = ({packages}) =>
 {
     console.log(packages[0].courses);
+    const headerCtx = useContext(HeaderContext);
+    headerCtx.setHeaderItemState("packages");
 
     if(packages.length < 1)
     {

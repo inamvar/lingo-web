@@ -4,10 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7110e458-b35c-4d71-9c86-a88bc37cb642" name="Changes" comment="fix: refreshToken bug">
+    <list default="true" id="7110e458-b35c-4d71-9c86-a88bc37cb642" name="Changes" comment="refactor: buy button condition and show phoneNumber for drmText">
+      <change afterPath="$PROJECT_DIR$/context/headerContext.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/package/course/[...slug].jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/package/course/[...slug].jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/apiClientSideRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/apiClientSideRequest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/apiServerSideRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/apiServerSideRequest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/getUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/getUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/_app.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/discount/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/discount/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/package/course/courseEpisodes/[...slug].jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/package/course/courseEpisodes/[...slug].jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/packages/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/packages/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/globals.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +128,8 @@
       <workItem from="1688472909829" duration="2070000" />
       <workItem from="1688534429817" duration="7672000" />
       <workItem from="1688620479977" duration="5714000" />
-      <workItem from="1688794600985" duration="2352000" />
+      <workItem from="1688794600985" duration="6262000" />
+      <workItem from="1688988507501" duration="4775000" />
     </task>
     <task id="LOCAL-00001" summary="add: add signUp and auth context and notifier">
       <created>1682337059014</created>
@@ -401,7 +411,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688624857687</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="refactor: buy button condition and show phoneNumber for drmText">
+      <created>1688798775413</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1688798775413</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -420,7 +437,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: course detail page features" />
     <MESSAGE value="feat: add video page" />
     <MESSAGE value="refactor: refactor pages responsive" />
     <MESSAGE value="fix: courses list unauthorized &#10;feat: dynamic package images" />
@@ -445,6 +461,7 @@
     <MESSAGE value="refactor: rtl carousel and refreshToken and whatsApp Constans and discount page" />
     <MESSAGE value="refactor: design" />
     <MESSAGE value="fix: refreshToken bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: refreshToken bug" />
+    <MESSAGE value="refactor: buy button condition and show phoneNumber for drmText" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: buy button condition and show phoneNumber for drmText" />
   </component>
 </project>
