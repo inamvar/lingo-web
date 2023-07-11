@@ -1,11 +1,16 @@
 import {getPackageCourseList} from "../../services/appServices";
 import CourseItem from '../../components/courseItem';
 import Meta from "../../components/meta";
+import HeaderContext from "../../context/headerContext";
+import {useContext} from "react";
 
 const Package=(props)=>{
 
     const courses = props.result;
     console.log(courses)
+
+    const headerCtx = useContext(HeaderContext);
+    headerCtx.setHeaderItemState("/");
 
         return(
             <div className='flex justify-center items-center px-4 mt-16'>

@@ -7,7 +7,7 @@ import {useContext} from "react";
 export default function discount()
 {
     const headerCtx = useContext(HeaderContext);
-    headerCtx.setHeaderItemState("discount");
+    headerCtx.setHeaderItemState("/discount");
 
     return(
         <>

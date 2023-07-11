@@ -10,6 +10,7 @@ import SlidingSidebar from "./slidingSidebar";
 import {logout} from "../services/clientAppService";
 import {getSearchResult} from "../services/appServices";
 import ClientSideRenderer from "./clientSideRenderer";
+import {head} from "axios";
 
 
 const Header = ()=>{
@@ -54,10 +55,10 @@ const Header = ()=>{
             </div>
             <div className='lg:w-1/3 w-1/2 xl:w-1/4 hidden md:block'>
                 <div className='flex flex-row justify-between items-center h-full xl:gap-10 whitespace-nowrap'>
-                    <Link href={appRoutes.Main} onClick={handleItemClick} name='home' className={ selectedItem == 'home' ? 'darkBlue-color hover:drop-shadow-lg active-header-item' : 'darkBlue-color hover:drop-shadow-lg'}>خانه</Link>
-                    <Link href={appRoutes.FREEPACKAGE} onClick={handleItemClick} className='darkBlue-color hover:drop-shadow-lg'>پکیج های رایگان</Link>
-                    <Link href={appRoutes.packages} onClick={handleItemClick} name='packages' className={ headerCtx.headerItemState = 'packages' ? 'darkBlue-color hover:drop-shadow-lg active-header-item' : 'darkBlue-color hover:drop-shadow-lg'}>پکیج های آموزشی</Link>
-                    <Link href={appRoutes.Discount} onClick={handleItemClick} name='discount' className={ headerCtx.headerItemState = 'discount' ? 'darkBlue-color hover:drop-shadow-lg active-header-item' : 'darkBlue-color hover:drop-shadow-lg'}>تخفیفات</Link>
+                    <Link   href={appRoutes.Main} onClick={handleItemClick} name='/home' className={ headerCtx.headerItemState === '/home' ? 'darkBlue-color hover:drop-shadow-lg active-header-item pt-3 pb-3' : 'darkBlue-color hover:drop-shadow-lg header-item pt-3 pb-3'}>خانه</Link>
+                    <Link href={appRoutes.FREEPACKAGE} onClick={handleItemClick} name='/freePackages' className={ headerCtx.headerItemState === '/freePackages' ? 'darkBlue-color hover:drop-shadow-lg active-header-item pt-3 pb-3' : 'darkBlue-color hover:drop-shadow-lg header-item pt-3 pb-3'}>پکیج های رایگان</Link>
+                    <Link href={appRoutes.packages} onClick={handleItemClick} name='/packages' className={ headerCtx.headerItemState === '/packages' ? 'darkBlue-color hover:drop-shadow-lg active-header-item pt-3 pb-3' : 'darkBlue-color hover:drop-shadow-lg header-item pt-3 pb-3'}>پکیج های آموزشی</Link>
+                    <Link href={appRoutes.Discount} onClick={handleItemClick} name='/discount' className={ headerCtx.headerItemState === '/discount' ? 'darkBlue-color hover:drop-shadow-lg active-header-item pt-3 pb-3' : 'darkBlue-color hover:drop-shadow-lg header-item pt-3 pb-3'}>تخفیفات</Link>
                 </div>
             </div>
 

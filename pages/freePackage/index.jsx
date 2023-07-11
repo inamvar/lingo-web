@@ -1,9 +1,13 @@
 import {getFreePackagesList} from "../../services/appServices";
 import FreeCourseMultiItemCarousel from "../../components/FreeCourseMultiItemCarousel";
 import Meta from "../../components/meta";
+import {useContext} from "react";
+import HeaderContext from "../../context/headerContext";
 
 const freePackage = (props) =>
 {
+    const headerCtx = useContext(HeaderContext);
+    headerCtx.setHeaderItemState("/freePackages");
     const PackageCourses = props.packages;
 
     if(PackageCourses.length < 1)

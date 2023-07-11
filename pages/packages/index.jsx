@@ -9,7 +9,7 @@ const packages = ({packages}) =>
 {
     console.log(packages[0].courses);
     const headerCtx = useContext(HeaderContext);
-    headerCtx.setHeaderItemState("packages");
+    headerCtx.setHeaderItemState("/packages");
 
     if(packages.length < 1)
     {

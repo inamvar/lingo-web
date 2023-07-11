@@ -7,6 +7,8 @@ import CourseMultiItemCarousel from "../../../components/courseMultiItemCarousel
 import Image from "next/image";
 import Price from "../../../components/IRRPrice";
 import Meta from "../../../components/meta";
+import HeaderContext from "../../../context/headerContext";
+import {useContext} from "react";
 
 const course = (props) =>
 {
@@ -18,6 +20,9 @@ const course = (props) =>
     courseDetail.chapters.forEach((e,i)=>{
         num += e.videos.length;
     });
+
+    const headerCtx = useContext(HeaderContext);
+    headerCtx.setHeaderItemState("/");
 
     return(
         <>

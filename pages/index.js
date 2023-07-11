@@ -7,14 +7,16 @@ import {useContext} from "react";
 import PackageMultiItemCarousel from "../components/packageMultiItemCarousel";
 import moment from "moment";
 import UseScript from "../components/useScript";
+import headerContext from "../context/headerContext";
 
 
 const Home=(props)=>{
 
     const authCtx = useContext(authContext);
+  const  headerCtx= useContext(headerContext);
     const Packages = props.packages;
     const banner=props.banner;
-
+        headerCtx.setHeaderItemState('/home');
     return (
         <>
             <div className='w-full flex items-center justify-center relative overflow-hidden m-h-50'>
