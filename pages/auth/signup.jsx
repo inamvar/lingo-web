@@ -10,8 +10,13 @@ import {signUpUser} from "../../services/clientAppService";
 import authContext from "../../context/authContext";
 import {useContext, useEffect, useState} from "react";
 import {pushAlert} from "../../common/notifier";
+import HeaderContext from "../../context/headerContext";
 
 export default function signUp(){
+
+    const headerCtx = useContext(HeaderContext);
+    headerCtx.setHeaderItemState("/");
+
     const [returnUrl,setReturnUrl]=useState('');
     const authCtx = useContext(authContext);
     const router=useRouter();

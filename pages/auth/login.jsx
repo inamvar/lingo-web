@@ -12,8 +12,12 @@ import useAuth from "../../hooks/useAuth";
 import {loginUser} from "../../services/clientAppService";
 import AppRoutes from "/common/appRoutes";
 import ProgressTimer from '../../components/progressTimer';
+import HeaderContext from "../../context/headerContext";
 
 export default function Login(){
+
+    const headerCtx = useContext(HeaderContext);
+    headerCtx.setHeaderItemState("/");
 
     let isCsr = false;
     const authCtx = useContext(authContext);
