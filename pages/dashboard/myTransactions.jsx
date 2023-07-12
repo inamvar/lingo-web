@@ -4,13 +4,17 @@ import AppRoutes from "../../common/appRoutes";
 import TimeMaker from '../../components/timeMaker';
 import DateMaker from '../../components/dateMaker';
 import {withAuth} from "../../components/Authorized";
-import AuthContext from "../../context/authContext";
-import {useContext} from "react";
 import Meta from "../../components/meta";
+import {getOrderHistoryPDF} from "../../services/clientAppService";
 
 const MyTransactions = ({orders,authContext}) =>
 {
-    //const context = useContext(AuthContext);
+    console.log(orders)
+    // async function handleClick(id)
+    // {
+    //     const reportPDF = await getOrderHistoryPDF(id);
+    //     console.log(reportPDF)
+    // }
 
     if(authContext.authState.authenticated)
     {
@@ -59,7 +63,7 @@ const MyTransactions = ({orders,authContext}) =>
                                         </td>
                                         <td>{o.discount!=0?o.discount:"-"}</td>
                                         <td>{o.finalPrice.toLocaleString()}</td>
-                                        <td><Link href={AppRoutes.Course(o.courseSlug)} className='bg-cyan-500 text-xs sm:text-sm btn-page bg-red text-white p-btn-big hover:bg-red-800 whitespace-nowrap'>مشاهده</Link></td>
+                                        <td><Link href={AppRoutes.ReportPDF(o.orderId)} className='bg-cyan-500 text-xs sm:text-sm btn-page bg-red text-white p-btn-big hover:bg-red-800 whitespace-nowrap'>مشاهده</Link></td>
                                     </tr>
                                 )
                             })}

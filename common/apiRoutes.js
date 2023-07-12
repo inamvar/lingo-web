@@ -39,7 +39,10 @@ const API_ROUTES = {
     },
     STATUSPHONENUMBER:"/user/PhoneNumberStatus",
     CONFIRMPHONENUMBERREQUEST:"/User/ConfirmPhoneNumberRequest",
-    CONFIRMPHONENUMBER:"/User/ConfirmPhoneNumber"
+    CONFIRMPHONENUMBER:"/User/ConfirmPhoneNumber",
+    ORDERHISRORYPDF :(id)=>{
+        return `/Report/GetOrderHistoryPdf/${id}`
+    }
 };
 
 export default API_ROUTES;

@@ -39,7 +39,10 @@ const AppRoutes= {
     },
     ForgetPassword:"/auth/forgetPassword",
     NewPassword:"/auth/forgetPassword/newPassword",
-    FAQ:"/FAQ"
+    FAQ:"/FAQ",
+    ReportPDF:(id)=>{
+        return `/report/${id}`
+    }
 };
 
 export default AppRoutes;
