@@ -41,7 +41,7 @@ const AppRoutes= {
     NewPassword:"/auth/forgetPassword/newPassword",
     FAQ:"/FAQ",
     ReportPDF:(id)=>{
-        return `/report/${id}`
+        return `/report?id=${id}`
     }
 };
 

@@ -30,6 +30,25 @@ import ax from "../common/apiServerSideRequest";
 //     }
 // }
 
+export const getOrderHistoryPDF = async(orderId,context) =>
+{
+    try
+    {
+        console.log(orderId);
+        let response = await ax.get(API_ROUTES.ORDERHISRORYPDF(orderId),{ctx:context});
+        if (response.status == 200)
+        {
+            return response.data;
+        }
+    } catch (error) {
+        pushAlert({
+            message: error.response.data.errorMessages,
+            type: 'error'
+        })
+        console.log(error)
+    }
+};
+
 export const getOrderHistory = async (context) =>
 {
     try

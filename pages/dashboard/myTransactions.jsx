@@ -6,22 +6,18 @@ import DateMaker from '../../components/dateMaker';
 import {withAuth} from "../../components/Authorized";
 import Meta from "../../components/meta";
 import {getOrderHistoryPDF} from "../../services/clientAppService";
+import appRoutes from "../../common/appRoutes";
 
 const MyTransactions = ({orders,authContext}) =>
 {
-    console.log(orders)
-    // async function handleClick(id)
-    // {
-    //     const reportPDF = await getOrderHistoryPDF(id);
-    //     console.log(reportPDF)
-    // }
+    console.log(orders);
 
     if(authContext.authState.authenticated)
     {
         return(
             <>
                 <Meta title="تراکنش های من" />
-                <div className='flex flex-col justify-center items-center gap-7 mt-16'>
+                <div id='pdfX' className='flex flex-col justify-center items-center gap-7 mt-16'>
 
                     <div className='flex bg-white justify-evenly gap-3 items-center div-mypackage rounded p-5'>
                         <svg width="70" height="96" viewBox="0 0 84 110" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -63,7 +59,7 @@ const MyTransactions = ({orders,authContext}) =>
                                         </td>
                                         <td>{o.discount!=0?o.discount:"-"}</td>
                                         <td>{o.finalPrice.toLocaleString()}</td>
-                                        <td><Link href={AppRoutes.ReportPDF(o.orderId)} className='bg-cyan-500 text-xs sm:text-sm btn-page bg-red text-white p-btn-big hover:bg-red-800 whitespace-nowrap'>مشاهده</Link></td>
+                                        <td><Link target={"_blank"} href={appRoutes.ReportPDF(o.orderId)} className='bg-cyan-500 text-xs sm:text-sm btn-page bg-red text-white p-btn-big hover:bg-red-800 whitespace-nowrap'>چاپ رسید</Link></td>
                                     </tr>
                                 )
                             })}
