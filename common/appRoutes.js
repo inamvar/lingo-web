@@ -1,4 +1,4 @@
-const AppRoutes= {
+const AppRoutes = {
 
     Signup:"/auth/signup",
     SignupReturn:(url)=>{

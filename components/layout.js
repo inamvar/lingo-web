@@ -5,8 +5,6 @@ import Loading from './loading';
 
 const Layout = ({ children,siteSetting}) => {
 
-
-
     return (
         <>
             <Loading/>

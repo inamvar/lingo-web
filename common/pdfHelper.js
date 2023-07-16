@@ -14,6 +14,11 @@ const componentToPDFBuffer = (html) => {
             },
             type: 'pdf',
             timeout: 30000,
+            childProcessOptions: {
+                env: {
+                    OPENSSL_CONF: '/dev/null',
+                },
+            }
         };
 
         const buffer = pdf.create(html, options).toBuffer((err, buffer) => {
