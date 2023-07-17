@@ -95,7 +95,6 @@ ax.interceptors.request.use(
     }
 );
 
-
 async function isTokenExpired(token)
 {
     try {
@@ -117,7 +116,6 @@ async function isTokenExpired(token)
     }
 
 }
-
 
 async function refreshAccessToken(refreshToken)
 {
@@ -145,4 +143,5 @@ async function refreshAccessToken(refreshToken)
         return null;
     }
 }
+
 export default ax;

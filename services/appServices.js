@@ -276,7 +276,7 @@ export const courseDetail = async (slug,context) =>
     }
 }
 
-export const getVideoDetail=async (slug,context)=>
+export const getVideoDetail = async (slug,context)=>
 {
     try {
         const response=await ax.get(API_ROUTES.VIDEO(slug),{ctx:context});
@@ -295,7 +295,7 @@ export const getVideoDetail=async (slug,context)=>
     }
 }
 
-export const getMyProfile=async (ctx)=>
+export const getMyProfile = async (ctx)=>
 {
     try {
         const response = await ax.get(API_ROUTES.MYPROFILE,{ctx:ctx});
@@ -334,7 +334,7 @@ export const getMyPassword = async (ctx) =>
     }
 }
 
-export const getBanner=async (context)=>
+export const getBanner = async (context)=>
 {
     try {
         const response=await ax.get(API_ROUTES.BANNER);

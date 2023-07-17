@@ -146,8 +146,6 @@ export const postMessage = async (titleMessage, bodyMessage) =>
     }
 };
 
-
-
 export const SeenReplyMessage = async(MessageId) =>
 {
     try
