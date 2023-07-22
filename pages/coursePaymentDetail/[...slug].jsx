@@ -99,6 +99,7 @@ const paymentDetail = ({result,golden,confirmPhoneNumber,authContext}) =>
                 const moment = require('moment');
                 const number = inputNumber.current.value;
 
+                console.log(number)
                 const result = await ConfirmPhoneNumberRequest(number);
                 console.log(result)
 

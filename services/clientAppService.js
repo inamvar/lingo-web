@@ -34,6 +34,7 @@ export const ConfirmPhoneNumberRequest = async(phoneNumber) =>
 {
     try
     {
+        console.log(phoneNumber)
         let response = await ax.post(API_ROUTES.CONFIRMPHONENUMBERREQUEST,{phoneNumber:phoneNumber});
         if (response.data.success == true)
         {

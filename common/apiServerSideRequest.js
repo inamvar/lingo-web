@@ -3,10 +3,9 @@ import {Configs} from "../configs/configs";
 import https from "https";
 import nookies from 'nookies'
 import {Constants} from "./constants";
-import appRoutes from "./appRoutes";
-import API_ROUTES from "./apiRoutes";
 import {handleApiError} from "./handleApiError";
 import jwt from 'jsonwebtoken';
+
 
 
 const ax = axios.create({

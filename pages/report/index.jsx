@@ -3,9 +3,11 @@ import {getOrderHistoryPDF} from "../../services/appServices";
 
 const Index =()=>{
 
-    return (<>
-        {/*<div dangerouslySetInnerHTML={{ __html:result }} />*/}
-    </>);
+    return (
+        <>
+            {/*<div dangerouslySetInnerHTML={{ __html:result }} />*/}
+        </>
+    );
 }
 
 

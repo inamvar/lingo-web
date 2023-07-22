@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import pic from '../public/picture/package-pic.png';
 import Link from 'next/link';
 import APP_ROUTES from "../common/appRoutes";
 import Price from "./IRRPrice";

@@ -1,12 +1,9 @@
 import Image from 'next/image';
-import bannerImage from '../public/picture/banner.png';
 import logo from '../public/picture/Logo.png';
 import {getBanner, getPackagesList} from "../services/appServices";
 import authContext from "../context/authContext";
 import {useContext} from "react";
 import PackageMultiItemCarousel from "../components/packageMultiItemCarousel";
-import moment from "moment";
-import UseScript from "../components/useScript";
 import headerContext from "../context/headerContext";
 
 
