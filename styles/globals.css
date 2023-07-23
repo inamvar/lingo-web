@@ -113,7 +113,6 @@ a {
 .bg-darkBlue {
     background-color: var(--darkBlue);
 }
-
 .h-3 {
     height: 3.3rem;
 }
@@ -416,7 +415,7 @@ iframe div {
 .course-item
 {
     width: 25rem;
-    height: 30rem;
+    height: 29rem;
 }
 .package-carsoul-item {
     width: 22rem;
