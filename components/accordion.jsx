@@ -52,14 +52,14 @@ export default function accordion(props)
                                             <p className='text-xs sm:text-sm'>{vid.title}</p>
                                         </div>
                                         <div className='flex items-center justify-center'>
-                                            {vid.isFree?<span className='text-sm bg-darkGreen rounded-2xl text-white py-1 px-2'>رایگان</span>:<span></span>}
+                                            {vid.isFree && vid.isActive == false ?<span className='text-sm bg-darkGreen rounded-2xl text-white py-1 px-2'>رایگان</span>:<span></span>}
                                         </div>
                                     </div>
 
                                         <Link onClick={gotoDetail}  href={vid.isFree?appRoutes.Video(vid.slug):appRoutes.PaymentDetail(slug)} className='flex items-center justify-center gap-1 w-1/6 sm:w-1/5'>
-                                            {vid.isFree? <p className='text-sm hidden lg:block'>نمایش</p>:<p className='text-white text-sm hidden lg:block'>نمایش</p>}
+                                            {vid.isActive? <p className='text-sm hidden lg:block'>نمایش</p>:<p className='text-white text-sm hidden lg:block'>نمایش</p>}
                                             <div>
-                                                {vid.isFree?<svg width="17" height="19" viewBox="0 0 17 19" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.1049 7.96587L2.7474 0.243722C1.6621 -0.383401 0 0.225169 0 1.77628V17.2169C0 18.6084 1.54446 19.447 2.7474 18.7494L16.1049 11.031C17.2965 10.3445 17.3003 8.65237 16.1049 7.96587Z" fill="#525252"/></svg>
+                                                {vid.isActive?<svg width="17" height="19" viewBox="0 0 17 19" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.1049 7.96587L2.7474 0.243722C1.6621 -0.383401 0 0.225169 0 1.77628V17.2169C0 18.6084 1.54446 19.447 2.7474 18.7494L16.1049 11.031C17.2965 10.3445 17.3003 8.65237 16.1049 7.96587Z" fill="#525252"/></svg>
                                                     : <svg width="23" height="26" viewBox="0 0 23 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.5357 11.375H19.3036V7.71875C19.3036 3.46328 15.8022 0 11.5 0C7.19777 0 3.69643 3.46328 3.69643 7.71875V11.375H2.46429C1.10379 11.375 0 12.4668 0 13.8125V23.5625C0 24.9082 1.10379 26 2.46429 26H20.5357C21.8962 26 23 24.9082 23 23.5625C23 22.2168 23 13.8125 23 13.8125C23 12.4668 21.8962 11.375 20.5357 11.375ZM15.1964 11.375H7.80357V7.71875C7.80357 5.70273 9.46183 4.0625 11.5 4.0625C13.5382 4.0625 15.1964 5.70273 15.1964 7.71875V11.375Z" fill="#9E9E9E"/></svg>
                                                 }
                                             </div>

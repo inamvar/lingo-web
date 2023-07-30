@@ -105,7 +105,7 @@ const ChangePassword = (props) =>
 
 export async function getServerSideProps(ctx)
 {
-    const result= await getMyPassword(ctx);
+    const result = await getMyPassword(ctx);
 
     if(result!=undefined)
     {

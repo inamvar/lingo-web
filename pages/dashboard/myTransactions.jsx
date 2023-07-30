@@ -7,6 +7,7 @@ import {withAuth} from "../../components/Authorized";
 import Meta from "../../components/meta";
 import {getOrderHistoryPDF} from "../../services/clientAppService";
 import appRoutes from "../../common/appRoutes";
+import {router} from "next/router";
 
 const MyTransactions = ({orders,authContext}) =>
 {
@@ -14,6 +15,12 @@ const MyTransactions = ({orders,authContext}) =>
 
     if(authContext.authState.authenticated)
     {
+        // async function downloadPdf(orderId)
+        // {
+            // const result = await getOrderHistoryPDF(orderId);
+            // router.push(appRoutes.ReportPDF(orderId))
+        // }
+
         return(
             <>
                 <Meta title="تراکنش های من" />
@@ -60,9 +67,8 @@ const MyTransactions = ({orders,authContext}) =>
                                         <td>{o.discount!=0?o.discount:"-"}</td>
                                         <td>{o.finalPrice.toLocaleString()}</td>
 
-                                        {/*<td><Link target={"_blank"} href={appRoutes.ReportPDF(o.pdfReportLink)} className='bg-cyan-500 text-xs sm:text-sm btn-page bg-red text-white p-btn-big hover:bg-red-800 whitespace-nowrap'>چاپ رسید</Link></td>*/}
-                                        <td><a target={"_blank"} href={o.pdfReportLink} className='bg-cyan-500 text-xs sm:text-sm btn-page bg-red text-white p-btn-big hover:bg-red-800 whitespace-nowrap'>چاپ رسید</a></td>
-
+                                        <td><Link href={appRoutes.ReportPDF(o.orderId)} className='bg-cyan-500 text-xs sm:text-sm btn-page bg-red text-white p-btn-big hover:bg-red-800 whitespace-nowrap'>چاپ رسید</Link></td>
+                                        {/*<td><a target={"_blank"} href={o.pdfReportLink} className='bg-cyan-500 text-xs sm:text-sm btn-page bg-red text-white p-btn-big hover:bg-red-800 whitespace-nowrap'>چاپ رسید</a></td>*/}
                                     </tr>
                                 )
                             })}

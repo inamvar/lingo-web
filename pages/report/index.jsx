@@ -1,7 +1,20 @@
 import pdfHelper from "../../common/pdfHelper";
 import {getOrderHistoryPDF} from "../../services/appServices";
+import {router} from "next/router";
+import appRoutes from "../../common/appRoutes";
 
-const Index =()=>{
+const Index =(props)=>{
+
+    setTimeout(()=>{
+        console.log(props.props.pdfBlob);
+        const url = window.URL.createObjectURL(new Blob([props.props.pdfBlob]));
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', 'order-hsistory.pdf');
+        document.body.appendChild(link);
+        link.click();
+         router.push(appRoutes.MyTransactions);
+    },1000);
 
     return (
         <>
@@ -23,57 +36,15 @@ Index.getInitialProps =async (context) =>{
     const isServer = !!req;
 
     if (isServer) {
-        const buffer = await pdfHelper.componentToPDFBuffer(
 
-            `<h1>${result}</h1>`
-        );
 
-        // prompt to download pdf
-        res.setHeader('Content-disposition', 'attachment; filename="article.pdf');
-        // set content type
-        res.setHeader('Content-Type', 'application/pdf');
-        // output the pdf buffer
-        res.end(buffer);
     }
 
     return {
         props:{
-
+        pdfBlob:result
         }
     };
 }
-// Index.getLayout =(page)=> {
-//     return (
-//         <>{page}</>
-//     )
-// }
-
-// export async function getServerSideProps(ctx){
-//
-//     console.log('ctx:::');
-//     console.log(ctx);
-//     const query=ctx.query;
-//     console.log(query);
-//    // const req=context.req;
-//     //const res=context.res;
-//
-//     const  id=query.id;
-//     const  resultt= await getOrderHistoryPDF(id,ctx);
-//     console.log('result is ::::::::::::::');
-//     console.log(resultt);
-//     if (resultt!=undefined){
-//         return{
-//             props: {
-//                 result:resultt
-//             }
-//         }
-//     }
-//     else
-//     {
-//         return{
-//             props: {  }
-//         }
-//     }
-// }
 
 export default Index;
