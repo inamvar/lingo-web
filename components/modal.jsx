@@ -37,7 +37,10 @@ export default function BasicUsage(props) {
     {
         close();
         const searchInput = searchInputRef.current.value;
-        router.push(appRoutes.Search(searchInput));
+        if(searchInput !== "")
+        {
+            router.push(appRoutes.Search(searchInput));
+        }
     }
 
     const handleKeyPress = (event) => {
@@ -60,7 +63,7 @@ export default function BasicUsage(props) {
 
                         <div className='bg-white rounded-lg'>
                             <div className='flex d-rtl justify-between rounded-lg border-2 border-blue-950'>
-                                <input onKeyUp={handleKeyPress} ref={searchInputRef} type='text' className='rounded py-4 px-3 text-black text-xs md:text-sm focus:outline-none w-3/4' placeholder='به دنبال یادگیری چه مهارتی هستید ؟'/>
+                                <input onKeyUp={handleKeyPress} ref={searchInputRef} type='text' required className='rounded py-4 px-3 text-black text-xs md:text-sm focus:outline-none w-3/4' placeholder='به دنبال یادگیری چه مهارتی هستید ؟'/>
                                 {/*<a className='p-4 w-1/4 text-center bg-darkBlue rounded-tl-md rounded-bl-md text-sm text-white hidden md:block'>جست و جو</a>*/}
                                 <a onClick={handleClick} className='m-2'>
                                     <svg className='hover:drop-shadow-lg' width="28" height="28" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">

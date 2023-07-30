@@ -22,6 +22,7 @@ export default function Login(){
     let isCsr = false;
     const authCtx = useContext(authContext);
     const [returnUrl,setReturnUrl]=useState('');
+    const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
     const schema = validator.object({
         userName:validator.string().required('نوشتن ایمیل اجباری است'),
@@ -40,6 +41,7 @@ export default function Login(){
 
     const onSubmit = async (data) =>
     {
+        setIsButtonDisabled(true);
         const result = await loginUser(data.userName,data.password);
         if (result != undefined)
         {
@@ -52,6 +54,7 @@ export default function Login(){
                 router.push(appRoutes.Main);
             }
         }
+        setIsButtonDisabled(false);
     };
 
     useEffect(()=>{
@@ -89,10 +92,10 @@ export default function Login(){
                         <Link href={appRoutes.ForgetPassword} className='text-sm darkBlue-color hover:drop-shadow-xl'>رمز عبور خود را فراموش کرده ام!</Link>
                     </div>
                     <div className='flex flex-row justify-center'>
-                        <button type='submit' className='bg-cyan-500 p-1 text-sm btn-page bg-red text-white w-full hover:bg-red-600'>ورود به حساب کاربری</button>
+                        <button type='submit' disabled={isButtonDisabled} className={isButtonDisabled?'bg-cyan-500 p-1 text-sm btn-page bg-red-400 text-white w-full':'bg-cyan-500 p-1 text-sm btn-page bg-red text-white w-full hover:bg-red-600'}>ورود به حساب کاربری</button>
                     </div>
                 </form>
             </div>
         </>);
 }
-
+// className='bg-cyan-500 p-1 text-sm btn-page bg-red text-white w-full hover:bg-red-600'

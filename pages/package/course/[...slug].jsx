@@ -15,6 +15,8 @@ const course = (props) =>
     const courseDetail = props.result;
     console.log(courseDetail)
     const relatesCourses = props.relatesCourses;
+    const relatesCourses2 = courseDetail.package.courses;
+    console.log(relatesCourses2);
 
     let num = 0;
     courseDetail.chapters.forEach((e,i)=>{
@@ -53,7 +55,7 @@ const course = (props) =>
                         {/*{courseDetail.costType="Free" || courseDetail.userHasPurchasedCours || courseDetail.chapters.length<1 ? <p></p> :<div className='paleGreen-color flex gap-2 pt-2 mt-2 pb-1 w-full justify-start text-lg font-extrabold'><Price pricings={courseDetail.pricings} />تومان</div>}*/}
 
                         <div className='flex  justify-between'>
-                            {courseDetail.costType!="Paid"|| courseDetail.userHasPurchasedCourse || courseDetail.chapters.length<1 || courseDetail.discount.discountValue==0 ? <p></p> :<div className='w-1/5'><div className='relative flex justify-center'>
+                            {courseDetail.costType!="Paid"|| courseDetail.userHasPurchasedCourse || courseDetail.chapters.length<1 || courseDetail.discount==null || courseDetail.discount.discountValue==null ||courseDetail.discount.discountValue==0 ? <p></p> :<div className='w-1/5'><div className='relative flex justify-center'>
                                 <div className='flex gap-2 pt-2 mt-2 pb-1 justify-start text-lg font-extrabold absolute'><Price pricings={courseDetail.pricings} />تومان</div>
                                 <div className='border border-black w-full mt-7'></div>
                                 {/*<svg className='price-line' width="63" height="37" viewBox="0 0 63 37" fill="none" xmlns="http://www.w3.org/2000/svg">*/}
@@ -63,7 +65,7 @@ const course = (props) =>
                             </div>
                             }
 
-                            {courseDetail.costType!="Paid"|| courseDetail.userHasPurchasedCourse || courseDetail.chapters.length < 1 ? <p></p> :<div className='paleGreen-color flex gap-2 pt-2 mt-2 pb-1 justify-start text-lg font-extrabold'><Price pricings={courseDetail.discount.finalAmounts} />تومان</div>}
+                            {courseDetail.costType!="Paid"|| courseDetail.userHasPurchasedCourse || courseDetail.chapters.length < 1 || courseDetail.discount==null || courseDetail.discount.discountValue==null ? <p></p> :<div className='paleGreen-color flex gap-2 pt-2 mt-2 pb-1 justify-start text-lg font-extrabold'><Price pricings={courseDetail.discount.finalAmounts} />تومان</div>}
                         </div>
 
 
@@ -103,7 +105,7 @@ const course = (props) =>
                     </div>
                 </div>
                 <div className='w-11/12 lg:w-10/12'>
-                    <CourseMultiItemCarousel courses={relatesCourses} />
+                    <CourseMultiItemCarousel courses={relatesCourses2} />
                 </div>
             </div>
         </>

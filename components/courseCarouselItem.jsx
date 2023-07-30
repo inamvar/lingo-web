@@ -16,7 +16,7 @@ export default function CourseCarouselItem(props)
                 <div style={{height:"20%"}} className='flex flex-col items-center justify-center'>
                     <p className='grey-color'>{props.name}</p>
                     <p className='grey-color'>{props.title}</p>
-                    <div className='green-color flex gap-2 border-gray-200 pt-2 mt-2 pb-1 border-t-2 w-full justify-center'>تومان<Price pricings={props.pricings} /></div>
+                    {props.costType == "Free"?<div className='grey-color flex gap-2 border-gray-200 pt-2 mt-2 pb-1 border-t-2 w-full justify-center'>رایگان</div>:<div className='green-color flex gap-2 border-gray-200 pt-2 mt-2 pb-1 border-t-2 w-full justify-center'>تومان<Price pricings={props.pricings} /></div>}
                 </div>
             </div>
         </Link>

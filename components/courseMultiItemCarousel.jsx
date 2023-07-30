@@ -5,6 +5,7 @@ import CourseCarouselItem from "./courseCarouselItem";
 
 const CourseMultiItemCarousel = ({ courses }) => {
 
+    console.log(courses)
     const [dragging, setDragging] = useState(false);
 
     const responsive = {
@@ -58,7 +59,7 @@ const CourseMultiItemCarousel = ({ courses }) => {
         >
             {
                 courses.map((i) => (
-                <CourseCarouselItem id={i.id} name={i.name} title={i.title} picture={i.thumbnailImageUrl} pricings={i.pricings} slug={i.slug}/>
+                <CourseCarouselItem id={i.id} costType={i.costType} name={i.name} title={i.title} picture={i.thumbnailImageUrl} pricings={i.pricings} slug={i.slug}/>
             ))}
         </Carousel>
     );
