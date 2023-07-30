@@ -15,7 +15,7 @@ export default function CourseItem(props)
                 </div>
                 <div style={{height:"20%"}} className='flex justify-center items-center flex-col'>
                     <p className='grey-color text-xs sm:text-base'>{props.name}</p>
-                    <div className='paleGreen-color flex gap-2 text-xs sm:text-base pt-2 mt-2 pb-1 w-full justify-center text-lg border-gray-200 border-t-2'><Price pricings={props.pricings} />تومان</div>
+                    {props.isFree ? <div className='grey-color flex gap-2 text-xs sm:text-base pt-2 mt-2 pb-1 w-full justify-center text-lg border-gray-200 border-t-2'>رایگان</div> : <div className='paleGreen-color flex gap-2 text-xs sm:text-base pt-2 mt-2 pb-1 w-full justify-center text-lg border-gray-200 border-t-2'><Price pricings={props.pricings} />تومان</div>}
                 </div>
             </div>
         </Link>
