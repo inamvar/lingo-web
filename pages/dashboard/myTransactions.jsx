@@ -59,7 +59,10 @@ const MyTransactions = ({orders,authContext}) =>
                                         </td>
                                         <td>{o.discount!=0?o.discount:"-"}</td>
                                         <td>{o.finalPrice.toLocaleString()}</td>
-                                        <td><Link target={"_blank"} href={appRoutes.ReportPDF(o.orderId)} className='bg-cyan-500 text-xs sm:text-sm btn-page bg-red text-white p-btn-big hover:bg-red-800 whitespace-nowrap'>چاپ رسید</Link></td>
+
+                                        {/*<td><Link target={"_blank"} href={appRoutes.ReportPDF(o.pdfReportLink)} className='bg-cyan-500 text-xs sm:text-sm btn-page bg-red text-white p-btn-big hover:bg-red-800 whitespace-nowrap'>چاپ رسید</Link></td>*/}
+                                        <td><a target={"_blank"} href={o.pdfReportLink} className='bg-cyan-500 text-xs sm:text-sm btn-page bg-red text-white p-btn-big hover:bg-red-800 whitespace-nowrap'>چاپ رسید</a></td>
+
                                     </tr>
                                 )
                             })}

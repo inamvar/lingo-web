@@ -42,6 +42,9 @@ const AppRoutes = {
     FAQ:"/FAQ",
     ReportPDF:(id)=>{
         return `/report?id=${id}`
+    },
+    Search:(id)=>{
+        return `/search?id=${id}`
     }
 };
 
