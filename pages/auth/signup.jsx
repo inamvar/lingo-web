@@ -17,6 +17,8 @@ export default function signUp(){
     const headerCtx = useContext(HeaderContext);
     headerCtx.setHeaderItemState("/");
 
+    const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+
     const [returnUrl,setReturnUrl]=useState('');
     const authCtx = useContext(authContext);
     const router=useRouter();
@@ -51,6 +53,7 @@ export default function signUp(){
 
     const  onSubmit =async (data) =>
     {
+        setIsButtonDisabled(true);
         const returnUrl= router.query.returnUrl;
 
         const result = await signUpUser(data.firstName,data.lastName,data.password,data.confirmPassword,data.email,data.phoneNumber,data.marketerCode);
@@ -74,6 +77,8 @@ export default function signUp(){
             //     router.push(appRoutes.Login);
             // }
         }
+
+        setIsButtonDisabled(false);
     };
 
     return(<>
@@ -97,7 +102,7 @@ export default function signUp(){
                     <InputText register={register} placeholder='کد معرف' name='marketerCode'/>
                 </div>
                 <div className='flex flex-row justify-center'>
-                    <button type='submit' className='bg-cyan-500 p-1 text-sm btn-page bg-red text-white w-full hover:bg-red-600'>ورود به حساب کاربری</button>
+                    <button type='submit' disabled={isButtonDisabled} className={isButtonDisabled?'bg-cyan-500 p-1 text-sm btn-page bg-red-400 text-white w-full':'bg-cyan-500 p-1 text-sm btn-page bg-red text-white w-full hover:bg-red-600'}>ورود به حساب کاربری</button>
                 </div>
             </form>
         </div>
