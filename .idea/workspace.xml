@@ -4,10 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7110e458-b35c-4d71-9c86-a88bc37cb642" name="Changes" comment="refactor: modal and login button">
+    <list default="true" id="7110e458-b35c-4d71-9c86-a88bc37cb642" name="Changes" comment="refactor: signUp button and accordion link">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/accordion.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/accordion.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/auth/signup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/auth/signup.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/appRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/appRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/pdfHelper.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/pdfHelper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/FAQAccordion.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/FAQAccordion.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/loading.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/loading.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/modal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/modal.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/test.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/test.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/dashboard/myTransactions.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/dashboard/myTransactions.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/report/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/report/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/search/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/appServices.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/appServices.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/clientAppService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/clientAppService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/globals.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,14 +147,8 @@
       <workItem from="1689831895129" duration="4750000" />
       <workItem from="1690011908361" duration="2987000" />
       <workItem from="1690091640929" duration="5398000" />
-      <workItem from="1691211995457" duration="1180000" />
-    </task>
-    <task id="LOCAL-00003" summary="add: add package refactor: refactor footer responsive">
-      <created>1682580600070</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1682580600070</updated>
+      <workItem from="1691211995457" duration="13678000" />
+      <workItem from="1691298910519" duration="1280000" />
     </task>
     <task id="LOCAL-00004" summary="refactor: refactor context add: add cookie">
       <created>1682747607065</created>
@@ -480,7 +486,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690712005378</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="refactor: signUp button and accordion link">
+      <created>1691215070337</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1691215070337</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -499,7 +512,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="add: add Loading spinner and save token in signUp refactor: refactor style pages" />
     <MESSAGE value="merge master develop" />
     <MESSAGE value="refactor: discount link in footer" />
     <MESSAGE value="refactor: signUp" />
@@ -524,6 +536,7 @@
     <MESSAGE value="add: search Page&#10;refactor: myTransaction download pdf" />
     <MESSAGE value="refactor: courseItem isfree" />
     <MESSAGE value="refactor: modal and login button" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: modal and login button" />
+    <MESSAGE value="refactor: signUp button and accordion link" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: signUp button and accordion link" />
   </component>
 </project>

@@ -146,6 +146,35 @@ export const postMessage = async (titleMessage, bodyMessage) =>
         console.log(error)
     }
 };
+export const getOrderHistoryPDF = async(orderId) =>
+{
+    try
+    {
+        console.log(orderId);
+        let response = await ax.get(API_ROUTES.ORDERHISRORYPDF(orderId),{responseType:'blob'});
+        if (response.status == 200)
+        {
+            return response.data;
+        }
+    } catch (error) {
+        console.log(error);
+        if (error.response){
+            if (error.response.data){
+                if (error.response.data.errorMessages){
+                    pushAlert({
+                        message: error.response.data.errorMessages,
+                        type: 'error'
+                    })
+                }
+                else {
+                    pushAlert({type:'error',message:'عملیات با شکست مواجه شد'});
+                }
+            }
+        }
+
+
+    }
+};
 
 export const SeenReplyMessage = async(MessageId) =>
 {
