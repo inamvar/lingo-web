@@ -8,17 +8,15 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import {validator} from "/common/validator";
 import {router} from "next/router";
 import authContext from "../../context/authContext";
-import useAuth from "../../hooks/useAuth";
 import {loginUser} from "../../services/clientAppService";
 import AppRoutes from "/common/appRoutes";
-import ProgressTimer from '../../components/progressTimer';
 import HeaderContext from "../../context/headerContext";
 
-export default function Login(){
+export default function Login()
+{
 
     const headerCtx = useContext(HeaderContext);
     headerCtx.setHeaderItemState("/");
-
     let isCsr = false;
     const authCtx = useContext(authContext);
     const [returnUrl,setReturnUrl]=useState('');
@@ -98,4 +96,3 @@ export default function Login(){
             </div>
         </>);
 }
-// className='bg-cyan-500 p-1 text-sm btn-page bg-red text-white w-full hover:bg-red-600'

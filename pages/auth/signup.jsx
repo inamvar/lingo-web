@@ -16,12 +16,11 @@ export default function signUp(){
 
     const headerCtx = useContext(HeaderContext);
     headerCtx.setHeaderItemState("/");
-
     const [isButtonDisabled, setIsButtonDisabled] = useState(false);
-
     const [returnUrl,setReturnUrl]=useState('');
     const authCtx = useContext(authContext);
     const router=useRouter();
+
     const schema = validator.object({
         firstName:validator.string().required('نوشتن نام اجباری است'),
         lastName:validator.string().required('نوشتن نام خانوادگی اجباری است'),
@@ -46,7 +45,8 @@ export default function signUp(){
             setReturnUrl(rUrl);
         }
     },[]);
-   async function setContext(res)
+
+    async function setContext(res)
     {
         authCtx.setAuthState(res);
     }

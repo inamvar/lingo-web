@@ -4,7 +4,6 @@ import CourseItem from "../../components/courseItem";
 
 function search({resultSearch,id})
 {
-    console.log(resultSearch);
     const courses = resultSearch;
     return(
         <>
@@ -12,11 +11,19 @@ function search({resultSearch,id})
                 <Meta title="" />
                 <div className='w-[71%] darkBlue-color font-bold text-xl'>جستجو برای {id}</div>
                 <div className='flex flex-col md:flex-row flex-wrap gap-9 w-full xl:w-4/5 justify-center items-center'>
-                    {courses.map((i)=>
-                        <div className='flex justify-center course-item'>
-                            <CourseItem key={i.index} picture={i.thumbnailUrl} pricings={i.pricings} isFree={i.isFree} name={i.title} slug={i.slug}/>
-                        </div>
-                    )}
+                    {courses.length>1? courses.map((i)=>
+                                <div className='flex justify-center course-item'>
+                                    <CourseItem key={i.index} picture={i.thumbnailUrl} pricings={i.pricings} isFree={i.isFree} name={i.title} slug={i.slug}/>
+                                </div>
+                            )
+                        :
+                        <lable className='darkBlue-color mt-[6rem]'>نتیجه ای برای جستجوی شما یافت نشد</lable>
+                    }
+                    {/*{courses.map((i)=>*/}
+                    {/*    <div className='flex justify-center course-item'>*/}
+                    {/*        <CourseItem key={i.index} picture={i.thumbnailUrl} pricings={i.pricings} isFree={i.isFree} name={i.title} slug={i.slug}/>*/}
+                    {/*    </div>*/}
+                    {/*)}*/}
                 </div>
             </div>
         </>

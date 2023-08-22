@@ -1,4 +1,3 @@
-import { renderToStaticMarkup } from 'react-dom/server';
 import pdf from 'html-pdf';
 
 const componentToPDFBuffer = (html) => {
@@ -31,6 +30,4 @@ const componentToPDFBuffer = (html) => {
     });
 }
 
-export default {
-    componentToPDFBuffer
-}
+export default {componentToPDFBuffer};

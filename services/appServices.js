@@ -143,6 +143,28 @@ export const getFreePackagesList = async (context) =>
     }
 }
 
+export const getSelectedPackagesList = async (context) =>
+{
+    try
+    {
+        let response = await ax.get(API_ROUTES.SELECTEDPACKAGE,{ctx:context});
+
+        if (response.data.success == true)
+        {
+            const packages = response.data.data.data;
+            return packages;
+        }
+        else {
+            pushAlert({message:response.data.message,type:'error'});
+            return null;
+        }
+    }
+    catch (error)
+    {
+        handleApiError(error,context);
+    }
+}
+
 export const getPackagesList = async (context) =>
 {
     try

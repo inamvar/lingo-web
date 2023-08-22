@@ -18,13 +18,10 @@ const sendMessages = ({authContext}) =>
     {
         const router=useRouter();
 
-
-
         const schema = validator.object({
             titleMessage:validator.string().required('نوشتن عنوان پیام اجباری است'),
             bodyMessage:validator.string().required('نوشتن متن پیام اجباری است')
         })
-
 
         const { register,reset, handleSubmit, watch,
             formState: { errors } } = useForm({
@@ -35,19 +32,16 @@ const sendMessages = ({authContext}) =>
             }
         });
 
-
-
-
         const onSubmit = async (data) =>
         {
             const result = await postMessage(data.titleMessage,data.bodyMessage);
             console.log(result);
-           if (result===true){
-           reset({
-               titleMessage:'',
-               bodyMessage:''
-           });
-
+            if (result===true)
+            {
+                reset({
+                    titleMessage:'',
+                    bodyMessage:''
+                });
            }
         };
 
@@ -83,12 +77,12 @@ const sendMessages = ({authContext}) =>
                         <div className='flex w-full flex-col gap-3'>
 
                             <InputText error={errors.titleMessage?.message} name='titleMessage' className='rounded w-full py-5 px-3 text-black text-xs sm:text-sm darkgrey-color focus:outline-none' register={register} required placeholder='عنوان پیام'/>
-                            <InputTextarea name="bodyMessage" rows="7" placeholder="متن پیام یا پرسش" className="rounded w-full py-5 px-3 text-black text-xs sm:text-sm darkgrey-color focus:outline-none" register={register} required/>
+                            <InputTextarea error={errors.bodyMessage?.message} name="bodyMessage" rows="7" placeholder="متن پیام یا پرسش" className="rounded w-full py-5 px-3 text-black text-xs sm:text-sm darkgrey-color focus:outline-none" register={register} required/>
 
                         </div>
 
                         <div className='w-full flex justify-center items-center'>
-                            <button type='submit' className='bg-cyan-500 p-1 text-xs sm:text-sm md:text-lg btn-page text-sm bg-red text-white w-[20rem] hover:bg-red-600'>ثبت</button>
+                            <button type='submit' className='bg-cyan-500 p-1 text-xs sm:text-sm btn-page bg-red text-white w-[20rem] hover:bg-red-600'>ثبت</button>
                         </div>
 
                     </form>

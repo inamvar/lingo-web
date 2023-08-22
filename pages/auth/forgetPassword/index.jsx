@@ -7,10 +7,7 @@ import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import {postResetPasswordRequest} from "../../../services/clientAppService";
 import {router} from "next/router";
-import ProgressTimer from "../../../components/progressTimer";
 import moment from "moment";
-import Cookies from "js-cookie";
-import {Constants} from "../../../common/constants";
 
 export default function forgetPassword()
 {
@@ -30,7 +27,6 @@ export default function forgetPassword()
         if(result != undefined && result.success)
         {
             localStorage.setItem("ResetPassword-Key", data.email);
-
             localStorage.setItem("ResetPassword-expireTime", result.data.expirationTime);
             localStorage.setItem("ResetPassword-RequestTime",moment());
 

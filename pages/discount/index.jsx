@@ -29,9 +29,7 @@ export default function discount()
 
                         <div className='flex justify-center items-center w-1/8'>
                             <span className='bg-red rounded-full red-color w-5 h-5'></span>
-                            {/*<span className='h-full w-4 border border-red'></span>*/}
-                            <hr className='m-h-discount border absolute top-0 border-red' />
-                            {/*<div className="inline-block h-full w-0.5 self-stretch bg-red"></div>*/}
+                            <hr className='m-h-discount border absolute top-0 border-red'/>
                         </div>
 
                         <p className='darkBlue-color font-bold text-lg w-1/3'>%20</p>

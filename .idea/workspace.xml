@@ -4,8 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7110e458-b35c-4d71-9c86-a88bc37cb642" name="Changes" comment="refactor: PDF downloader and loading&#10;add: FAQ texts">
-      <change beforePath="$PROJECT_DIR$/components/test.jsx" beforeDir="false" />
+    <list default="true" id="7110e458-b35c-4d71-9c86-a88bc37cb642" name="Changes" comment="delete: test.jsx">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/apiRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/apiRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/pdfHelper.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/pdfHelper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/tags.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/tags.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/FAQ/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/FAQ/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/auth/forgetPassword/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/auth/forgetPassword/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/auth/forgetPassword/newPassword.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/auth/forgetPassword/newPassword.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/auth/login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/auth/login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/auth/signup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/auth/signup.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/coursePaymentDetail/[...slug].jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/coursePaymentDetail/[...slug].jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/dashboard/myMessages/newMessage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/dashboard/myMessages/newMessage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/discount/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/discount/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/package/[...slug].jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/package/[...slug].jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/package/course/[...slug].jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/package/course/[...slug].jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/report/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/report/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/search/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/appServices.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/appServices.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/clientAppService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/clientAppService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/globals.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,14 +154,15 @@
       <workItem from="1690091640929" duration="5398000" />
       <workItem from="1691211995457" duration="13678000" />
       <workItem from="1691298910519" duration="1280000" />
-      <workItem from="1691317553002" duration="296000" />
-    </task>
-    <task id="LOCAL-00005" summary="add: add getPackagesList function">
-      <created>1682759216413</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1682759216413</updated>
+      <workItem from="1691317553002" duration="4471000" />
+      <workItem from="1691394701816" duration="6868000" />
+      <workItem from="1691471154157" duration="4865000" />
+      <workItem from="1691558332711" duration="594000" />
+      <workItem from="1691650002380" duration="1796000" />
+      <workItem from="1691816852628" duration="3905000" />
+      <workItem from="1692076073237" duration="1406000" />
+      <workItem from="1692432099548" duration="1269000" />
+      <workItem from="1692690888332" duration="2004000" />
     </task>
     <task id="LOCAL-00006" summary="add: add multi carsoul in page">
       <created>1682769574521</created>
@@ -480,7 +500,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691317712179</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="delete: test.jsx">
+      <created>1691317966239</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1691317966239</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -499,7 +526,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="refactor: discount link in footer" />
     <MESSAGE value="refactor: signUp" />
     <MESSAGE value="add: phoneNumber design PaymentDetail" />
     <MESSAGE value="add:PhoneNumberModal" />
@@ -524,6 +550,7 @@
     <MESSAGE value="refactor: modal and login button" />
     <MESSAGE value="refactor: signUp button and accordion link" />
     <MESSAGE value="refactor: PDF downloader and loading&#10;add: FAQ texts" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: PDF downloader and loading&#10;add: FAQ texts" />
+    <MESSAGE value="delete: test.jsx" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete: test.jsx" />
   </component>
 </project>

@@ -23,8 +23,6 @@ const Index =(props)=>{
     );
 }
 
-
-
 Index.getInitialProps =async (context) =>{
 
     const query = context.query;
@@ -35,10 +33,7 @@ Index.getInitialProps =async (context) =>{
 
     const isServer = !!req;
 
-    if (isServer) {
-
-
-    }
+    if (isServer) {}
 
     return {
         props:{

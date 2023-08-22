@@ -1,6 +1,5 @@
 import Accordion from "./../../components/FAQAccordion";
 
-
 export default function FAQ()
 {
     return(
@@ -147,7 +146,6 @@ export default function FAQ()
                         </svg>
                     </div>
                 </div>
-
             </div>
         </div>
     )

@@ -14,17 +14,14 @@ const course = (props) =>
 {
     const courseDetail = props.result;
     console.log(courseDetail)
-    const relatesCourses = props.relatesCourses;
-    const relatesCourses2 = courseDetail.package.courses;
-    console.log(relatesCourses2);
+    const relatesCourses = courseDetail.package.courses;
+    const headerCtx = useContext(HeaderContext);
+    headerCtx.setHeaderItemState("/");
 
     let num = 0;
     courseDetail.chapters.forEach((e,i)=>{
         num += e.videos.length;
     });
-
-    const headerCtx = useContext(HeaderContext);
-    headerCtx.setHeaderItemState("/");
 
     return(
         <>
@@ -105,7 +102,7 @@ const course = (props) =>
                     </div>
                 </div>
                 <div className='w-11/12 lg:w-10/12'>
-                    <CourseMultiItemCarousel courses={relatesCourses2} />
+                    <CourseMultiItemCarousel courses={relatesCourses} />
                 </div>
             </div>
         </>

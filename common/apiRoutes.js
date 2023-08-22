@@ -4,6 +4,7 @@ const API_ROUTES = {
     LOGIN: "/Auth/SignIn",
     SIGN_UP:"/Auth/SingnUp",
     PACKAGES:"/Package",
+    SELECTEDPACKAGE:"/Package/SelectedPackages",
     SIGN_OUT:"/Auth/Signout",
     PACKAGE:(slug)=>
     {

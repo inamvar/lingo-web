@@ -5,7 +5,7 @@ import USDPrice from "../../components/USDTPrace";
 import {useContext, useEffect, useState} from "react";
 import AuthContext from "../../context/authContext";
 import {withAuth} from "../../components/Authorized";
-import {ConfirmPhoneNumberRequest, postOrder} from "../../services/clientAppService";
+import {ConfirmPhoneNumberRequest, postOrder, postOrderIRR, postOrderUSDT} from "../../services/clientAppService";
 import {validator} from "../../common/validator";
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
@@ -22,7 +22,6 @@ const paymentDetail = ({result,golden,confirmPhoneNumber,authContext}) =>
     {
         const goldenPackage = result;
         const [port,setPort] = useState('IRR');
-
         let confirmNumber = confirmPhoneNumber.phoneNumberConfirmed;
         const [ConfirmNumber,setConfirmNumber] = useState(confirmNumber);
 
@@ -32,7 +31,6 @@ const paymentDetail = ({result,golden,confirmPhoneNumber,authContext}) =>
 
         },[ConfirmNumber])
 
-
         function handleConfirm()
         {
             setConfirmNumber(true);
@@ -40,12 +38,19 @@ const paymentDetail = ({result,golden,confirmPhoneNumber,authContext}) =>
 
         function handleChange(event)
         {
-            setPort(event.target.value)
+            setPort(event.target.value);
         }
 
         const handleClick = async() =>
         {
-            const res = await postOrder(result.id,port);
+            if(port == "IRR")
+            {
+                const res = await postOrderIRR(result.id,port);
+            }
+            else
+            {
+                const res = await postOrderUSDT(result.id);
+            }
         }
 
         const schema = validator.object({
@@ -57,11 +62,10 @@ const paymentDetail = ({result,golden,confirmPhoneNumber,authContext}) =>
             resolver:yupResolver(schema)
         });
 
+        const inputNumber = useRef(null);
         const [openModal,setOpenModal] = useState(false);
-
         const [expireTime,setExpireTime] = useState();
         const [reqTime,setReqTime] = useState();
-
         const [progressFinished, setProgressFinished] = useState(false);
 
         const handleProgressFinished = () => {
@@ -87,8 +91,6 @@ const paymentDetail = ({result,golden,confirmPhoneNumber,authContext}) =>
             }
 
         },[expireTime])
-
-        const inputNumber = useRef(null);
 
         async function handleClickModal()
         {
@@ -174,15 +176,14 @@ const paymentDetail = ({result,golden,confirmPhoneNumber,authContext}) =>
 
                             <div className='flex justify-center items-center gap-2'>
                                 <input defaultChecked onChange={handleChange} type='radio' value='IRR' name='typePort' id='internalPort'/>
-                                <p className='grey-color'>درگاه داخلی</p>
+                                <label for='internalPort' className='grey-color'>درگاه داخلی</label>
                             </div>
-                            {/*<div className='flex justify-center items-center gap-2'>*/}
-                            {/*    <input onChange={handleChange} type='radio' value='USDT' name='typePort' id='crypto'/>*/}
-                            {/*    <p className='grey-color'>کریپتو</p>*/}
-                            {/*</div>*/}
+                            <div className='flex justify-center items-center gap-2'>
+                                <input onChange={handleChange} type='radio' value='USDT' name='typePort' id='crypto'/>
+                                <label for='crypto' className='grey-color'>کریپتو</label>
+                            </div>
 
                         </div>
-
                         <a onClick={handleClick} className='bg-red btn-page text-white text-center text-sm hover:bg-red-600 md:text-base w-4/5 md:w-1/3'>پرداخت میکنم</a>
 
                     </form>
@@ -195,9 +196,7 @@ const paymentDetail = ({result,golden,confirmPhoneNumber,authContext}) =>
             return(
                 <>
                     <div className='flex flex-col justify-center items-center gap-6 mt-16'>
-
                         <p className='darkBlue-color text-lg font-bold text-center div-mypackage'>جزئیات پرداخت</p>
-
                         <div className='flex bg-white w-4/5 md:w-1/3 rounded gap-1 justify-between p-5 div-mypackage'>
                             <div className='flex w-1/2 rounded justify-center'>
                                 <Image className='rounded w-40' src={goldenPackage[0].thumbnailUrl} width={450} height={450} quality={100} alt='picture' />
@@ -246,10 +245,10 @@ const paymentDetail = ({result,golden,confirmPhoneNumber,authContext}) =>
                                 <input defaultChecked onChange={handleChange} type='radio' value='IRR' name='typePort' id='internalPort'/>
                                 <p className='grey-color'>درگاه داخلی</p>
                             </div>
-                            {/*<div className='flex justify-center items-center gap-2'>*/}
-                            {/*    <input onChange={handleChange} type='radio' value='USDT' name='typePort' id='crypto'/>*/}
-                            {/*    <p className='grey-color'>کریپتو</p>*/}
-                            {/*</div>*/}
+                            <div className='flex justify-center items-center gap-2'>
+                                <input onChange={handleChange} type='radio' value='USDT' name='typePort' id='crypto'/>
+                                <p className='grey-color'>کریپتو</p>
+                            </div>
 
                         </div>
 

@@ -195,7 +195,7 @@ export const SeenReplyMessage = async(MessageId) =>
     }
 };
 
-export const postOrder = async(courseId, CurrencyType) =>
+export const postOrderUSDT = async(courseId, CurrencyType) =>
 {
     try
     {
@@ -203,6 +203,53 @@ export const postOrder = async(courseId, CurrencyType) =>
         {
             case 'IRR':
                 CurrencyType=1;
+                break;
+        }
+
+        let response = await ax.post(API_ROUTES.ORDER, { items: [{courseId:courseId}], CurrencyType:CurrencyType });
+        console.log(response);
+        if (response.data.success == true)
+        {
+            pushAlert({
+                message: "درگاه پرداخت یافت نشد",
+                type: 'warning'
+            })
+            var form = new FormData();
+            form.append('sign', response.data.data.paymentUrlDetails.params.sign);
+            form.append('transaction_id', response.data.data.paymentUrlDetails.params.transaction_id);
+
+            const res = await axios({
+                method: 'post',
+                url: response.data.data.paymentUrlDetails.paymentUrl,
+                data: form
+            }).then(function (response) {
+                //handle success
+                console.log(response);
+
+                Router.push(response.data.data.paymentUrlDetails.paymentUrl);
+            })
+                .catch(function (response) {
+                    //handle error
+                    console.log(response);
+                });
+        }
+    } catch (error) {
+        pushAlert({
+            message: error.response.data.errorMessages,
+            type: 'error'
+        })
+        console.log(error)
+    }
+};
+
+export const postOrderIRR = async(courseId, CurrencyType) =>
+{
+    try
+    {
+        switch (CurrencyType)
+        {
+            case 'IRR':
+                CurrencyType = 1;
                 break;
         }
 
