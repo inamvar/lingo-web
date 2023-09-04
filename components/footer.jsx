@@ -15,7 +15,7 @@ export default function footer(siteSetting)
     const  whatsapp = result?.find(x=>x.key===Constants.WhatsAppAddress)?.value??"#";
     const  telegram = result?.find(x=>x.key===Constants.TelegramAddress)?.value??"#";
     const  twitter = result?.find(x=>x.key===Constants.TwitterAddress)?.value??"#";
-    const  MobileAppAndroidDownloadLink=result?.find(x=>x.key===Constants.MobileAppAndroidDownloadLink)?.value??"#";
+    const  MobileAppAndroidDownloadLink = result?.find(x=>x.key===Constants.MobileAppAndroidDownloadLink)?.value??"#";
     const  MobileAppBazarDownloadLink = result?.find(x=>x.key===Constants.MobileAppBazarDownloadLink)?.value??"#";
     const  MobileAppIOSDownloadLink=result?.find(x=>x.key===Constants.MobileAppIOSDownloadLink)?.value??"#";
     const  footerDescription="";
@@ -54,6 +54,13 @@ export default function footer(siteSetting)
                                 </svg>
                             </a>
                         </div>
+                        <div className='flex justify-center items-center gap-2'>
+                            <lable className="mt-2 darkBlue-color">info@lingo4030.com</lable>
+                            <svg className='mt-1' width="22" height="18" viewBox="0 0 17 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.6779 4.29271C16.8074 4.18776 17 4.28594 17 4.45182V11.375C17 12.2721 16.2861 13 15.4062 13H1.59375C0.713867 13 0 12.2721 0 11.375V4.45521C0 4.28594 0.189258 4.19115 0.32207 4.29609C1.06582 4.88516 2.05195 5.63333 5.43867 8.14193C6.13926 8.66328 7.32129 9.76016 8.5 9.75339C9.68535 9.76354 10.8906 8.64297 11.5646 8.14193C14.9514 5.63333 15.9342 4.88177 16.6779 4.29271ZM8.5 8.66667C9.27031 8.68021 10.3793 7.67813 10.9371 7.2651C15.3432 4.00495 15.6785 3.72057 16.6945 2.90807C16.8871 2.75573 17 2.51875 17 2.26823V1.625C17 0.727865 16.2861 0 15.4062 0H1.59375C0.713867 0 0 0.727865 0 1.625V2.26823C0 2.51875 0.112891 2.75234 0.305469 2.90807C1.32148 3.71719 1.65684 4.00495 6.06289 7.2651C6.6207 7.67813 7.72969 8.68021 8.5 8.66667Z" fill="#143794"/>
+                            </svg>
+                        </div>
+
                     </div>
                 </div>
 
@@ -84,11 +91,17 @@ export default function footer(siteSetting)
                         </svg>
                     </a>
                 </div>
+                <div className='flex justify-center items-center gap-2 block sm:hidden'>
+                    <lable className="mt-2 darkBlue-color">info@lingo4030.com</lable>
+                    <svg className='mt-1' width="22" height="18" viewBox="0 0 17 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.6779 4.29271C16.8074 4.18776 17 4.28594 17 4.45182V11.375C17 12.2721 16.2861 13 15.4062 13H1.59375C0.713867 13 0 12.2721 0 11.375V4.45521C0 4.28594 0.189258 4.19115 0.32207 4.29609C1.06582 4.88516 2.05195 5.63333 5.43867 8.14193C6.13926 8.66328 7.32129 9.76016 8.5 9.75339C9.68535 9.76354 10.8906 8.64297 11.5646 8.14193C14.9514 5.63333 15.9342 4.88177 16.6779 4.29271ZM8.5 8.66667C9.27031 8.68021 10.3793 7.67813 10.9371 7.2651C15.3432 4.00495 15.6785 3.72057 16.6945 2.90807C16.8871 2.75573 17 2.51875 17 2.26823V1.625C17 0.727865 16.2861 0 15.4062 0H1.59375C0.713867 0 0 0.727865 0 1.625V2.26823C0 2.51875 0.112891 2.75234 0.305469 2.90807C1.32148 3.71719 1.65684 4.00495 6.06289 7.2651C6.6207 7.67813 7.72969 8.68021 8.5 8.66667Z" fill="#143794"/>
+                    </svg>
+                </div>
                 <div className='flex w-full sm:w-1/3 flex-col gap-9 items-center justify-center lg:w-96 mt-6'>
                     <p className='font-bold darkBlue-color whitespace-nowrap'>دسترسی های سریع</p>
                     <div className='flex flex-row items-center gap-2 w-full justify-evenly sm:justify-between'>
                         <Link href={appRoutes.FAQ} className='darkBlue-color whitespace-nowrap hover:drop-shadow-lg'>سوالات متداول</Link>
-                        <a className='darkBlue-color whitespace-nowrap'>نمونه پکیج</a>
+                        <Link href={appRoutes.PrivacyAndPolicy} className='darkBlue-color whitespace-nowrap hover:drop-shadow-lg'>قوانین و مقررات</Link>
                         <Link href={appRoutes.Discount} className='darkBlue-color whitespace-nowrap hover:drop-shadow-lg'>تخفیفات</Link>
                     </div>
                 </div>

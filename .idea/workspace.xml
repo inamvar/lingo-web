@@ -4,27 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7110e458-b35c-4d71-9c86-a88bc37cb642" name="Changes" comment="delete: test.jsx">
+    <list default="true" id="7110e458-b35c-4d71-9c86-a88bc37cb642" name="Changes" comment="refactor: responsive design">
+      <change afterPath="$PROJECT_DIR$/pages/privacyAndPolicy/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/apiRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/apiRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/pdfHelper.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/pdfHelper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/tags.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/tags.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/FAQ/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/FAQ/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/auth/forgetPassword/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/auth/forgetPassword/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/auth/forgetPassword/newPassword.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/auth/forgetPassword/newPassword.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/auth/login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/auth/login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/auth/signup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/auth/signup.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/coursePaymentDetail/[...slug].jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/coursePaymentDetail/[...slug].jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/dashboard/myMessages/newMessage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/dashboard/myMessages/newMessage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/discount/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/discount/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/package/[...slug].jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/package/[...slug].jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/package/course/[...slug].jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/package/course/[...slug].jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/report/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/report/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/search/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/appServices.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/appServices.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/clientAppService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/clientAppService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/appRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/appRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/footer.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,14 +146,9 @@
       <workItem from="1691816852628" duration="3905000" />
       <workItem from="1692076073237" duration="1406000" />
       <workItem from="1692432099548" duration="1269000" />
-      <workItem from="1692690888332" duration="2004000" />
-    </task>
-    <task id="LOCAL-00006" summary="add: add multi carsoul in page">
-      <created>1682769574521</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1682769574521</updated>
+      <workItem from="1692690888332" duration="5324000" />
+      <workItem from="1693388568707" duration="3142000" />
+      <workItem from="1693807289238" duration="10887000" />
     </task>
     <task id="LOCAL-00007" summary="refactor: refactor Authentication and context add: add dashboardItems">
       <created>1682833067190</created>
@@ -507,7 +486,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691317966239</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="refactor: responsive design">
+      <created>1692693687702</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1692693687702</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -526,7 +512,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="refactor: signUp" />
     <MESSAGE value="add: phoneNumber design PaymentDetail" />
     <MESSAGE value="add:PhoneNumberModal" />
     <MESSAGE value="refactor: paymentDetail and progressTimerPhoneNumberRequest" />
@@ -551,6 +536,7 @@
     <MESSAGE value="refactor: signUp button and accordion link" />
     <MESSAGE value="refactor: PDF downloader and loading&#10;add: FAQ texts" />
     <MESSAGE value="delete: test.jsx" />
-    <option name="LAST_COMMIT_MESSAGE" value="delete: test.jsx" />
+    <MESSAGE value="refactor: responsive design" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: responsive design" />
   </component>
 </project>
