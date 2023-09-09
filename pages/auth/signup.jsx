@@ -96,7 +96,7 @@ export default function signUp(){
                         <InputText error={errors.lastName?.message} register={register} required placeholder='نام خانوادگی' name='lastName'/>
                     </div>
                     <InputText error={errors.email?.message} register={register} required  placeholder='ایمیل' name='email'/>
-                    <InputText error={errors.phoneNumber?.message} register={register} placeholder='شماره تلفن' name='phoneNumber'/>
+                    <InputText error={errors.phoneNumber?.message} register={register} placeholder='شماره موبایل' name='phoneNumber'/>
                     <InputText error={errors.password?.message} type='password' required register={register} placeholder='رمز عبور' name='password'/>
                     <InputText error={errors.confirmPassword?.message} type='password' required register={register} placeholder='تکرار رمز عبور' name='confirmPassword'/>
                     <InputText register={register} placeholder='کد معرف' name='marketerCode'/>

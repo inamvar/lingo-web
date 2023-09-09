@@ -342,7 +342,6 @@ export const signUpUser = async(firstname, lastname, password, confirmPassword, 
 export const getSearchResult = async (w) => {
 
     try {
-        console.log(w)
         let response = await ax.get(API_ROUTES.SEARCH,{params:{Filter:w}});
         if (response.status == 200)
         {

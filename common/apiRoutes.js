@@ -43,7 +43,8 @@ const API_ROUTES = {
     CONFIRMPHONENUMBER:"/User/ConfirmPhoneNumber",
     ORDERHISRORYPDF :(id)=>{
         return `/Report/GetOrderHistoryPdf/${id}`
-    }
+    },
+    SEARCHBYTAG:"/Search/ByTag"
 };
 
 export default API_ROUTES;

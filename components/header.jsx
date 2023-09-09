@@ -43,7 +43,7 @@ const Header = ()=>{
 
     return(
         <ClientSideRenderer>
-        <div className='flex justify-between mb-3 mt-4 lg:px-16 px-3'>
+        <div className='flex justify-between lg:px-16 px-3'>
 
             <div className='block md:hidden mt-7'>
                 <SlidingSidebar />
@@ -55,7 +55,7 @@ const Header = ()=>{
             </div>
             <div className='lg:w-1/3 w-1/2 xl:w-1/4 hidden md:block'>
                 <div className='flex flex-row justify-between items-center h-full xl:gap-10 whitespace-nowrap'>
-                    <Link   href={appRoutes.Main} onClick={handleItemClick} name='/home' className={ headerCtx.headerItemState === '/home' ? 'darkBlue-color hover:drop-shadow-lg active-header-item pt-3 pb-3' : 'darkBlue-color hover:drop-shadow-lg header-item pt-3 pb-3'}>خانه</Link>
+                    <Link href={appRoutes.Main} onClick={handleItemClick} name='/home' className={ headerCtx.headerItemState === '/home' ? 'darkBlue-color hover:drop-shadow-lg active-header-item pt-3 pb-3' : 'darkBlue-color hover:drop-shadow-lg header-item pt-3 pb-3'}>خانه</Link>
                     <Link href={appRoutes.FREEPACKAGE} onClick={handleItemClick} name='/freePackages' className={ headerCtx.headerItemState === '/freePackages' ? 'darkBlue-color hover:drop-shadow-lg active-header-item pt-3 pb-3' : 'darkBlue-color hover:drop-shadow-lg header-item pt-3 pb-3'}>پکیج های رایگان</Link>
                     <Link href={appRoutes.packages} onClick={handleItemClick} name='/packages' className={ headerCtx.headerItemState === '/packages' ? 'darkBlue-color hover:drop-shadow-lg active-header-item pt-3 pb-3' : 'darkBlue-color hover:drop-shadow-lg header-item pt-3 pb-3'}>پکیج های آموزشی</Link>
                     <Link href={appRoutes.Discount} onClick={handleItemClick} name='/discount' className={ headerCtx.headerItemState === '/discount' ? 'darkBlue-color hover:drop-shadow-lg active-header-item pt-3 pb-3' : 'darkBlue-color hover:drop-shadow-lg header-item pt-3 pb-3'}>تخفیفات</Link>

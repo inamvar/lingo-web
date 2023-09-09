@@ -17,7 +17,7 @@ import {router} from "next/router";
 export default function BasicUsage(props) {
 
     const { isOpen, onOpen, onClose } = useDisclosure();
-    const [data,setData]=useState([]);
+    const [data,setData] = useState([]);
 
     function close()
     {

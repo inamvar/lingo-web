@@ -257,6 +257,47 @@ export const getPackageCourseList = async (slug,ctx) =>
     }
 }
 
+export const getBestSellingPackages = async() => {
+
+    try {
+        let response = await ax.get(API_ROUTES.SEARCHBYTAG,{params:{Filter:"پرفروش"}});
+        if (response.status == 200)
+        {
+            const result = response.data.data.data;
+            return result;
+        }
+        else
+        {
+            pushAlert({message:response.data.message,type:'error'});
+            return null;
+        }
+    }
+    catch (error)
+    {
+        handleApiError(error);
+    }
+}
+export const getBestPackages = async() => {
+
+    try {
+        let response = await ax.get(API_ROUTES.SEARCHBYTAG,{params:{Filter:"برتر"}});
+        if (response.status == 200)
+        {
+            const result = response.data.data.data;
+            return result;
+        }
+        else
+        {
+            pushAlert({message:response.data.message,type:'error'});
+            return null;
+        }
+    }
+    catch (error)
+    {
+        handleApiError(error);
+    }
+}
+
 export const getStatusPhoneNumber = async (context) =>
 {
     try
