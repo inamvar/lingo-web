@@ -29,7 +29,7 @@ const Slug=(props)=>
 
     const [video,setVideo] = useState(currentVideo);
 
-    console.log(video)
+    console.log(result)
 
     useEffect(()=>{
 

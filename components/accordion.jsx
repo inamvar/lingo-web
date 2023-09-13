@@ -57,8 +57,8 @@ export default function accordion(props)
                                         </div>
                                     </div>
 
-                                    <lable>{vid.duration}</lable>
-                                    <Link onClick={gotoDetail} href={vid.isActive?appRoutes.Video(vid.slug):appRoutes.PaymentDetail(slug)} className='flex items-center justify-center gap-1 w-1/6 sm:w-1/5'>
+                                    <lable className='text-sm'>{vid.duration}</lable>
+                                    <Link onClick={gotoDetail} href={vid.isActive?appRoutes.Video(vid.slug):appRoutes.PaymentDetail(slug)} className='flex items-center justify-end gap-1 w-1/6 sm:w-1/5'>
                                         {vid.isActive? <p className='text-sm hidden lg:block'>نمایش</p>:<p className='text-white text-sm hidden lg:block'>نمایش</p>}
                                         <div>
                                             {vid.isActive?<svg width="17" height="19" viewBox="0 0 17 19" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.1049 7.96587L2.7474 0.243722C1.6621 -0.383401 0 0.225169 0 1.77628V17.2169C0 18.6084 1.54446 19.447 2.7474 18.7494L16.1049 11.031C17.2965 10.3445 17.3003 8.65237 16.1049 7.96587Z" fill="#525252"/></svg>

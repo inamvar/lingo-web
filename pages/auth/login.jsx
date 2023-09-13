@@ -19,7 +19,7 @@ export default function Login()
     headerCtx.setHeaderItemState("/");
     let isCsr = false;
     const authCtx = useContext(authContext);
-    const [returnUrl,setReturnUrl]=useState('');
+    const [returnUrl,setReturnUrl] = useState('');
     const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
     const schema = validator.object({
@@ -69,7 +69,6 @@ export default function Login()
         }
 
     },[]);
-
 
 
         return(<>
