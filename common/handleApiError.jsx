@@ -3,10 +3,6 @@ import appRoutes from "./appRoutes";
 
 export const handleApiError = (error,context) => {
 
-    console.log("_________________________________________________________________________________________________________")
-    console.log(error);
-    console.log("_____________________________________________________________________________________________________________")
-
     if (context==undefined || context.ctx==undefined)
     {
         Swal.fire({
