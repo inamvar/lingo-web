@@ -11,8 +11,8 @@ import {router} from "next/router";
 
 const MyTransactions = ({orders,authContext}) =>
 {
-    const  getPdf=async (order)=>{
-        console.log(order);
+    const getPdf=async (order)=>{
+
         var result=await  getOrderHistoryPDF(order);
         const url = window.URL.createObjectURL(new Blob([result]));
         const link = document.createElement('a');
