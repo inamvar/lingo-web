@@ -17,6 +17,9 @@ const AppRoutes = {
     Course:(slug)=>{
         return `/package/course/${slug}`
     },
+    CourseReturn:(slug)=>{
+        return `/package/course/${slug}?returnCourse=ture`
+    },
     DetailCourse:'/package/course/courseEpisodes',
     Video:(slug)=>{
         return `/package/course/courseEpisodes/${slug}`;

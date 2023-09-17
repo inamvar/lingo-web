@@ -14,7 +14,6 @@ import HeaderContext from "../../context/headerContext";
 
 export default function Login()
 {
-
     const headerCtx = useContext(HeaderContext);
     headerCtx.setHeaderItemState("/");
     let isCsr = false;
@@ -58,7 +57,7 @@ export default function Login()
     useEffect(()=>{
 
         isCsr = true;
-        const rUrl= router.query.returnUrl;
+        const rUrl = router.query.returnUrl;
 
         if (rUrl==undefined || rUrl == appRoutes.ChangePassword){
            setReturnUrl('');

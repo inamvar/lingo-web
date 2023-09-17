@@ -8,7 +8,7 @@ import Image from "next/image";
 import Price from "../../../components/IRRPrice";
 import Meta from "../../../components/meta";
 import HeaderContext from "../../../context/headerContext";
-import {useContext} from "react";
+import {useContext, useEffect} from "react";
 import appRoutes from "../../../common/appRoutes";
 import router from "next/router";
 
@@ -20,13 +20,14 @@ const course = (props) =>
     const headerCtx = useContext(HeaderContext);
     headerCtx.setHeaderItemState("/");
     console.log(courseDetail.lastSeenVideoSlug);
+    const returnnCourse = router.query.returnCourse;
 
     let num = 0;
     courseDetail.chapters.forEach((e,i)=>{
         num += e.videos.length;
     });
 
-    if(courseDetail.lastSeenVideoSlug == null)
+    if(courseDetail.lastSeenVideoSlug == null || returnnCourse)
     {
         return(
             <>
