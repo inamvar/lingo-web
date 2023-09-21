@@ -116,6 +116,39 @@ export const postResetPasswordRequest = async (email) =>
     }
 };
 
+
+export const postContactusMessage = async (firstName, lastName , email , phoneNumber , bodyMessage ,titleMessage) =>
+{
+    try
+    {
+        let response = await ax.post(API_ROUTES.CONTACTMASSEGE, { firstName: firstName, lastName: lastName, email: email, phoneNumber: phoneNumber, body: bodyMessage, subject: titleMessage });
+        console.log(response);
+
+        if (response.data.success == true)
+        {
+            pushAlert({
+                message: "پیام ارسال شد",
+                type: 'success'
+            });
+            return true;
+        }
+        else {
+            console.log(response.data.message);
+            pushAlert({
+                message: "بروز خطا",
+                type: 'error'
+            });
+        }
+    } catch (error) {
+        pushAlert({
+            message: error.response.data.errorMessages,
+            type: 'error'
+        })
+        console.log(error)
+    }
+};
+
+
 export const postMessage = async (titleMessage, bodyMessage) =>
 {
     try

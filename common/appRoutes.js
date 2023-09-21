@@ -49,7 +49,8 @@ const AppRoutes = {
     Search:(id)=>{
         return `/search?id=${id}`
     },
-    PrivacyAndPolicy:"/privacyAndPolicy"
+    PrivacyAndPolicy:"/privacyAndPolicy",
+    ContactUs:"/contactus"
 };
 
 export default AppRoutes;

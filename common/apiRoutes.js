@@ -44,7 +44,8 @@ const API_ROUTES = {
     ORDERHISRORYPDF :(id)=>{
         return `/Report/GetOrderHistoryPdf/${id}`
     },
-    SEARCHBYTAG:"/Search/ByTag"
+    SEARCHBYTAG:"/Search/ByTag",
+    CONTACTMASSEGE:"/Contact/SendMessage"
 };
 
 export default API_ROUTES;

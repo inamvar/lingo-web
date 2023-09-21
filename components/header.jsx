@@ -59,6 +59,7 @@ const Header = ()=>{
                     <Link href={appRoutes.FREEPACKAGE} onClick={handleItemClick} name='/freePackages' className={ headerCtx.headerItemState === '/freePackages' ? 'darkBlue-color hover:drop-shadow-lg active-header-item pt-3 pb-3' : 'darkBlue-color hover:drop-shadow-lg header-item pt-3 pb-3'}>پکیج های رایگان</Link>
                     <Link href={appRoutes.packages} onClick={handleItemClick} name='/packages' className={ headerCtx.headerItemState === '/packages' ? 'darkBlue-color hover:drop-shadow-lg active-header-item pt-3 pb-3' : 'darkBlue-color hover:drop-shadow-lg header-item pt-3 pb-3'}>پکیج های آموزشی</Link>
                     <Link href={appRoutes.Discount} onClick={handleItemClick} name='/discount' className={ headerCtx.headerItemState === '/discount' ? 'darkBlue-color hover:drop-shadow-lg active-header-item pt-3 pb-3' : 'darkBlue-color hover:drop-shadow-lg header-item pt-3 pb-3'}>تخفیفات</Link>
+                    <Link href={appRoutes.ContactUs} onClick={handleItemClick} name='/contactus' className={ headerCtx.headerItemState === '/contactus' ? 'darkBlue-color hover:drop-shadow-lg active-header-item pt-3 pb-3' : 'darkBlue-color hover:drop-shadow-lg header-item pt-3 pb-3'}>تماس با ما</Link>
                 </div>
             </div>
 
