@@ -57,7 +57,7 @@ export default function accordion(props)
                                         </div>
                                     </div>
 
-                                    <lable className='text-xs mt-1'>{vid.duration}</lable>
+                                    <lable className='text-xs mt-1'>{vid.formattedDuration}</lable>
                                     <Link onClick={gotoDetail} href={vid.isActive?appRoutes.Video(vid.slug):appRoutes.PaymentDetail(slug)} className='flex items-center justify-end gap-1 w-1/6 sm:w-1/5'>
                                         {vid.isActive? <p className='text-sm hidden lg:block'>نمایش</p>:<p className='text-white text-sm hidden lg:block'>نمایش</p>}
                                         <div>

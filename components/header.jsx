@@ -15,7 +15,7 @@ import {head} from "axios";
 
 const Header = ()=>{
 
-    const [result,setResult]=useState({});
+    const [result,setResult] = useState({});
     const [selectedItem,setSelectedItem] = useState(null);
 
     const authCtx = useContext(authContext);
@@ -45,7 +45,7 @@ const Header = ()=>{
         <ClientSideRenderer>
         <div className='flex justify-between lg:px-16 px-3'>
 
-            <div className='block md:hidden mt-7'>
+            <div className='block lg:hidden mt-7'>
                 <SlidingSidebar />
             </div>
 
@@ -53,8 +53,8 @@ const Header = ()=>{
                 {/*<BarLoader text={"Loading..."} bgColor={"#F0A500"} center={false} width={"150px"} height={"150px"}/>*/}
                 <Link href={appRoutes.Main}><Image className='w-32' alt='logo' src={Logo}/></Link>
             </div>
-            <div className='lg:w-1/3 w-1/2 xl:w-1/4 hidden md:block'>
-                <div className='flex flex-row justify-between items-center h-full xl:gap-10 whitespace-nowrap'>
+            <div className='lg:w-1/3 w-1/2 xl:w-1/4 hidden lg:block'>
+                <div className='flex flex-row justify-between gap-3 items-center h-full xl:gap-10 whitespace-nowrap'>
                     <Link href={appRoutes.Main} onClick={handleItemClick} name='/home' className={ headerCtx.headerItemState === '/home' ? 'darkBlue-color hover:drop-shadow-lg active-header-item pt-3 pb-3' : 'darkBlue-color hover:drop-shadow-lg header-item pt-3 pb-3'}>خانه</Link>
                     <Link href={appRoutes.FREEPACKAGE} onClick={handleItemClick} name='/freePackages' className={ headerCtx.headerItemState === '/freePackages' ? 'darkBlue-color hover:drop-shadow-lg active-header-item pt-3 pb-3' : 'darkBlue-color hover:drop-shadow-lg header-item pt-3 pb-3'}>پکیج های رایگان</Link>
                     <Link href={appRoutes.packages} onClick={handleItemClick} name='/packages' className={ headerCtx.headerItemState === '/packages' ? 'darkBlue-color hover:drop-shadow-lg active-header-item pt-3 pb-3' : 'darkBlue-color hover:drop-shadow-lg header-item pt-3 pb-3'}>پکیج های آموزشی</Link>
@@ -93,8 +93,8 @@ const Header = ()=>{
                     </>
                 ) : (
                     <>
-                        <Link href={appRoutes.Login} className='hover:drop-shadow-md darkBlue-color px-2 hidden md:block whitespace-nowrap'>ورود کاربران</Link>
-                        <Link href={appRoutes.Signup} className='bg-red hover:bg-red-600 text-white text-center btn-page sm:w-28 hidden md:block whitespace-nowrap mr-2'>ثبت نام</Link>
+                        <Link href={appRoutes.Login} className='hover:drop-shadow-md darkBlue-color px-2 hidden lg:block whitespace-nowrap'>ورود کاربران</Link>
+                        <Link href={appRoutes.Signup} className='bg-red hover:bg-red-600 text-white text-center btn-page sm:w-28 hidden lg:block whitespace-nowrap mr-2'>ثبت نام</Link>
                     </>
                 )}
             </div>

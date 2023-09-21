@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7110e458-b35c-4d71-9c86-a88bc37cb642" name="Changes" comment="refactor: courseDetail returns">
-      <change afterPath="$PROJECT_DIR$/pages/contactus/index.jsx" afterDir="false" />
+    <list default="true" id="7110e458-b35c-4d71-9c86-a88bc37cb642" name="Changes" comment="add: contactus&#10;refactor: accordion">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/apiRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/apiRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/appRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/appRoutes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/accordion.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/accordion.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/clientAppService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/clientAppService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/slidingSidebar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/slidingSidebar.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,13 +161,7 @@
       <workItem from="1694609433021" duration="124000" />
       <workItem from="1694928557107" duration="3881000" />
       <workItem from="1695202837961" duration="6473000" />
-    </task>
-    <task id="LOCAL-00014" summary="reafctor: reafctor packageCersoul design">
-      <created>1683029013004</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1683029013004</updated>
+      <workItem from="1695273845692" duration="3833000" />
     </task>
     <task id="LOCAL-00015" summary="refactor: refactr package page and add: add courses list">
       <created>1683364423474</created>
@@ -508,7 +499,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694930753371</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="add: contactus&#10;refactor: accordion">
+      <created>1695273919631</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1695273919631</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -527,7 +525,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="add: refreshToken" />
     <MESSAGE value="refactor: rtl carousel and refreshToken and whatsApp Constans and discount page" />
     <MESSAGE value="refactor: design" />
     <MESSAGE value="fix: refreshToken bug" />
@@ -552,6 +549,7 @@
     <MESSAGE value="add: mailto for email and time for videos" />
     <MESSAGE value="refactor: courseDetail" />
     <MESSAGE value="refactor: courseDetail returns" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: courseDetail returns" />
+    <MESSAGE value="add: contactus&#10;refactor: accordion" />
+    <option name="LAST_COMMIT_MESSAGE" value="add: contactus&#10;refactor: accordion" />
   </component>
 </project>

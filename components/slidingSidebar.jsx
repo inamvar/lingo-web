@@ -52,7 +52,7 @@ const slidingSidebar = () => {
                         </div>
 
                         <div className='flex flex-col items-end pt-4'>
-                            <Link onClick={handleLinkClick} href='#' className='darkBlue-color py-2 w-full text-right'>تماس با ما</Link>
+                            <Link onClick={handleLinkClick} href={appRoutes.ContactUs} className='darkBlue-color py-2 w-full text-right'>تماس با ما</Link>
                         </div>
                     </div>
                     <div className='p-4 bg-darkBlue' onClick={() => setOpenPanel(false)}>
