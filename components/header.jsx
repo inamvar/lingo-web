@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Logo from '/public/picture/Logo.png';
 import Link from 'next/link';
 import appRoutes from "../common/appRoutes";
-import React, {useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import authContext from "../context/authContext";
 import HeaderContext from "../context/headerContext";
 import Modal from "./modal";
@@ -11,12 +11,18 @@ import {logout} from "../services/clientAppService";
 import {getSearchResult} from "../services/appServices";
 import ClientSideRenderer from "./clientSideRenderer";
 import {head} from "axios";
+import CartIcon from './../public/picture/cart.png';
+import {cartExists, getCart} from "../common/cartHelper";
+import {useCart} from "../context/cartContext";
 
 
 const Header = ()=>{
 
+    const { cartExists, cartCount, addToCartCtx, removeFromCartCtx } = useCart();
+
     const [result,setResult] = useState({});
     const [selectedItem,setSelectedItem] = useState(null);
+
 
     const authCtx = useContext(authContext);
     const headerCtx = useContext(HeaderContext);
@@ -53,7 +59,7 @@ const Header = ()=>{
                 {/*<BarLoader text={"Loading..."} bgColor={"#F0A500"} center={false} width={"150px"} height={"150px"}/>*/}
                 <Link href={appRoutes.Main}><Image className='w-32' alt='logo' src={Logo}/></Link>
             </div>
-            <div className='lg:w-1/3 w-1/2 xl:w-1/4 hidden lg:block'>
+            <div className='lg:w-2/3 w-1/2 xl:w-1/4 hidden lg:block'>
                 <div className='flex flex-row justify-between gap-3 items-center h-full xl:gap-10 whitespace-nowrap'>
                     <Link href={appRoutes.Main} onClick={handleItemClick} name='/home' className={ headerCtx.headerItemState === '/home' ? 'darkBlue-color hover:drop-shadow-lg active-header-item pt-3 pb-3' : 'darkBlue-color hover:drop-shadow-lg header-item pt-3 pb-3'}>خانه</Link>
                     <Link href={appRoutes.FREEPACKAGE} onClick={handleItemClick} name='/freePackages' className={ headerCtx.headerItemState === '/freePackages' ? 'darkBlue-color hover:drop-shadow-lg active-header-item pt-3 pb-3' : 'darkBlue-color hover:drop-shadow-lg header-item pt-3 pb-3'}>پکیج های رایگان</Link>
@@ -63,7 +69,7 @@ const Header = ()=>{
                 </div>
             </div>
 
-            <div className='flex w-1/9 justify-between gap-1 items-center md:divide-x-2 md:divide-gray-300'>
+            <div className='flex w-1/9 justify-between gap-1 items-center'>
                 <a>
                     <Modal
                         text={
@@ -83,7 +89,11 @@ const Header = ()=>{
                 </a>
                 {authCtx.authState.authenticated ? (
                     <>
-                        <Link href={appRoutes.Dashboard} className='hover:drop-shadow-lg darkBlue-color px-2 hidden md:block whitespace-nowrap'>داشبورد من</Link>
+                        <Link href={appRoutes.Cart} className='relative mx-3'>
+                            <span className='border border-[#143794] text-[#143794] rounded-full text-center bg-white w-[1.5rem] h-[1.5rem] absolute top-[-0.5rem] right-[-0.5rem]'>{cartCount}</span>
+                            <Image className='w-[2.3rem]' src={CartIcon} alt='CartIcon'/>
+                        </Link>
+                        <Link href={appRoutes.Dashboard} className='hover:drop-shadow-lg darkBlue-color px-2 hidden md:block whitespace-nowrap border-l-[0.2rem] border-gray-300'>داشبورد من</Link>
                         <button onClick={SignOut} className='bg-darkBlue hover:bg-blue-900 text-white text-center btn-page sm:w-28 hidden md:block mr-2'>خروج</button>
                         <button onClick={SignOut} className='md:hidden block'>
                             <svg width="34" height="26" viewBox="0 0 34 26" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -93,7 +103,7 @@ const Header = ()=>{
                     </>
                 ) : (
                     <>
-                        <Link href={appRoutes.Login} className='hover:drop-shadow-md darkBlue-color px-2 hidden lg:block whitespace-nowrap'>ورود کاربران</Link>
+                        <Link href={appRoutes.Login} className='hover:drop-shadow-md darkBlue-color px-2 hidden lg:block whitespace-nowrap border-l-[0.2rem] border-gray-300'>ورود کاربران</Link>
                         <Link href={appRoutes.Signup} className='bg-red hover:bg-red-600 text-white text-center btn-page sm:w-28 hidden lg:block whitespace-nowrap mr-2'>ثبت نام</Link>
                     </>
                 )}

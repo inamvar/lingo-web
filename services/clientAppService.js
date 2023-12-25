@@ -275,7 +275,7 @@ export const postOrderUSDT = async(courseId, CurrencyType) =>
     }
 };
 
-export const postOrderIRR = async(courseId, CurrencyType) =>
+export const postOrderIRR = async(courseId, CurrencyType , paymentGateWay) =>
 {
     try
     {
@@ -286,32 +286,13 @@ export const postOrderIRR = async(courseId, CurrencyType) =>
                 break;
         }
 
-        let response = await ax.post(API_ROUTES.ORDER, { items: [{courseId:courseId}], CurrencyType:CurrencyType });
+        let response = await ax.post(API_ROUTES.ORDER, { items: courseId, CurrencyType:CurrencyType ,paymentGateWay:paymentGateWay });
         console.log(response);
         if (response.data.success == true)
         {
-            pushAlert({
-                message: "درگاه پرداخت یافت نشد",
-                type: 'warning'
-            })
-            var form = new FormData();
-            form.append('sign', response.data.data.paymentUrlDetails.params.sign);
-            form.append('transaction_id', response.data.data.paymentUrlDetails.params.transaction_id);
-
-            const res = await axios({
-                method: 'post',
-                url: response.data.data.paymentUrlDetails.paymentUrl,
-                data: form
-            }).then(function (response) {
-                //handle success
-                console.log(response);
-
-                Router.push(response.data.data.paymentUrlDetails.paymentUrl);
-            })
-                .catch(function (response) {
-                    //handle error
-                    console.log(response);
-                });
+            console.log('success');
+            let paymenLink=  response.data.data.paymentUrlDetails.paymentUrl;
+            return paymenLink;
         }
     } catch (error) {
         pushAlert({

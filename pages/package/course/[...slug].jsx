@@ -8,24 +8,86 @@ import Image from "next/image";
 import Price from "../../../components/IRRPrice";
 import Meta from "../../../components/meta";
 import HeaderContext from "../../../context/headerContext";
-import {useContext, useEffect} from "react";
+import {useContext, useEffect, useState} from "react";
 import appRoutes from "../../../common/appRoutes";
 import router from "next/router";
+import {addToCart, getCart, removeFromCart} from "../../../common/cartHelper";
+import {pushAlert} from "../../../common/notifier";
+import {remove} from "next/dist/build/webpack/loaders/resolve-url-loader/lib/file-protocol";
+import {useCart} from "../../../context/cartContext";
 
 const course = (props) =>
 {
+
     const courseDetail = props.result;
     console.log(courseDetail)
     const relatesCourses = courseDetail.package.courses;
     const headerCtx = useContext(HeaderContext);
     headerCtx.setHeaderItemState("/");
     console.log(courseDetail.lastSeenVideoSlug);
+    const { cartExists, cartCount, addToCartCtx, removeFromCartCtx } = useCart();
+
     const returnnCourse = router.query.returnCourse;
 
     let num = 0;
     courseDetail.chapters.forEach((e,i)=>{
         num += e.videos.length;
     });
+
+    const [myCart,setMyCart]=useState(null);
+    const [packageIsInCart,setPackageIsInCart]=useState(false);
+    let carT=null;
+let packageExistsInCart=false;
+
+    useEffect(()=>{
+        carT=getCart();
+        console.log(carT);
+        console.log(courseDetail);
+        if (carT &&  carT.find(x=>x.id==courseDetail.id)){
+            console.log('is in cart');
+            packageExistsInCart=true;
+        }
+        else{
+            console.log('is not in cart');
+            packageExistsInCart=false;
+        }
+    },[]);
+
+
+    useEffect(() => {
+        setMyCart(carT);
+    }, [carT]);
+
+    useEffect(() => {
+        setPackageIsInCart(packageExistsInCart);
+    }, [packageExistsInCart]);
+    const handleDeleteFromCart=(id)=>{
+        let removeResult= removeFromCart(id);
+        removeFromCartCtx(id);
+        if (removeResult){
+            pushAlert({type:'success',message:'با موفقیت از سبد خرید حذف گردید'});
+        }
+        else{
+            pushAlert({type:'error',message:'یافت نشد'});
+        }
+        setMyCart(getCart());
+        let cart= getCart();
+        console.log(cart);
+        carT=cart;
+        if (carT && carT.includes(x=>x.id==courseDetail.id)){
+            console.log('is in cartss');
+            setPackageIsInCart(true);
+        }
+        else{
+            setPackageIsInCart(false);
+        }
+    }
+    const handleCart=(id,title,price)=>{
+addToCart(id,title,price);
+addToCartCtx(id,title,price);
+pushAlert({message:'با موفقیت به سبد خرید افزوده شد',type:'success'});
+return  router.push(appRoutes.Cart);
+    };
 
     if(courseDetail.lastSeenVideoSlug == null || returnnCourse)
     {
@@ -74,7 +136,16 @@ const course = (props) =>
                             <div className='flex flex-col gap-6'>
                                 <div className='flex relative mt-5'>
 
-                                    {courseDetail.costType!="Paid"|| courseDetail.userHasPurchasedCourse || courseDetail.chapters.length<1 ?<p></p>:<Link href={AppRoutes.PaymentDetail(courseDetail.slug)} className='bg-red btn-page text-white text-center w-full py-4 hover:bg-red-600'>دوره را می خرم</Link>}
+                                    <div className='flex flex-col w-full'>
+                                        {packageIsInCart?<>
+                                            {courseDetail.costType!="Paid"|| courseDetail.userHasPurchasedCourse || courseDetail.chapters.length<1 ?<p></p>:<span onClick={()=>handleDeleteFromCart(courseDetail.id)}  className='bg-darkBlue btn-page text-white text-center w-full py-3 hover:bg-[#031544] cursor-pointer'>حذف از سبد خرید</span>}
+
+                                        </>:<>
+                                            {courseDetail.costType!="Paid"|| courseDetail.userHasPurchasedCourse || courseDetail.chapters.length<1 ?<p></p>:<span onClick={()=>handleCart(courseDetail.id,courseDetail.title,courseDetail.pricings)}  className='bg-red btn-page text-white text-center w-full py-3 hover:bg-red-600 cursor-pointer'>اضافه به سبد خرید</span>}
+                                        </>}
+                                        {/*{courseDetail.costType!="Paid"|| courseDetail.userHasPurchasedCourse || courseDetail.chapters.length<1 ?<p></p>:<Link href={AppRoutes.PaymentDetail(courseDetail.slug)} className='bg-darkBlue btn-page text-white text-center w-full py-3 hover:bg-blue-900'>حذف از سبد خرید</Link>}*/}
+                                    </div>
+
                                     {/*{courseDetail.userHasPurchasedCourse ?<p></p>:<Link href={AppRoutes.PaymentDetail(courseDetail.slug)} className='bg-red btn-page text-white text-center w-full py-4'>دوره را می خرم</Link>}*/}
 
                                     {( courseDetail.userHasPurchasedCourse == false && courseDetail.costType == "Paid" && courseDetail.discount != null && courseDetail.discount.discountValue!=0 && courseDetail.chapters.length>0 ) ?<div className='absolute discount-icon'>

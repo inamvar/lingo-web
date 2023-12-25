@@ -50,7 +50,8 @@ const AppRoutes = {
         return `/search?id=${id}`
     },
     PrivacyAndPolicy:"/privacyAndPolicy",
-    ContactUs:"/contactus"
+    ContactUs:"/contactus",
+    Cart:"/cart"
 };
 
 export default AppRoutes;

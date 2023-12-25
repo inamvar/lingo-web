@@ -8,6 +8,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 import {getSiteSetting} from "../services/clientAppService";
 import App from "next/app";
 import {useRouter} from "next/router";
+import {CartProvider} from "../context/cartContext";
 
 function MyApp({ Component, pageProps,siteSetting }) {
 
@@ -43,6 +44,7 @@ function MyApp({ Component, pageProps,siteSetting }) {
 
         return (
             <ChakraProvider >
+                <CartProvider>
                 <AuthContext.Provider value={{authState,setAuthState}}>
                     <HeaderContext.Provider value={{headerItemState,setHeaderItemState}}>
                         <Layout siteSetting={siteSetting} >
@@ -50,6 +52,7 @@ function MyApp({ Component, pageProps,siteSetting }) {
                         </Layout>
                     </HeaderContext.Provider>
                 </AuthContext.Provider>
+                </CartProvider>
             </ChakraProvider>
         );
 }

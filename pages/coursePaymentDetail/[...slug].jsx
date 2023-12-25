@@ -43,9 +43,24 @@ const paymentDetail = ({result,golden,confirmPhoneNumber,authContext}) =>
 
         const handleClick = async() =>
         {
+            console.log(result.length);
             if(port == "IRR")
             {
-                const res = await postOrderIRR(result.id,port);
+                if (golden==false){
+                    const res = await postOrderIRR(result.id,port);
+                    if (res!=undefined && res !=null)
+                    {
+                        router.push(res);
+                    }
+                }
+                else{
+                    const res = await postOrderIRR(result[0].id,port);
+                    if (res!=undefined && res !=null)
+                    {
+                        router.push(res);
+                    }
+                }
+
             }
             else
             {
@@ -252,7 +267,7 @@ const paymentDetail = ({result,golden,confirmPhoneNumber,authContext}) =>
 
                         </div>
 
-                        <a className='bg-red btn-page text-white text-center text-sm md:text-base w-4/5 md:w-1/3 hover:bg-red-600'>پرداخت میکنم</a>
+                        <a onClick={handleClick} className='bg-red btn-page text-white text-center text-sm md:text-base w-4/5 md:w-1/3 hover:bg-red-600'>پرداخت میکنم</a>
 
                     </div>
                 </>

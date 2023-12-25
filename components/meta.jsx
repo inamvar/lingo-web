@@ -5,7 +5,8 @@ const Meta = ({title,description}) => {
     return (
         <>
             <Head>
-                <title>لینگو-{title}</title>
+                <title>301848</title>
+                {/*<title>لینگو-{title}</title>*/}
                 <meta charSet='utf-8'/>
                 <meta name='language' content='fa'/>
                 <meta name='expires' content='never'/>
